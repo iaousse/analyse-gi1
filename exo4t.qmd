@@ -1,0 +1,5 @@
+# Exercices {.unnumbered}
+
+::: {.callout-warning}
+Le fichier source `exo4t` référencé dans l'ancienne table des matières n'est pas présent dans le dossier du cours. Cette page est conservée à sa place pour préserver la structure d'origine ; son contenu n'a pas été reconstitué.
+:::

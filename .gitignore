@@ -1,0 +1,45 @@
+# Virtual environment
+venv/
+.venv/
+env/
+ENV/
+
+# Python caching and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints and autosaves
+.ipynb_checkpoints/
+.virtual_documents/
+
+# Data and large files (Standard ML folders)
+data/
+datasets/
+*.csv
+*.json
+*.h5
+*.pkl
+*.npy
+*.npz
+old_chapitres/
+# Operating System files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# IDEs and Editors
+.vscode/
+.idea/
+
+# Environment variables / Secrets
+.env
+.env.local
+
+
+/.quarto/
+**/*.quarto_ipynb
+_book/
+.quarto/
+

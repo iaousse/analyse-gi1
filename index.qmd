@@ -1,0 +1,50 @@
+---
+number-sections: false
+---
+
+```{=latex}
+\makeatletter
+\let\ps@plain\ps@empty
+\makeatother
+\pagenumbering{gobble}
+\renewcommand{\thepage}{}
+\pagestyle{empty}
+\thispagestyle{empty}
+\centering
+\vspace*{2cm}
+\includegraphics[width=6cm]{images/logo_estc.png}
+\vfill
+{\Huge\bfseries Cours d'Analyse\par}
+\vspace{1cm}
+{\Large IAOUSSE M'barek\par}
+\vspace{0.5cm}
+{\large Année universitaire 2026--2027\par}
+\newpage
+\thispagestyle{empty}
+\centering
+\vspace*{\fill}
+\includegraphics[width=0.9\textwidth]{images/qrcode.png}
+\vspace*{\fill}
+\newpage
+```
+
+```{=html}
+<h1 class="visually-hidden">Accueil</h1>
+<section class="analysis-cover" aria-label="Couverture du cours">
+  <img class="analysis-cover-logo" src="images/logo_estc.png" alt="Logo de l'EST Casablanca">
+  <h2>Cours d'Analyse</h2>
+  <p class="analysis-cover-author">IAOUSSE M'barek</p>
+  <p class="analysis-cover-year">Année universitaire 2026–2027</p>
+</section>
+<section class="analysis-qr" aria-label="Accès à la ressource pédagogique">
+  <img src="images/qrcode.png" alt="Code QR de la ressource pédagogique">
+</section>
+```
+
+::: {.content-visible when-format="pdf"}
+{{< include _deuxieme_page.qmd >}}
+:::
+
+::: {.content-visible when-format="html"}
+{{< include _deuxieme_page.qmd >}}
+:::

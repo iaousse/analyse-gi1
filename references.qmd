@@ -1,0 +1,9 @@
+---
+nocite: |
+  @*
+---
+
+# Bibliographie {.unnumbered}
+
+::: {#refs}
+:::

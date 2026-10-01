@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Propriétés de l’intégrale – Cours d'Analyse</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./fcmint.html" rel="next">
+<link href="./fcm.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script>
+window.MathJax = {
+  tex: {
+    macros: {
+      Z: "\\mathbb{Z}",
+      N: "\\mathbb{N}",
+      C: "\\mathbb{C}",
+      Q: "\\mathbb{Q}",
+      R: "\\mathbb{R}",
+      B: "\\mathcal{B}",
+      M: "\\mathcal{M}",
+      S: "\\mathbb{S}",
+      abs: ["\\left|#1\\right|", 1],
+      norm: ["\\left\\Vert#1\\right\\Vert", 1],
+      sign: "\\mathrm{sign}",
+      vec: ["\\mathbf{#1}", 1]
+    }
+  }
+};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./integrationd.html">Intégration</a></li><li class="breadcrumb-item"><a href="./pptint.html"><span class="chapter-title">Propriétés de l’intégrale</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./integrationd.html">Intégration</a></li><li class="breadcrumb-item"><a href="./pptint.html"><span class="chapter-title">Propriétés de l’intégrale</span></a></li></ol></nav>
+      <h1 class="title"><span class="chapter-title">Propriétés de l’intégrale</span></h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/logo_estc.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/logo_estc.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Cours d’Analyse</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Cours-d-Analyse.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Préface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les nombres réels</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rationnels.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les nombres rationnels</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proprties.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propriétés de <span class="math inline">\(\mathbb{R}\)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exo1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./suite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les suites des nombres réels</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./suites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Suites réelles: Définitions générales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exo2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./limitefct.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fonctions numériques, limite et continuité</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numérique: Définitions générales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exo3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./dirivf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dérivée d'une fonction numérique- fonctions usuelles</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dirivfs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dérivabilité d’une fonction numérique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fcthycerinvs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions circulaires inverses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exo5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./complement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Complement sur les suites et les fonctions numériques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./complements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Complément sur les suites et les fonctions numériques</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dévelopements limités</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exo6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./integrationd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intégration</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fe.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Intégrale des fonctions en escalier</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fcm.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions continues par morceaux</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pptint.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Propriétés de l’intégrale</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fcmint.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions continue par morceaux sur un intervalle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pintfc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Primitive et intégrale des fonctions continues</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./methodcalp.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Méthodes de calcul des primitives</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exoint.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliographie</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition (linéarité)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Proposition (linéarité)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soient <span class="math inline">\(f_1, f_2\)</span> deux fonctions continues par morceaux sur <span class="math inline">\([a, b]\)</span>, <span class="math inline">\(\lambda_1, \lambda_2 \in \mathbb R\)</span>. Alors :</p>
+<p><span class="math display">\[
+\int_{[a, b]} (\lambda_1f_1 + \lambda_2f_2) = \lambda_1 \int_{[a, b]} f_1 + \lambda_2 \int_{[a, b]} f_2
+\]</span></p>
+</div>
+</div>
+<p>On dit que l’intégrale est une forme linéaire sur l’espace vectoriel des fonctions continues par morceaux sur <span class="math inline">\([a, b]\)</span>.</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Démonstration">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Démonstration
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Soient <span class="math inline">\(\epsilon&gt;0\)</span> et <span class="math inline">\(f\)</span> est une fonction continue par morceaux, alors il existe <span class="math inline">\(\theta\)</span> est fonction en escalier telle que <span class="math inline">\(|f-\theta|\leq \epsilon\)</span>. On a <span class="math inline">\(\theta - \epsilon \leq f \leq \theta + \epsilon\)</span>. Alors</li>
+</ul>
+<p><span class="math display">\[
+\int_{[a, b]} (\theta - \epsilon) \leq  \int_{[a, b]} f \leq  \int_{[a, b]} (\theta + \epsilon)
+\]</span></p>
+<p>et donc</p>
+<p><span class="math display">\[
+\left|\int_{[a, b]} f- \int_{[a, b]} \theta \right| \leq (b-a)\epsilon
+\]</span></p>
+<ul>
+<li>Maintenant, soient <span class="math inline">\(f_1\)</span> et <span class="math inline">\(f_2\)</span> deux fonctions continues par morceaux sur <span class="math inline">\([a, b]\)</span>, ainsi que <span class="math inline">\(\lambda_1, \lambda_2\)</span> deux réels.</li>
+</ul>
+<p>Pour <span class="math inline">\(\epsilon&gt;0\)</span> quelconque, il existe <span class="math inline">\(\theta_1, \theta_2\)</span> deux fonctions en escalier telles que :</p>
+<p><span class="math display">\[
+|f_1 - \theta_1| \leq \epsilon ~~~ \mbox{ et } ~~~ |f_2 - \theta_2| \leq \epsilon
+\]</span></p>
+<p>Ce qui entraine</p>
+<p><span class="math display">\[
+\left|\int_{[a, b]} f_1- \int_{[a, b]} \theta_1 \right| \leq (b-a)\epsilon
+\]</span></p>
+<p>et</p>
+<p><span class="math display">\[
+\left|\int_{[a, b]} f_2- \int_{[a, b]} \theta_2 \right| \leq (b-a)\epsilon
+\]</span></p>
+<p>Donc</p>
+<p><span class="math display">\[
+|\lambda_1|\left|\int_{[a, b]} f_1- \int_{[a, b]} \theta_1 \right| \leq |\lambda_1|(b-a)\epsilon
+\]</span></p>
+<p>et</p>
+<p><span class="math display">\[
+|\lambda_2|\left|\int_{[a, b]} f_2- \int_{[a, b]} \theta_2 \right| \leq |\lambda_2|(b-a)\epsilon
+\]</span></p>
+<p>Donc (puisque l’intégrale sur les fonctions en escalier est linéaire)</p>
+<p><span class="math display">\[
+\left|\lambda_1\int_{[a, b]} f_1- \int_{[a, b]} \lambda_1\theta_1 \right| \leq |\lambda_1|(b-a)\epsilon
+\]</span></p>
+<p>et</p>
+<p><span class="math display">\[
+\left|\lambda_2\int_{[a, b]} f_2- \int_{[a, b]} \lambda_2\theta_2 \right| \leq |\lambda_2|(b-a)\epsilon
+\]</span></p>
+<p>Par suite</p>
+<p><span class="math display">\[
+\left|\lambda_1\int_{[a, b]} f_1 +\lambda_2\int_{[a, b]} f_2 - \left(\int_{[a, b]} \lambda_1\theta_1 + \int_{[a, b]} \lambda_2\theta_2\right)\right| \leq (|\lambda_1|+|\lambda_2|)(b-a)\epsilon
+\]</span></p>
+<p>On pose</p>
+<p><span class="math display">\[
+f= \lambda_1 f_1 + \lambda_2 f_2 ~~ \mbox{ et } \theta = \lambda_1 \theta_1 + \lambda_2 \theta_2
+\]</span></p>
+<p>On a</p>
+<p><span class="math display">\[
+|f-\theta| \leq |\lambda_1||f_1-\theta_1| + |\lambda_2||f_2 - \theta_2| \leq (|\lambda_1|+|\lambda_2|)\epsilon
+\]</span></p>
+<p>Et par suite</p>
+<p><span class="math display">\[
+\left|\int_{[a, b]} f- \int_{[a, b]} \theta \right| \leq (b-a)(|\lambda_1|+|\lambda_2|)\epsilon
+\]</span></p>
+<p>On pose</p>
+<p><span class="math display">\[
+I = \int_{[a, b]} \theta = \int_{[a, b]} \lambda_1\theta_1 + \int_{[a, b]} \lambda_2\theta_2
+\]</span></p>
+<p>et</p>
+<p><span class="math display">\[
+\Delta = \left|\int_{[a, b]} f- \left(\lambda_1\int_{[a, b]} f_1 +\lambda_2\int_{[a, b]} f_2\right)\right|
+\]</span></p>
+<p>Alors</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Delta &amp;=&amp; \left|\int_{[a, b]} f- I + I - \left(\lambda_1\int_{[a, b]} f_1 +\lambda_2\int_{[a, b]} f_2\right)\right| \\ \\
+&amp; \leq &amp; \left|\int_{[a, b]} f- I\right| + \left| I - \left(\lambda_1\int_{[a, b]} f_1 +\lambda_2\int_{[a, b]} f_2\right)\right| \\ \\
+&amp; \leq &amp; 2(b-a)(|\lambda_1|+|\lambda_2|)\epsilon
+\end{aligned}
+\]</span></p>
+<p>On en déduit</p>
+<p><span class="math display">\[
+\forall \epsilon &gt;0, \Delta \leq 2(b-a)(|\lambda_1|+|\lambda_2|)\epsilon
+\]</span></p>
+<p>Ce qui prouve que <span class="math inline">\(\Delta =0\)</span> et donc</p>
+<p><span class="math display">\[
+\left|\int_{[a, b]} f = \lambda_1\int_{[a, b]} f_1 +\lambda_2\int_{[a, b]} f_2\right|
+\]</span></p>
+</div>
+</div>
+<p>Deux fonctions continues par morceaux sur l’intervalle <span class="math inline">\([a. b]\)</span> qui sont égales sauf en un nombre fini de points ont la même intégrale car leur différence, qui est nulle sauf en un nombre fini de points, est une fonction en escalier dont l’intégrale est nulle.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition (relation de Chasles)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Proposition (relation de Chasles)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(c \in [a, b]\)</span> et <span class="math inline">\(f\)</span> une fonction définie sur <span class="math inline">\([a, b]\)</span>.</p>
+<p>La fonction <span class="math inline">\(f\)</span> est continue par morceaux sur <span class="math inline">\([a, b]\)</span> si, et seulement si, ses restrictions à <span class="math inline">\([a, c]\)</span> et à <span class="math inline">\([c, b]\)</span> sont continues par morceaux, et l’on a alors :</p>
+<p><span class="math display">\[
+\int_{[a, b]} f = \int_{[a, c]} f_{|[a, c]}  + \int_{[c, b]} f_{|[c, b]}
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Démonstration">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Démonstration
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(\varphi \in \mathcal E^-(f)\)</span> (une fonction en escalier plus petite que <span class="math inline">\(f\)</span>).</p>
+<p>On a <span class="math inline">\(\varphi_{|[a, c]} \in \mathcal E^-(f_{|[a, c]})\)</span> et <span class="math inline">\(\varphi_{|[c, b]} \in \mathcal E^-(f_{|[c, b]})\)</span>.</p>
+<p>Par suite</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{[a, b]}\varphi &amp;=&amp; \int_{[a, c]} \varphi_{|[a, c]} + \int_{[c, b]} \varphi_{|[c, b]} \\ \\
+&amp;\leq&amp; \int_{[a, c]} f_{|[a, c]} + \int_{[c, b]} f_{|[c, b]}
+\end{aligned}
+\]</span></p>
+<p>Le réel <span class="math inline">\(\int_{[a, c]} f_{|[a, c]} + \int_{[c, b]} f_{|[c, b]}\)</span> est un majorant de de <span class="math inline">\(\left\{\int_{[a, b]}\varphi ~~|~~ \varphi \in \mathcal E^-(f) \right\}\)</span>.</p>
+<p>Donc il est plus grands que sa borne supérieure (<span class="math inline">\(\int_{[a, b]} f\)</span>). Ce qui donne</p>
+<p><span class="math display">\[
+\int_{[a, b]} f \leq \int_{[a, c]} f_{|[a, c]} + \int_{[c, b]} f_{|[c, b]}
+\]</span></p>
+<p>En applique les mêmes étapes pour <span class="math inline">\(-f\)</span></p>
+<p>Soit <span class="math inline">\(\varphi \in \mathcal E^-(-f)\)</span> (une fonction en escalier plus petite que <span class="math inline">\(-f\)</span>).</p>
+<p>On a <span class="math inline">\(\varphi_{|[a, c]} \in \mathcal E^-(-f_{|[a, c]})\)</span> et <span class="math inline">\(\varphi_{|[c, b]} \in \mathcal E^-(-f_{|[c, b]})\)</span>.</p>
+<p>Par suite</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{[a, b]}\varphi &amp;=&amp; \int_{[a, c]} \varphi_{|[a, c]} + \int_{[c, b]} \varphi_{|[c, b]} \\ \\
+&amp;\leq&amp; \int_{[a, c]} -f_{|[a, c]} + \int_{[c, b]} -f_{|[c, b]}
+\end{aligned}
+\]</span></p>
+<p>Le reel <span class="math inline">\(\int_{[a, c]} -f_{|[a, c]} + \int_{[c, b]} -f_{|[c, b]}\)</span> est un majorant de de <span class="math inline">\(\left\{\int_{[a, b]}\varphi ~~|~~ \varphi \in \mathcal E^-(-f) \right\}\)</span>.</p>
+<p>Donc il est plus grands que sa borne supérieure (<span class="math inline">\(\int_{[a, b]} -f\)</span>). Ce qui donne</p>
+<p><span class="math display">\[
+\int_{[a, b]} -f \leq \int_{[a, c]} -f_{|[a, c]} + \int_{[c, b]} -f_{|[c, b]}
+\]</span></p>
+<p>Et d’après la linéarité de l’intégrale nous avons</p>
+<p><span class="math display">\[
+\int_{[a, b]} f \geq \int_{[a, c]} f_{|[a, c]} + \int_{[c, b]} f_{|[c, b]}
+\]</span></p>
+<p>En fin</p>
+<p><span class="math display">\[
+\int_{[a, b]} f = \int_{[a, c]} f_{|[a, c]} + \int_{[c, b]} f_{|[c, b]}
+\]</span></p>
+</div>
+</div>
+<p><strong>Remarque</strong>:</p>
+<p>Soient <span class="math inline">\(f\)</span> une fonction continue par morceaux sur <span class="math inline">\([a, b]\)</span>, et <span class="math inline">\(u=(x_i)_{i\in\{1,\ldots,n\}}\)</span> une subdivision adaptée à <span class="math inline">\(f\)</span>. Pour <span class="math inline">\(i \in \{1,\ldots,n\}\)</span>, notons <span class="math inline">\(f_i\)</span> la fonction continue sur <span class="math inline">\([x_{i-1}, x_i]\)</span> tel que <span class="math inline">\(\forall x \in ]x_{i-1}, x_i[, f_i(x) = f(x)\)</span>. Alors d’après la relation de Chasles :</p>
+<p><span class="math display">\[
+\int_{[a, b]} f = \sum_{i=1}^n \int_{[x_{i-1}, x_i]}f = \sum_{i=1}^n \int_{[x_{i-1}, x_i]}f_i
+\]</span></p>
+<section id="quelques-inégalités" class="level2">
+<h2 class="anchored" data-anchor-id="quelques-inégalités">Quelques inégalités</h2>
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Proposition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Une fonction positive et continue par morceaux à une intégrale positive.</li>
+<li>Si <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions continues par morceaux sur <span class="math inline">\([a, b]\)</span> alors:</li>
+</ul>
+<p><span class="math display">\[
+f \leq g \Rightarrow \int_{[a, b]}f \leq \int_{[a, b]}g
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Démonstration">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Démonstration
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Si <span class="math inline">\(f\)</span> est une fonction continue par morceaux et positive alors la fonction nulle (qui constante donc en escalier) appartient à <span class="math inline">\(\mathcal E^-(f)\)</span>. Donc son intégrale (qui vaut 0) est inférieure à l’intégrale de <span class="math inline">\(f\)</span>. Par suite <span class="math inline">\(\int_{[a, b]} f \geq 0\)</span>.</li>
+<li>On applique le résultat précèdent à <span class="math inline">\(g-f\)</span> puis on utilise la linéarité de l’intégrale.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Théorème">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Théorème
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si <span class="math inline">\(f\)</span> est continue par morceaux sur <span class="math inline">\([a, b]\)</span>, alors <span class="math inline">\(|f|\)</span> est continue par morceaux sur <span class="math inline">\([a, b]\)</span> et:</p>
+<p><span class="math display">\[
+\left |\int_{[a, b]}f \right | \leq \int_{[a, b]}|f|
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Démonstration">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Démonstration
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soient <span class="math inline">\(f\)</span> une fonction continue par morceaux sur <span class="math inline">\([a, b]\)</span> et <span class="math inline">\(u=(x_i)_{i=0}^n\)</span> une subdivision adaptée à <span class="math inline">\(f\)</span>. Alors, pour tout <span class="math inline">\(i \in \{1, \ldots, n\}\)</span> la restriction de <span class="math inline">\(f\)</span> sur chacun des intervalles <span class="math inline">\(]x_{i-1}, x_i[\)</span> est continue et admet des limites finies en <span class="math inline">\(x_{i-1}\)</span> et <span class="math inline">\(x_i\)</span>. Il en est de même pour <span class="math inline">\(|f|\)</span> d’après les propriétés des limites. Donc <span class="math inline">\(|f|\)</span> est une fonction continue par morceaux sur <span class="math inline">\([a, b]\)</span>.</p>
+<p>Nous avons <span class="math inline">\(-|f| \leq f \leq |f|\)</span> donc</p>
+<p><span class="math display">\[
+- \int_{[a, b]}|f| \leq \int_{[a, b]}f \leq \int_{[a, b]}|f|  
+\]</span></p>
+<p>Ce qui veut dire</p>
+<p><span class="math display">\[
+\left| \int_{[a, b]}f \right | \leq \int_{[a, b]}|f|  
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition (Inégalité de la moyenne)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Proposition (Inégalité de la moyenne)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions continues par morceaux sur <span class="math inline">\([a, b]\)</span>, alors:</p>
+<p><span class="math display">\[
+\left |\int_{[a, b]}fg \right | \leq \sup_{[a, b]} |f| \int_{[a, b]}|g|
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Démonstration">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Démonstration
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(M = sup_{[a,b]}|f|\)</span>. Nous avons</p>
+<p><span class="math display">\[
+\forall x \in [a, b], |f(x)g(x)|=|f(x)||g(x)| \leq M |g(x)|
+\]</span></p>
+<p>Donc</p>
+<p><span class="math display">\[
+\left |\int_{[a, b]}fg \right | \leq \int_{[a, b]}|fg| \leq \int_{[a, b]}M|g| =M\int_{[a, b]}|g|
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Corollaire">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Corollaire
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si <span class="math inline">\(f\)</span> est une fonction continue par morceaux sur <span class="math inline">\([a, b]\)</span>, alors:</p>
+<p><span class="math display">\[
+\left |\int_{[a, b]}f \right | \leq (b-a)  \sup_{[a, b]}|f|
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Démonstration">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Démonstration
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En pose <span class="math inline">\(g=1\)</span> est on applique l’inégalité de la moyenne.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Théorème (Inégalité de Cauchy-Schwarz)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Théorème (Inégalité de Cauchy-Schwarz)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions continues par morceaux sur <span class="math inline">\([a, b]\)</span>, alors:</p>
+<p><span class="math display">\[
+\left (\int_{[a, b]}fg \right ) ^2 \leq \int_{[a, b]} f^2 \int_{[a, b]}g^2
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Démonstration">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Démonstration
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On pose</p>
+<p><span class="math display">\[
+P(\lambda) = \int_{[a, b]} (f+\lambda g)^2 = \lambda^2 \int_{[a, b]} g^2 + 2\lambda \int_{[a, b]} fg + \int_{[a, b]} f^2
+\]</span></p>
+<p><span class="math inline">\(P\)</span> est donc une fonction polynomiale de degré au plus égale à 2 qui est positive pour tout <span class="math inline">\(\lambda \in \mathbb R\)</span>.</p>
+<ul>
+<li>Si <span class="math inline">\(\int_{[a, b]} g^2 = 0\)</span>, alors la fonction <span class="math inline">\(P\)</span> ne peut pas changer de signe (car elle est positive) donc ne peut pas être de degré 1. On en déduit <span class="math inline">\(\int_{[a, b]} fg = 0\)</span></li>
+</ul>
+<p>Donc <span class="math inline">\(\left (\int_{[a, b]} fg\right)^2 = 0=\int_{[a, b]} f^2 \int_{[a, b]} g^2\)</span></p>
+<ul>
+<li>Sinon, <span class="math inline">\(P\)</span> est polynôme de degré 2 qui positif pour tout <span class="math inline">\(\lambda \in \mathbb R\)</span>. Son discriminent</li>
+</ul>
+<p><span class="math display">\[
+\Delta = 4 \left (\left (\int_{[a, b]} fg\right)^2- \int_{[a, b]} f^2 \int_{[a, b]} g^2 \right)
+\]</span> est donc negatif. Ce donne</p>
+<p><span class="math display">\[
+\left (\int_{[a, b]} fg\right)^2 \leq \int_{[a, b]} f^2 \int_{[a, b]} g^2
+\]</span></p>
+</div>
+</div>
+<p>On peut écrire l’inégalité de Cauchy-Schwarz comme suit :</p>
+<p><span class="math display">\[
+\left |\int_{[a, b]}fg \right | \leq \left (\int_{[a, b]} f^2 \right)^{\frac{1}{2}}  \left (\int_{[a, b]}g^2\right)^{\frac{1}{2}}
+\]</span></p>
+</section>
+<section id="cas-des-fonctions-continues" class="level2">
+<h2 class="anchored" data-anchor-id="cas-des-fonctions-continues">Cas des fonctions continues</h2>
+<div class="callout callout-style-default callout-important callout-titled" title="Théorème">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Théorème
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une fonction <strong>continue et positive</strong> sur <span class="math inline">\([a, b]\)</span> est nulle si, et seulement si, son intégrale sur <span class="math inline">\([a, b]\)</span> est nulle.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Démonstration">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Démonstration
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(f\)</span> une fonction continue et positive sur <span class="math inline">\([a, b]\)</span>.</p>
+<p>Si <span class="math inline">\(f\)</span> est nulle alors son intégrale est nulle.</p>
+<p>Montrons maintenant, que si l’intégrale de <span class="math inline">\(f\)</span> est nulle alors <span class="math inline">\(f\)</span> est la fonction nulle.</p>
+<p>Par absurde, on suppose que <span class="math inline">\(f\)</span> n’est pas nulle. Donc il existe (au moins) <span class="math inline">\(c \in [a, b]\)</span> tel que <span class="math inline">\(f(c) \neq 0\)</span> et puisque <span class="math inline">\(f\)</span> est positive <span class="math inline">\(f(c) &gt; 0\)</span>.</p>
+<p>1- Si <span class="math inline">\(c \in ]a, b[\)</span>. Puisque la fonction est continue en <span class="math inline">\(c\)</span> alors pour tout <span class="math inline">\(\epsilon &gt;0\)</span> il existe <span class="math inline">\(\alpha &gt; 0\)</span> tel que <span class="math inline">\(\forall x \in [a, b],~~ |x-c| \leq \alpha \Rightarrow |f(x) - f(x)|\leq \epsilon\)</span>.</p>
+<p>On pose <span class="math inline">\(\epsilon = \dfrac{f(x)}{2}\)</span></p>
+<p>alors il existe <span class="math inline">\(\alpha&gt;0\)</span> tel que pour tout <span class="math inline">\(x\in [a, b], ~~ x \in ]c-\alpha, c +\alpha[ \Rightarrow f(x)\leq f(c)-\epsilon &gt; 0\)</span>.</p>
+<p>On pose <span class="math inline">\(\beta = max(\dfrac{a+c}{2}, c-\alpha), \gamma = max(\dfrac{b+c}{2}, c+\alpha)\)</span>. On a</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{[a, b]}f &amp;= \int_{[a, \beta]}f + \int_{[\beta, \gamma]}f + \int_{[\gamma, b]}f \\ \\
+&amp;\geq  \int_{[\beta, \gamma]}f \\ \\
+&amp;\geq  (\gamma -\beta )\dfrac{f(c)}{2}&gt; 0
+\end{aligned}
+\]</span></p>
+<p>2- Si <span class="math inline">\(c =a\)</span> ou <span class="math inline">\(c=b\)</span>. La fonction <span class="math inline">\(f\)</span> est continue en <span class="math inline">\(c\)</span> et <span class="math inline">\(f(c)&gt;0\)</span>. Donc elle est strictement positive au voisinage de <span class="math inline">\(c\)</span>. Ceci dit, il existe un réel <span class="math inline">\(d \in ]a, b[\)</span> tel f(d)&gt;0. On répète les mêmes étapes précédentes mais cette fois avec <span class="math inline">\(d\)</span> et on aboutit a <span class="math inline">\(\int_{[a, b]}f &gt;0\)</span></p>
+<p>Ce qui est absurde.</p>
+<p>Donc <span class="math inline">\(f\)</span> est nulle.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Avertissement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les deux hypothèses (continuité et positivité) sont nécessaires pour que le résultat soit vrai.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Corollaire">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Corollaire
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions continues sur <span class="math inline">\([a, b]\)</span>, alors:</p>
+<p><span class="math display">\[
+\left (\int_{[a, b]}fg \right ) ^2 = \int_{[a, b]} f^2 \int_{[a, b]}g^2
+\]</span></p>
+<p>Si et seulement si, <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont proportionnelles.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Démonstration">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Démonstration
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Si <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont proportionnelles, donc il existe <span class="math inline">\(\lambda \in \mathbb R\)</span> tel que <span class="math inline">\(f=\lambda g\)</span> où <span class="math inline">\(g=\lambda f\)</span>. Supposons par exemple que <span class="math inline">\(f=\lambda g\)</span>.</li>
+</ul>
+<p>Alors,</p>
+<p><span class="math display">\[
+\left(\int_{[a, b]} fg \right)^2 = \lambda^2\left(\int_{[a, b]} g^2\right)^2 = \int_{[a, b]} f^2\int_{[a, b]} g^2
+\]</span></p>
+<p>Supposons maintenant que</p>
+<p><span class="math display">\[
+\left (\int_{[a, b]}fg \right ) ^2 = \int_{[a, b]} f^2 \int_{[a, b]}g^2
+\]</span></p>
+<p>On pose</p>
+<p><span class="math display">\[
+P(\lambda) = \int_{[a, b]}(f+\lambda g)^2 = \lambda^2\int_{[a, b]}g^2 + 2\lambda \int_{[a, b]}fg + \int_{[a, b]}f^2
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(si \int_{[a, b]}g^2 = 0\)</span> alors <span class="math inline">\(g^2\)</span> est nulle (puisqu’elle est continue est positive avec intégrale nulle) donc <span class="math inline">\(g\)</span> est nulle. Donc <span class="math inline">\(g= 0\times f\)</span>. Par suite <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont proportionnelles.</p></li>
+<li><p>sinon, le polynôme <span class="math inline">\(P\)</span> a un discriminent nul. Donc il existe <span class="math inline">\(\lambda_0\)</span> tel que <span class="math inline">\(P(\lambda_0)=0\)</span>.</p></li>
+</ul>
+<p>Donc <span class="math inline">\(P(\lambda_0) = \int_{[a, b]}(f+\lambda_0 g)^2 = 0\)</span>. La fonction <span class="math inline">\((f+\lambda_0 g)^2\)</span> est continue et positive avec intégrale nulle donc elle est nulle. Par suite <span class="math inline">\(f=\lambda_0 g\)</span>. Les deux fonctions sont proportionnelles.</p>
+</div>
+</div>
+</section>
+<section id="invariance-par-translation" class="level2">
+<h2 class="anchored" data-anchor-id="invariance-par-translation">Invariance par translation</h2>
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Proposition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soient <span class="math inline">\(f\)</span> une fonction continue par morceaux sur <span class="math inline">\([a, b]\)</span> et <span class="math inline">\(\alpha\)</span> un réel. La fonction <span class="math inline">\(f_\alpha\)</span> définie sur <span class="math inline">\([a+\alpha, b+\alpha]\)</span> par <span class="math inline">\(f_\alpha(x)f(x-\alpha)\)</span> est continue par morceaux sur <span class="math inline">\([a+\alpha, b+\alpha]\)</span>. De plus :</p>
+<p><span class="math display">\[
+\int_{[a, b]}f= \int_{[a+\alpha, b+\alpha]} f_{\alpha}
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Démonstration">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Démonstration
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On va dabord montrer le resultat pour une fonction en escalier pouis, pour une fonction continue par morceaux.</p>
+<ul>
+<li>Si <span class="math inline">\(f\)</span> est une fonction en escalier sur <span class="math inline">\([a, b]\)</span>:</li>
+</ul>
+<p>soit <span class="math inline">\(u=(x_i)_{i=0}^n\)</span> une subdivision adaptee a <span class="math inline">\(f\)</span>. Alors on peut facilement montrer que la famille <span class="math inline">\((y_i)_{i=0}^n\)</span> avec <span class="math inline">\(y_i = x_i +\alpha\)</span> est une subdivision de <span class="math inline">\([a+\alpha, b+\alpha]\)</span>.</p>
+<p>Si <span class="math inline">\(f\)</span> prend la valeur <span class="math inline">\(c_i\)</span> sur <span class="math inline">\(]x_{i-1}, x_i[\)</span> alors <span class="math inline">\(f_\alpha\)</span> vaut aussi <span class="math inline">\(c_i\)</span> sur <span class="math inline">\(]x_{i-1}+\alpha,  x_i+\alpha[\)</span>. Donc <span class="math inline">\(f_\alpha\)</span> est une fonction en escalier sur <span class="math inline">\([a+\alpha, b+\alpha]\)</span>.</p>
+<p>De plus,</p>
+<p><span class="math display">\[
+\int_{[a+\alpha, b+\alpha]} f_\alpha = \sum_{i=1}^n (y_i - y_{i-1})c_i = \sum_{i=1}^n (x_i - x_{i-1})c_i = \int_{[a, b]} f
+\]</span></p>
+<p>Maintenant si <span class="math inline">\(f\)</span> est continue par morceaux,</p>
+<p>soit <span class="math inline">\(u=(x_i)_{i=0}^n\)</span> une subdivision adaptee a <span class="math inline">\(f\)</span>. La famille <span class="math inline">\((y_i)_{i=0}^n\)</span> avec <span class="math inline">\(y_i = x_i +\alpha\)</span> est une subdivision de <span class="math inline">\([a+\alpha, b+\alpha]\)</span>.</p>
+<p><span class="math inline">\(f\)</span> est continue sur <span class="math inline">\(]x_{i-1}, x_i[\)</span> est admet des limites finies en <span class="math inline">\(x_{i-1}\)</span> et <span class="math inline">\(x_{i}\)</span>. Donc, <span class="math inline">\(f_\alpha\)</span> est continue sur <span class="math inline">\(]y_{i-1}, y_i[=]x_{i-1}+\alpha, x_i+\alpha[\)</span> est admet des limites finies en <span class="math inline">\(y_{i-1}\)</span> et <span class="math inline">\(y_{i}\)</span>. Donc <span class="math inline">\(f_\alpha\)</span> est continue par morceaux sur <span class="math inline">\([a+\alpha, b+\alpha]\)</span>.</p>
+<p>si <span class="math inline">\(\varphi \in \mathcal E^-(f)\)</span> donc <span class="math inline">\(\varphi \leq f\)</span> donc <span class="math inline">\(\varphi_\alpha  \leq f_\alpha\)</span></p>
+<p>donc <span class="math inline">\(\left\{\varphi_\alpha ~~ | ~~ \varphi \in \mathcal E^-(f) \right\} \subset \mathcal E^-(f_\alpha)\)</span></p>
+<p>D’autre part, si <span class="math inline">\(\psi \in  \mathcal E^-(f_\alpha)\)</span> donc il existe <span class="math inline">\(\phi \in  \mathcal E^-(f)\)</span> telle que <span class="math inline">\(\psi = \varphi_\alpha\)</span>.</p>
+<p>Donc, <span class="math inline">\(\mathcal E^-(f_\alpha)= \left\{\varphi_\alpha ~~ | ~~ \varphi \in \mathcal E^-(f) \right\}\)</span></p>
+<p>Par suite</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{[a+\alpha, b+\alpha]} f_{\alpha} &amp;= sup \left\{\int_{[a+\alpha, b+\alpha]} \psi ~~| ~~ \psi \in \mathcal E^-(f_\alpha) \right\} \\ \\
+&amp;= sup \left\{\int_{[a+\alpha, b+\alpha]} \varphi_\alpha ~~| ~~ \varphi \in \mathcal E^-(f) \right\} \\ \\
+&amp;= sup \left\{\int_{[a, b]} \varphi ~~| ~~ \varphi \in \mathcal E^-(f) \right\} = \int_{[a, b]} f
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+<p>Soient <span class="math inline">\(T&gt;0\)</span> et <span class="math inline">\(f\)</span> une fonction <span class="math inline">\(T\)</span>-périodique et continue par morceaux sur une période et donc sur tout segment de <span class="math inline">\(\mathbb R\)</span>. Nous avons :</p>
+<p><span class="math display">\[
+\forall a \in \mathbb R, \int_{[a, a+ T]} f = \int_{[0, T]}f
+\]</span></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./fcm.html" class="pagination-link" aria-label="Fonctions continues par morceaux">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Fonctions continues par morceaux</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./fcmint.html" class="pagination-link" aria-label="Fonctions continue par morceaux sur un intervalle">
+        <span class="nav-page-text"><span class="chapter-title">Fonctions continue par morceaux sur un intervalle</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -1,0 +1,30 @@
+\small
+::: hanging-indent
+**Ce manuel** est un support pédagogique du cours d'Analyse destiné aux étudiants de première année du Génie Informatique (GI1) à l'École Supérieure de Technologie de Casablanca. Le support couvre les notions fondamentales d'analyse nécessaires à la poursuite des études en mathématiques et en informatique.
+:::
+
+::: hanging-indent
+**L'auteur** : M'barek IAOUSSE, enseignant-chercheur à l'École Supérieure de Technologie de Casablanca, Université Hassan II de Casablanca.
+:::
+
+
+:::: {.callout}
+::: {layout="[12,-1,40]" layout-valign="center"}
+![](images/CC/by.png)   
+
+\justifying\small Sauf indications contraires, le contenu de ce manuel électronique est disponible 
+en vertu des termes de la [Licence Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/deed.fr).
+:::
+
+> **Autorisations accordées :**
+>
+> > **Partager** -- copier, distribuer et communiquer le matériel par tous moyens et sous tous formats.
+> >
+> > **Adapter** -- remixer, transformer et créer à partir du matériel pour toute utilisation, y compris commerciale.
+>
+> **Sous réserve de citer l'auteur.**
+::::
+
+\filbreak
+© M'barek IAOUSSE (2026)Pour citer ce manuel : © M'barek IAOUSSE (2023-2024)\
+**Cours d'Analyse**. École Supérieure de Technologie de Casablanca. Sous licence CC BY 4.0.

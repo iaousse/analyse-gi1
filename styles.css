@@ -1,0 +1,91 @@
+.analysis-cover,
+.analysis-qr {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 72vh;
+  page-break-after: always;
+  text-align: center;
+}
+
+body:has(.analysis-cover) #title-block-header {
+  display: none;
+}
+
+.analysis-cover-logo {
+  margin: 0 auto 2rem;
+  max-height: 12rem;
+  max-width: min(60vw, 24rem);
+  object-fit: contain;
+}
+
+.analysis-cover h2 {
+  border: 0;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  margin: 0 0 1.5rem;
+}
+
+.analysis-cover-author {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.analysis-cover-year {
+  color: var(--bs-secondary-color);
+  font-size: 1.05rem;
+}
+
+.analysis-qr img {
+  max-height: 72vh;
+  max-width: min(78vw, 34rem);
+  object-fit: contain;
+}
+
+.callout-important {
+  --callout-color: #164e82;
+}
+
+div.callout-important.callout {
+  border-left-color: #164e82;
+}
+
+div.callout-important.callout-style-default > .callout-header {
+  background-color: #e8f0f8;
+}
+
+.callout-caution {
+  --callout-color: #94520b;
+}
+
+div.callout-caution.callout {
+  border-left-color: #94520b;
+}
+
+div.callout-caution.callout-style-default > .callout-header {
+  background-color: #f8efe2;
+}
+
+.callout-note {
+  --callout-color: #17665f;
+}
+
+div.callout-note.callout {
+  border-left-color: #17665f;
+}
+
+div.callout-note.callout-style-default > .callout-header {
+  background-color: #e8f3f1;
+}
+
+.callout-tip {
+  --callout-color: #496a2a;
+}
+
+div.callout-tip.callout {
+  border-left-color: #496a2a;
+}
+
+div.callout-tip.callout-style-default > .callout-header {
+  background-color: #eef3e6;
+}
