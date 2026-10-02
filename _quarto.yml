@@ -1,7 +1,8 @@
 project:
   type: book
   output-dir: docs
-
+profile:
+  default: student
 lang: fr
 number-sections: false
 language:
@@ -22,36 +23,45 @@ book:
   subtitle: "Formation Initiale — GI1"
   sidebar:
     logo: images/logo_estc.png
+    tools:
+      - icon: github
+        href: https://github.com/iaousse/
+        aria-label: GitHub
+        target: _blank
+      - icon: linkedin
+        href: https://www.linkedin.com/in/mbarekiaousse
+        aria-label: LinkedIn
+        target: _blank
   author: "IAOUSSE M'barek"
   search: true
-  downloads: [pdf]
+  downloads:  [pdf, epub]
   chapters:
     - index.qmd
     - preface.qmd
     #- intro.md
     - part: R.md
       chapters:
-        - rationnels.md
-        - proprties.md
-        - exo1.md
+        - rationnels.qmd
+        - proprties.qmd
+        - exo1.qmd
     - part: suite.md
       chapters:
-        - suites.md
-        - exo2.md
+        - suites.qmd
+        - exo2.qmd
     - part: limitefct.md
       chapters:
-        - limitefcts.md
-        - exo3.md
+        - limitefcts.qmd
+        - exo3.qmd
     - part: dirivf.md
       chapters:
-        - dirivfs.md
+        - dirivfs.qmd
         #- exo4t.qmd
-        - fcthycerinvs.md
-        - exo5.md
+        - fcthycerinvs.qmd
+        - exo5.qmd
     - part: complement.md
       chapters:
-        - complements.md
-        - dl.md
+        - complements.qmd
+        - dl.qmd
         - exo6.md
     - part: integrationd.md
       chapters:
@@ -74,7 +84,10 @@ citations-hover: true
 
 format:
   html:
-    theme: spacelab
+    theme:
+      light: spacelab
+      dark: darkly
+    respect-user-color-scheme: true
     css: styles.css
     title-block-banner: true
     toc: false
@@ -87,6 +100,7 @@ format:
     html-math-method: mathjax
     include-in-header:
       text: |
+
         <script>
         window.MathJax = {
           tex: {
@@ -107,7 +121,9 @@ format:
           }
         };
         </script>
+  epub: default
   pdf:
+    linkcolor:  blue
     documentclass: scrbook
     pdf-engine: xelatex
     fontsize: 11pt

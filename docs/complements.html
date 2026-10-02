@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Complément sur les suites et les fonctions numériques – Cours d'Analyse</title>
+<title>Compléments sur les suites et les fonctions numériques – Cours d'Analyse</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -44,10 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-505fb740752bcb4749a94d640a912150.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+
 <script>
 window.MathJax = {
   tex: {
@@ -130,7 +135,178 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -139,7 +315,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complement.html">Complement sur les suites et les fonctions numériques</a></li><li class="breadcrumb-item"><a href="./complements.html"><span class="chapter-title">Complément sur les suites et les fonctions numériques</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complement.html">Complement sur les suites et les fonctions numériques</a></li><li class="breadcrumb-item"><a href="./complements.html"><span class="chapter-title">Compléments sur les suites et les fonctions numériques</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -151,8 +327,8 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complement.html">Complement sur les suites et les fonctions numériques</a></li><li class="breadcrumb-item"><a href="./complements.html"><span class="chapter-title">Complément sur les suites et les fonctions numériques</span></a></li></ol></nav>
-      <h1 class="title"><span class="chapter-title">Complément sur les suites et les fonctions numériques</span></h1>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complement.html">Complement sur les suites et les fonctions numériques</a></li><li class="breadcrumb-item"><a href="./complements.html"><span class="chapter-title">Compléments sur les suites et les fonctions numériques</span></a></li></ol></nav>
+      <h1 class="title"><span class="chapter-title">Compléments sur les suites et les fonctions numériques</span></h1>
                       </div>
   </div>
     
@@ -175,8 +351,27 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Cours d’Analyse</a> 
-        <div class="sidebar-tools-main">
-    <a href="./Cours-d-Analyse.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/iaousse/" title="" class="quarto-navigation-tool px-1" aria-label="GitHub" target="_blank"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/mbarekiaousse" title="" class="quarto-navigation-tool px-1" aria-label="LinkedIn" target="_blank"><i class="bi bi-linkedin"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
 </div>
     </div>
       </div>
@@ -234,7 +429,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./suites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Suites réelles: Définitions générales</span></a>
+  <a href="./suites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Suites réelles : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -255,7 +450,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numérique: Définitions générales</span></a>
+  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numériques : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -302,12 +497,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./complements.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Complément sur les suites et les fonctions numériques</span></a>
+  <a href="./complements.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Compléments sur les suites et les fonctions numériques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dévelopements limités</span></a>
+  <a href="./dl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Développements limités</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -382,28 +577,24 @@ window.Quarto = {
 
 
 
-<section id="suites-et-critère-de-chauchy" class="level2">
-<h2 class="anchored" data-anchor-id="suites-et-critère-de-chauchy">Suites et critère de Chauchy</h2>
-<p>Le très grand intéret du critère de Cauchy provient du fait qu’il caractérise dans <span class="math inline">\(\mathbb{R}\)</span> les suites convergentes, sans que la limite apparaisse. D’où son utilisation dans l’étude des séries par exemple, ou encore pour montrer qu’une suite n’est pas convergente.</p>
-<p>Le concept de suite de Cauchy correspond à la propriété que la distance entre deux termes de la suite devient arbitrairement petite (et non de plus en plus petite) quand ces termes sont de rang assez grand.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Définition (suite de chauchy)">
+
+<section id="suites-et-critère-de-cauchy" class="level2">
+<h2 class="anchored" data-anchor-id="suites-et-critère-de-cauchy">Suites et critère de Cauchy</h2>
+<p>Le très grand intérêt du critère de Cauchy provient du fait qu’il caractérise dans <span class="math inline">\(\mathbb{R}\)</span> les suites convergentes, sans que la limite apparaisse. D’où son utilisation dans l’étude des séries par exemple, ou encore pour montrer qu’une suite n’est pas convergente.</p>
+<p>Le concept de suite de Cauchy correspond à la propriété que la distance entre deux termes quelconques de la suite devient arbitrairement petite (et pas seulement entre deux termes consécutifs) quand ces termes sont de rang assez grand.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Définition (suite de Cauchy)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Définition (suite de chauchy)
+<span class="screen-reader-only">Note</span>Définition (suite de Cauchy)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\((u_n)\)</span> une suite réelle; on dit que <span class="math inline">\((u_n)\)</span> est une suite de Cauchy ou vérifie le critère de Cauchy si :</p>
+<p>Soit <span class="math inline">\((u_n)\)</span> une suite réelle ; on dit que <span class="math inline">\((u_n)\)</span> est une suite de Cauchy ou vérifie le critère de Cauchy si :</p>
 <p><span class="math display">\[
-\forall \epsilon&gt;0, \exists N \in \mathbb{N},  \forall p, n \in \mathbb{N}, \left\{
-\begin{array}{ll}
-p\geq N\\
-n\geq N\\
-\end{array}
-\right. \Rightarrow |u_p-u_n|&lt;\epsilon
+\forall \varepsilon&gt;0,\ \exists N \in \mathbb{N},\ \forall p, n \in \mathbb{N},\ (p\geq N\ \text{et}\ n\geq N)\Rightarrow |u_p-u_n|&lt;\varepsilon
 \]</span></p>
 </div>
 </div>
@@ -420,7 +611,28 @@ n\geq N\\
 <p>Une suite de réels est convergente dans <span class="math inline">\(\mathbb{R}\)</span> si, et seulement si, c’est une suite de Cauchy.</p>
 </div>
 </div>
-<p>Le critère de Cauchy est utilisé pour montrer qu’une suite <span class="math inline">\((u_n)\)</span> est convergente (resp divergente) dans les cas où l’on peut obtenir facilement une majoration (resp minoration) de <span class="math inline">\(|u_p−u_n|\)</span> pour <span class="math inline">\(n\)</span> et <span class="math inline">\(p\)</span> assez grands. C’est le cas en particulier pour certaines séries.</p>
+<p>Pour le sens direct, il suffit d’utiliser l’inégalité triangulaire : si <span class="math inline">\(u_n\to\ell,\)</span> alors pour <span class="math inline">\(p,n\geq N\)</span> assez grand, <span class="math inline">\(|u_p-u_n|\leq|u_p-\ell|+|\ell-u_n|&lt;\varepsilon.\)</span> La réciproque repose sur la propriété de la borne supérieure et est admise ici.</p>
+<p>Le critère de Cauchy est utilisé pour montrer qu’une suite <span class="math inline">\((u_n)\)</span> est convergente (resp. divergente) dans les cas où l’on peut obtenir facilement une majoration (resp. minoration) de <span class="math inline">\(|u_p-u_n|\)</span> pour <span class="math inline">\(n\)</span> et <span class="math inline">\(p\)</span> assez grands. C’est le cas en particulier pour certaines séries. Pour montrer qu’une suite diverge, on montre qu’elle n’est <strong>pas</strong> de Cauchy, c’est-à-dire :</p>
+<p><span class="math display">\[
+\exists \varepsilon&gt;0,\ \forall N \in \mathbb{N},\ \exists p, n \geq N :\ |u_p-u_n|\geq\varepsilon
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Exemple">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Exemple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La suite <span class="math inline">\(H_n=\displaystyle\sum_{k=1}^{n}\dfrac{1}{k}\)</span> diverge. En effet, pour tout <span class="math inline">\(n\geq1,\)</span></p>
+<p><span class="math display">\[
+H_{2n}-H_n=\sum_{k=n+1}^{2n}\dfrac{1}{k}\geq n\times\dfrac{1}{2n}=\dfrac{1}{2}
+\]</span></p>
+<p>Donc, avec <span class="math inline">\(\varepsilon=\frac{1}{2},\)</span> pour tout <span class="math inline">\(N\)</span> on trouve <span class="math inline">\(p=2N\)</span> et <span class="math inline">\(n=N\)</span> tels que <span class="math inline">\(|H_p-H_n|\geq\varepsilon\)</span> : la suite n’est pas de Cauchy, donc elle diverge.</p>
+</div>
+</div>
 </section>
 <section id="comparaison-des-suites" class="level2">
 <h2 class="anchored" data-anchor-id="comparaison-des-suites">Comparaison des suites</h2>
@@ -434,7 +646,12 @@ n\geq N\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soient <span class="math inline">\((u_n)\)</span>, <span class="math inline">\((v_n)\)</span> et <span class="math inline">\((\epsilon_n)\)</span> trois suites telles qu’à partir d’un certain rang <span class="math inline">\(u_n = v_nε_n\)</span>. On dit que : - <span class="math inline">\(u_n\)</span> est dominée par <span class="math inline">\(v_n\)</span> lorsque la suite <span class="math inline">\((\epsilon_n)\)</span> est bornée. Notation : <span class="math inline">\(u_n = O(v_n)\)</span>. - <span class="math inline">\(u_n\)</span> est négligeable devant <span class="math inline">\(v_n\)</span> lorsque la suite <span class="math inline">\((\epsilon_n)\)</span> tend vers 0 (<span class="math inline">\(\lim \epsilon_n =0\)</span>). Notation : <span class="math inline">\(u_n = o(v_n)\)</span>. - <span class="math inline">\(u_n\)</span> est équivalente à <span class="math inline">\(v_n\)</span> lorsque la suite <span class="math inline">\((\epsilon_n)\)</span> tend vers 1 (<span class="math inline">\(\lim \epsilon_n =1\)</span>). Notation : <span class="math inline">\(u_n \sim v_n\)</span>.</p>
+<p>Soient <span class="math inline">\((u_n)\)</span>, <span class="math inline">\((v_n)\)</span> et <span class="math inline">\((\varepsilon_n)\)</span> trois suites telles qu’à partir d’un certain rang <span class="math inline">\(u_n = v_n\varepsilon_n.\)</span> On dit que :</p>
+<ul>
+<li><p><span class="math inline">\(u_n\)</span> est dominée par <span class="math inline">\(v_n\)</span> lorsque la suite <span class="math inline">\((\varepsilon_n)\)</span> est bornée. Notation : <span class="math inline">\(u_n = O(v_n).\)</span></p></li>
+<li><p><span class="math inline">\(u_n\)</span> est négligeable devant <span class="math inline">\(v_n\)</span> lorsque la suite <span class="math inline">\((\varepsilon_n)\)</span> tend vers 0 (<span class="math inline">\(\lim \varepsilon_n =0\)</span>). Notation : <span class="math inline">\(u_n = o(v_n).\)</span></p></li>
+<li><p><span class="math inline">\(u_n\)</span> est équivalente à <span class="math inline">\(v_n\)</span> lorsque la suite <span class="math inline">\((\varepsilon_n)\)</span> tend vers 1 (<span class="math inline">\(\lim \varepsilon_n =1\)</span>). Notation : <span class="math inline">\(u_n \sim v_n.\)</span></p></li>
+</ul>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled" title="Théorème (Caractérisations)">
@@ -447,7 +664,12 @@ n\geq N\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Lorsque la suite <span class="math inline">\(v\)</span> ne s’annule pas à partir d’un certain rang : - <span class="math inline">\(u_n = O(v_n)\)</span> si et seulement si la suite <span class="math inline">\(\frac{u}{v}\)</span> est bornée. - <span class="math inline">\(u_n = o(v_n)\)</span> si et seulement si <span class="math inline">\(\lim \frac{u_n}{v_n}= 0\)</span>. - <span class="math inline">\(u_n \sim v_n\)</span> si et seulement si <span class="math inline">\(lim \frac{u_n}{v_n}= 1\)</span>.</p>
+<p>Lorsque la suite <span class="math inline">\((v_n)\)</span> ne s’annule pas à partir d’un certain rang :</p>
+<ul>
+<li><p><span class="math inline">\(u_n = O(v_n)\)</span> si et seulement si la suite <span class="math inline">\(\left(\dfrac{u_n}{v_n}\right)\)</span> est bornée.</p></li>
+<li><p><span class="math inline">\(u_n = o(v_n)\)</span> si et seulement si <span class="math inline">\(\lim \dfrac{u_n}{v_n}= 0.\)</span></p></li>
+<li><p><span class="math inline">\(u_n \sim v_n\)</span> si et seulement si <span class="math inline">\(\lim \dfrac{u_n}{v_n}= 1.\)</span></p></li>
+</ul>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Exemple">
@@ -460,14 +682,14 @@ n\geq N\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On a:</p>
+<p>On a :</p>
 <ul>
-<li><span class="math inline">\(n =o(n^2)\)</span> (on prend <span class="math inline">\(\epsilon = \frac{1}{n} \to 0\)</span>).</li>
-<li><span class="math inline">\(ln(n) = o(n)\)</span> car<span class="math inline">\(\frac{ln(n)}{n} \to 0\)</span>.</li>
-<li><span class="math inline">\(n\sin(n) = O(n)\)</span> car <span class="math inline">\(\frac{n\sin(n)}{n}=sin(n)\)</span> bornée.</li>
-<li><span class="math inline">\(\sin(n) = O(1)\)</span> car <span class="math inline">\(\frac{\sin(n)}{1}=sin(n)\)</span> bornée.</li>
-<li><span class="math inline">\(\frac{n}{n^2+1} \sim \frac{1}{n}\)</span> car <span class="math inline">\(\dfrac{\frac{n}{n^2+1}}{\frac{1}{n}} = \frac{n^2}{n^2 +1} \to 1\)</span>.</li>
-<li><span class="math inline">\((1+\frac{1}{n})^n \sim e\)</span> car <span class="math inline">\(\dfrac{(1+\frac{1}{n})^n}{e} \to 1\)</span>.</li>
+<li><p><span class="math inline">\(n =o(n^2)\)</span> (on prend <span class="math inline">\(\varepsilon_n = \frac{1}{n} \to 0\)</span>).</p></li>
+<li><p><span class="math inline">\(\ln(n) = o(n)\)</span> car <span class="math inline">\(\dfrac{\ln(n)}{n} \to 0.\)</span></p></li>
+<li><p><span class="math inline">\(n\sin(n) = O(n)\)</span> car <span class="math inline">\(\dfrac{n\sin(n)}{n}=\sin(n)\)</span> est bornée.</p></li>
+<li><p><span class="math inline">\(\sin(n) = O(1)\)</span> car <span class="math inline">\(\dfrac{\sin(n)}{1}=\sin(n)\)</span> est bornée.</p></li>
+<li><p><span class="math inline">\(\dfrac{n}{n^2+1} \sim \dfrac{1}{n}\)</span> car <span class="math inline">\(\dfrac{\frac{n}{n^2+1}}{\frac{1}{n}} = \dfrac{n^2}{n^2 +1} \to 1.\)</span></p></li>
+<li><p><span class="math inline">\(\left(1+\dfrac{1}{n}\right)^n \sim e\)</span> car <span class="math inline">\(\dfrac{\left(1+\frac{1}{n}\right)^n}{e} \to 1.\)</span></p></li>
 </ul>
 </div>
 </div>
@@ -482,15 +704,15 @@ n\geq N\\
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><span class="math inline">\(u_n = O(1)\)</span> signifie que la suite <span class="math inline">\((u_n)\)</span> est bornée.</li>
-<li><span class="math inline">\(u_n = o(1)\)</span> signifie que <span class="math inline">\(u_n\to 0\)</span>.</li>
-<li>Si <span class="math inline">\(u_n = o(v_n)\)</span> alors <span class="math inline">\(u_n = O(v_n)\)</span>.</li>
-<li>Si <span class="math inline">\(u_n \sim v_n\)</span> alors <span class="math inline">\(u_n = O(v_n)\)</span>.</li>
-<li>Si <span class="math inline">\(u_n = o(v_n)\)</span> et <span class="math inline">\(v_n = o(w_n)\)</span>, alors <span class="math inline">\(u_n = o(w_n)\)</span> (transitivité).</li>
-<li>Si <span class="math inline">\(u_n = O(v_n)\)</span> et <span class="math inline">\(v_n = O(w_n)\)</span>, alors <span class="math inline">\(u_n = O(w_n)\)</span> (transitivité).</li>
-<li><span class="math inline">\(u_n \sim v_n \Leftrightarrow u_n − v_n = o(v_n)\)</span>.</li>
-<li>si <span class="math inline">\(l \in \mathbb{R}\)</span> et si <span class="math inline">\(u_n \sim l\)</span> alors <span class="math inline">\(u_n \to l\)</span> (réciproque vraie lorsque <span class="math inline">\(l \neq 0\)</span>).</li>
-<li>Si <span class="math inline">\(u_n = o(v_n)\)</span> alors <span class="math inline">\(\forall \lambda \in \mathbb{R}, \lambda u_n + v_n \sim v_n\)</span>.</li>
+<li><p><span class="math inline">\(u_n = O(1)\)</span> signifie que la suite <span class="math inline">\((u_n)\)</span> est bornée.</p></li>
+<li><p><span class="math inline">\(u_n = o(1)\)</span> signifie que <span class="math inline">\(u_n\to 0.\)</span></p></li>
+<li><p>Si <span class="math inline">\(u_n = o(v_n)\)</span> alors <span class="math inline">\(u_n = O(v_n).\)</span></p></li>
+<li><p>Si <span class="math inline">\(u_n \sim v_n\)</span> alors <span class="math inline">\(u_n = O(v_n).\)</span></p></li>
+<li><p>Si <span class="math inline">\(u_n = o(v_n)\)</span> et <span class="math inline">\(v_n = o(w_n),\)</span> alors <span class="math inline">\(u_n = o(w_n)\)</span> (transitivité).</p></li>
+<li><p>Si <span class="math inline">\(u_n = O(v_n)\)</span> et <span class="math inline">\(v_n = O(w_n),\)</span> alors <span class="math inline">\(u_n = O(w_n)\)</span> (transitivité).</p></li>
+<li><p><span class="math inline">\(u_n \sim v_n \Leftrightarrow u_n - v_n = o(v_n).\)</span></p></li>
+<li><p>Si <span class="math inline">\(\ell \in \mathbb{R}\)</span> et si <span class="math inline">\(u_n \sim \ell\)</span> alors <span class="math inline">\(u_n \to \ell\)</span> (réciproque vraie lorsque <span class="math inline">\(\ell \neq 0\)</span>).</p></li>
+<li><p>Si <span class="math inline">\(u_n = o(v_n)\)</span> alors <span class="math inline">\(\forall \lambda \in \mathbb{R},\ \lambda u_n + v_n \sim v_n.\)</span></p></li>
 </ul>
 </div>
 </div>
@@ -504,7 +726,14 @@ n\geq N\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soient <span class="math inline">\(\alpha, \beta &gt; 0\)</span>: - si <span class="math inline">\(\alpha &lt; \beta\)</span> alors <span class="math inline">\(n^\alpha = o(n^\beta)\)</span> et <span class="math inline">\(\frac{1}{n^\beta} = o(\frac{1}{n^\alpha})\)</span>. - <span class="math inline">\(ln(n)^\alpha = o(n^\beta)\)</span>. - <span class="math inline">\(n^\alpha =o(e^{n\beta})\)</span> et <span class="math inline">\(n^\alpha =o(e^{n^\beta})\)</span>. - <span class="math inline">\(\forall a \in \mathbb{R}, a^n =o(n!)\)</span> et <span class="math inline">\(n^\alpha = o(n!)\)</span>. - <span class="math inline">\(n! = o(n^n)\)</span>.</p>
+<p>Soient <span class="math inline">\(\alpha, \beta &gt; 0\)</span> :</p>
+<ul>
+<li><p>si <span class="math inline">\(\alpha &lt; \beta\)</span> alors <span class="math inline">\(n^\alpha = o(n^\beta)\)</span> et <span class="math inline">\(\dfrac{1}{n^\beta} = o\left(\dfrac{1}{n^\alpha}\right).\)</span></p></li>
+<li><p><span class="math inline">\((\ln n)^\alpha = o(n^\beta).\)</span></p></li>
+<li><p><span class="math inline">\(n^\alpha =o(e^{\beta n})\)</span> et <span class="math inline">\(n^\alpha =o(e^{n^\beta}).\)</span></p></li>
+<li><p><span class="math inline">\(\forall a \in \mathbb{R},\ a^n =o(n!)\)</span> et <span class="math inline">\(n^\alpha = o(n!).\)</span></p></li>
+<li><p><span class="math inline">\(n! = o(n^n).\)</span></p></li>
+</ul>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled" title="Théorème (les équivalents usuels)">
@@ -518,17 +747,18 @@ n\geq N\\
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Soit <span class="math inline">\((u_n)\)</span> une suite de limite nulle (<span class="math inline">\(\lim u_n =0\)</span>). On a:</p>
+<li><p>Soit <span class="math inline">\((u_n)\)</span> une suite de limite nulle (<span class="math inline">\(\lim u_n =0\)</span>), avec <span class="math inline">\(u_n\neq0\)</span>. On a :</p>
 <ul>
-<li>Si <span class="math inline">\(f : ]− a;a[\to \mathbb{R}\)</span> (avec <span class="math inline">\(a &gt; 0\)</span>) est dérivable en <span class="math inline">\(0\)</span>, et si <span class="math inline">\(f'(0) \neq 0\)</span>, alors on a <span class="math inline">\(f(u_n)− f(0) \sim f'(0)u_n\)</span>.</li>
-<li><span class="math inline">\(\sin(u_n) \sim u_n\)</span>,</li>
-<li><span class="math inline">\(e^{u_n} - 1 \sim u_n\)</span>,</li>
-<li><span class="math inline">\(ln(1+u_n)\sim u_n\)</span>,</li>
-<li><span class="math inline">\(\tan(u_n) \sim u_n\)</span>,</li>
-<li><span class="math inline">\((1+u_n)^\alpha -1 \sim \alpha u_n\)</span>.</li>
+<li>Si <span class="math inline">\(f : ]-a;a[\,\to \mathbb{R}\)</span> (avec <span class="math inline">\(a &gt; 0\)</span>) est dérivable en <span class="math inline">\(0\)</span> et si <span class="math inline">\(f'(0) \neq 0,\)</span> alors <span class="math inline">\(f(u_n)- f(0) \sim f'(0)u_n.\)</span></li>
+<li><span class="math inline">\(\sin(u_n) \sim u_n,\)</span></li>
+<li><span class="math inline">\(e^{u_n} - 1 \sim u_n,\)</span></li>
+<li><span class="math inline">\(\ln(1+u_n)\sim u_n,\)</span></li>
+<li><span class="math inline">\(\tan(u_n) \sim u_n,\)</span></li>
+<li><span class="math inline">\(1-\cos(u_n)\sim\dfrac{u_n^2}{2},\)</span></li>
+<li><span class="math inline">\((1+u_n)^\alpha -1 \sim \alpha u_n\)</span> (pour <span class="math inline">\(\alpha\neq0\)</span>).</li>
 </ul></li>
-<li><p>Soit <span class="math inline">\(P(x) = \sum_{k=0}^{p} a_kx^k\)</span> une fonction polynomiale avec <span class="math inline">\(a_p \neq 0\)</span>, alors <span class="math inline">\(P(n) \sim a_pn^p\)</span> (équivalence avec le terme de plus haut degré).</p></li>
-<li><p>Soit <span class="math inline">\(Q(x) =\frac{P(x)}{R(x)}\)</span> une fraction rationnelle avec <span class="math inline">\(a_px^p\)</span> le terme de plus haut degré de <span class="math inline">\(P\)</span> (<span class="math inline">\(a_p \neq 0\)</span>) et <span class="math inline">\(b_rx^r\)</span> celui de <span class="math inline">\(R\)</span> (<span class="math inline">\(b_r \neq 0\)</span>), alors <span class="math inline">\(Q(n) \sim \frac{a_p}{b_r}n^{p−r}\)</span> (équivalence avec le rapport des termes de plus haut degré).</p></li>
+<li><p>Soit <span class="math inline">\(P(x) = \sum_{k=0}^{p} a_kx^k\)</span> une fonction polynomiale avec <span class="math inline">\(a_p \neq 0,\)</span> alors <span class="math inline">\(P(n) \sim a_pn^p\)</span> (équivalence avec le terme de plus haut degré).</p></li>
+<li><p>Soit <span class="math inline">\(Q(x) =\dfrac{P(x)}{R(x)}\)</span> une fraction rationnelle avec <span class="math inline">\(a_px^p\)</span> le terme de plus haut degré de <span class="math inline">\(P\)</span> (<span class="math inline">\(a_p \neq 0\)</span>) et <span class="math inline">\(b_rx^r\)</span> celui de <span class="math inline">\(R\)</span> (<span class="math inline">\(b_r \neq 0\)</span>), alors <span class="math inline">\(Q(n) \sim \dfrac{a_p}{b_r}n^{p-r}\)</span> (équivalence avec le rapport des termes de plus haut degré).</p></li>
 </ul>
 </div>
 </div>
@@ -542,7 +772,14 @@ n\geq N\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soient <span class="math inline">\(u\)</span> et <span class="math inline">\(v\)</span> deux suites, - Si <span class="math inline">\(u_n \sim v_n\)</span> alors les deux suites ont le meme singe à partir d’un certain rang. - Si <span class="math inline">\(u_n \sim v_n\)</span> et si <span class="math inline">\(\lim v_n = l \in \mathbb{R}\cup \{+\infty, -\infty\}\)</span>, alors <span class="math inline">\(\lim u_n = l\)</span>. - Si <span class="math inline">\(u_n \sim v_n\)</span> et si <span class="math inline">\(a_n \sim b_n\)</span>, alors <span class="math inline">\(u_na_n \sim v_nb_n\)</span> (compatibilité avec la multiplication). - Si <span class="math inline">\(u_n \sim v_n\)</span> et si <span class="math inline">\(v\)</span> ne s’annule pas à partir d’un certain rang, alors <span class="math inline">\(\frac{1}{u_n} \sim \frac{1}{v_n}\)</span> (compatibilité avec le passage à l’inverse). - Si <span class="math inline">\(u_n \sim v_n\)</span> et si <span class="math inline">\(v_n &gt; 0\)</span> ne s’annule pas à partir d’un certain rang, alors <span class="math inline">\(u_n^\alpha \sim v_n^\alpha\)</span> pour tout réel <span class="math inline">\(\alpha\)</span> (compatibilité avec les puissances constantes).</p>
+<p>Soient <span class="math inline">\((u_n)\)</span> et <span class="math inline">\((v_n)\)</span> deux suites.</p>
+<ul>
+<li><p>Si <span class="math inline">\(u_n \sim v_n\)</span> alors les deux suites ont le même signe à partir d’un certain rang.</p></li>
+<li><p>Si <span class="math inline">\(u_n \sim v_n\)</span> et si <span class="math inline">\(\lim v_n = \ell \in \mathbb{R}\cup \{+\infty, -\infty\},\)</span> alors <span class="math inline">\(\lim u_n = \ell.\)</span></p></li>
+<li><p>Si <span class="math inline">\(u_n \sim v_n\)</span> et si <span class="math inline">\(a_n \sim b_n,\)</span> alors <span class="math inline">\(u_na_n \sim v_nb_n\)</span> (compatibilité avec la multiplication).</p></li>
+<li><p>Si <span class="math inline">\(u_n \sim v_n\)</span> et si <span class="math inline">\((v_n)\)</span> ne s’annule pas à partir d’un certain rang, alors <span class="math inline">\(\dfrac{1}{u_n} \sim \dfrac{1}{v_n}\)</span> (compatibilité avec le passage à l’inverse).</p></li>
+<li><p>Si <span class="math inline">\(u_n \sim v_n\)</span> et si <span class="math inline">\(v_n &gt; 0\)</span> à partir d’un certain rang, alors <span class="math inline">\(u_n^\alpha \sim v_n^\alpha\)</span> pour tout réel <span class="math inline">\(\alpha\)</span> (compatibilité avec les puissances constantes).</p></li>
+</ul>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -556,9 +793,9 @@ Avertissement
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Si <span class="math inline">\(u_n = o(v_n)\)</span> et <span class="math inline">\(w_n = o(v_n)\)</span> ce ne veut pas dire que <span class="math inline">\(u_n=w_n\)</span>!!!</li>
-<li>Il n’y a pas compatibilité avec l’addition en général, par exemple : <span class="math inline">\(n+\frac{1}{n} \sim n\)</span> et <span class="math inline">\(−n \sim 1−n\)</span>, mais <span class="math inline">\(\frac{1}{n}\)</span> n’est pas équivalent à <span class="math inline">\(1\)</span>.</li>
-<li>Ces propriétés sont utiles pour les calculs de limites qui ne peuvent pas être faits directement : on essaie de se ramener à un équivalent plus simple (s’il y en a …) dont on sait calculer la limite.</li>
+<li><p>Si <span class="math inline">\(u_n = o(v_n)\)</span> et <span class="math inline">\(w_n = o(v_n),\)</span> cela ne veut pas dire que <span class="math inline">\(u_n=w_n\)</span> !!!</p></li>
+<li><p>Il n’y a pas compatibilité avec l’addition en général. Par exemple : <span class="math inline">\(n+\dfrac{1}{n} \sim n\)</span> et <span class="math inline">\(-n \sim 1-n,\)</span> mais la somme des premiers membres vaut <span class="math inline">\(\dfrac{1}{n}\)</span> et celle des seconds vaut <span class="math inline">\(1,\)</span> et <span class="math inline">\(\dfrac{1}{n}\)</span> n’est pas équivalent à <span class="math inline">\(1.\)</span></p></li>
+<li><p>Ces propriétés sont utiles pour les calculs de limites qui ne peuvent pas être faits directement : on essaie de se ramener à un équivalent plus simple (s’il y en a…) dont on sait calculer la limite.</p></li>
 </ul>
 </div>
 </div>
@@ -572,7 +809,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>L’écriture <span class="math inline">\(u_n = v_n + o(w_n)\)</span> signifie que <span class="math inline">\(u_n-v_n = o(w_n)\)</span>.</p>
+<p>L’écriture <span class="math inline">\(u_n = v_n + o(w_n)\)</span> signifie que <span class="math inline">\(u_n-v_n = o(w_n).\)</span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Exemples">
@@ -586,33 +823,35 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><span class="math inline">\(\dfrac{1}{n} = o(1)\)</span></li>
-<li><span class="math inline">\(1=o(n)\)</span></li>
-<li><span class="math inline">\((\dfrac{1}{2})^n = o(n)\)</span></li>
-<li><span class="math inline">\(n^2 = o(n^3)\)</span></li>
-<li><span class="math inline">\((ln(n))^2 = o(n)\)</span></li>
-<li><span class="math inline">\(3^n = o(n!)\)</span></li>
-<li><span class="math inline">\(e^n = o(3^n)\)</span></li>
-<li><span class="math inline">\(n^3 = o(e^n)\)</span></li>
-<li><span class="math inline">\(\dfrac{1}{n+1} = \dfrac{1}{n} + o(\dfrac{1}{n})\)</span></li>
-<li><span class="math inline">\(n^2 + 2ln(n) + 4 + \dfrac{1}{n} \sim n^2\)</span></li>
-<li><span class="math inline">\(\dfrac{2}{n} - \dfrac{4}{n^2} + \dfrac{2}{n^4} \sim \dfrac{2}{n}\)</span></li>
-<li><span class="math inline">\(2n^2 - n+n^3 \sim n^3\)</span></li>
-<li><span class="math inline">\(ln(n) + (ln(n))^2 \sim (ln(n))^2\)</span></li>
+<li><p><span class="math inline">\(\dfrac{1}{n} = o(1)\)</span></p></li>
+<li><p><span class="math inline">\(1=o(n)\)</span></p></li>
+<li><p><span class="math inline">\(\left(\dfrac{1}{2}\right)^n = o(n)\)</span></p></li>
+<li><p><span class="math inline">\(n^2 = o(n^3)\)</span></p></li>
+<li><p><span class="math inline">\((\ln n)^2 = o(n)\)</span></p></li>
+<li><p><span class="math inline">\(3^n = o(n!)\)</span></p></li>
+<li><p><span class="math inline">\(e^n = o(3^n)\)</span></p></li>
+<li><p><span class="math inline">\(n^3 = o(e^n)\)</span></p></li>
+<li><p><span class="math inline">\(\dfrac{1}{n+1} = \dfrac{1}{n} + o\left(\dfrac{1}{n}\right)\)</span></p></li>
+<li><p><span class="math inline">\(n^2 + 2\ln(n) + 4 + \dfrac{1}{n} \sim n^2\)</span></p></li>
+<li><p><span class="math inline">\(\dfrac{2}{n} - \dfrac{4}{n^2} + \dfrac{2}{n^4} \sim \dfrac{2}{n}\)</span></p></li>
+<li><p><span class="math inline">\(2n^2 - n+n^3 \sim n^3\)</span></p></li>
+<li><p><span class="math inline">\(\ln(n) + (\ln n)^2 \sim (\ln n)^2\)</span></p></li>
 </ul>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Théorème (formule de stirling)">
+<div class="callout callout-style-default callout-important callout-titled" title="Théorème (formule de Stirling)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Théorème (formule de stirling)
+<span class="screen-reader-only">Important</span>Théorème (formule de Stirling)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(n! \sim (\frac{n}{e})^n\sqrt{2\pi n}\)</span></p>
+<p><span class="math display">\[
+n! \sim \left(\frac{n}{e}\right)^n\sqrt{2\pi n}
+\]</span></p>
 </div>
 </div>
 </section>
@@ -628,7 +867,8 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit une fonction <span class="math inline">\(f\)</span> dérivable sur <span class="math inline">\(D \subset \mathbb{R}\)</span>. Sa fonction dérivée <span class="math inline">\(f^{'}\)</span> est appelé dérivée première (ou d’ordre 1) de la fonction <span class="math inline">\(f\)</span> sur <span class="math inline">\(D\)</span>. <span class="math inline">\(f^{"}\)</span>, est appelé dérivée seconde (ou d’ordre 2) de la fonction <span class="math inline">\(f\)</span>. Par itération, pour tout naturel <span class="math inline">\(n &gt; 2\)</span>, on définit la fonction dérivée n-ième (ou d’ordre <span class="math inline">\(n\)</span>), notée <span class="math inline">\(f^{(n)}\)</span> comme étant la fonction dérivée de la fonction dérivée d’ordre <span class="math inline">\((n − 1)\)</span>, soit : <span class="math inline">\(f^{(n)}= (f^{(n-1)})^{'}\)</span>.</p>
+<p>Soit une fonction <span class="math inline">\(f\)</span> dérivable sur <span class="math inline">\(D \subset \mathbb{R}.\)</span> Sa fonction dérivée <span class="math inline">\(f'\)</span> est appelée dérivée première (ou d’ordre 1) de la fonction <span class="math inline">\(f\)</span> sur <span class="math inline">\(D.\)</span> La fonction <span class="math inline">\(f''\)</span> est appelée dérivée seconde (ou d’ordre 2) de la fonction <span class="math inline">\(f.\)</span></p>
+<p>Par itération, pour tout naturel <span class="math inline">\(n \geq 2,\)</span> on définit la fonction dérivée <span class="math inline">\(n\)</span>-ième (ou d’ordre <span class="math inline">\(n\)</span>), notée <span class="math inline">\(f^{(n)},\)</span> comme étant la fonction dérivée de la fonction dérivée d’ordre <span class="math inline">\((n - 1)\)</span> (lorsque celle-ci est dérivable), soit : <span class="math inline">\(f^{(n)}= \left(f^{(n-1)}\right)'.\)</span> Par convention, <span class="math inline">\(f^{(0)}=f.\)</span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Exemple">
@@ -641,7 +881,18 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Déterminer les dérivées d’ordre 1, 2 et 3 des fonctions suivantes : - <span class="math inline">\(f(x) = x^4 - 2x^2 + x- 1\)</span> - <span class="math inline">\(g(x) = cos(2x) + sin(2x)\)</span></p>
+<p>Déterminer les dérivées d’ordre 1, 2 et 3 des fonctions suivantes :</p>
+<ul>
+<li><p><span class="math inline">\(f(x) = x^4 - 2x^2 + x- 1\)</span></p></li>
+<li><p><span class="math inline">\(g(x) = \cos(2x) + \sin(2x)\)</span></p></li>
+</ul>
+<p><strong>Solution.</strong></p>
+<p><span class="math display">\[
+f'(x)=4x^3-4x+1,\quad f''(x)=12x^2-4,\quad f^{(3)}(x)=24x
+\]</span></p>
+<p><span class="math display">\[
+g'(x)=-2\sin(2x)+2\cos(2x),\quad g''(x)=-4\cos(2x)-4\sin(2x),\quad g^{(3)}(x)=8\sin(2x)-8\cos(2x)
+\]</span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Exercice">
@@ -654,7 +905,11 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit la fonction <span class="math inline">\(f\)</span> définie sur <span class="math inline">\(] − 1 ; +\infty[\)</span> par : <span class="math inline">\(f(x) = \ln(x + 1)\)</span>. 1. Calculer les dérivées d’ordre 1, 2, 3 et 4. 1. En déduire et Démontrer par récurrence l’expression de la dérivée d’ordre <span class="math inline">\(n\)</span>.</p>
+<p>Soit la fonction <span class="math inline">\(f\)</span> définie sur <span class="math inline">\(]-1 ; +\infty[\)</span> par : <span class="math inline">\(f(x) = \ln(x + 1).\)</span></p>
+<ol type="1">
+<li><p>Calculer les dérivées d’ordre 1, 2, 3 et 4.</p></li>
+<li><p>En déduire et démontrer par récurrence l’expression de la dérivée d’ordre <span class="math inline">\(n.\)</span></p></li>
+</ol>
 </div>
 </div>
 </section>
@@ -670,12 +925,18 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On note : - <span class="math inline">\(\mathscr{C}^0(I)\)</span> est l’ensemble des fonctions continues sur <span class="math inline">\(I\)</span>. - <span class="math inline">\(\mathscr{C}^1(I)\)</span> est l’ensemble des fonctions continûment dérivables sur <span class="math inline">\(I\)</span>, i.e.&nbsp;l’ensemble des fonctions qui sont dérivables sur <span class="math inline">\(I\)</span> dont la fonction dérivée <span class="math inline">\(f^{'}\)</span> est continue sur <span class="math inline">\(I\)</span>. - <span class="math inline">\(\mathscr{C}^n(I)\)</span> est l’ensemble des fonctions <span class="math inline">\(n\)</span> fois continûment dérivables sur <span class="math inline">\(I\)</span>, i.e.&nbsp;l’ensemble des fonctions n-fois dérivables sur <span class="math inline">\(I\)</span> dont la fonction dérivée n-ième <span class="math inline">\(f^{(n)}\)</span> est continue sur <span class="math inline">\(I\)</span> ; - <span class="math inline">\(\mathscr{C}^\infty(I)\)</span> est l’ensemble des fonctions indéfiniment dérivables sur <span class="math inline">\(I\)</span>.</p>
+<p>On note :</p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{C}^0(I)\)</span> l’ensemble des fonctions continues sur <span class="math inline">\(I.\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{C}^1(I)\)</span> l’ensemble des fonctions continûment dérivables sur <span class="math inline">\(I,\)</span> c’est-à-dire l’ensemble des fonctions qui sont dérivables sur <span class="math inline">\(I\)</span> et dont la fonction dérivée <span class="math inline">\(f'\)</span> est continue sur <span class="math inline">\(I.\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{C}^n(I)\)</span> l’ensemble des fonctions <span class="math inline">\(n\)</span> fois continûment dérivables sur <span class="math inline">\(I,\)</span> c’est-à-dire l’ensemble des fonctions <span class="math inline">\(n\)</span> fois dérivables sur <span class="math inline">\(I\)</span> dont la fonction dérivée <span class="math inline">\(n\)</span>-ième <span class="math inline">\(f^{(n)}\)</span> est continue sur <span class="math inline">\(I.\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{C}^\infty(I)\)</span> l’ensemble des fonctions indéfiniment dérivables sur <span class="math inline">\(I.\)</span></p></li>
+</ul>
 </div>
 </div>
 </section>
-<section id="dérivée-n-ième-usuelles" class="level2">
-<h2 class="anchored" data-anchor-id="dérivée-n-ième-usuelles">Dérivée n-ième usuelles</h2>
+<section id="dérivées-n-ièmes-usuelles" class="level2">
+<h2 class="anchored" data-anchor-id="dérivées-n-ièmes-usuelles">Dérivées <span class="math inline">\(n\)</span>-ièmes usuelles</h2>
 <div class="callout callout-style-default callout-important callout-titled" title="Proposition">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -686,20 +947,20 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soient <span class="math inline">\(a\in \mathbb{R}\)</span>, <span class="math inline">\(n\in \mathbb{N}\)</span>, <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> deux fonctions telles ques <span class="math inline">\(\forall x \in \mathbb{R}, f(x) = x^n\)</span> et <span class="math inline">\(g(x) = (x-a)^n\)</span>. Alors <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont de classe <span class="math inline">\(\mathscr{C}^\infty\)</span> sur <span class="math inline">\(\mathbb{R}\)</span> et <span class="math inline">\(\forall k \in \mathbb{N}, \forall x \in \mathbb{R},\)</span></p>
+<p>Soient <span class="math inline">\(a\in \mathbb{R}\)</span>, <span class="math inline">\(n\in \mathbb{N}\)</span>, <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> deux fonctions telles que <span class="math inline">\(\forall x \in \mathbb{R},\ f(x) = x^n\)</span> et <span class="math inline">\(g(x) = (x-a)^n.\)</span> Alors <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont de classe <span class="math inline">\(\mathscr{C}^\infty\)</span> sur <span class="math inline">\(\mathbb{R}\)</span> et <span class="math inline">\(\forall k \in \mathbb{N},\ \forall x \in \mathbb{R},\)</span></p>
 <p><span class="math display">\[
 f^{(k)}(x) =\left\{
 \begin{array}{ll}
-n(n-1)\times ...\times (n-k+1)x^{n-k} \quad\mbox{si} \;k \leq n\\
-0 \quad\mbox{si}\;k&gt;l
+n(n-1)\times \ldots\times (n-k+1)\,x^{n-k} &amp; \text{si } k \leq n,\\
+0 &amp; \text{si } k&gt;n,
 \end{array}
 \right.
 \]</span></p>
 <p><span class="math display">\[
 g^{(k)}(x) =\left\{
 \begin{array}{ll}
-n(n-1)\times ...\times (n-k+1)(x-a)^{n-k} \quad\mbox{si} \;k \leq n\\
-0 \quad\mbox{si}\;k&gt;l
+n(n-1)\times \ldots\times (n-k+1)\,(x-a)^{n-k} &amp; \text{si } k \leq n,\\
+0 &amp; \text{si } k&gt;n.
 \end{array}
 \right.
 \]</span></p>
@@ -715,25 +976,10 @@ n(n-1)\times ...\times (n-k+1)(x-a)^{n-k} \quad\mbox{si} \;k \leq n\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soient <span class="math inline">\(a\in \mathbb{R}\)</span>, <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> deux fonctions telles ques <span class="math inline">\(\forall x \in \mathbb{R^{*}}, f(x) = \dfrac{1}{x}\)</span> et <span class="math inline">\(\forall x \in \mathbb{R}\setminus \{a\}, g(x) = \dfrac{1}{x-a}\)</span>. Alors <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont de classe <span class="math inline">\(\mathscr{C}^\infty\)</span> sur <span class="math inline">\(\mathbb{R^{*}}\)</span> et <span class="math inline">\(\mathbb{R}\setminus \{a\}\)</span> respectivement et on a: - <span class="math inline">\(\forall n \in \mathbb{N}, \forall x \in \mathbb{R^{*}}, f^{(n)}(x) =\dfrac{(-1)^nn!}{x^{n+1}}\)</span> - <span class="math inline">\(\forall n \in \mathbb{N}, \forall x \in \mathbb{R^{*}}, g^{(n)}(x) =\dfrac{(-1)^nn!}{(x-a)^{n+1}}\)</span></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled" title="Proposition">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Proposition
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Les fonctions <span class="math inline">\(\exp, \ln, \sin, \cos\)</span> sont de classe <span class="math inline">\(\mathscr{C}^\infty\)</span> sur leur domaine de définition et on pour tout <span class="math inline">\(n\in \mathbb{N}\)</span>:</p>
+<p>Soit <span class="math inline">\(a\in \mathbb{R}\)</span> et soient <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> deux fonctions telles que <span class="math inline">\(\forall x \in \mathbb{R}^{*},\ f(x) = \dfrac{1}{x}\)</span> et <span class="math inline">\(\forall x \in \mathbb{R}\setminus \{a\},\ g(x) = \dfrac{1}{x-a}.\)</span> Alors <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont de classe <span class="math inline">\(\mathscr{C}^\infty\)</span> sur <span class="math inline">\(\mathbb{R}^{*}\)</span> et <span class="math inline">\(\mathbb{R}\setminus \{a\}\)</span> respectivement et on a :</p>
 <ul>
-<li><span class="math inline">\(\exp^{(n)}(x) = \exp(x)\)</span></li>
-<li><span class="math inline">\(\ln^{(n)}(x) = \dfrac{(-1)^{n-1}(n-1)!}{x^{n}}\)</span></li>
-<li><span class="math inline">\(\sin^{(n)}(x) = \sin(x+n\frac{\pi}{2})\)</span></li>
-<li><span class="math inline">\(\cos^{(n)}(x) = \cos(x+ n\frac{\pi}{2})\)</span></li>
+<li><p><span class="math inline">\(\forall n \in \mathbb{N},\ \forall x \in \mathbb{R}^{*},\ f^{(n)}(x) =\dfrac{(-1)^n\,n!}{x^{n+1}}\)</span></p></li>
+<li><p><span class="math inline">\(\forall n \in \mathbb{N},\ \forall x \in \mathbb{R}\setminus \{a\},\ g^{(n)}(x) =\dfrac{(-1)^n\,n!}{(x-a)^{n+1}}\)</span></p></li>
 </ul>
 </div>
 </div>
@@ -747,7 +993,30 @@ n(n-1)\times ...\times (n-k+1)(x-a)^{n-k} \quad\mbox{si} \;k \leq n\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions de classe <span class="math inline">\(\mathscr{C}^n\)</span> sur un intervalle <span class="math inline">\(I\)</span>, alors pour tout <span class="math inline">\(\lambda\in \mathbb{R}, (\lambda f + g)\)</span> et <span class="math inline">\(fg\)</span> sont encore des fonctions de classe <span class="math inline">\(\mathscr{C}^n\)</span> et de plus : - <span class="math inline">\((αf + g)^{(n)} = αf^{(n)} + g^{(n)}\)</span> - <span class="math inline">\((fg)^{(n)} = \sum_{i=0}^{n} \binom{n}{k}f^{(k)}g^{(n-k})\)</span> ( avec <span class="math inline">\(\binom{n}{k} =\dfrac{n!}{k!(n-k)!})\)</span></p>
+<p>Les fonctions <span class="math inline">\(\exp,\ \ln,\ \sin,\ \cos\)</span> sont de classe <span class="math inline">\(\mathscr{C}^\infty\)</span> sur leur domaine de définition et on a, pour tout <span class="math inline">\(n\in \mathbb{N}\)</span> (et pour tout <span class="math inline">\(n\in\mathbb{N}^{*}\)</span> dans le cas de <span class="math inline">\(\ln\)</span>) :</p>
+<ul>
+<li><p><span class="math inline">\(\exp^{(n)}(x) = \exp(x)\)</span></p></li>
+<li><p><span class="math inline">\(\ln^{(n)}(x) = \dfrac{(-1)^{n-1}(n-1)!}{x^{n}}\)</span></p></li>
+<li><p><span class="math inline">\(\sin^{(n)}(x) = \sin\left(x+n\dfrac{\pi}{2}\right)\)</span></p></li>
+<li><p><span class="math inline">\(\cos^{(n)}(x) = \cos\left(x+ n\dfrac{\pi}{2}\right)\)</span></p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition (Formule de Leibniz)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Proposition (Formule de Leibniz)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions de classe <span class="math inline">\(\mathscr{C}^n\)</span> sur un intervalle <span class="math inline">\(I,\)</span> alors pour tout <span class="math inline">\(\lambda\in \mathbb{R},\)</span> <span class="math inline">\(\lambda f + g\)</span> et <span class="math inline">\(fg\)</span> sont encore des fonctions de classe <span class="math inline">\(\mathscr{C}^n\)</span> et de plus :</p>
+<ul>
+<li><p><span class="math inline">\((\lambda f + g)^{(n)} = \lambda f^{(n)} + g^{(n)}\)</span></p></li>
+<li><p><span class="math inline">\((fg)^{(n)} = \displaystyle\sum_{k=0}^{n} \binom{n}{k}f^{(k)}g^{(n-k)}\)</span> (avec <span class="math inline">\(\binom{n}{k} =\dfrac{n!}{k!(n-k)!}\)</span>)</p></li>
+</ul>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled" title="Proposition">
@@ -760,7 +1029,7 @@ n(n-1)\times ...\times (n-k+1)(x-a)^{n-k} \quad\mbox{si} \;k \leq n\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soient <span class="math inline">\(I\)</span> et <span class="math inline">\(J\)</span> deux intervalles et soit <span class="math inline">\(f : I \to \mathbb{R}\)</span> et <span class="math inline">\(g : J \to \mathbb{R}\)</span> avec <span class="math inline">\(f(I) \subset J\)</span>. Si <span class="math inline">\(f\)</span> est de classe <span class="math inline">\(\mathscr{C}^n\)</span> sur <span class="math inline">\(I\)</span>, et si <span class="math inline">\(g\)</span> est de classe <span class="math inline">\(\mathscr{C}^n\)</span> sur <span class="math inline">\(J\)</span>, alors <span class="math inline">\(g\circ f\)</span> est de classe <span class="math inline">\(\mathscr{C}^n\)</span> sur <span class="math inline">\(I\)</span>.</p>
+<p>Soient <span class="math inline">\(I\)</span> et <span class="math inline">\(J\)</span> deux intervalles et soient <span class="math inline">\(f : I \to \mathbb{R}\)</span> et <span class="math inline">\(g : J \to \mathbb{R}\)</span> avec <span class="math inline">\(f(I) \subset J.\)</span> Si <span class="math inline">\(f\)</span> est de classe <span class="math inline">\(\mathscr{C}^n\)</span> sur <span class="math inline">\(I\)</span> et si <span class="math inline">\(g\)</span> est de classe <span class="math inline">\(\mathscr{C}^n\)</span> sur <span class="math inline">\(J,\)</span> alors <span class="math inline">\(g\circ f\)</span> est de classe <span class="math inline">\(\mathscr{C}^n\)</span> sur <span class="math inline">\(I.\)</span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Remarques">
@@ -774,16 +1043,17 @@ n(n-1)\times ...\times (n-k+1)(x-a)^{n-k} \quad\mbox{si} \;k \leq n\\
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><span class="math inline">\(\forall \alpha \in \mathbb{R}, x \mapsto x^\alpha=\exp(\alpha\ln(x))\)</span> est de classe <span class="math inline">\(\mathscr{C}^\infty\)</span> sur <span class="math inline">\(]0, +\infty[\)</span>.</li>
-<li><span class="math inline">\(\forall a &gt;0, x \mapsto a^x=\exp(x\ln(a))\)</span> est de classe <span class="math inline">\(\mathscr{C}^\infty\)</span> sur <span class="math inline">\(\mathbb{R}\)</span>.</li>
-<li>Si <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions de classe <span class="math inline">\(\mathscr{C}^n\)</span> sur un intervalle <span class="math inline">\(I\)</span> et si <span class="math inline">\(g\)</span> ne s’annule pas sur l’intervalle <span class="math inline">\(I\)</span>, alors la fonction <span class="math inline">\(x \mapsto\dfrac{f(x)}{g(x)}\)</span> est de classe <span class="math inline">\(\mathscr{C}^n\)</span> sur l’intervalle <span class="math inline">\(I\)</span>.</li>
+<li><p><span class="math inline">\(\forall \alpha \in \mathbb{R},\ x \mapsto x^\alpha=\exp(\alpha\ln(x))\)</span> est de classe <span class="math inline">\(\mathscr{C}^\infty\)</span> sur <span class="math inline">\(]0, +\infty[.\)</span></p></li>
+<li><p><span class="math inline">\(\forall a &gt;0,\ x \mapsto a^x=\exp(x\ln(a))\)</span> est de classe <span class="math inline">\(\mathscr{C}^\infty\)</span> sur <span class="math inline">\(\mathbb{R}.\)</span></p></li>
+<li><p>Si <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions de classe <span class="math inline">\(\mathscr{C}^n\)</span> sur un intervalle <span class="math inline">\(I\)</span> et si <span class="math inline">\(g\)</span> ne s’annule pas sur l’intervalle <span class="math inline">\(I,\)</span> alors la fonction <span class="math inline">\(x \mapsto\dfrac{f(x)}{g(x)}\)</span> est de classe <span class="math inline">\(\mathscr{C}^n\)</span> sur l’intervalle <span class="math inline">\(I.\)</span></p></li>
 </ul>
 </div>
 </div>
 </section>
 <section id="comparaison-des-fonctions" class="level2">
 <h2 class="anchored" data-anchor-id="comparaison-des-fonctions">Comparaison des fonctions</h2>
-<p>Soit I un intervalle de <span class="math inline">\(\mathbb{R}\)</span> et <span class="math inline">\(a\in \bar{I}\)</span>. Nous supposerons ici que <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions qui ne s’annulent pas sur un voisinage de <span class="math inline">\(a\)</span> privé de <span class="math inline">\(a\)</span>. Il s’agit ici de comparer les 2 fonctions au voisinage de <span class="math inline">\(a\)</span>. Pour cela, formons leur rapport <span class="math inline">\(\dfrac{f(x)}{g(x)}\)</span> et regardons ce qui se passe lorsque <span class="math inline">\(x \to a\)</span>.</p>
+<p>Soit <span class="math inline">\(I\)</span> un intervalle de <span class="math inline">\(\mathbb{R}\)</span> et <span class="math inline">\(a\in \overline{I}\)</span> (éventuellement <span class="math inline">\(a=\pm\infty\)</span>). Nous supposerons ici que <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions qui ne s’annulent pas sur un voisinage de <span class="math inline">\(a\)</span> privé de <span class="math inline">\(a.\)</span></p>
+<p>Il s’agit ici de comparer les deux fonctions au voisinage de <span class="math inline">\(a.\)</span> Pour cela, formons leur rapport <span class="math inline">\(\dfrac{f(x)}{g(x)}\)</span> et regardons ce qui se passe lorsque <span class="math inline">\(x \to a.\)</span></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Définition">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -795,23 +1065,19 @@ n(n-1)\times ...\times (n-k+1)(x-a)^{n-k} \quad\mbox{si} \;k \leq n\\
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Si <span class="math inline">\(\dfrac{f(x)}{g(x)}\)</span> est bornée au voisinage de <span class="math inline">\(a\)</span>, on dira que <span class="math inline">\(f\)</span> est dominée par <span class="math inline">\(g\)</span> au voisinage de <span class="math inline">\(a\)</span> et on écrit:</li>
-</ol>
+<li><p>Si <span class="math inline">\(\dfrac{f(x)}{g(x)}\)</span> est bornée au voisinage de <span class="math inline">\(a,\)</span> on dira que <span class="math inline">\(f\)</span> est dominée par <span class="math inline">\(g\)</span> au voisinage de <span class="math inline">\(a\)</span> et on écrit :</p>
 <p><span class="math display">\[
-f  \underset{x\to a}{O}(g) \mbox{ ou } f  \underset{a}{O}(g) \mbox{ ou encore } f = O(g) \mbox{ au voisinage de } a
-\]</span></p>
-<ol type="1">
-<li>Si <span class="math inline">\(\dfrac{f(x)}{g(x)}\)</span> tend vers <span class="math inline">\(0\)</span> lorsque <span class="math inline">\(x\)</span> tend vers <span class="math inline">\(a\)</span> (<span class="math inline">\(\underset{x\to a}{\lim} \dfrac{f(x)}{g(x)}= 0\)</span>), on dira que <span class="math inline">\(f\)</span> est négligeable devant <span class="math inline">\(g\)</span> au voisinage de <span class="math inline">\(a\)</span> et on écrit:</li>
-</ol>
+f  \underset{x\to a}{=} O(g)\quad\text{ou}\quad f  \underset{a}{=} O(g)\quad\text{ou encore}\quad f = O(g)\ \text{au voisinage de } a
+\]</span></p></li>
+<li><p>Si <span class="math inline">\(\dfrac{f(x)}{g(x)}\)</span> tend vers <span class="math inline">\(0\)</span> lorsque <span class="math inline">\(x\)</span> tend vers <span class="math inline">\(a\)</span> (<span class="math inline">\(\lim\limits_{x\to a} \dfrac{f(x)}{g(x)}= 0\)</span>), on dira que <span class="math inline">\(f\)</span> est négligeable devant <span class="math inline">\(g\)</span> au voisinage de <span class="math inline">\(a\)</span> et on écrit :</p>
 <p><span class="math display">\[
-f  \underset{x\to a}{o}(g) \mbox{ ou } f  \underset{a}{o}(g) \mbox{ ou encore } f = o(g) \mbox{ au voisinage de } a
-\]</span></p>
-<ol type="1">
-<li>Si <span class="math inline">\(\dfrac{f(x)}{g(x)}\)</span> tend vers <span class="math inline">\(1\)</span> lorsque <span class="math inline">\(x\)</span> tend vers <span class="math inline">\(a\)</span> (<span class="math inline">\(\underset{x\to a}{\lim} \dfrac{f(x)}{g(x)}= 1\)</span>), on dira que <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont équivalentes au voisinage de <span class="math inline">\(a\)</span> et on écrit:</li>
-</ol>
+f  \underset{x\to a}{=} o(g)\quad\text{ou}\quad f  \underset{a}{=} o(g)\quad\text{ou encore}\quad f = o(g)\ \text{au voisinage de } a
+\]</span></p></li>
+<li><p>Si <span class="math inline">\(\dfrac{f(x)}{g(x)}\)</span> tend vers <span class="math inline">\(1\)</span> lorsque <span class="math inline">\(x\)</span> tend vers <span class="math inline">\(a\)</span> (<span class="math inline">\(\lim\limits_{x\to a} \dfrac{f(x)}{g(x)}= 1\)</span>), on dira que <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont équivalentes au voisinage de <span class="math inline">\(a\)</span> et on écrit :</p>
 <p><span class="math display">\[
-f  \underset{x\to a}{\sim}g \mbox{ ou } f  \underset{a}{\sim}g \mbox{ ou encore } f \sim g \mbox{ au voisinage de } a
-\]</span></p>
+f  \underset{x\to a}{\sim}g\quad\text{ou}\quad f  \underset{a}{\sim}g\quad\text{ou encore}\quad f \sim g\ \text{au voisinage de } a
+\]</span></p></li>
+</ol>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Remarque">
@@ -825,15 +1091,15 @@ f  \underset{x\to a}{\sim}g \mbox{ ou } f  \underset{a}{\sim}g \mbox{ ou encore 
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Notation : <span class="math inline">\(f(x) = O(g(x))\)</span>, <span class="math inline">\(f(x) = o(g(x))\)</span>, <span class="math inline">\(f(x) \sim g(x)\)</span> au voisinage de <span class="math inline">\(a\)</span>.</li>
-<li>Par abus de langage, on notera <span class="math inline">\(O(g)\)</span> (respectivement <span class="math inline">\(o(g)\)</span>) toute fonction étant un grand <span class="math inline">\(O\)</span> (repectivement petit <span class="math inline">\(o\)</span>) de <span class="math inline">\(g\)</span> au voisinage de <span class="math inline">\(a\)</span>.</li>
-<li>Lorsque <span class="math inline">\(f(x) = O(g(x))\)</span>, on pourra dans un calcul remplacer <span class="math inline">\(f(x)\)</span> par <span class="math inline">\(O(g(x))\)</span> mais <strong>ATTENTION! IL EST FAUX de remplacer <span class="math inline">\(O(g(x))\)</span> par <span class="math inline">\(f(x)\)</span></strong>.</li>
-<li>Lorsque <span class="math inline">\(f(x) = o(g(x))\)</span>, on pourra dans un calcul remplacer <span class="math inline">\(f(x)\)</span> par <span class="math inline">\(o(g(x))\)</span> mais <strong>ATTENTION! IL EST FAUX de remplacer <span class="math inline">\(o(g(x))\)</span> par <span class="math inline">\(f(x)\)</span></strong>.</li>
-<li><strong>Ne JAMAIS écrire que <span class="math inline">\(f(x) \underset{a}{\sim}0\)</span> puisque la fonction nulle ne vérifie pas les conditions d’application de la définition!!</strong></li>
-<li>Il faut toujours specifier le voisinage du point dont on compare deux fonctions!</li>
-<li><span class="math inline">\(f = O(1)\)</span> au voisinage de <span class="math inline">\(a\)</span> signifie que <span class="math inline">\(f\)</span> est bornée au voisinage de <span class="math inline">\(a\)</span>.</li>
-<li><span class="math inline">\(f = o(1)\)</span> au voisinage de <span class="math inline">\(a\)</span> signifie que <span class="math inline">\(f\)</span> tend vers <span class="math inline">\(0\)</span> lorsque <span class="math inline">\(x\to a\)</span> (<span class="math inline">\(\underset{x\to a}{\lim} f(x) = 0\)</span>).</li>
-<li>Il n’y a aucune relation entre <span class="math inline">\(f(x) \underset{a}{\sim} g(x)\)</span> et <span class="math inline">\(\underset{x\to a}{\lim} f(x) - g(x) = 0\)</span>.</li>
+<li><p>Notation : <span class="math inline">\(f(x) = O(g(x))\)</span>, <span class="math inline">\(f(x) = o(g(x))\)</span>, <span class="math inline">\(f(x) \sim g(x)\)</span> au voisinage de <span class="math inline">\(a.\)</span></p></li>
+<li><p>Par abus de langage, on notera <span class="math inline">\(O(g)\)</span> (respectivement <span class="math inline">\(o(g)\)</span>) toute fonction étant un grand <span class="math inline">\(O\)</span> (respectivement un petit <span class="math inline">\(o\)</span>) de <span class="math inline">\(g\)</span> au voisinage de <span class="math inline">\(a.\)</span></p></li>
+<li><p>Lorsque <span class="math inline">\(f(x) = O(g(x)),\)</span> on pourra dans un calcul remplacer <span class="math inline">\(f(x)\)</span> par <span class="math inline">\(O(g(x))\)</span> mais <strong>ATTENTION ! IL EST FAUX de remplacer <span class="math inline">\(O(g(x))\)</span> par <span class="math inline">\(f(x)\)</span></strong>.</p></li>
+<li><p>Lorsque <span class="math inline">\(f(x) = o(g(x)),\)</span> on pourra dans un calcul remplacer <span class="math inline">\(f(x)\)</span> par <span class="math inline">\(o(g(x))\)</span> mais <strong>ATTENTION ! IL EST FAUX de remplacer <span class="math inline">\(o(g(x))\)</span> par <span class="math inline">\(f(x)\)</span></strong>.</p></li>
+<li><p><strong>Ne JAMAIS écrire que <span class="math inline">\(f(x) \underset{a}{\sim}0\)</span>,</strong> puisque la fonction nulle ne vérifie pas les conditions d’application de la définition !</p></li>
+<li><p>Il faut toujours spécifier le voisinage du point où l’on compare deux fonctions !</p></li>
+<li><p><span class="math inline">\(f = O(1)\)</span> au voisinage de <span class="math inline">\(a\)</span> signifie que <span class="math inline">\(f\)</span> est bornée au voisinage de <span class="math inline">\(a.\)</span></p></li>
+<li><p><span class="math inline">\(f = o(1)\)</span> au voisinage de <span class="math inline">\(a\)</span> signifie que <span class="math inline">\(f\)</span> tend vers <span class="math inline">\(0\)</span> lorsque <span class="math inline">\(x\to a\)</span> (<span class="math inline">\(\lim\limits_{x\to a} f(x) = 0\)</span>).</p></li>
+<li><p>Il n’y a aucune relation entre « <span class="math inline">\(f(x) \underset{a}{\sim} g(x)\)</span> » et « <span class="math inline">\(\lim\limits_{x\to a} (f(x) - g(x)) = 0\)</span> ». Par exemple, en <span class="math inline">\(+\infty\)</span> : <span class="math inline">\(x+1\sim x\)</span> mais <span class="math inline">\((x+1)-x=1\not\to0\)</span> ; et <span class="math inline">\(\frac{1}{x}-\frac{1}{x^2}\to0\)</span> mais <span class="math inline">\(\frac{1}{x}\not\sim\frac{1}{x^2}\)</span>.</p></li>
 </ul>
 </div>
 </div>
@@ -848,19 +1114,19 @@ f  \underset{x\to a}{\sim}g \mbox{ ou } f  \underset{a}{\sim}g \mbox{ ou encore 
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Soit <span class="math inline">\(f(x) = 3x^5 − x^4 + 2x\)</span>. Alors:
+<li><p>Soit <span class="math inline">\(f(x) = 3x^5 - x^4 + 2x.\)</span> Alors :</p>
 <ul>
-<li><span class="math inline">\(f(x) = O(x)\)</span> au voisinage de <span class="math inline">\(0\)</span>.</li>
-<li><span class="math inline">\(f(x) = O(x^5)\)</span> au voisinge de <span class="math inline">\(+\infty\)</span>.</li>
-<li><span class="math inline">\(f(x) = o(x)\)</span> au voisinge de <span class="math inline">\(0\)</span>.</li>
-<li><span class="math inline">\(f(x) = o(x^6)\)</span> au voisinage de <span class="math inline">\(+\infty\)</span>.</li>
+<li><span class="math inline">\(f(x) = O(x)\)</span> au voisinage de <span class="math inline">\(0.\)</span></li>
+<li><span class="math inline">\(f(x) = O(x^5)\)</span> au voisinage de <span class="math inline">\(+\infty.\)</span></li>
+<li><span class="math inline">\(f(x) = o(1)\)</span> au voisinage de <span class="math inline">\(0\)</span> (et même <span class="math inline">\(f(x)\sim 2x\)</span> au voisinage de <span class="math inline">\(0\)</span>).</li>
+<li><span class="math inline">\(f(x) = o(x^6)\)</span> au voisinage de <span class="math inline">\(+\infty.\)</span></li>
 </ul></li>
-<li>Si <span class="math inline">\(P\)</span> est une fonction polynomiale non nulle :
+<li><p>Si <span class="math inline">\(P\)</span> est une fonction polynomiale non nulle :</p>
 <ul>
-<li><span class="math inline">\(P\)</span> est équivalente à son monôme de plus haut degré au voisinage de <span class="math inline">\(+\infty\)</span></li>
-<li><span class="math inline">\(P\)</span> est équivalente à son monôme de plus bas degré au voisinage de <span class="math inline">\(0\)</span></li>
+<li><span class="math inline">\(P\)</span> est équivalente à son monôme de plus haut degré au voisinage de <span class="math inline">\(+\infty\)</span> (et de <span class="math inline">\(-\infty\)</span>) ;</li>
+<li><span class="math inline">\(P\)</span> est équivalente à son monôme de plus bas degré au voisinage de <span class="math inline">\(0.\)</span></li>
 </ul></li>
-<li>Au voisinage de <span class="math inline">\(+\infty\)</span> : <span class="math inline">\(ch(x) \sim \dfrac{e^x}{2}\)</span> et <span class="math inline">\(sh(x) \sim \dfrac{e^x}{2}\)</span></li>
+<li><p>Au voisinage de <span class="math inline">\(+\infty\)</span> : <span class="math inline">\(\operatorname{ch}(x) \sim \dfrac{e^x}{2}\)</span> et <span class="math inline">\(\operatorname{sh}(x) \sim \dfrac{e^x}{2}.\)</span></p></li>
 </ol>
 </div>
 </div>
@@ -874,132 +1140,155 @@ f  \underset{x\to a}{\sim}g \mbox{ ou } f  \underset{a}{\sim}g \mbox{ ou encore 
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Une fonction donnée admet une infinité d’équivalents au voisinage d’un point a. Seulement l’intérêt d’un équivalent est de remplacer une fonction par une autre fonction plus simple. On choisira donc toujours l’équivalent le plus simple.</p>
-<p>Par exemple, au voisinage de <span class="math inline">\(+\infty\)</span> on a: - <span class="math inline">\(x^3 - 2x^2 + 3x-5 \sim x^3\)</span> - <span class="math inline">\(x^3 - 2x^2 + 3x-5 \sim x^3-5x+8\)</span> - <span class="math inline">\(x^3 - 2x^2 + 3x-5 \sim x^3+4x^2-6\)</span> - <span class="math inline">\(x^3 - 2x^2 + 3x-5 \sim x^3 - 2x^2\)</span></p>
-<p>Seul le premier équivalent a un intérêt!!</p>
+<p>Une fonction donnée admet une infinité d’équivalents au voisinage d’un point <span class="math inline">\(a.\)</span> Cependant, l’intérêt d’un équivalent est de remplacer une fonction par une autre fonction plus simple. On choisira donc toujours l’équivalent le plus simple.</p>
+<p>Par exemple, au voisinage de <span class="math inline">\(+\infty\)</span> on a :</p>
+<ul>
+<li><span class="math inline">\(x^3 - 2x^2 + 3x-5 \sim x^3\)</span></li>
+<li><span class="math inline">\(x^3 - 2x^2 + 3x-5 \sim x^3-5x+8\)</span></li>
+<li><span class="math inline">\(x^3 - 2x^2 + 3x-5 \sim x^3+4x^2-6\)</span></li>
+<li><span class="math inline">\(x^3 - 2x^2 + 3x-5 \sim x^3 - 2x^2\)</span></li>
+</ul>
+<p>Seul le premier équivalent a un intérêt !</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Proprietes">
+<div class="callout callout-style-default callout-important callout-titled" title="Propriétés">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Proprietes
+<span class="screen-reader-only">Important</span>Propriétés
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Soit <span class="math inline">\(p, q \in \mathbb{N}\)</span> alors <span class="math inline">\(x^p = o(x^q)\)</span> au voisinage de <span class="math inline">\(0\)</span> <span class="math inline">\(\Leftrightarrow p&lt;p\)</span>.</p></li>
-<li><p>Si au voisinage d’un point <span class="math inline">\(a\)</span> on a <span class="math inline">\(f(x) = o(g(x))\)</span> alors <span class="math inline">\(f(x) = O(g(x))\)</span>.</p></li>
-<li><p>Soient <span class="math inline">\(\alpha, \beta, \gamma &gt;0\)</span> trois reels strictment positifs:</p>
+<li><p>Soient <span class="math inline">\(p, q \in \mathbb{N}.\)</span> Alors <span class="math inline">\(x^p = o(x^q)\)</span> au voisinage de <span class="math inline">\(0\)</span> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(q&lt;p.\)</span></p></li>
+<li><p>Si au voisinage d’un point <span class="math inline">\(a\)</span> on a <span class="math inline">\(f(x) = o(g(x))\)</span> alors <span class="math inline">\(f(x) = O(g(x)).\)</span></p></li>
+<li><p>Soient <span class="math inline">\(\alpha, \beta, \gamma &gt;0\)</span> trois réels strictement positifs :</p>
 <ul>
-<li>Comparaison <span class="math inline">\(\ln\)</span> et puissances:
+<li>Comparaison de <span class="math inline">\(\ln\)</span> et des puissances :
 <ul>
-<li>au voisinage de <span class="math inline">\(+\infty\)</span>: <span class="math inline">\((\ln(x))^\alpha = o(x^\beta)\)</span>.</li>
-<li>au voisinage de 0+: <span class="math inline">\(|\ln(x)|^\alpha = o(\frac{1}{x^\beta})\)</span>.</li>
+<li>au voisinage de <span class="math inline">\(+\infty\)</span> : <span class="math inline">\((\ln(x))^\alpha = o(x^\beta).\)</span></li>
+<li>au voisinage de <span class="math inline">\(0^+\)</span> : <span class="math inline">\(|\ln(x)|^\alpha = o\left(\dfrac{1}{x^\beta}\right).\)</span></li>
 </ul></li>
-<li>Comparaison puissance et exponentielle :
+<li>Comparaison des puissances et de l’exponentielle :
 <ul>
-<li>au voisinage de <span class="math inline">\(+\infty\)</span>: <span class="math inline">\(x^\beta = o(e^{\gamma x})\)</span></li>
-<li>au voisinage de <span class="math inline">\(+\infty\)</span>: <span class="math inline">\(x^\beta = o(a^{x})\)</span> si <span class="math inline">\(a&gt;1\)</span>.</li>
-<li>au voisinage de <span class="math inline">\(-\infty\)</span>: <span class="math inline">\(e^{\gamma x} = o(\frac{1}{x^\beta})\)</span> si <span class="math inline">\(\beta \in \mathbb{N}\)</span>.</li>
+<li>au voisinage de <span class="math inline">\(+\infty\)</span> : <span class="math inline">\(x^\beta = o(e^{\gamma x}).\)</span></li>
+<li>au voisinage de <span class="math inline">\(+\infty\)</span> : <span class="math inline">\(x^\beta = o(a^{x})\)</span> si <span class="math inline">\(a&gt;1.\)</span></li>
+<li>au voisinage de <span class="math inline">\(-\infty\)</span> : <span class="math inline">\(e^{\gamma x} = o\left(\dfrac{1}{x^\beta}\right)\)</span> si <span class="math inline">\(\beta \in \mathbb{N}.\)</span></li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Proposition">
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition (Opérations sur les relations de comparaison)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Proposition
+<span class="screen-reader-only">Important</span>Proposition (Opérations sur les relations de comparaison)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li><p>Opérations sur les relations de comparaisons</p>
 <ol type="1">
-<li><span class="math inline">\(f = o(g), g = o(h) \Leftarrow f = o(h)\)</span> cad (transitivité) idem avec <span class="math inline">\(O\)</span></li>
-<li><span class="math inline">\(f_1 = o(g), f_2 = o(g) \Leftarrow f_1 + f_2 = o(g)\)</span> cad <span class="math inline">\(o(g) + o(g) = o(g)\)</span> idem avec <span class="math inline">\(O\)</span></li>
-<li><span class="math inline">\(f_1 = o(g_1), f_2 = o(g_2) \Leftarrow f_1f_2 = o(g_1g_2)\)</span> cad <span class="math inline">\(o(g_1)o(g_2) = o(g_1g_2)\)</span> idem avec <span class="math inline">\(O\)</span></li>
-<li><span class="math inline">\(f = o(g) \Leftarrow hf = o(hg)\)</span> cad <span class="math inline">\(ho(g) = o(hg)\)</span> idem avec <span class="math inline">\(O\)</span></li>
-<li><span class="math inline">\(f = o(\lambda g) (\lambda \in \mathbb{R}^{*}) \Leftarrow f = o(g)\)</span> cad <span class="math inline">\(o(\lambda g) = o(g)\)</span> idem avec <span class="math inline">\(O\)</span></li>
-</ol></li>
-<li><p>Caractérisation de l’équivalence de deux fonctions On a au voisinage d’un point <span class="math inline">\(a\)</span> :</p>
+<li><p><span class="math inline">\((f = o(g)\ \text{et}\ g = o(h)) \Rightarrow f = o(h)\)</span> c’est-à-dire (transitivité) ; idem avec <span class="math inline">\(O.\)</span></p></li>
+<li><p><span class="math inline">\((f_1 = o(g)\ \text{et}\ f_2 = o(g)) \Rightarrow f_1 + f_2 = o(g)\)</span> c’est-à-dire <span class="math inline">\(o(g) + o(g) = o(g)\)</span> ; idem avec <span class="math inline">\(O.\)</span></p></li>
+<li><p><span class="math inline">\((f_1 = o(g_1)\ \text{et}\ f_2 = o(g_2)) \Rightarrow f_1f_2 = o(g_1g_2)\)</span> c’est-à-dire <span class="math inline">\(o(g_1)\,o(g_2) = o(g_1g_2)\)</span> ; idem avec <span class="math inline">\(O.\)</span></p></li>
+<li><p><span class="math inline">\(f = o(g) \Rightarrow hf = o(hg)\)</span> c’est-à-dire <span class="math inline">\(h\,o(g) = o(hg)\)</span> ; idem avec <span class="math inline">\(O.\)</span></p></li>
+<li><p><span class="math inline">\(f = o(g) \Rightarrow f = o(\lambda g)\)</span> pour <span class="math inline">\(\lambda \in \mathbb{R}^{*},\)</span> c’est-à-dire <span class="math inline">\(o(\lambda g) = o(g)\)</span> ; idem avec <span class="math inline">\(O.\)</span></p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition (Caractérisation de l'équivalence)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Proposition (Caractérisation de l’équivalence)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On a au voisinage d’un point <span class="math inline">\(a\)</span> :</p>
 <p><span class="math display">\[
-  f(x) \sim g(x) \Leftrightarrow f(x) = g(x) + o(g(x))
-  \]</span></p>
-<p>Cela sera particulieremet utile lorsqu’on souhaitera remplacer une expression par un équivalent dans une égalité</p></li>
-<li><p>Lien entre les relations de comparaison</p></li>
-</ul>
-<p>On se place au voisinage d’un point <span class="math inline">\(a\)</span>. 1. Si <span class="math inline">\(f(x) \sim g(x)\)</span> alors <span class="math inline">\(f(x) = O(g(x))\)</span>. 2. Si <span class="math inline">\(f(x) \sim g(x)\)</span> et <span class="math inline">\(f(x) = o(h(x))\)</span> alors <span class="math inline">\(g(x) = o(h(x))\)</span>. 3. Si <span class="math inline">\(f(x) \sim g(x)\)</span> et <span class="math inline">\(h(x) = o(f(x))\)</span> alors <span class="math inline">\(h(x) = o(g(x))\)</span></p>
-<ul>
-<li><p>Calculs avec des équivalents</p>
-<ol type="1">
-<li>si <span class="math inline">\(f(x) \underset{x\to a}{\to} l\)</span> et <span class="math inline">\(l\neq 0\)</span> alors <span class="math inline">\(f \underset{a}{\sim} l\)</span></li>
-<li>si <span class="math inline">\(f_1 \underset{a}{\sim} g_1\)</span> et <span class="math inline">\(f_2 \underset{a}{\sim} g_2\)</span> alors <span class="math inline">\(f_1f_2 \underset{a}{\sim} g_1g_2\)</span> et <span class="math inline">\(\dfrac{f_1}{f_2} \underset{a}{\sim} \dfrac{g_1}{g_2}\)</span></li>
-<li>si <span class="math inline">\(f \underset{a}{\sim} g\)</span> et <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont positive alors <span class="math inline">\(f^\alpha \underset{a}{\sim} g^\alpha\)</span> pour tout <span class="math inline">\(\alpha \in \mathbb{R}\)</span>.</li>
-</ol></li>
-</ul>
+f(x) \sim g(x) \Leftrightarrow f(x) = g(x) + o(g(x))
+\]</span></p>
+<p>Cela sera particulièrement utile lorsqu’on souhaitera remplacer une expression par un équivalent dans une égalité.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Théorème (Les équivalents de références)">
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition (Lien entre les relations de comparaison)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Théorème (Les équivalents de références)
+<span class="screen-reader-only">Important</span>Proposition (Lien entre les relations de comparaison)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Les limites usuelles en 0, nous donnent les équivalents suivants au voisinage de <span class="math inline">\(0\)</span> :</p>
-<ul>
-<li><p><span class="math inline">\(\sin x \sim x\)</span></p></li>
-<li><p><span class="math inline">\(\arcsin x \sim x\)</span></p></li>
-<li><p><span class="math inline">\(sh x \sim x\)</span></p></li>
-<li><p><span class="math inline">\(\tan x \sim x\)</span></p></li>
-<li><p><span class="math inline">\(\arctan x \sim x\)</span></p></li>
-<li><p><span class="math inline">\(th x \sim x\)</span></p></li>
-<li><p><span class="math inline">\(1 − \cos x \sim \frac{x^2}{2}\)</span></p></li>
-<li><p><span class="math inline">\(1 − ch x \sim \frac{x^2}{2}\)</span></p></li>
-<li><p><span class="math inline">\(\ln(1 + x) \sim x\)</span></p></li>
-<li><p><span class="math inline">\(e^x − 1 \sim x\)</span></p></li>
-<li><p><span class="math inline">\((1 + x)^α − 1 \sim αx\)</span></p></li>
-</ul>
-<p>Plus généralement, au voisinage de a lorsque <span class="math inline">\(\underset{x\to a}{f(x) \to 0}\)</span>, on a :</p>
-<ul>
-<li><p><span class="math inline">\(\sin f(x) \sim f(x)\)</span></p></li>
-<li><p><span class="math inline">\(\arcsin f(x) \sim f(x)\)</span></p></li>
-<li><p><span class="math inline">\(sh f(x) \sim f(x)\)</span></p></li>
-<li><p><span class="math inline">\(\tan f(x) \sim f(x)\)</span></p></li>
-<li><p><span class="math inline">\(\arctan f(x) \sim f(x)\)</span></p></li>
-<li><p><span class="math inline">\(th x \sim f(x)\)</span></p></li>
-<li><p><span class="math inline">\(1 − \cos f(x) \sim \frac{f(x)^2}{2}\)</span></p></li>
-<li><p><span class="math inline">\(1 − ch f(x) \sim \frac{f(x)^2}{2}\)</span></p></li>
-<li><p><span class="math inline">\(\ln(1 + f(x)) \sim f(x)\)</span></p></li>
-<li><p><span class="math inline">\(e^{f(x)} − 1 \sim f(x)\)</span></p></li>
-<li><p><span class="math inline">\((1 + f(x))^α − 1 \sim αf(x)\)</span></p></li>
-</ul>
+<p>On se place au voisinage d’un point <span class="math inline">\(a.\)</span></p>
+<ol type="1">
+<li><p>Si <span class="math inline">\(f(x) \sim g(x)\)</span> alors <span class="math inline">\(f(x) = O(g(x)).\)</span></p></li>
+<li><p>Si <span class="math inline">\(f(x) \sim g(x)\)</span> et <span class="math inline">\(f(x) = o(h(x))\)</span> alors <span class="math inline">\(g(x) = o(h(x)).\)</span></p></li>
+<li><p>Si <span class="math inline">\(f(x) \sim g(x)\)</span> et <span class="math inline">\(h(x) = o(f(x))\)</span> alors <span class="math inline">\(h(x) = o(g(x)).\)</span></p></li>
+</ol>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Théorème (calcul avec les equivalence)">
+<div class="callout callout-style-default callout-important callout-titled" title="Théorème (Les équivalents de référence)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Théorème (calcul avec les equivalence)
+<span class="screen-reader-only">Important</span>Théorème (Les équivalents de référence)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les limites usuelles en <span class="math inline">\(0\)</span> nous donnent les équivalents suivants au voisinage de <span class="math inline">\(0\)</span> :</p>
+<ul>
+<li><span class="math inline">\(\sin x \sim x\)</span></li>
+<li><span class="math inline">\(\arcsin x \sim x\)</span></li>
+<li><span class="math inline">\(\operatorname{sh} x \sim x\)</span></li>
+<li><span class="math inline">\(\tan x \sim x\)</span></li>
+<li><span class="math inline">\(\arctan x \sim x\)</span></li>
+<li><span class="math inline">\(\operatorname{th} x \sim x\)</span></li>
+<li><span class="math inline">\(1 - \cos x \sim \dfrac{x^2}{2}\)</span></li>
+<li><span class="math inline">\(\operatorname{ch} x - 1 \sim \dfrac{x^2}{2}\)</span></li>
+<li><span class="math inline">\(\ln(1 + x) \sim x\)</span></li>
+<li><span class="math inline">\(e^x - 1 \sim x\)</span></li>
+<li><span class="math inline">\((1 + x)^\alpha - 1 \sim \alpha x\)</span> (pour <span class="math inline">\(\alpha\neq0\)</span>)</li>
+</ul>
+<p>Plus généralement, au voisinage de <span class="math inline">\(a,\)</span> lorsque <span class="math inline">\(f(x)\to0\)</span> quand <span class="math inline">\(x\to a\)</span> (avec <span class="math inline">\(f\)</span> non nulle au voisinage de <span class="math inline">\(a\)</span> privé de <span class="math inline">\(a\)</span>), on a :</p>
+<ul>
+<li><span class="math inline">\(\sin f(x) \sim f(x)\)</span></li>
+<li><span class="math inline">\(\arcsin f(x) \sim f(x)\)</span></li>
+<li><span class="math inline">\(\operatorname{sh} f(x) \sim f(x)\)</span></li>
+<li><span class="math inline">\(\tan f(x) \sim f(x)\)</span></li>
+<li><span class="math inline">\(\arctan f(x) \sim f(x)\)</span></li>
+<li><span class="math inline">\(\operatorname{th} f(x) \sim f(x)\)</span></li>
+<li><span class="math inline">\(1 - \cos f(x) \sim \dfrac{f(x)^2}{2}\)</span></li>
+<li><span class="math inline">\(\operatorname{ch} f(x) - 1 \sim \dfrac{f(x)^2}{2}\)</span></li>
+<li><span class="math inline">\(\ln(1 + f(x)) \sim f(x)\)</span></li>
+<li><span class="math inline">\(e^{f(x)} - 1 \sim f(x)\)</span></li>
+<li><span class="math inline">\((1 + f(x))^\alpha - 1 \sim \alpha f(x)\)</span> (pour <span class="math inline">\(\alpha\neq0\)</span>)</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Théorème (Calculs avec les équivalents)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Théorème (Calculs avec les équivalents)
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>Si <span class="math inline">\(\underset{x\to a}{f(x) \to l}\)</span> et <span class="math inline">\(l\neq 0\)</span> alors <span class="math inline">\(f\underset{a}{\sim}l\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(f_1 \underset{a}{\sim}g_1\)</span> et <span class="math inline">\(f_2 \underset{a}{\sim}g_2\)</span> alors <span class="math inline">\(f_1f_2 \underset{a}{\sim}g_1g_2\)</span> et <span class="math inline">\(\frac{f_1}{f_2} \underset{a}{\sim}\frac{g_1}{g_2}\)</span>.</p></li>
-<li><p>Soit <span class="math inline">\(\alpha \in \mathbb{R}\)</span>. Si <span class="math inline">\(f \underset{a}{\sim}g\)</span> et <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont positives alors <span class="math inline">\(f^\alpha \underset{a}{\sim}g^\alpha\)</span> .</p></li>
+<li><p>Si <span class="math inline">\(f(x) \underset{x\to a}{\to} \ell\)</span> et <span class="math inline">\(\ell\neq 0\)</span> alors <span class="math inline">\(f\underset{a}{\sim}\ell.\)</span></p></li>
+<li><p>Si <span class="math inline">\(f_1 \underset{a}{\sim}g_1\)</span> et <span class="math inline">\(f_2 \underset{a}{\sim}g_2\)</span> alors <span class="math inline">\(f_1f_2 \underset{a}{\sim}g_1g_2\)</span> et <span class="math inline">\(\dfrac{f_1}{f_2} \underset{a}{\sim}\dfrac{g_1}{g_2}.\)</span></p></li>
+<li><p>Soit <span class="math inline">\(\alpha \in \mathbb{R}.\)</span> Si <span class="math inline">\(f \underset{a}{\sim}g\)</span> et si <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont positives au voisinage de <span class="math inline">\(a,\)</span> alors <span class="math inline">\(f^\alpha \underset{a}{\sim}g^\alpha.\)</span></p></li>
 </ol>
 </div>
 </div>
@@ -1013,7 +1302,7 @@ f  \underset{x\to a}{\sim}g \mbox{ ou } f  \underset{a}{\sim}g \mbox{ ou encore 
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soient deux fonctions <span class="math inline">\(f, g : I \to \mathbb{R}\)</span> et un point <span class="math inline">\(a \in \bar{I}\)</span>. Si au voisinage du point a, <span class="math inline">\(f \sim g\)</span> alors, il existe un voisinage <span class="math inline">\(V\)</span> de <span class="math inline">\(a\)</span> sur lequel <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> ont même signe.</p>
+<p>Soient deux fonctions <span class="math inline">\(f, g : I \to \mathbb{R}\)</span> et un point <span class="math inline">\(a \in \overline{I}.\)</span> Si au voisinage du point <span class="math inline">\(a,\)</span> <span class="math inline">\(f \sim g,\)</span> alors il existe un voisinage <span class="math inline">\(V\)</span> de <span class="math inline">\(a\)</span> sur lequel <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> ont même signe.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled" title="Proposition (Un équivalent donne la limite)">
@@ -1026,8 +1315,7 @@ f  \underset{x\to a}{\sim}g \mbox{ ou } f  \underset{a}{\sim}g \mbox{ ou encore 
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soient deux fonctions <span class="math inline">\(f, g : I \to \mathbb{R}\)</span> et un point <span class="math inline">\(a \in \bar{I}\)</span>.</p>
-<p>Si <span class="math inline">\(f\underset{a}{\sim} g\)</span> et <span class="math inline">\(\underset{x\to a}{\lim} g(x) = l\)</span> alors <span class="math inline">\(\underset{x\to a}{\lim} f(x) = l\)</span>.</p>
+<p>Soient deux fonctions <span class="math inline">\(f, g : I \to \mathbb{R}\)</span> et un point <span class="math inline">\(a \in \overline{I}.\)</span> Si <span class="math inline">\(f\underset{a}{\sim} g\)</span> et <span class="math inline">\(\lim\limits_{x\to a} g(x) = \ell\)</span> (avec <span class="math inline">\(\ell\in\mathbb{R}\cup\{\pm\infty\}\)</span>) alors <span class="math inline">\(\lim\limits_{x\to a} f(x) = \ell.\)</span></p>
 </div>
 </div>
 
@@ -1037,6 +1325,19 @@ f  \underset{x\to a}{\sim}g \mbox{ ou } f  \underset{a}{\sim}g \mbox{ ou encore 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1442,8 +1743,8 @@ f  \underset{x\to a}{\sim}g \mbox{ ou } f  \underset{a}{\sim}g \mbox{ ou encore 
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./dl.html" class="pagination-link" aria-label="Dévelopements limités">
-        <span class="nav-page-text"><span class="chapter-title">Dévelopements limités</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./dl.html" class="pagination-link" aria-label="Développements limités">
+        <span class="nav-page-text"><span class="chapter-title">Développements limités</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -159,7 +159,7 @@ $n! \sim (\frac{n}{e})^n\sqrt{2\pi n}$
 ::: {.callout-note title="Définition"}
 
 Soit une fonction $f$ dérivable sur $D \subset \mathbb{R}$. Sa fonction dérivée $f^{'}$ est appelé dérivée première (ou d'ordre 1) de la fonction $f$ sur $D$.
-$f^{"}$, est appelé dérivée seconde (ou d'ordre 2) de la fonction $f$.
+$f''$, est appelé dérivée seconde (ou d'ordre 2) de la fonction $f$.
 Par itération, pour tout naturel $n > 2$, on définit la fonction dérivée n-ième (ou d'ordre $n$), notée $f^{(n)}$ comme étant la fonction dérivée de la fonction dérivée d'ordre $(n − 1)$, soit : $f^{(n)}= (f^{(n-1)})^{'}$.
 
 :::

@@ -44,10 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-505fb740752bcb4749a94d640a912150.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+
 <script>
 window.MathJax = {
   tex: {
@@ -130,7 +135,178 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -175,8 +351,27 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Cours d’Analyse</a> 
-        <div class="sidebar-tools-main">
-    <a href="./Cours-d-Analyse.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/iaousse/" title="" class="quarto-navigation-tool px-1" aria-label="GitHub" target="_blank"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/mbarekiaousse" title="" class="quarto-navigation-tool px-1" aria-label="LinkedIn" target="_blank"><i class="bi bi-linkedin"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
 </div>
     </div>
       </div>
@@ -234,7 +429,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./suites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Suites réelles: Définitions générales</span></a>
+  <a href="./suites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Suites réelles : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -255,7 +450,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numérique: Définitions générales</span></a>
+  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numériques : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -302,12 +497,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./complements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Complément sur les suites et les fonctions numériques</span></a>
+  <a href="./complements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Compléments sur les suites et les fonctions numériques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dévelopements limités</span></a>
+  <a href="./dl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Développements limités</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -382,121 +577,84 @@ window.Quarto = {
 
 
 
-<section id="exercice-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-1">Exercice 1</h2>
-<p>Montrer que toute suite convergente est bornée.</p>
-</section>
-<section id="exercice-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2">Exercice 2</h2>
-<p>Montrer qu’une suite d’entiers qui converge est constante à partir d’un certain rang.</p>
-</section>
-<section id="exercice-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-3">Exercice 3</h2>
-<p>Les suites suivantes sont-elles croissantes? décroissantes?</p>
-<p><span class="math display">\[
-u_n = n^2 + 5n +4
-\]</span></p>
-<p><span class="math display">\[
-v_n =\dfrac{-2n+3}{n+1}
-\]</span></p>
-<p><span class="math display">\[
-w_n = \sqrt{2n+5}
-\]</span></p>
-<p><span class="math display">\[
-a_n = \dfrac{2^n}{n}
-\]</span></p>
-</section>
-<section id="exercice-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-4">Exercice 4</h2>
-<p>Montrer que la suite <span class="math inline">\((u_n)_{n\in\mathbb{N}}\)</span> définie par</p>
-<p><span class="math display">\[
-u_n = (-1)^n + \dfrac{1}{n}
-\]</span></p>
-<p>n’est pas convergente. ## Exercice 5</p>
-<p>Étudier la nature des suites suivantes, et déterminer leur limite éventuelle :</p>
-<ol type="1">
-<li><p>la suite</p>
-<p><span class="math display">\[
-\dfrac{sin(n) + 3cos(n^2)}{\sqrt{n}}
-\]</span></p></li>
-<li><p>la suite</p>
-<p><span class="math display">\[
-\dfrac{2n + (-1)^n}{5n + (-1)^{n+1}}
-\]</span></p></li>
-<li><p>la suite</p>
-<p><span class="math display">\[
-\dfrac{n^3 + 5n}{4n^2 + sin(n) + ln(n)}
-\]</span></p></li>
+
+<div id="exr-suites-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 1</strong></span> Montrer que toute suite convergente est bornée.</p>
+</div>
+<div id="exr-suites-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 2</strong></span> Montrer qu’une suite d’entiers qui converge est constante à partir d’un certain rang.</p>
+</div>
+<div id="exr-suites-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 3</strong></span> Les suites suivantes sont-elles croissantes ? décroissantes ?</p>
+<ol type="a">
+<li><span class="math inline">\(u_n=n^2+5n+4\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span> ;</li>
+<li><span class="math inline">\(v_n=\dfrac{-2n+3}{n+1}\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span> ;</li>
+<li><span class="math inline">\(w_n=\sqrt{2n+5}\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span> ;</li>
+<li><span class="math inline">\(a_n=\dfrac{2^n}{n}\)</span>, <span class="math inline">\(n\in\mathbb{N}^*\)</span>.</li>
 </ol>
-</section>
-<section id="exercice-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-6">Exercice 6</h2>
-<p>Étudier la nature des suites suivantes, et déterminer leur limite éventuelle :</p>
-<ol start="4" type="1">
-<li><p>la suite</p>
-<p><span class="math display">\[
-3^n e^{-3n}
-\]</span></p></li>
-<li><p>la suite</p>
-<p><span class="math display">\[
-\sqrt{2n+1} - \sqrt{2n-1}
-\]</span></p></li>
-<li><p>la suite</p>
-<p><span class="math display">\[
-\dfrac{ln(n+e^n)}{n}
-\]</span></p></li>
-<li><p>la suite</p>
-<p><span class="math display">\[
-\dfrac{ln(1+\sqrt{n})}{1+n^2}
-\]</span></p></li>
+</div>
+<div id="exr-suites-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 4</strong></span> Montrer que la suite <span class="math inline">\((u_n)_{n\geq1}\)</span> définie par <span class="math inline">\(u_n=(-1)^n+\dfrac1n\)</span> n’est pas convergente.</p>
+</div>
+<div id="exr-suites-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 5</strong></span> Étudier la nature des suites suivantes (pour <span class="math inline">\(n\geq1\)</span>) et déterminer leur limite éventuelle :</p>
+<ol type="a">
+<li><span class="math inline">\(\dfrac{\sin(n)+3\cos(n^2)}{\sqrt{n}}\)</span> ;</li>
+<li><span class="math inline">\(\dfrac{2n+(-1)^n}{5n+(-1)^{n+1}}\)</span> ;</li>
+<li><span class="math inline">\(\dfrac{n^3+5n}{4n^2+\sin(n)+\ln(n)}\)</span>.</li>
 </ol>
-</section>
-<section id="exercice-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-7">Exercice 7</h2>
-<ol type="1">
-<li><p>Déterminer deux réels <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> tels que:</p>
-<p><span class="math display">\[
-\dfrac{1}{k^2 - 1} = \dfrac{a}{k+1}+\dfrac{b}{k-1}
-\]</span></p></li>
-<li><p>En déduire la limite de la suite:</p>
-<p><span class="math display">\[
-\sum_{k=2}^{n}\dfrac{1}{k^2 - 1}
-\]</span></p></li>
+</div>
+<div id="exr-suites-6" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 6</strong></span> Étudier la nature des suites suivantes (pour <span class="math inline">\(n\geq1\)</span>) et déterminer leur limite éventuelle :</p>
+<ol type="a">
+<li><span class="math inline">\(3^ne^{-3n}\)</span> ;</li>
+<li><span class="math inline">\(\sqrt{2n+1}-\sqrt{2n-1}\)</span> ;</li>
+<li><span class="math inline">\(\dfrac{\ln(n+e^n)}{n}\)</span> ;</li>
+<li><span class="math inline">\(\dfrac{\ln(1+\sqrt n)}{1+n^2}\)</span>.</li>
 </ol>
-</section>
-<section id="exercice-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-8">Exercice 8</h2>
-<p>Montrer que, pour tout <span class="math inline">\(n\in \mathbb{N}^∗\)</span>, on a:</p>
-<p><span class="math display">\[
-\sqrt{n+1}-\sqrt{n} \leq \dfrac{1}{2\sqrt{n}}
-\]</span></p>
-<p>En déduire le comportement de la suite <span class="math inline">\((u_n)\)</span> définie par:</p>
-<p><span class="math display">\[
-u_n = 1 + \dfrac{1}{\sqrt{2}}+ \ldots + \dfrac{1}{\sqrt{n}}
-\]</span></p>
-</section>
-<section id="exercice-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-9">Exercice 9</h2>
-<p>Soit <span class="math inline">\((u_n)_{n\geq 1}\)</span> la suite définie par:</p>
-<p><span class="math display">\[
-u_n = \sum_{k=1}^{n} \dfrac{1}{k^2}
-\]</span></p>
-<ul>
-<li><p>Démontrer que la suite <span class="math inline">\((u_n)\)</span> est croissante.</p></li>
-<li><p>Démontrer que, pour tout <span class="math inline">\(n \geq 1\)</span></p>
-<p><span class="math display">\[
-  \dfrac{1}{(n+1)^2} \leq \dfrac{1}{n} - \dfrac{1}{n+1}
-  \]</span></p></li>
-<li><p>Démontrer que, pour tout <span class="math inline">\(n \geq 1\)</span>, <span class="math inline">\(u_n \leq 2−\dfrac{1}{n}\)</span>.</p></li>
-<li><p>En déduire que la suite <span class="math inline">\((u_n)\)</span> est convergente.</p></li>
-</ul>
+</div>
+<div id="exr-suites-7" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 7</strong></span> &nbsp;</p>
+<ol type="a">
+<li>Déterminer deux réels <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> tels que, pour tout entier <span class="math inline">\(k\geq2\)</span>, <span class="math display">\[\frac{1}{k^2-1}=\frac{a}{k+1}+\frac{b}{k-1}.\]</span></li>
+<li>En déduire la limite de la suite <span class="math inline">\(S_n=\displaystyle\sum_{k=2}^{n}\frac{1}{k^2-1}\)</span> <span class="math inline">\((n\geq2)\)</span>.</li>
+</ol>
+</div>
+<div id="exr-suites-8" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 8</strong></span> &nbsp;</p>
+<ol type="a">
+<li>Montrer que, pour tout <span class="math inline">\(n\in\mathbb{N}^*\)</span>, <span class="math inline">\(\sqrt{n+1}-\sqrt n\leq\dfrac{1}{2\sqrt n}\)</span>.</li>
+<li>En déduire le comportement de la suite <span class="math inline">\((u_n)_{n\geq1}\)</span> définie par <span class="math display">\[u_n=1+\frac{1}{\sqrt2}+\cdots+\frac{1}{\sqrt n}=\sum_{k=1}^n\frac{1}{\sqrt k}.\]</span></li>
+</ol>
+</div>
+<div id="exr-suites-9" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9</strong></span> Soit <span class="math inline">\((u_n)_{n\geq1}\)</span> la suite définie par <span class="math inline">\(u_n=\displaystyle\sum_{k=1}^{n}\frac{1}{k^2}\)</span>.</p>
+<ol type="a">
+<li>Démontrer que la suite <span class="math inline">\((u_n)\)</span> est croissante.</li>
+<li>Démontrer que, pour tout <span class="math inline">\(n\geq1\)</span>, <span class="math inline">\(\dfrac{1}{(n+1)^2}\leq\dfrac1n-\dfrac1{n+1}\)</span>.</li>
+<li>Démontrer que, pour tout <span class="math inline">\(n\geq1\)</span>, <span class="math inline">\(u_n\leq2-\dfrac1n\)</span>.</li>
+<li>En déduire que la suite <span class="math inline">\((u_n)\)</span> est convergente.</li>
+</ol>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -897,8 +1055,8 @@ u_n = \sum_{k=1}^{n} \dfrac{1}{k^2}
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./suites.html" class="pagination-link" aria-label="Suites réelles: Définitions générales">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Suites réelles: Définitions générales</span></span>
+      <a href="./suites.html" class="pagination-link" aria-label="Suites réelles : définitions générales">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Suites réelles : définitions générales</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

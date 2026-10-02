@@ -7,9 +7,9 @@ Ce sont les propriétés dont on a habitué. Pour $a,\,b,\,c\in\mathbb{R},$ on a
 - $a+b=b+a$
 - $a\times b=b\times a$
 - $a+0=a$
-- $a\times 1=a \mbox{ si } a\neq0$
+- $a\times 1=a $
 - $a+b=0\Leftrightarrow a=-b$
-- $ab=1\Leftrightarrow a=\frac{1}{b}$
+- $ab=1\Leftrightarrow a=\frac{1}{b}\mbox{ si } b\neq0$
 - $(a+b)+c=a+(b+c)$
 - $(a\times b)\times c=a\times(b\times c)$
 - $a\times(b+c)=a\times b+a\times c$

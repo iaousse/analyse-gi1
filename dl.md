@@ -44,8 +44,17 @@ $$
 
 Approximation de $\sin(0,01)$
 
-Soit $f(x)=\sin(x),$ alors $f'(x)=\cos x,\,f''(x)=-\sin x,\,f^{(3)}(x)=-\cos x,\\
-\,f^{(4)}(x)=\sin x.$On obtient donc$f(0)=0,\,f'(0)=1,\,f''(0)=0,\,f^{(3)}(x)=-1.$La formule de Taylor ci-dessus en$a=0$à l'ordre 3 devient$f(x)=0+1.x+0.\frac{x^2}{2!}-1.\frac{x^3}{3!}+f^{(4)}(c)\frac{x^4}{4!}$
+Soit $f(x)=\sin(x),$ alors
+$$
+\begin{aligned}
+f'(x)&=\cos x,\,f''(x)=-\sin x,\,f^{(3)}(x)=-\cos x,\\
+f^{(4)}(x)&=\sin x.
+\end{aligned}
+$$
+On obtient donc $f(0)=0,\,f'(0)=1,\,f''(0)=0,\,f^{(3)}(x)=-1.$ La formule de Taylor ci-dessus en $a=0$ à l'ordre 3 devient
+$$
+f(x)=0+1.x+0.\frac{x^2}{2!}-1.\frac{x^3}{3!}+f^{(4)}(c)\frac{x^4}{4!}
+$$
 
 Pour $x=0,01,$ et en négligeant le reste (qui est assez petit), on obtient:
 
@@ -148,8 +157,12 @@ La formule de Taylor-Young permet d'obtenir immédiatement des développements l
     
 2. Si $f$ admet un DL en un point $a$ à l'ordre $n$ alors elle en possède un pour tout $k\leq n.$ En effet
 
-    $f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+...+\frac{f^{(k)}(a)}{k!}(x-a)^k\\
-    +\frac{f^{(k+1)}(a)}{(k+1)!}(x-a)^{k+1}+...+\frac{f^{(n)}(a)}{n!}(x-a)^n+(x-a)^n \varepsilon(x)$
+    $$
+    \begin{aligned}
+    f(x)={}&f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+\cdots+\frac{f^{(k)}(a)}{k!}(x-a)^k\\
+    &+\frac{f^{(k+1)}(a)}{(k+1)!}(x-a)^{k+1}+\cdots+\frac{f^{(n)}(a)}{n!}(x-a)^n+(x-a)^n \varepsilon(x)
+    \end{aligned}
+    $$
 
 :::
 

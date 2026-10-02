@@ -31,13 +31,13 @@ number-sections: false
 ```{=html}
 <h1 class="visually-hidden">Accueil</h1>
 <section class="analysis-cover" aria-label="Couverture du cours">
-  <img class="analysis-cover-logo" src="images/logo_estc.png" alt="Logo de l'EST Casablanca">
+  <img class="analysis-cover-logo" src="images/logo_estc.png" alt="Logo de l'EST Casablanca" />
   <h2>Cours d'Analyse</h2>
   <p class="analysis-cover-author">IAOUSSE M'barek</p>
   <p class="analysis-cover-year">Année universitaire 2026–2027</p>
 </section>
 <section class="analysis-qr" aria-label="Accès à la ressource pédagogique">
-  <img src="images/qrcode.png" alt="Code QR de la ressource pédagogique">
+  <img src="images/qrcode.png" alt="Code QR de la ressource pédagogique" />
 </section>
 ```
 

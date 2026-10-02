@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dévelopements limités – Cours d'Analyse</title>
+<title>Développements limités – Cours d'Analyse</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -44,10 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-505fb740752bcb4749a94d640a912150.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+
 <script>
 window.MathJax = {
   tex: {
@@ -130,7 +135,178 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -139,7 +315,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complement.html">Complement sur les suites et les fonctions numériques</a></li><li class="breadcrumb-item"><a href="./dl.html"><span class="chapter-title">Dévelopements limités</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complement.html">Complement sur les suites et les fonctions numériques</a></li><li class="breadcrumb-item"><a href="./dl.html"><span class="chapter-title">Développements limités</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -151,8 +327,8 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complement.html">Complement sur les suites et les fonctions numériques</a></li><li class="breadcrumb-item"><a href="./dl.html"><span class="chapter-title">Dévelopements limités</span></a></li></ol></nav>
-      <h1 class="title"><span class="chapter-title">Dévelopements limités</span></h1>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complement.html">Complement sur les suites et les fonctions numériques</a></li><li class="breadcrumb-item"><a href="./dl.html"><span class="chapter-title">Développements limités</span></a></li></ol></nav>
+      <h1 class="title"><span class="chapter-title">Développements limités</span></h1>
                       </div>
   </div>
     
@@ -175,8 +351,27 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Cours d’Analyse</a> 
-        <div class="sidebar-tools-main">
-    <a href="./Cours-d-Analyse.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/iaousse/" title="" class="quarto-navigation-tool px-1" aria-label="GitHub" target="_blank"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/mbarekiaousse" title="" class="quarto-navigation-tool px-1" aria-label="LinkedIn" target="_blank"><i class="bi bi-linkedin"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
 </div>
     </div>
       </div>
@@ -234,7 +429,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./suites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Suites réelles: Définitions générales</span></a>
+  <a href="./suites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Suites réelles : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -255,7 +450,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numérique: Définitions générales</span></a>
+  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numériques : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -302,12 +497,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./complements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Complément sur les suites et les fonctions numériques</span></a>
+  <a href="./complements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Compléments sur les suites et les fonctions numériques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dl.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Dévelopements limités</span></a>
+  <a href="./dl.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Développements limités</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -382,27 +577,28 @@ window.Quarto = {
 
 
 
+
 <section id="formule-de-taylor" class="level2">
 <h2 class="anchored" data-anchor-id="formule-de-taylor">Formule de Taylor</h2>
-<div class="callout callout-style-default callout-important callout-titled" title="Théorème">
+<div class="callout callout-style-default callout-important callout-titled" title="Théorème (Formule de Taylor-Lagrange)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Théorème
+<span class="screen-reader-only">Important</span>Théorème (Formule de Taylor-Lagrange)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\(f : I\rightarrow\mathbb{R}\)</span> une fonction de classe <span class="math inline">\(\mathscr{C}^{n+1},\,(n\in\mathbb{N},\)</span> et soit <span class="math inline">\(a, x ∈\in I.\)</span> Il existe un réel <span class="math inline">\(c\)</span> entre <span class="math inline">\(a\)</span> et <span class="math inline">\(x\)</span> tel que:</p>
+<p>Soit <span class="math inline">\(f : I\rightarrow\mathbb{R}\)</span> une fonction de classe <span class="math inline">\(\mathscr{C}^{n+1}\)</span> (<span class="math inline">\(n\in\mathbb{N}\)</span>) et soient <span class="math inline">\(a, x \in I.\)</span> Il existe un réel <span class="math inline">\(c\)</span> entre <span class="math inline">\(a\)</span> et <span class="math inline">\(x\)</span> tel que :</p>
 <p><span class="math display">\[
-f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+...+\frac{f^{(n)}(a)}{n!}(x-a)^n+\frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}
+f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+\ldots+\frac{f^{(n)}(a)}{n!}(x-a)^n+\frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}
 \]</span></p>
 </div>
 </div>
-<p>On notera par <span class="math inline">\(T_n\)</span> la partie définie par</p>
+<p>On notera par <span class="math inline">\(T_n\)</span> le polynôme de Taylor d’ordre <span class="math inline">\(n\)</span> de <span class="math inline">\(f\)</span> en <span class="math inline">\(a\)</span> (la partie polynomiale de la formule précédente) :</p>
 <p><span class="math display">\[
-T_n(x):=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+...+\frac{f^{(n)}(a)}{n!}(x-a)^n
+T_n(x):=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+\ldots+\frac{f^{(n)}(a)}{n!}(x-a)^n
 \]</span></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Exercice">
 <div class="callout-header d-flex align-content-center">
@@ -414,24 +610,25 @@ T_n(x):=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+...+\frac{f^{(n)}(a)}{n!}(x-a)^
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soient <span class="math inline">\(a, x \in\mathbb{R},\,(a&lt;x).\)</span> Pour tout entier <span class="math inline">\(n &gt; 0\)</span> il existe <span class="math inline">\(c\in]a,x[\)</span> tel que</p>
+<p>Soient <span class="math inline">\(a, x \in\mathbb{R}\)</span> (<span class="math inline">\(a&lt;x\)</span>). Pour tout entier <span class="math inline">\(n \in\mathbb{N}\)</span> il existe <span class="math inline">\(c\in\,]a,x[\)</span> tel que</p>
 <p><span class="math display">\[
-\exp x=\exp a+\exp (a).(x-a)+\frac{\exp (a)}{2!}.(x-a)^2+\ldots+\frac{\exp (a)}{n!}.(x-a)^n+\frac{\exp (c)}{(n+1)!}.(c-a)^{n+1}
+\exp x=\exp a+\exp (a)\,(x-a)+\frac{\exp (a)}{2!}\,(x-a)^2+\ldots+\frac{\exp (a)}{n!}\,(x-a)^n+\frac{\exp (c)}{(n+1)!}\,(x-a)^{n+1}
 \]</span></p>
-<p>Dans la pratique, le nombre <span class="math inline">\(c\)</span> ne s’éstime qua approximativement (via un encadrement), la proposition suivante en donnera un.</p>
+<p><strong>Solution.</strong> C’est la formule de Taylor-Lagrange appliquée à <span class="math inline">\(f=\exp,\)</span> qui est de classe <span class="math inline">\(\mathscr{C}^{\infty}\)</span> avec <span class="math inline">\(f^{(k)}=\exp\)</span> pour tout <span class="math inline">\(k.\)</span></p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Proposition">
+<p>Dans la pratique, le nombre <span class="math inline">\(c\)</span> ne s’estime qu’approximativement (via un encadrement) ; la proposition suivante en donne un.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition (Inégalité de Taylor-Lagrange)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Proposition
+<span class="screen-reader-only">Important</span>Proposition (Inégalité de Taylor-Lagrange)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si en plus la fonction <span class="math inline">\(|f^{(n+1)}|\)</span> est majorée sur <span class="math inline">\(I\)</span> par un réel positif <span class="math inline">\(M,\)</span> alors pour tout <span class="math inline">\(a,\,x \in I,\)</span> on a:</p>
+<p>Si en plus la fonction <span class="math inline">\(|f^{(n+1)}|\)</span> est majorée sur <span class="math inline">\(I\)</span> par un réel positif <span class="math inline">\(M,\)</span> alors pour tous <span class="math inline">\(a,\,x \in I,\)</span> on a :</p>
 <p><span class="math display">\[
 |f(x)-T_n(x)|\leq M\frac{|x-a|^{n+1}}{(n+1)!}
 \]</span></p>
@@ -447,13 +644,23 @@ T_n(x):=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+...+\frac{f^{(n)}(a)}{n!}(x-a)^
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Approximation de <span class="math inline">\(\sin(0,01)\)</span></p>
-<p>Soit <span class="math inline">\(f(x)=\sin(x),\)</span> alors <span class="math inline">\(f'(x)=\cos x,\,f''(x)=-\sin x,\,f^{(3)}(x)=-\cos x,\\
-\,f^{(4)}(x)=\sin x.\)</span>On obtient donc<span class="math inline">\(f(0)=0,\,f'(0)=1,\,f''(0)=0,\,f^{(3)}(x)=-1.\)</span>La formule de Taylor ci-dessus en<span class="math inline">\(a=0\)</span>à l’ordre 3 devient<span class="math inline">\(f(x)=0+1.x+0.\frac{x^2}{2!}-1.\frac{x^3}{3!}+f^{(4)}(c)\frac{x^4}{4!}\)</span></p>
-<p>Pour <span class="math inline">\(x=0,01,\)</span> et en négligeant le reste (qui est assez petit), on obtient:</p>
+<p>Approximation de <span class="math inline">\(\sin(0{,}01).\)</span></p>
+<p>Soit <span class="math inline">\(f(x)=\sin(x),\)</span> alors</p>
 <p><span class="math display">\[
-\sin(0,01)\approx 0,01-\frac{(0,01)^3}{6}=0,00999983333...
+\begin{aligned}
+f'(x)&amp;=\cos x,\quad f''(x)=-\sin x,\quad f^{(3)}(x)=-\cos x,\\
+f^{(4)}(x)&amp;=\sin x.
+\end{aligned}
 \]</span></p>
+<p>On obtient donc <span class="math inline">\(f(0)=0,\,f'(0)=1,\,f''(0)=0,\,f^{(3)}(0)=-1.\)</span> La formule de Taylor ci-dessus en <span class="math inline">\(a=0\)</span> à l’ordre 3 devient</p>
+<p><span class="math display">\[
+f(x)=0+1\cdot x+0\cdot\frac{x^2}{2!}-1\cdot\frac{x^3}{3!}+f^{(4)}(c)\frac{x^4}{4!}
+\]</span></p>
+<p>Pour <span class="math inline">\(x=0{,}01,\)</span> et en négligeant le reste, on obtient :</p>
+<p><span class="math display">\[
+\sin(0{,}01)\approx 0{,}01-\frac{(0{,}01)^3}{6}=0{,}00999983333\ldots
+\]</span></p>
+<p>Le reste est effectivement très petit : comme <span class="math inline">\(|f^{(4)}|\leq1,\)</span> l’inégalité de Taylor-Lagrange donne une erreur inférieure à <span class="math inline">\(\dfrac{(0{,}01)^4}{4!}\approx4{,}2\times10^{-10}.\)</span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Remarque">
@@ -467,25 +674,25 @@ T_n(x):=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+...+\frac{f^{(n)}(a)}{n!}(x-a)^
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Dans ce théorème l’hypothèse <span class="math inline">\(f\)</span> de classe <span class="math inline">\(\mathscr{C}^{n+1}\)</span> peut-être affaiblie <span class="math inline">\(f\)</span> est “<span class="math inline">\(n+1\)</span> fois dérivable sur <span class="math inline">\(I\)</span>” sans avoir besoin que <span class="math inline">\(f^{(n+1)}\)</span> soit continue.</p></li>
-<li><p>Pour <span class="math inline">\(n=0\)</span> c’est exactement l’énoncé du théorème des accroissements finis : il existe <span class="math inline">\(c\in ]a,b[\)</span> tel que <span class="math inline">\(f(b)=f(a)+f'(c)(b-a).\)</span></p></li>
-<li><p>Si <span class="math inline">\(I\)</span> est un intervalle fermé borné et <span class="math inline">\(f\)</span> de classe <span class="math inline">\(\mathscr{C}^{n+1},\)</span> alors <span class="math inline">\(f\)</span> est continue sur <span class="math inline">\(I\)</span> donc il existe un <span class="math inline">\(M\)</span> tel que <span class="math inline">\(|f^{(n+1)}(x)|\leq M\)</span> pour tout <span class="math inline">\(x\in I.\)</span> . Ce qui permet toujours d’appliquer la proposition.</p></li>
+<li><p>Dans ce théorème, l’hypothèse « <span class="math inline">\(f\)</span> de classe <span class="math inline">\(\mathscr{C}^{n+1}\)</span> » peut être affaiblie : il suffit que <span class="math inline">\(f\)</span> soit « <span class="math inline">\(n+1\)</span> fois dérivable sur <span class="math inline">\(I\)</span> », sans avoir besoin que <span class="math inline">\(f^{(n+1)}\)</span> soit continue.</p></li>
+<li><p>Pour <span class="math inline">\(n=0,\)</span> c’est exactement l’énoncé du théorème des accroissements finis : il existe <span class="math inline">\(c\in\,]a,x[\)</span> tel que <span class="math inline">\(f(x)=f(a)+f'(c)(x-a).\)</span></p></li>
+<li><p>Si <span class="math inline">\(I\)</span> est un intervalle fermé borné et <span class="math inline">\(f\)</span> de classe <span class="math inline">\(\mathscr{C}^{n+1},\)</span> alors <span class="math inline">\(f^{(n+1)}\)</span> est continue sur <span class="math inline">\(I,\)</span> donc bornée : il existe un <span class="math inline">\(M\)</span> tel que <span class="math inline">\(|f^{(n+1)}(x)|\leq M\)</span> pour tout <span class="math inline">\(x\in I.\)</span> Ce qui permet toujours d’appliquer la proposition.</p></li>
 </ul>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Théorème(Théorème de Taylor-Young)">
+<div class="callout callout-style-default callout-important callout-titled" title="Théorème (Théorème de Taylor-Young)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Théorème(Théorème de Taylor-Young)
+<span class="screen-reader-only">Important</span>Théorème (Théorème de Taylor-Young)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\(f : I\rightarrow\mathbb{R}\)</span> une fonction de classe <span class="math inline">\(\mathscr{C}^{n},\,(n\in\mathbb{N},\)</span> et soit <span class="math inline">\(a\in I.\)</span> Alors pour tout <span class="math inline">\(x\in I\)</span> on a:</p>
+<p>Soit <span class="math inline">\(f : I\rightarrow\mathbb{R}\)</span> une fonction de classe <span class="math inline">\(\mathscr{C}^{n}\)</span> (<span class="math inline">\(n\in\mathbb{N}\)</span>) et soit <span class="math inline">\(a\in I.\)</span> Alors pour tout <span class="math inline">\(x\in I\)</span> on a :</p>
 <p><span class="math display">\[
-f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+...+\frac{f^{(n)}(a)}{n!}(x-a)^n+(x-a)^n \varepsilon(x)
+f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+\ldots+\frac{f^{(n)}(a)}{n!}(x-a)^n+(x-a)^n \varepsilon(x)
 \]</span></p>
 <p>avec <span class="math inline">\(\varepsilon(x)\rightarrow0\)</span> quand <span class="math inline">\(x\rightarrow a.\)</span></p>
 </div>
@@ -500,16 +707,16 @@ f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+...+\frac{f^{(n)}(a)}{n!}(x-a)^n+(
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\(f :]-1,+\infty[\rightarrow \mathbb{R},\, x \mapsto\ln(1+x);\)</span> <span class="math inline">\(f\)</span> est infiniment dérivable. Appliquons la formule de Taylor-Young à la fonction <span class="math inline">\(f\)</span> au voisinage de <span class="math inline">\(0,\)</span> soit <span class="math inline">\(T_n\)</span> la fonction polynômiale associée à chaque <span class="math inline">\(n,\)</span> pour cela on calcule d’abord <span class="math inline">\(f^{(k)}(0)\)</span> pour <span class="math inline">\(k=0,1,...,n.\)</span></p>
-<p><span class="math inline">\(f(0)=0,\,f'(0)=1,\,f''(0)=-1,\,f^{(3)}(0)=2,...\)</span> Montrer par récurrence que <span class="math inline">\(f^{(n)}(x)=(-1)^{n-1}(n-1)!\frac{1}{(1+x)^n}\)</span> et alors <span class="math inline">\(f^{(n)}(0)=(-1)^{n-1}(n-1)!\)</span></p>
-<p>Voici donc les premiers polynômes de Taylor:</p>
+<p>Soit <span class="math inline">\(f :]-1,+\infty[\,\rightarrow \mathbb{R},\, x \mapsto\ln(1+x)\)</span> ; <span class="math inline">\(f\)</span> est infiniment dérivable. Appliquons la formule de Taylor-Young à la fonction <span class="math inline">\(f\)</span> au voisinage de <span class="math inline">\(0.\)</span> Soit <span class="math inline">\(T_n\)</span> la fonction polynomiale associée à chaque <span class="math inline">\(n.\)</span> Pour cela on calcule d’abord <span class="math inline">\(f^{(k)}(0)\)</span> pour <span class="math inline">\(k=0,1,\ldots,n.\)</span></p>
+<p><span class="math inline">\(f(0)=0,\,f'(0)=1,\,f''(0)=-1,\,f^{(3)}(0)=2,\ldots\)</span> Montrer par récurrence que, pour <span class="math inline">\(n\geq1,\)</span> <span class="math inline">\(f^{(n)}(x)=(-1)^{n-1}(n-1)!\dfrac{1}{(1+x)^n}\)</span> et alors <span class="math inline">\(f^{(n)}(0)=(-1)^{n-1}(n-1)!.\)</span></p>
+<p>Voici donc les premiers polynômes de Taylor :</p>
 <p><span class="math display">\[
 T_0(x)=0,\quad T_1(x)=x
 \]</span></p>
 <p><span class="math display">\[
-T_2(x)=x-\frac{x^2}{n},\quad T_3(x)=x-\frac{x^2}{2}+\frac{x^3}{3}
+T_2(x)=x-\frac{x^2}{2},\quad T_3(x)=x-\frac{x^2}{2}+\frac{x^3}{3}
 \]</span></p>
-<p>Les formules de Taylor nous disent que les restes sont de plus en plus petits lorsque <span class="math inline">\(n\)</span> croît. Sur le dessins les graphes des polynômes <span class="math inline">\(T_0,\,T_1,\,T_2,\,T_3\)</span> s’approchent de plus en plus du graphe de <span class="math inline">\(f.\)</span> Attention ceci n’est vrai qu’autour de <span class="math inline">\(0.\)</span></p>
+<p>La formule de Taylor-Young nous dit que, au voisinage de <span class="math inline">\(0,\)</span> le reste est négligeable devant <span class="math inline">\(x^n.\)</span> Sur le dessin, les graphes des polynômes <span class="math inline">\(T_0,\,T_1,\,T_2,\,T_3\)</span> s’approchent de plus en plus du graphe de <span class="math inline">\(f.\)</span> Attention : ceci n’est vrai qu’autour de <span class="math inline">\(0.\)</span></p>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -518,14 +725,14 @@ T_2(x)=x-\frac{x^2}{n},\quad T_3(x)=x-\frac{x^2}{2}+\frac{x^3}{3}
 <figcaption>Approximation</figcaption>
 </figure>
 </div>
-<p><strong>Cas particulier : Formule de Taylor-Young au voisinage de 0.</strong> On se ramène souvent au cas particulier où <span class="math inline">\(a=0\)</span></p>
+<p><strong>Cas particulier : formule de Taylor-Young au voisinage de 0.</strong> On se ramène souvent au cas particulier où <span class="math inline">\(a=0\)</span> :</p>
 <p><span class="math display">\[
-f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+...+\frac{f^{(n)}(0)}{n!}x^n+x^n \varepsilon(x)
+f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\ldots+\frac{f^{(n)}(0)}{n!}x^n+x^n \varepsilon(x)
 \]</span></p>
-<p>avec <span class="math inline">\(\varepsilon(x)\rightarrow0\)</span> quand <span class="math inline">\(x\rightarrow .\)</span></p>
-<p>On écrit souvent cette formule avec la notation dite “petit <span class="math inline">\(o\)</span>”</p>
+<p>avec <span class="math inline">\(\varepsilon(x)\rightarrow0\)</span> quand <span class="math inline">\(x\rightarrow0.\)</span></p>
+<p>On écrit souvent cette formule avec la notation dite « petit <span class="math inline">\(o\)</span> » :</p>
 <p><span class="math display">\[
-f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+...+\frac{f^{(n)}(0)}{n!}x^n+o(x^n)
+f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\ldots+\frac{f^{(n)}(0)}{n!}x^n+o(x^n)
 \]</span></p>
 </section>
 <section id="développements-limités-au-voisinage-dun-point" class="level2">
@@ -533,28 +740,28 @@ f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+...+\frac{f^{(n)}(0)}{n!}x^n+o(x^n)
 <section id="définition-et-existence" class="level3">
 <h3 class="anchored" data-anchor-id="définition-et-existence">Définition et existence</h3>
 <p>Soit <span class="math inline">\(I\)</span> un intervalle ouvert et <span class="math inline">\(f :I\rightarrow\mathbb{R}\)</span> une fonction quelconque.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Definition">
+<div class="callout callout-style-default callout-note callout-titled" title="Définition">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Definition
+<span class="screen-reader-only">Note</span>Définition
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pour <span class="math inline">\(a\in  I\)</span> et <span class="math inline">\(n\in\mathbb{N},\)</span> on dit que <span class="math inline">\(f\)</span> admet un <strong>développement limité (DL)</strong> au point <span class="math inline">\(a\)</span> et à l’ordre <span class="math inline">\(n,\)</span> s’il existe des réels <span class="math inline">\(c_0,c_1,...,c_n\)</span> et une fonction <span class="math inline">\(\varepsilon:I\rightarrow\mathbb{R}\)</span> telle que <span class="math inline">\(\lim\limits_{\substack{x \rightarrow a}}\varepsilon(x)=0\)</span> de sorte que pour tout <span class="math inline">\(x\in I:\)</span></p>
+<p>Pour <span class="math inline">\(a\in I\)</span> et <span class="math inline">\(n\in\mathbb{N},\)</span> on dit que <span class="math inline">\(f\)</span> admet un <strong>développement limité (DL)</strong> au point <span class="math inline">\(a\)</span> et à l’ordre <span class="math inline">\(n,\)</span> s’il existe des réels <span class="math inline">\(c_0,c_1,\ldots,c_n\)</span> et une fonction <span class="math inline">\(\varepsilon:I\rightarrow\mathbb{R}\)</span> telle que <span class="math inline">\(\lim\limits_{x \rightarrow a}\varepsilon(x)=0,\)</span> de sorte que pour tout <span class="math inline">\(x\in I\)</span> :</p>
 <p><span class="math display">\[
-f(x)=c_0+c_1(x-a)+c_2(x-a)^2+...+c_n(x-a)^n+(x-a)^n \varepsilon(x)
+f(x)=c_0+c_1(x-a)+c_2(x-a)^2+\ldots+c_n(x-a)^n+(x-a)^n \varepsilon(x)
 \]</span></p>
 <ul>
 <li><p>L’égalité précédente s’appelle un DL de <span class="math inline">\(f\)</span> au voisinage de <span class="math inline">\(a\)</span> à l’ordre <span class="math inline">\(n.\)</span></p></li>
-<li><p>Le terme <span class="math inline">\(c_0+c_1(x-a)+c_2(x-a)^2+...+c_n(x-a)^n\)</span> est appelé <strong>la partie polynomiale du DL</strong>.</p></li>
+<li><p>Le terme <span class="math inline">\(c_0+c_1(x-a)+c_2(x-a)^2+\ldots+c_n(x-a)^n\)</span> est appelé <strong>la partie polynomiale du DL</strong>.</p></li>
 <li><p>Le terme <span class="math inline">\((x-a)^n \varepsilon(x)\)</span> est appelé <strong>le reste du DL.</strong></p></li>
 </ul>
 </div>
 </div>
-<p>La formule de Taylor-Young permet d’obtenir immédiatement des développements limités en posant <span class="math inline">\(c_k=\frac{f^{(k)}}{k!}.\)</span></p>
+<p>La formule de Taylor-Young permet d’obtenir immédiatement des développements limités pour les fonctions de classe <span class="math inline">\(\mathscr{C}^n,\)</span> en posant <span class="math inline">\(c_k=\dfrac{f^{(k)}(a)}{k!}.\)</span></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Remarque">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -566,13 +773,19 @@ f(x)=c_0+c_1(x-a)+c_2(x-a)^2+...+c_n(x-a)^n+(x-a)^n \varepsilon(x)
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>Si <span class="math inline">\(f\)</span> est de classe <span class="math inline">\(\mathscr{C}^{n}\)</span> au voisinage d’un point <span class="math inline">\(0,\)</span> un DL en <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(n\)</span> est l’expression:</p>
+<li><p>Si <span class="math inline">\(f\)</span> est de classe <span class="math inline">\(\mathscr{C}^{n}\)</span> au voisinage de <span class="math inline">\(0,\)</span> un DL en <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(n\)</span> est l’expression :</p>
 <p><span class="math display">\[
-f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+...+\frac{f^{(n)}(0)}{n!}x^n+x^n \varepsilon(x)
+f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\ldots+\frac{f^{(n)}(0)}{n!}x^n+x^n \varepsilon(x)
 \]</span></p></li>
-<li><p>Si <span class="math inline">\(f\)</span> admet un DL en un point <span class="math inline">\(a\)</span> à l’ordre <span class="math inline">\(n\)</span> alors elle en possède un pour tout <span class="math inline">\(k\leq n.\)</span> En effet</p>
-<p><span class="math inline">\(f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+...+\frac{f^{(k)}(a)}{k!}(x-a)^k\\
-+\frac{f^{(k+1)}(a)}{(k+1)!}(x-a)^{k+1}+...+\frac{f^{(n)}(a)}{n!}(x-a)^n+(x-a)^n \varepsilon(x)\)</span></p></li>
+<li><p>Si <span class="math inline">\(f\)</span> admet un DL en un point <span class="math inline">\(a\)</span> à l’ordre <span class="math inline">\(n\)</span> alors elle en possède un pour tout <span class="math inline">\(k\leq n.\)</span> En effet, si</p>
+<p><span class="math display">\[
+f(x)=c_0+c_1(x-a)+\ldots+c_k(x-a)^k+c_{k+1}(x-a)^{k+1}+\ldots+c_n(x-a)^n+(x-a)^n \varepsilon(x)
+\]</span></p>
+<p>alors on peut écrire</p>
+<p><span class="math display">\[
+f(x)=c_0+c_1(x-a)+\ldots+c_k(x-a)^k+(x-a)^k \varepsilon_k(x)
+\]</span></p>
+<p>avec <span class="math inline">\(\varepsilon_k(x)=c_{k+1}(x-a)+\ldots+c_n(x-a)^{n-k}+(x-a)^{n-k}\varepsilon(x),\)</span> qui tend vers <span class="math inline">\(0\)</span> quand <span class="math inline">\(x\rightarrow a.\)</span> C’est la troncature du DL à l’ordre <span class="math inline">\(k.\)</span></p></li>
 </ol>
 </div>
 </div>
@@ -589,10 +802,26 @@ f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+...+\frac{f^{(n)}(0)}{n!}x^n+x^n \varepsil
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si <span class="math inline">\(f\)</span> admet un <span class="math inline">\(DL\)</span> alors ce <span class="math inline">\(DL\)</span> est unique.</p>
+<p>Si <span class="math inline">\(f\)</span> admet un DL en <span class="math inline">\(a\)</span> à l’ordre <span class="math inline">\(n,\)</span> alors ce DL est unique.</p>
 </div>
 </div>
-<p><strong>Preuve:</strong> En exercice (supposer l’existence de deux DL, puis utiliser la propriété d’un polynôme nul.)</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Preuve">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Preuve
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Supposons que <span class="math inline">\(f\)</span> admette deux DL en <span class="math inline">\(a\)</span> à l’ordre <span class="math inline">\(n\)</span> ; en posant <span class="math inline">\(h=x-a,\)</span> leur différence s’écrit</p>
+<p><span class="math display">\[
+R(h):=\sum_{k=0}^{n}(c_k-c'_k)h^k=h^n\eta(h)\quad\text{avec}\quad \eta(h)\rightarrow0\ \text{quand}\ h\rightarrow0
+\]</span></p>
+<p>Si le polynôme <span class="math inline">\(R\)</span> n’était pas nul, soit <span class="math inline">\(m\leq n\)</span> le plus petit indice tel que <span class="math inline">\(e_m:=c_m-c'_m\neq0.\)</span> On aurait <span class="math inline">\(R(h)=h^m\left(e_m+e_{m+1}h+\ldots\right)=h^n\eta(h),\)</span> donc <span class="math inline">\(e_m+e_{m+1}h+\ldots+e_nh^{n-m}=h^{n-m}\eta(h).\)</span> En faisant tendre <span class="math inline">\(h\)</span> vers <span class="math inline">\(0,\)</span> on obtient <span class="math inline">\(e_m=0,\)</span> contradiction. Donc <span class="math inline">\(R=0\)</span> et <span class="math inline">\(c_k=c'_k\)</span> pour tout <span class="math inline">\(k.\)</span></p>
+</div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled" title="Corollaire">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -603,7 +832,20 @@ f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+...+\frac{f^{(n)}(0)}{n!}x^n+x^n \varepsil
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si <span class="math inline">\(f\)</span> est paire (resp. impaire) alors la partie polynomiale de son <span class="math inline">\(DL\)</span> en <span class="math inline">\(0\)</span> ne contient que des monômes de degrés pairs (resp. impairs).</p>
+<p>Si <span class="math inline">\(f\)</span> est paire (resp. impaire) alors la partie polynomiale de son DL en <span class="math inline">\(0\)</span> ne contient que des monômes de degrés pairs (resp. impairs).</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Preuve">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Preuve
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si <span class="math inline">\(f\)</span> est paire, alors <span class="math inline">\(f(-x)=f(x)\)</span> ; or le DL de <span class="math inline">\(x\mapsto f(-x)\)</span> s’obtient en remplaçant <span class="math inline">\(x\)</span> par <span class="math inline">\(-x\)</span> dans celui de <span class="math inline">\(f,\)</span> ce qui change <span class="math inline">\(c_k\)</span> en <span class="math inline">\((-1)^kc_k.\)</span> Par unicité, <span class="math inline">\((-1)^kc_k=c_k\)</span> pour tout <span class="math inline">\(k,\)</span> donc <span class="math inline">\(c_k=0\)</span> pour <span class="math inline">\(k\)</span> impair. Le cas impair est analogue.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Remarque">
@@ -616,29 +858,53 @@ f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+...+\frac{f^{(n)}(0)}{n!}x^n+x^n \varepsil
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si <span class="math inline">\(f\)</span> admet un <span class="math inline">\(DL\)</span> en un point <span class="math inline">\(a\)</span> à l’ordre <span class="math inline">\(n\geq1,\)</span> alors <span class="math inline">\(f\)</span> est dérivable en <span class="math inline">\(a\)</span> et on a <span class="math inline">\(c_0 = f(a)\)</span> et <span class="math inline">\(c_1 = f'(a).\)</span> Par conséquent <span class="math inline">\(y = c_0 + c_1(x-a)\)</span> est l’équation de la tangente au graphe de <span class="math inline">\(f\)</span> au point d’abscisse <span class="math inline">\(a.\)</span></p>
+<p>Si <span class="math inline">\(f\)</span> admet un DL en un point <span class="math inline">\(a\)</span> à l’ordre <span class="math inline">\(n\geq1,\)</span> alors <span class="math inline">\(f\)</span> est dérivable en <span class="math inline">\(a\)</span> et on a <span class="math inline">\(c_0 = f(a)\)</span> et <span class="math inline">\(c_1 = f'(a).\)</span> En effet, <span class="math inline">\(x=a\)</span> donne <span class="math inline">\(c_0=f(a)\)</span> et</p>
+<p><span class="math display">\[
+\frac{f(x)-f(a)}{x-a}=c_1+c_2(x-a)+\ldots+(x-a)^{n-1}\varepsilon(x)\underset{x\to a}{\longrightarrow}c_1
+\]</span></p>
+<p>Par conséquent <span class="math inline">\(y = c_0 + c_1(x-a)\)</span> est l’équation de la tangente au graphe de <span class="math inline">\(f\)</span> au point d’abscisse <span class="math inline">\(a.\)</span></p>
 </div>
 </div>
 </section>
 <section id="dl-des-fonctions-usuelles-à-lorigine" class="level3">
 <h3 class="anchored" data-anchor-id="dl-des-fonctions-usuelles-à-lorigine">DL des fonctions usuelles à l’origine</h3>
-<p>Les DL suivants en <span class="math inline">\(0\)</span> proviennent de la formule de Taylor-Young.</p>
-<p><span class="math inline">\(\exp x=1+\frac{x}{1!}+\frac{x^2}{2!}+...+\frac{x^n}{n!}+x^n \varepsilon(x)\)</span></p>
-<p><span class="math inline">\(chx=1+\frac{x^2}{2!}+\frac{x^4}{4!}...+\frac{x^{2n}}{(2n)!}+x^{2n+1} \varepsilon(x)\)</span></p>
-<p><span class="math inline">\(shx=1+\frac{x}{1!}\frac{x^3}{3!}+\frac{x^5}{5!}...+\frac{x^{2n+1}}{(2n+1)!}+x^{2n+2} \varepsilon(x)\)</span></p>
-<p><span class="math inline">\(\cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}...+(-1)^n\frac{x^{2n}}{(2n)!}+x^{2n+1} \varepsilon(x)\)</span></p>
-<p><span class="math inline">\(shx=1+\frac{x}{1!}\frac{x^3}{3!}+\frac{x^5}{5!}...+(-1)^n\frac{x^{2n+1}}{(2n+1)!}+x^{2n+2} \varepsilon(x)\)</span></p>
-<p><span class="math inline">\(\frac{1}{1-x}=1+x+x^2+...+x^n+x^n \varepsilon(x)\)</span></p>
-<p><span class="math inline">\(\frac{1}{1+x}=1-x+x^2-x^3+...+(-1)^n x^n+x^n \varepsilon(x)\)</span></p>
-<p><span class="math inline">\(\ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-...+(-1)^{n-1} \frac{x^n}{n}+x^n \varepsilon(x)\)</span></p>
-<p>Généralement, pour <span class="math inline">\(\alpha\neq -1,\)</span> on a:</p>
-<p><span class="math inline">\((1+x)^{\alpha}=1+\alpha x+\frac{\alpha(\alpha-1)}{2}x^2+...+\frac{\alpha(\alpha-1)...(\alpha-n+1)}{n!}x^n+x^{n} \varepsilon(x)\)</span></p>
-<p>En particulier, pour <span class="math inline">\(\alpha=\frac{1}{2},\)</span> on a:</p>
-<p><span class="math inline">\(\sqrt{1+x}=1+\frac{x}{2}-\frac{1}{8}x^2+...+(-1)^n\frac{1.3.5....(2n-3)}{2^n n!}x^n+x^n \varepsilon(x)\)</span></p>
+<p>Les DL suivants en <span class="math inline">\(0\)</span> proviennent de la formule de Taylor-Young. Dans chacun, <span class="math inline">\(\varepsilon\)</span> désigne une fonction (différente d’une ligne à l’autre) qui tend vers <span class="math inline">\(0\)</span> en <span class="math inline">\(0.\)</span></p>
+<p><span class="math display">\[
+\exp x=1+\frac{x}{1!}+\frac{x^2}{2!}+\ldots+\frac{x^n}{n!}+x^n \varepsilon(x)
+\]</span></p>
+<p><span class="math display">\[
+\operatorname{ch}x=1+\frac{x^2}{2!}+\frac{x^4}{4!}+\ldots+\frac{x^{2n}}{(2n)!}+x^{2n+1} \varepsilon(x)
+\]</span></p>
+<p><span class="math display">\[
+\operatorname{sh}x=x+\frac{x^3}{3!}+\frac{x^5}{5!}+\ldots+\frac{x^{2n+1}}{(2n+1)!}+x^{2n+2} \varepsilon(x)
+\]</span></p>
+<p><span class="math display">\[
+\cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\ldots+(-1)^n\frac{x^{2n}}{(2n)!}+x^{2n+1} \varepsilon(x)
+\]</span></p>
+<p><span class="math display">\[
+\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\ldots+(-1)^n\frac{x^{2n+1}}{(2n+1)!}+x^{2n+2} \varepsilon(x)
+\]</span></p>
+<p><span class="math display">\[
+\frac{1}{1-x}=1+x+x^2+\ldots+x^n+x^n \varepsilon(x)
+\]</span></p>
+<p><span class="math display">\[
+\frac{1}{1+x}=1-x+x^2-x^3+\ldots+(-1)^n x^n+x^n \varepsilon(x)
+\]</span></p>
+<p><span class="math display">\[
+\ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\ldots+(-1)^{n-1} \frac{x^n}{n}+x^n \varepsilon(x)
+\]</span></p>
+<p>Plus généralement, pour tout <span class="math inline">\(\alpha\in\mathbb{R},\)</span> on a :</p>
+<p><span class="math display">\[
+(1+x)^{\alpha}=1+\alpha x+\frac{\alpha(\alpha-1)}{2}x^2+\ldots+\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}x^n+x^{n} \varepsilon(x)
+\]</span></p>
+<p>En particulier, pour <span class="math inline">\(\alpha=\frac{1}{2},\)</span> on a (pour <span class="math inline">\(n\geq2\)</span>) :</p>
+<p><span class="math display">\[
+\sqrt{1+x}=1+\frac{x}{2}-\frac{1}{8}x^2+\ldots+(-1)^{n-1}\frac{1\cdot3\cdot5\cdots(2n-3)}{2^n\, n!}x^n+x^n \varepsilon(x)
+\]</span></p>
 </section>
 <section id="dl-des-fonctions-en-un-point-quelconque" class="level3">
-<h3 class="anchored" data-anchor-id="dl-des-fonctions-en-un-point-quelconque"><span class="math inline">\(DL\)</span> des fonctions en un point quelconque</h3>
-<p>La fonction <span class="math inline">\(f\)</span> admet un <span class="math inline">\(DL\)</span> au voisinage d’un point <span class="math inline">\(a\)</span> si et seulement si la fonction <span class="math inline">\(x\mapsto f(x+a)\)</span> admet un <span class="math inline">\(DL\)</span> au voisinage de <span class="math inline">\(0.\)</span> Souvent on ramène donc le problème en <span class="math inline">\(0\)</span> en faisant le changement de variables <span class="math inline">\(h=x-a.\)</span></p>
+<h3 class="anchored" data-anchor-id="dl-des-fonctions-en-un-point-quelconque">DL des fonctions en un point quelconque</h3>
+<p>La fonction <span class="math inline">\(f\)</span> admet un DL au voisinage d’un point <span class="math inline">\(a\)</span> si et seulement si la fonction <span class="math inline">\(x\mapsto f(x+a)\)</span> admet un DL au voisinage de <span class="math inline">\(0.\)</span> Souvent on ramène donc le problème en <span class="math inline">\(0\)</span> en faisant le changement de variable <span class="math inline">\(h=x-a.\)</span></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Exercice">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -649,17 +915,17 @@ f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+...+\frac{f^{(n)}(0)}{n!}x^n+x^n \varepsil
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(DL\)</span> de <span class="math inline">\(f(x)=exp x\)</span> en <span class="math inline">\(1.\)</span></p>
-<p>On pose <span class="math inline">\(h=x-1.\)</span> Si <span class="math inline">\(x\)</span> est proche de <span class="math inline">\(1\)</span> alors <span class="math inline">\(h\)</span> est proche de <span class="math inline">\(0.\)</span> Nous allons nous ramener à un <span class="math inline">\(DL\)</span> de <span class="math inline">\(exp h\)</span> en <span class="math inline">\(h = 0.\)</span> On note <span class="math inline">\(e = exp 1.\)</span></p>
+<p>DL de <span class="math inline">\(f(x)=\exp x\)</span> en <span class="math inline">\(1.\)</span></p>
+<p>On pose <span class="math inline">\(h=x-1.\)</span> Si <span class="math inline">\(x\)</span> est proche de <span class="math inline">\(1\)</span> alors <span class="math inline">\(h\)</span> est proche de <span class="math inline">\(0.\)</span> Nous allons nous ramener à un DL de <span class="math inline">\(\exp h\)</span> en <span class="math inline">\(h = 0.\)</span> On note <span class="math inline">\(e = \exp 1.\)</span></p>
 <p><span class="math display">\[
-\begin{array}{rcl}
-\exp
-&amp;=&amp;\mbox{exp(1+(x-1))}=\exp (1)\exp (x-1)=e\exp h\\
-&amp;=&amp; e(1+h+\frac{h^2}{2}+...+\frac{h^n}{n!}+h^n \varepsilon(h))\\
-&amp;=&amp; e(1+(x-1)+\frac{(x-1)^2}{2}+...+\frac{(x-1)^n}{n!}+(x-1)^n \varepsilon(x-1)))\\
-\end{array}
+\begin{aligned}
+\exp x
+&amp;=\exp(1+(x-1))=\exp (1)\exp (x-1)=e\exp h\\
+&amp;= e\left(1+h+\frac{h^2}{2}+\ldots+\frac{h^n}{n!}+h^n \varepsilon(h)\right)\\
+&amp;= e\left(1+(x-1)+\frac{(x-1)^2}{2}+\ldots+\frac{(x-1)^n}{n!}+(x-1)^n \varepsilon(x-1)\right)
+\end{aligned}
 \]</span></p>
-<p>où <span class="math inline">\(\lim\limits_{\substack{x \rightarrow 1}}\varepsilon(x-1)=0\)</span></p>
+<p>où <span class="math inline">\(\lim\limits_{x \rightarrow 1}\varepsilon(x-1)=0.\)</span></p>
 </div>
 </div>
 </section>
@@ -668,9 +934,9 @@ f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+...+\frac{f^{(n)}(0)}{n!}x^n+x^n \varepsil
 <h2 class="anchored" data-anchor-id="opérations-sur-les-développements-limités">Opérations sur les développements limités</h2>
 <section id="somme-et-produit" class="level3">
 <h3 class="anchored" data-anchor-id="somme-et-produit">Somme et produit</h3>
-<p>On suppose que <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions qui admettent des <span class="math inline">\(DL\)</span> en <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(n:\)</span></p>
+<p>On suppose que <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions qui admettent des DL en <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(n\)</span> :</p>
 <p><span class="math display">\[
-f(x)=c_0+c_1 x+...+c_n x^n +x^n \varepsilon_1 (x)\quad\mbox{et}\quad g(x)=d_0+d_1 x+...+d_n x^n +x^n \varepsilon_2 (x)
+f(x)=c_0+c_1 x+\ldots+c_n x^n +x^n \varepsilon_1 (x)\quad\text{et}\quad g(x)=d_0+d_1 x+\ldots+d_n x^n +x^n \varepsilon_2 (x)
 \]</span></p>
 <div class="callout callout-style-default callout-important callout-titled" title="Proposition">
 <div class="callout-header d-flex align-content-center">
@@ -683,13 +949,16 @@ f(x)=c_0+c_1 x+...+c_n x^n +x^n \varepsilon_1 (x)\quad\mbox{et}\quad g(x)=d_0+d_
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><span class="math inline">\(f+g\)</span> admet un <span class="math inline">\(DL\)</span> en <span class="math inline">\(0\)</span> l’ordre <span class="math inline">\(n\)</span> qui est:</li>
+<li><p><span class="math inline">\(f+g\)</span> admet un DL en <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(n\)</span> qui est :</p>
+<p><span class="math display">\[
+  (f+g)(x)=f(x)+g(x)=(c_0+d_0)+(c_1+d_1)x+(c_2+d_2)x^2+\ldots+(c_n+d_n) x^n +x^{n}\varepsilon(x)
+  \]</span></p></li>
+<li><p><span class="math inline">\(f\times g\)</span> admet un DL en <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(n\)</span> qui est :</p>
+<p><span class="math display">\[
+  (f\times g)(x)=f(x)\times g(x)=T_n(x)+x^n \varepsilon(x)
+  \]</span></p>
+<p>où <span class="math inline">\(T_n(x)\)</span> est le polynôme <span class="math inline">\((c_0+c_1 x+\ldots+c_n x^n)\times (d_0+d_1 x+\ldots+d_n x^n)\)</span> tronqué à l’ordre <span class="math inline">\(n.\)</span></p></li>
 </ul>
-<p><span class="math inline">\((f+g)(x)=f(x)+g(x)=(c_0+d_0)+(c_1+d_1)x+(c_0+d_0)x^2+...+(c_n+d_n) x^n +x^{n}\varepsilon(x)\)</span></p>
-<ul>
-<li><span class="math inline">\(f\times g\)</span> admet un <span class="math inline">\(DL\)</span> en <span class="math inline">\(0\)</span> l’ordre <span class="math inline">\(n\)</span> qui est:</li>
-</ul>
-<p><span class="math inline">\((f\times g)(x)=f(x)\times g(x)=T_n(x)+x^n \varepsilon(x)\)</span> où <span class="math inline">\(T_n(x)\)</span> est le polynôme <span class="math inline">\((c_0+c_1 x+...+c_n x^n)\times (d_0+d_1 x+...+d_n x^n)\)</span> tronqué à l’ordre <span class="math inline">\(n.\)</span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Exercice">
@@ -702,22 +971,22 @@ f(x)=c_0+c_1 x+...+c_n x^n +x^n \varepsilon_1 (x)\quad\mbox{et}\quad g(x)=d_0+d_
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Calculer le <span class="math inline">\(DL\)</span> de <span class="math inline">\(\cos x \times\sqrt{1+x}\)</span> à l’ordre <span class="math inline">\(2,\)</span></p>
-<p>On a <span class="math inline">\(\cos x= 1-\frac{x^2}{2}+x^2 \varepsilon_1 (x)\)</span> et <span class="math inline">\(\sqrt{1+x}=1+\frac{1}{2}x-\frac{1}{8}x^2+x^2\varepsilon_2 (x).\)</span></p>
-<p>Donc:</p>
+<p>Calculer le DL de <span class="math inline">\(\cos x \times\sqrt{1+x}\)</span> à l’ordre <span class="math inline">\(2.\)</span></p>
+<p>On a <span class="math inline">\(\cos x= 1-\dfrac{x^2}{2}+x^2 \varepsilon_1 (x)\)</span> et <span class="math inline">\(\sqrt{1+x}=1+\dfrac{1}{2}x-\dfrac{1}{8}x^2+x^2\varepsilon_2 (x).\)</span></p>
+<p>Donc :</p>
 <p><span class="math display">\[
-\begin{array}{rcl}
+\begin{aligned}
 \cos x \times\sqrt{1+x}
-&amp;=&amp; (1-\frac{x^2}{2}+x^2 \varepsilon_1 (x))\times (1+\frac{1}{2}x-\frac{1}{8}x^2+x^2\varepsilon_2 (x))\\
-&amp;=&amp; 1+\frac{1}{2}x-\frac{5}{8}x^2+x^2 \varepsilon(x)
-\end{array}
+&amp;= \left(1-\frac{x^2}{2}+x^2 \varepsilon_1 (x)\right)\times \left(1+\frac{1}{2}x-\frac{1}{8}x^2+x^2\varepsilon_2 (x)\right)\\
+&amp;= 1+\frac{1}{2}x-\frac{5}{8}x^2+x^2 \varepsilon(x)
+\end{aligned}
 \]</span></p>
 </div>
 </div>
 </section>
 <section id="composition" class="level3">
 <h3 class="anchored" data-anchor-id="composition">Composition</h3>
-<p>Soient <span class="math inline">\(f(x)=C(x)+x^n \varepsilon_1 (x)=c_0+c_1 x+...+c_n x^n +x^n \varepsilon_1 (x)\)</span> et <span class="math inline">\(g(x)=D(x)+x^n \varepsilon_2 (x)=d_0+d_1 x+...+d_n x^n +x^n \varepsilon_2 (x)\)</span></p>
+<p>Soient <span class="math inline">\(f(x)=C(x)+x^n \varepsilon_1 (x)=c_0+c_1 x+\ldots+c_n x^n +x^n \varepsilon_1 (x)\)</span> et <span class="math inline">\(g(x)=D(x)+x^n \varepsilon_2 (x)=d_0+d_1 x+\ldots+d_n x^n +x^n \varepsilon_2 (x).\)</span></p>
 <div class="callout callout-style-default callout-important callout-titled" title="Proposition">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -728,7 +997,7 @@ f(x)=c_0+c_1 x+...+c_n x^n +x^n \varepsilon_1 (x)\quad\mbox{et}\quad g(x)=d_0+d_
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si <span class="math inline">\(g(0) = 0\)</span> (c’est-à-dire <span class="math inline">\(d_0 = 0\)</span>) alors la fonction <span class="math inline">\(f\circ g\)</span> admet un <span class="math inline">\(DL\)</span> en <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(n\)</span> dont la partie polynomiale est le polynôme tronqué à l’ordre <span class="math inline">\(n\)</span> de la composition <span class="math inline">\(C(D(x)).\)</span></p>
+<p>Si <span class="math inline">\(g(0) = 0\)</span> (c’est-à-dire <span class="math inline">\(d_0 = 0\)</span>) alors la fonction <span class="math inline">\(f\circ g\)</span> admet un DL en <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(n\)</span> dont la partie polynomiale est le polynôme <span class="math inline">\(C(D(x))\)</span> tronqué à l’ordre <span class="math inline">\(n.\)</span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Exercice">
@@ -741,30 +1010,32 @@ f(x)=c_0+c_1 x+...+c_n x^n +x^n \varepsilon_1 (x)\quad\mbox{et}\quad g(x)=d_0+d_
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\(h(x)=\sqrt{\cos x},\)</span> On cherche le <span class="math inline">\(DL\)</span> de <span class="math inline">\(h\)</span> en <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(4.\)</span> On pose <span class="math inline">\(f(u)=\sqrt{1+u},\)</span> alors on a <span class="math inline">\(f(u)=1+\frac{1}{2}u-\frac{1}{8}u^2+u^2\varepsilon (u)\)</span> au voisinage de <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(2,\)</span> et si on pose <span class="math inline">\(u(x)=\cos x-1,\)</span> alors <span class="math inline">\(h(x)=f(u(x)),\)</span> et <span class="math inline">\(u(0)=0,\)</span> D’autre part le <span class="math inline">\(DL\)</span> de <span class="math inline">\(u(x)\)</span> en <span class="math inline">\(x = 0\)</span> à l’ordre <span class="math inline">\(4\)</span> est: <span class="math inline">\(u=-\frac{1}{2}x^2+\frac{1}{24}x^4+x^4 \varepsilon(x),\)</span> en appliquant la prop .., on a <span class="math inline">\(u^2=\frac{1}{4}x^4+x^4 \varepsilon(x).\)</span> D’où,</p>
+<p>Soit <span class="math inline">\(h(x)=\sqrt{\cos x}.\)</span> On cherche le DL de <span class="math inline">\(h\)</span> en <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(4.\)</span> On pose <span class="math inline">\(f(u)=\sqrt{1+u},\)</span> alors on a <span class="math inline">\(f(u)=1+\dfrac{1}{2}u-\dfrac{1}{8}u^2+u^2\varepsilon (u)\)</span> au voisinage de <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(2.\)</span> Si on pose <span class="math inline">\(u(x)=\cos x-1,\)</span> alors <span class="math inline">\(h(x)=f(u(x))\)</span> et <span class="math inline">\(u(0)=0.\)</span> D’autre part, le DL de <span class="math inline">\(u(x)\)</span> en <span class="math inline">\(x = 0\)</span> à l’ordre <span class="math inline">\(4\)</span> est <span class="math inline">\(u=-\dfrac{1}{2}x^2+\dfrac{1}{24}x^4+x^4 \varepsilon(x).\)</span> En appliquant la proposition sur le produit, on a <span class="math inline">\(u^2=\dfrac{1}{4}x^4+x^4 \varepsilon(x).\)</span> D’où,</p>
 <p><span class="math display">\[
-\begin{array}{rcl}
-h(x)=f(u)=1+\frac{1}{2}u-\frac{1}{8}u^2+u^2\varepsilon (u)
-&amp;=&amp; 1+\frac{1}{2}(-\frac{1}{2}x^2+\frac{1}{24}x^4)-\frac{1}{8}(\frac{1}{4}x^4)+x^4 \varepsilon(x)\\
-&amp;=&amp; 1-\frac{1}{4}x^2+\frac{1}{48}x^4-\frac{1}{32}x^4+x^4\varepsilon(x)\\
-&amp;=&amp; 1-\frac{1}{4}x^2-\frac{1}{96}x^4+x^4\varepsilon(x)
-\end{array}
+\begin{aligned}
+h(x)=f(u)&amp;=1+\frac{1}{2}u-\frac{1}{8}u^2+u^2\varepsilon (u)\\
+&amp;= 1+\frac{1}{2}\left(-\frac{1}{2}x^2+\frac{1}{24}x^4\right)-\frac{1}{8}\left(\frac{1}{4}x^4\right)+x^4 \varepsilon(x)\\
+&amp;= 1-\frac{1}{4}x^2+\frac{1}{48}x^4-\frac{1}{32}x^4+x^4\varepsilon(x)\\
+&amp;= 1-\frac{1}{4}x^2-\frac{1}{96}x^4+x^4\varepsilon(x)
+\end{aligned}
 \]</span></p>
 </div>
 </div>
 </section>
 <section id="division" class="level3">
 <h3 class="anchored" data-anchor-id="division">Division</h3>
-<p>Soit à déterminer le DL de <span class="math inline">\(f/g,\)</span> quitte à multiplier le DL de <span class="math inline">\(f\)</span> par celui de <span class="math inline">\(1/g,\)</span> il suffier de trouver le DL de ce dernier,</p>
-<p>en posant <span class="math inline">\(f(x)=c_0+c_1 x+...+c_n x^n +x^n \varepsilon_1 (x)\quad\mbox{et}\quad g(x)=d_0+d_1 x+...+d_n x^n +x^n \varepsilon_2 (x)\)</span></p>
-<p>cherchons le DL de <span class="math inline">\(1/g,\)</span> pour cela on utilise le DL de <span class="math inline">\(\frac{1}{1+u},\)</span></p>
+<p>Soit à déterminer le DL de <span class="math inline">\(f/g.\)</span> Quitte à multiplier le DL de <span class="math inline">\(f\)</span> par celui de <span class="math inline">\(1/g,\)</span> il suffit de trouver le DL de ce dernier, en posant</p>
+<p><span class="math display">\[
+f(x)=c_0+c_1 x+\ldots+c_n x^n +x^n \varepsilon_1 (x)\quad\text{et}\quad g(x)=d_0+d_1 x+\ldots+d_n x^n +x^n \varepsilon_2 (x)
+\]</span></p>
+<p>Cherchons le DL de <span class="math inline">\(1/g.\)</span> Pour cela on utilise le DL de <span class="math inline">\(\dfrac{1}{1+u}.\)</span></p>
 <ol type="1">
-<li><p>Si <span class="math inline">\(d_0=1,\)</span> <span class="math inline">\(u=d_1 x+...+d_n x^n +x^n \varepsilon(x),\)</span></p></li>
-<li><p>Si <span class="math inline">\(d_0\)</span> est quelconque avec <span class="math inline">\(d_0 \neq0\)</span> alors on se ramène au cas précédent en écrivant</p></li>
-</ol>
-<p><span class="math inline">\(\frac{1}{g(x)}=\frac{1}{d_0}\frac{1}{1+\frac{d_1}{d_0}x+...+\frac{d_n}{d_0}x^n+\frac{x^n \varepsilon_2 (x)}{d_0}}\)</span></p>
-<ol start="3" type="1">
-<li>Si <span class="math inline">\(d_0 = 0\)</span> alors on factorise par <span class="math inline">\(x^k\)</span> (pour un certain <span class="math inline">\(k\)</span>) afin de se ramener aux cas précédents.</li>
+<li><p>Si <span class="math inline">\(d_0=1,\)</span> on pose <span class="math inline">\(u=d_1 x+\ldots+d_n x^n +x^n \varepsilon_2(x).\)</span></p></li>
+<li><p>Si <span class="math inline">\(d_0\)</span> est quelconque avec <span class="math inline">\(d_0 \neq0,\)</span> alors on se ramène au cas précédent en écrivant</p>
+<p><span class="math display">\[
+\frac{1}{g(x)}=\frac{1}{d_0}\cdot\frac{1}{1+\dfrac{d_1}{d_0}x+\ldots+\dfrac{d_n}{d_0}x^n+\dfrac{x^n \varepsilon_2 (x)}{d_0}}
+\]</span></p></li>
+<li><p>Si <span class="math inline">\(d_0 = 0,\)</span> alors on factorise par <span class="math inline">\(x^k\)</span> (<span class="math inline">\(k\)</span> étant le plus petit indice tel que <span class="math inline">\(d_k\neq0\)</span>) afin de se ramener aux cas précédents. Le quotient fait alors apparaître un facteur <span class="math inline">\(\frac{1}{x^k}\)</span> : il faut donc partir de DL de <span class="math inline">\(f\)</span> et de <span class="math inline">\(g\)</span> à un ordre plus grand (en général <span class="math inline">\(n+k\)</span>) pour obtenir le DL du quotient à l’ordre <span class="math inline">\(n.\)</span></p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled" title="Exercice">
 <div class="callout-header d-flex align-content-center">
@@ -776,24 +1047,48 @@ h(x)=f(u)=1+\frac{1}{2}u-\frac{1}{8}u^2+u^2\varepsilon (u)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>DL de <span class="math inline">\(\frac{1+x}{2+x}\)</span> en <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(4.\)</span></p>
+<p>DL de <span class="math inline">\(\dfrac{1+x}{2+x}\)</span> en <span class="math inline">\(0\)</span> à l’ordre <span class="math inline">\(4.\)</span></p>
 <p><span class="math display">\[
-\begin{array}{rcl}
+\begin{aligned}
 \frac{1+x}{2+x}
-&amp;=&amp; (1+x)\frac{1}{2}\frac{1}{1+\frac{x}{2}}\\
-&amp;=&amp; \frac{1}{2}(1+x)(1-\frac{x}{2}+(\frac{x}{2})^2-(\frac{x}{2})^3+(\frac{x}{2})^4+x^4 \varepsilon(x))\\
-&amp;=&amp; \frac{1}{2}+\frac{x}{4}-\frac{x^2}{8}+\frac{x^3}{16}-\frac{x^4}{32}+x^4 \varepsilon(x)
-\end{array}
+&amp;= (1+x)\cdot\frac{1}{2}\cdot\frac{1}{1+\frac{x}{2}}\\
+&amp;= \frac{1}{2}(1+x)\left(1-\frac{x}{2}+\left(\frac{x}{2}\right)^2-\left(\frac{x}{2}\right)^3+\left(\frac{x}{2}\right)^4+x^4 \varepsilon(x)\right)\\
+&amp;= \frac{1}{2}+\frac{x}{4}-\frac{x^2}{8}+\frac{x^3}{16}-\frac{x^4}{32}+x^4 \varepsilon(x)
+\end{aligned}
 \]</span></p>
 </div>
 </div>
 </section>
 </section>
 <section id="applications-des-développements-limités-calculs-de-limites" class="level2">
-<h2 class="anchored" data-anchor-id="applications-des-développements-limités-calculs-de-limites">Applications des développements limités, Calculs de limites</h2>
-<p>Les DL sont très efficaces pour calculer des limites ayant des formes indéterminées ! Il suffit juste de remarquer que si <span class="math inline">\(f(x)=c_0+c_1 (x-a)+...\)</span> alors <span class="math inline">\(\lim\limits_{\substack{x \rightarrow a}}f(x)=c_0=0\)</span></p>
-<p>Limite en <span class="math inline">\(0\)</span> de <span class="math inline">\(\frac{\ln(1+x)-\tan x+\frac{1}{2}\sin^2 x}{3 x^2 \sin^2 x}\)</span></p>
-<p>Notons <span class="math inline">\(\frac{f(x)}{g(x)}\)</span> cette fraction, en <span class="math inline">\(0,\)</span> <span class="math inline">\(f(x)=\ln(1+x)-\tan x+\frac{1}{2}\sin^2 x=(x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+o(x^4))-(x+\frac{x^3}{3}+o(x^4))+\frac{1}{2}(x-\frac{x^3}{6}+o(x^3))^2=-\frac{5}{12}x^4+o(x^4)\)</span> et <span class="math inline">\(g(x)=3x^2 \sin^2 x=3x^4+o(x^4).\)</span> Ainsi, <span class="math inline">\(\frac{f(x)}{g(x)}=\frac{-\frac{5}{12}x^4+o(x^4)}{3x^4+o(x^4)}=\frac{-\frac{5}{12}+o(1)}{3+o(1)}.\)</span> D’où, <span class="math inline">\(\lim\limits_{\substack{x \rightarrow a}}\frac{f(x)}{g(x)}=-\frac{5}{36}.\)</span></p>
+<h2 class="anchored" data-anchor-id="applications-des-développements-limités-calculs-de-limites">Applications des développements limités : calculs de limites</h2>
+<p>Les DL sont très efficaces pour calculer des limites ayant des formes indéterminées ! Il suffit de remarquer que si <span class="math inline">\(f(x)=c_0+c_1 (x-a)+\ldots\)</span> alors <span class="math inline">\(\lim\limits_{x \rightarrow a}f(x)=c_0.\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Exercice">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Limite en <span class="math inline">\(0\)</span> de <span class="math inline">\(\dfrac{\ln(1+x)-\tan x+\frac{1}{2}\sin^2 x}{3 x^2 \sin^2 x}.\)</span></p>
+<p>Notons <span class="math inline">\(\dfrac{f(x)}{g(x)}\)</span> cette fraction. En <span class="math inline">\(0,\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+f(x)&amp;=\ln(1+x)-\tan x+\frac{1}{2}\sin^2 x\\
+&amp;=\left(x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+o(x^4)\right)-\left(x+\frac{x^3}{3}+o(x^4)\right)+\frac{1}{2}\left(x-\frac{x^3}{6}+o(x^3)\right)^2\\
+&amp;=-\frac{5}{12}x^4+o(x^4)
+\end{aligned}
+\]</span></p>
+<p>et <span class="math inline">\(g(x)=3x^2 \sin^2 x=3x^4+o(x^4).\)</span> Ainsi,</p>
+<p><span class="math display">\[
+\frac{f(x)}{g(x)}=\frac{-\frac{5}{12}x^4+o(x^4)}{3x^4+o(x^4)}=\frac{-\frac{5}{12}+o(1)}{3+o(1)}
+\]</span></p>
+<p>D’où, <span class="math inline">\(\lim\limits_{x \rightarrow 0}\dfrac{f(x)}{g(x)}=-\dfrac{5}{36}.\)</span></p>
+</div>
+</div>
 
 
 </section>
@@ -801,6 +1096,19 @@ h(x)=f(u)=1+\frac{1}{2}u-\frac{1}{8}u^2+u^2\varepsilon (u)
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1201,8 +1509,8 @@ h(x)=f(u)=1+\frac{1}{2}u-\frac{1}{8}u^2+u^2\varepsilon (u)
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./complements.html" class="pagination-link" aria-label="Complément sur les suites et les fonctions numériques">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Complément sur les suites et les fonctions numériques</span></span>
+      <a href="./complements.html" class="pagination-link" aria-label="Compléments sur les suites et les fonctions numériques">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Compléments sur les suites et les fonctions numériques</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

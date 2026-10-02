@@ -44,10 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-505fb740752bcb4749a94d640a912150.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+
 <script>
 window.MathJax = {
   tex: {
@@ -130,7 +135,178 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -175,8 +351,27 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Cours d’Analyse</a> 
-        <div class="sidebar-tools-main">
-    <a href="./Cours-d-Analyse.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/iaousse/" title="" class="quarto-navigation-tool px-1" aria-label="GitHub" target="_blank"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/mbarekiaousse" title="" class="quarto-navigation-tool px-1" aria-label="LinkedIn" target="_blank"><i class="bi bi-linkedin"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
 </div>
     </div>
       </div>
@@ -234,7 +429,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./suites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Suites réelles: Définitions générales</span></a>
+  <a href="./suites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Suites réelles : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -255,7 +450,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numérique: Définitions générales</span></a>
+  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numériques : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -302,12 +497,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./complements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Complément sur les suites et les fonctions numériques</span></a>
+  <a href="./complements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Compléments sur les suites et les fonctions numériques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dévelopements limités</span></a>
+  <a href="./dl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Développements limités</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -382,69 +577,95 @@ window.Quarto = {
 
 
 
-<section id="exercice-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-1">Exercice 1</h2>
-<p>Comment définir <span class="math inline">\(\max(a,b,c),\)</span> <span class="math inline">\(\max(a_1,...,a_n)\)</span>? Et <span class="math inline">\(\min(a,b)\)</span>?</p>
-</section>
-<section id="exercice-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2">Exercice 2</h2>
-<ol type="1">
-<li>Écrire les nombres suivants sous forme d’une fraction : <span class="math inline">\(0,1212\)</span> ;<span class="math inline">\(0,1212 ....\)</span>; <span class="math inline">\(78,33454545...\)</span></li>
-<li>Sachant <span class="math inline">\(\sqrt{2}\notin\mathbb{Q},\)</span> montrer que <span class="math inline">\(2-3\sqrt{2}\notin\mathbb{Q},\)</span> <span class="math inline">\(1-\frac{1}{\sqrt{2}}\notin\mathbb{Q}.\)</span></li>
-<li>Notons <span class="math inline">\(D\)</span> l’ensemble des nombres de la forme <span class="math inline">\(\frac{a}{2^{n}}\)</span> avec <span class="math inline">\(a\in\mathbb{Z}\)</span> et <span class="math inline">\(n\in \mathbb{N}\)</span>. Montrer que <span class="math inline">\(\frac{1}{3}\notin D\)</span>. Trouver <span class="math inline">\(x\in D\)</span> tel que <span class="math inline">\(1234&lt;x&lt;1234,001\)</span></li>
-<li>Montrer que <span class="math inline">\(\frac{\sqrt{2}}{\sqrt{3}}\notin \mathbb{Q}.\)</span></li>
+
+<div id="exr-reels-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 1</strong></span> Soient <span class="math inline">\(a,b,c\)</span> des réels.</p>
+<ol type="a">
+<li>Donner une définition de <span class="math inline">\(\min(a,b)\)</span> et vérifier que c’est bien le plus petit élément de <span class="math inline">\(\{a,b\}\)</span>.</li>
+<li>Comment définir <span class="math inline">\(\max(a,b,c)\)</span> ? Vérifier que le réel obtenu est le plus grand élément de <span class="math inline">\(\{a,b,c\}\)</span>.</li>
+<li>Soient <span class="math inline">\(a_1,\ldots,a_n\)</span> des réels (<span class="math inline">\(n\geq 1\)</span>). Comment définir <span class="math inline">\(\max(a_1,\ldots,a_n)\)</span> ? Et <span class="math inline">\(\min(a_1,\ldots,a_n)\)</span> ?</li>
 </ol>
-</section>
-<section id="exercice-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-3">Exercice 3</h2>
-<ol type="1">
-<li>Démontrer que si <span class="math inline">\(r\in \mathbb{Q}\)</span> et <span class="math inline">\(x \notin \mathbb{Q}\)</span> alors <span class="math inline">\(r +x \notin \mathbb{Q}\)</span> et si <span class="math inline">\(r \neq 0\)</span> alors <span class="math inline">\(rx \notin \mathbb{Q}\)</span>.</li>
-<li>Montrer que <span class="math inline">\(\sqrt{2}\notin \mathbb{Q}\)</span>.</li>
-<li>En déduire que : entre deux nombres rationnels il y a toujours un nombre irrationnel.</li>
+</div>
+<div id="exr-reels-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 2</strong></span> &nbsp;</p>
+<ol type="a">
+<li>Écrire sous forme d’une fraction irréductible : <span class="math inline">\(0{,}1212\)</span> ; <span class="math inline">\(0{,}1212\ldots\)</span> (période <span class="math inline">\(12\)</span>) ; <span class="math inline">\(78{,}33454545\ldots\)</span> (période <span class="math inline">\(45\)</span>).</li>
+<li>Sachant que <span class="math inline">\(\sqrt{2}\notin\mathbb{Q}\)</span>, montrer que <span class="math inline">\(2-3\sqrt{2}\notin\mathbb{Q}\)</span> et <span class="math inline">\(1-\dfrac{1}{\sqrt{2}}\notin\mathbb{Q}\)</span>.</li>
+<li>Notons <span class="math inline">\(D\)</span> l’ensemble des nombres de la forme <span class="math inline">\(\dfrac{a}{2^{n}}\)</span> avec <span class="math inline">\(a\in\mathbb{Z}\)</span> et <span class="math inline">\(n\in\mathbb{N}\)</span>. Montrer que <span class="math inline">\(\dfrac{1}{3}\notin D\)</span>. Trouver <span class="math inline">\(x\in D\)</span> tel que <span class="math inline">\(1234&lt;x&lt;1234{,}001\)</span>.</li>
+<li>Montrer que <span class="math inline">\(\dfrac{\sqrt{2}}{\sqrt{3}}\notin\mathbb{Q}\)</span>.</li>
 </ol>
-</section>
-<section id="exercice-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-4">Exercice 4</h2>
-<p>Montrer que <span class="math inline">\(\dfrac{\ln (3)}{ln (2)}\)</span> est irrationnel.</p>
-</section>
-<section id="exercice-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-5">Exercice 5</h2>
-<p>Le maximum de deux nombres <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> (c’est-à-dire le plus grand des deux) est noté <span class="math inline">\(\max(x, y)\)</span>. De même on notera <span class="math inline">\(\min(x, y)\)</span> le plus petit des deux nombres <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>. Démontrer que : <span class="math inline">\(\max(x, y) = \dfrac{x+y+|x−y|}{2}\)</span> et <span class="math inline">\(\min(x, y) = \dfrac{x+y−|x−y|}{2}\)</span>.</p>
-<p>Trouver une formule pour <span class="math inline">\(\max(x, y,z)\)</span>.</p>
-</section>
-<section id="exercice-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-6">Exercice 6</h2>
-<p>Déterminer la borne supérieure et inférieure (si elles existent) de : <span class="math inline">\(A = \{u_n | n \in \mathbb{N}\}\)</span> en posant <span class="math inline">\(u_n = 2^n\)</span> si <span class="math inline">\(n\)</span> est pair et <span class="math inline">\(u_n = 2^{−n}\)</span> sinon.</p>
-</section>
-<section id="exercice-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-7">Exercice 7</h2>
-<p>Déterminer (s’ils existent) : les majorants, les minorants, la borne supérieure, la borne inférieure, le plus grand élément, le plus petit élément des ensembles suivants :</p>
-<p><span class="math display">\[
-[0, 1]\cap \mathbb{Q}; ]0, 1[\cap \mathbb{Q}; \mathbb{N}; \left\{(-1)^n + \dfrac{1}{n^2} | n \in \mathbb{N}^\star \right\}
-\]</span></p>
-</section>
-<section id="exercice-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-8">Exercice 8</h2>
-<p>Soient <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux parties bornées de <span class="math inline">\(\mathbb{R}\)</span>. On note <span class="math inline">\(A+B = \{a+b | (a,b) \in  A\times B\}\)</span>. 1. Montrer que <span class="math inline">\(\sup A+\sup B\)</span> est un majorant de <span class="math inline">\(A+B\)</span>. 2. Montrer que <span class="math inline">\(\sup(A+B) = \sup A+\sup B\)</span>.</p>
-</section>
-<section id="exercice-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-9">Exercice 9</h2>
-<p>Soit <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux parties bornées de <span class="math inline">\(\mathbb{R}\)</span>. Vrai ou faux? 1. <span class="math inline">\(A \subset B \rightarrow \sup A \leq \sup B\)</span>, 2. <span class="math inline">\(A \subset B \rightarrow \inf A \leq \inf B\)</span>, 3. <span class="math inline">\(\sup(A\cup B) = \max(\sup A,\sup B)\)</span>, 4. <span class="math inline">\(\sup(A+B) &lt; \sup A+\sup B\)</span>, 5. <span class="math inline">\(\sup(−A) = −\inf A\)</span>, 6. <span class="math inline">\(\sup A+\inf B \leq \sup(A+B)\)</span>.</p>
-</section>
-<section id="exercice-10" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-10">Exercice 10</h2>
-<ol type="1">
-<li><p>Soient <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> deux réels. Montrer que <span class="math inline">\(|x|\geq ||x+y|-|y||.\)</span></p></li>
-<li><p>Soient <span class="math inline">\(x_1,\ldots,x_n\)</span> des réels. Montrer que <span class="math inline">\(|x_1 +\ldots+ x_n|\leq|x1| + \ldots + |x_n|\)</span>. Dans quel cas a-t-on égalité?</p></li>
-<li><p>Soient <span class="math inline">\(x, y &gt; 0\)</span> des réels. Comparer <span class="math inline">\(E(x + y)\)</span> avec <span class="math inline">\(E(x)+E( y).\)</span> Comparer <span class="math inline">\(E(xy)\)</span> et <span class="math inline">\(E(x)E(y).\)</span></p></li>
+</div>
+<div id="exr-reels-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 3</strong></span> &nbsp;</p>
+<ol type="a">
+<li>Démontrer que si <span class="math inline">\(r\in\mathbb{Q}\)</span> et <span class="math inline">\(x\notin\mathbb{Q}\)</span>, alors <span class="math inline">\(r+x\notin\mathbb{Q}\)</span> ; et si de plus <span class="math inline">\(r\neq 0\)</span>, alors <span class="math inline">\(rx\notin\mathbb{Q}\)</span>.</li>
+<li>Montrer que <span class="math inline">\(\sqrt{2}\notin\mathbb{Q}\)</span>.</li>
+<li>En déduire que, entre deux nombres rationnels distincts, il y a toujours un nombre irrationnel.</li>
 </ol>
+</div>
+<div id="exr-reels-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 4</strong></span> Montrer que <span class="math inline">\(\dfrac{\ln 3}{\ln 2}\)</span> est irrationnel.</p>
+</div>
+<div id="exr-reels-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 5</strong></span> Pour <span class="math inline">\(x,y\in\mathbb{R}\)</span>, démontrer que <span class="math display">\[\max(x,y)=\frac{x+y+|x-y|}{2}\qquad\text{et}\qquad\min(x,y)=\frac{x+y-|x-y|}{2}.\]</span> Trouver une formule pour <span class="math inline">\(\max(x,y,z)\)</span>.</p>
+</div>
+<div id="exr-reels-6" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 6</strong></span> Déterminer la borne supérieure et la borne inférieure (si elles existent) de <span class="math inline">\(A=\{u_n\mid n\in\mathbb{N}\}\)</span>, où <span class="math inline">\(u_n=2^n\)</span> si <span class="math inline">\(n\)</span> est pair et <span class="math inline">\(u_n=2^{-n}\)</span> si <span class="math inline">\(n\)</span> est impair.</p>
+</div>
+<div id="exr-reels-7" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 7</strong></span> Déterminer (s’ils existent) les majorants, les minorants, la borne supérieure, la borne inférieure, le plus grand élément et le plus petit élément des ensembles suivants :</p>
+<ol type="a">
+<li><span class="math inline">\([0,1]\cap\mathbb{Q}\)</span> ;</li>
+<li><span class="math inline">\(]0,1[\cap\mathbb{Q}\)</span> ;</li>
+<li><span class="math inline">\(\mathbb{N}\)</span> ;</li>
+<li><span class="math inline">\(\left\{(-1)^n+\dfrac{1}{n^2}\ \Big|\ n\in\mathbb{N}^*\right\}\)</span>.</li>
+</ol>
+</div>
+<div id="exr-reels-8" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 8</strong></span> Soient <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux parties <strong>non vides et bornées</strong> de <span class="math inline">\(\mathbb{R}\)</span>. On note <span class="math inline">\(A+B=\{a+b\mid (a,b)\in A\times B\}\)</span>.</p>
+<ol type="a">
+<li>Montrer que <span class="math inline">\(\sup A+\sup B\)</span> est un majorant de <span class="math inline">\(A+B\)</span>.</li>
+<li>Montrer que <span class="math inline">\(\sup(A+B)=\sup A+\sup B\)</span>.</li>
+</ol>
+</div>
+<div id="exr-reels-9" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9</strong></span> Soient <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux parties <strong>non vides et bornées</strong> de <span class="math inline">\(\mathbb{R}\)</span>, et <span class="math inline">\(-A=\{-a\mid a\in A\}\)</span>. Dire si les affirmations suivantes sont vraies ou fausses (démonstration ou contre-exemple) :</p>
+<ol type="a">
+<li><span class="math inline">\(A\subset B\Rightarrow\sup A\leq\sup B\)</span> ;</li>
+<li><span class="math inline">\(A\subset B\Rightarrow\inf A\leq\inf B\)</span> ;</li>
+<li><span class="math inline">\(\sup(A\cup B)=\max(\sup A,\sup B)\)</span> ;</li>
+<li><span class="math inline">\(\sup(A+B)&lt;\sup A+\sup B\)</span> ;</li>
+<li><span class="math inline">\(\sup(-A)=-\inf A\)</span> ;</li>
+<li><span class="math inline">\(\sup A+\inf B\leq\sup(A+B)\)</span>.</li>
+</ol>
+</div>
+<div id="exr-reels-10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 10</strong></span> &nbsp;</p>
+<ol type="a">
+<li>Soient <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> deux réels. Montrer que <span class="math inline">\(|x|\geq\big||x+y|-|y|\big|\)</span>.</li>
+<li>Soient <span class="math inline">\(x_1,\ldots,x_n\)</span> des réels. Montrer que <span class="math inline">\(|x_1+\cdots+x_n|\leq|x_1|+\cdots+|x_n|\)</span>. Dans quel cas a-t-on égalité ?</li>
+<li>Soient <span class="math inline">\(x,y&gt;0\)</span> des réels. Comparer <span class="math inline">\(E(x+y)\)</span> avec <span class="math inline">\(E(x)+E(y)\)</span>, puis <span class="math inline">\(E(xy)\)</span> avec <span class="math inline">\(E(x)E(y)\)</span>.</li>
+</ol>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

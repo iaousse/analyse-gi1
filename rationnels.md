@@ -43,7 +43,6 @@ $$(100x)
 
 Maintenant on va décaler tout vers la gauche de la longueur d'une période, donc ici on multiplie encore par 10 000 pour décaler de 4 chiffres :
 
-Maintenant on va décaler tout vers la gauche de la longueur d'une période, donc ici on multiplie encore par 10 000 pour décaler de 4 chiffres :
 
 $$
 10 000\times 100x= 1234 2021, 2021 \ldots

@@ -1,0 +1,111 @@
+# Exercices
+
+::: {#exr-limites-1}
+Déterminer les limites suivantes :
+
+a. $\displaystyle\lim_{x\to 1}\dfrac{\sqrt{x^2+3}+1}{2x-1}$ ;
+b. $\displaystyle\lim_{x\to+\infty}2x^3+x^2-x+4$ ;
+c. $\displaystyle\lim_{x\to+\infty}\dfrac{2x+5x^2-7x^4}{x-10x^2+14x^3}$ ;
+d. $\displaystyle\lim_{x\to-\infty}\dfrac{3x+8x^2-2x^5}{x^2+2x^6}$ ;
+e. $\displaystyle\lim_{x\to+\infty}\sqrt{x^2+x}-x$ ;
+f. $\displaystyle\lim_{x\to\frac{\pi}{4}}\dfrac{\tan(x)-1}{x-\frac{\pi}{4}}$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-limites-1"}
+a. La fonction $x\mapsto x^2+3$ est continue, de valeur $4$ en $1$, et la racine carrée est continue en $4$ : $\sqrt{x^2+3}\to\sqrt4=2$. Le numérateur tend donc vers $2+1=3$. Le dénominateur $2x-1$ tend vers $1\neq0$. Par quotient,
+   $$\lim_{x\to1}\frac{\sqrt{x^2+3}+1}{2x-1}=\frac31=3.$$
+
+b. La limite d'un polynôme en $+\infty$ est celle de son terme de plus haut degré : $\lim\limits_{x\to+\infty}2x^3=+\infty$, donc
+   $$\lim_{x\to+\infty}2x^3+x^2-x+4=+\infty.$$
+
+c. Pour $x\neq0$, on met en facteur le terme de plus haut degré au numérateur et au dénominateur :
+   $$\frac{2x+5x^2-7x^4}{x-10x^2+14x^3}=\frac{x^4\left(\frac{2}{x^3}+\frac5{x^2}-7\right)}{x^3\left(\frac1{x^2}-\frac{10}{x}+14\right)}=x\times\frac{-7+\frac5{x^2}+\frac2{x^3}}{14-\frac{10}{x}+\frac1{x^2}}.$$
+   Le quotient tend vers $\dfrac{-7}{14}=-\dfrac12$ et $x\to+\infty$. Donc
+   $$\lim_{x\to+\infty}\frac{2x+5x^2-7x^4}{x-10x^2+14x^3}=-\infty.$$
+
+d. Pour $x\neq0$, on met $x^6$ en facteur au numérateur et au dénominateur :
+   $$\frac{3x+8x^2-2x^5}{x^2+2x^6}=\frac{x^6\left(\frac{3}{x^5}+\frac{8}{x^4}-\frac2x\right)}{x^6\left(\frac1{x^4}+2\right)}=\frac{\frac{3}{x^5}+\frac{8}{x^4}-\frac2x}{\frac1{x^4}+2}.$$
+   Le numérateur tend vers $0$ et le dénominateur vers $2\neq0$, donc la limite vaut $0$ (c'est le cas « degré du numérateur $<$ degré du dénominateur »).
+
+e. Forme indéterminée $+\infty-\infty$. Pour $x>0$, on multiplie par la quantité conjuguée :
+   $$\sqrt{x^2+x}-x=\frac{(x^2+x)-x^2}{\sqrt{x^2+x}+x}=\frac{x}{\sqrt{x^2+x}+x}.$$
+   Pour $x>0$, $\sqrt{x^2+x}=x\sqrt{1+\frac1x}$, d'où, en simplifiant par $x$,
+   $$\sqrt{x^2+x}-x=\frac{1}{\sqrt{1+\frac1x}+1}.$$
+   Comme $\frac1x\to0$ et que la racine carrée est continue en $1$, le dénominateur tend vers $1+1=2$. Donc
+   $$\lim_{x\to+\infty}\sqrt{x^2+x}-x=\frac12.$$
+
+f. On reconnaît le taux d'accroissement de la fonction $\tan$ en $\frac\pi4$ : avec $\tan\left(\frac\pi4\right)=1$,
+   $$\frac{\tan(x)-1}{x-\frac\pi4}=\frac{\tan(x)-\tan\left(\frac\pi4\right)}{x-\frac\pi4}.$$
+   Sa limite quand $x\to\frac\pi4$ est le nombre dérivé $\tan'\left(\frac\pi4\right)$. Comme $\tan'(x)=1+\tan^2(x)$, on obtient $\tan'\left(\frac\pi4\right)=1+1=2$. Donc
+   $$\lim_{x\to\frac\pi4}\frac{\tan(x)-1}{x-\frac\pi4}=2.$$
+:::
+:::
+
+::: {#exr-limites-2}
+Soit $f$ la fonction définie par
+$$f(x)=\frac{(x+1)^2}{|x^2-1|}.$$
+
+a. Déterminer le domaine de définition de $f$.
+b. Étudier la limite de $f$ en $x_0=-1$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-limites-2"}
+a. $f(x)$ existe si et seulement si $|x^2-1|\neq0$, c'est-à-dire $x^2\neq1$, c'est-à-dire $x\neq1$ et $x\neq-1$. Donc
+   $$D_f=\mathbb{R}\setminus\{-1,1\}=]-\infty,-1[\,\cup\,]-1,1[\,\cup\,]1,+\infty[.$$
+
+b. Pour $x\in D_f$, $x^2-1=(x-1)(x+1)$, donc $|x^2-1|=|x-1|\,|x+1|$. De plus $(x+1)^2=|x+1|^2$. Comme $|x+1|\neq0$ sur $D_f$, on peut simplifier :
+   $$f(x)=\frac{|x+1|^2}{|x-1|\,|x+1|}=\frac{|x+1|}{|x-1|}.$$
+   Quand $x\to-1$ : $|x+1|\to0$ et $|x-1|\to|-2|=2\neq0$ (la valeur absolue est continue). Par quotient,
+   $$\lim_{x\to-1}f(x)=\frac02=0.$$
+   (La limite à gauche et la limite à droite sont toutes deux égales à $0$.)
+:::
+:::
+
+::: {#exr-limites-3}
+Les fonctions suivantes sont-elles prolongeables par continuité sur $\mathbb{R}$ ?
+
+a. $f(x)=\sin(x)\sin\left(\dfrac1x\right)$ ;
+b. $g(x)=\dfrac1x\ln\left(\dfrac{e^x+e^{-x}}{2}\right)$ ;
+c. $h(x)=\dfrac1{1-x}-\dfrac2{1-x^2}$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-limites-3"}
+a. $f$ est définie sur $\mathbb{R}^*$ et continue sur $\mathbb{R}^*$ (produit et composée de fonctions continues). Il reste à étudier la limite en $0$. Pour $x\neq0$, $\left|\sin\left(\frac1x\right)\right|\leq1$, donc
+   $$-|\sin(x)|\leq f(x)\leq|\sin(x)|.$$
+   Comme $\sin$ et la valeur absolue sont continues, $|\sin(x)|\to|\sin(0)|=0$ quand $x\to0$. Par le théorème des gendarmes, $\lim\limits_{x\to0}f(x)=0$. La limite est finie : **$f$ est prolongeable par continuité sur $\mathbb{R}$**, par
+   $$\widetilde f(x)=\begin{cases}f(x)&\text{si }x\neq0,\\ 0&\text{si }x=0.\end{cases}$$
+
+b. Pour tout $x$, $\frac{e^x+e^{-x}}2>0$, donc $g$ est définie et continue sur $\mathbb{R}^*$. Étudions la limite en $0$. Posons
+   $$u(x)=\frac{e^x+e^{-x}}{2}-1=\frac{e^{2x}-2e^x+1}{2e^x}=\frac{(e^x-1)^2}{2e^x}.$$
+   Alors $u(x)\to0$ quand $x\to0$ (continuité de $\exp$), et $u(x)>0$ pour $x\neq0$ (car $e^x\neq1$). On écrit, pour $x\neq0$,
+   $$g(x)=\frac{\ln(1+u(x))}{x}=\underbrace{\frac{\ln(1+u(x))}{u(x)}}_{\to1}\times\frac{u(x)}{x}.$$
+   - Comme $u(x)\to0$ et $\lim\limits_{t\to0}\frac{\ln(1+t)}{t}=1$, le premier facteur tend vers $1$.
+   - On a $\dfrac{u(x)}{x}=\dfrac{e^x-1}{x}\times\dfrac{e^x-1}{2e^x}$. Le premier facteur tend vers $\exp'(0)=e^0=1$ (taux d'accroissement de $\exp$ en $0$) et le second vers $\dfrac{1-1}{2}=0$. Donc $\dfrac{u(x)}{x}\to0$.
+
+   Ainsi $\lim\limits_{x\to0}g(x)=1\times0=0$. **$g$ est prolongeable par continuité sur $\mathbb{R}$** en posant $\widetilde g(0)=0$.
+
+c. $h$ est définie sur $\mathbb{R}\setminus\{-1,1\}$. Pour $x\neq\pm1$,
+   $$h(x)=\frac{1+x}{1-x^2}-\frac{2}{1-x^2}=\frac{x-1}{1-x^2}=\frac{-(1-x)}{(1-x)(1+x)}=-\frac{1}{1+x}.$$
+   - *En $1$* : $\lim\limits_{x\to1}h(x)=-\dfrac12$, limite finie : $h$ est prolongeable par continuité en $1$ (en posant $\widetilde h(1)=-\frac12$).
+   - *En $-1$* : quand $x\to-1^+$, $1+x\to0^+$ donc $h(x)\to-\infty$ ; quand $x\to-1^-$, $1+x\to0^-$ donc $h(x)\to+\infty$. La limite n'est pas finie : $h$ n'est **pas** prolongeable par continuité en $-1$.
+
+   Conclusion : $h$ n'est pas prolongeable par continuité sur $\mathbb{R}$ tout entier (elle l'est seulement en $1$ ; sur $\mathbb{R}\setminus\{-1\}$ elle se prolonge en $x\mapsto-\frac1{1+x}$).
+:::
+:::
+
+::: {#exr-limites-4}
+Soient $I$ un intervalle de $\mathbb{R}$ et $f:I\rightarrow\mathbb{R}$ continue, telle que pour chaque $x\in I$, $f(x)^2=1$. Montrer que $f$ est constante et égale à $1$ ou $-1$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-limites-4"}
+Pour tout $x\in I$, $f(x)^2=1$ donne $(f(x)-1)(f(x)+1)=0$, donc $f(x)=1$ ou $f(x)=-1$. Ainsi $f(I)\subset\{-1,1\}$.
+
+Comme $f$ est continue sur l'intervalle $I$, $f(I)$ est un intervalle (corollaire du théorème des valeurs intermédiaires). Supposons par l'absurde que $f$ prenne les deux valeurs $1$ et $-1$ : alors l'intervalle $f(I)$ contient $-1$ et $1$, donc contient aussi $0$ (par définition d'un intervalle). Mais $0\notin\{-1,1\}\supset f(I)$ : contradiction.
+
+Donc $f$ ne prend qu'une seule des deux valeurs : $f(x)=1$ pour tout $x\in I$, ou $f(x)=-1$ pour tout $x\in I$.
+:::
+:::

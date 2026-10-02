@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Suites réelles: Définitions générales – Cours d'Analyse</title>
+<title>Suites réelles : définitions générales – Cours d'Analyse</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -44,10 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-505fb740752bcb4749a94d640a912150.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+
 <script>
 window.MathJax = {
   tex: {
@@ -130,7 +135,178 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -139,7 +315,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./suite.html">Les suites des nombres réels</a></li><li class="breadcrumb-item"><a href="./suites.html"><span class="chapter-title">Suites réelles: Définitions générales</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./suite.html">Les suites des nombres réels</a></li><li class="breadcrumb-item"><a href="./suites.html"><span class="chapter-title">Suites réelles : définitions générales</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -151,8 +327,8 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./suite.html">Les suites des nombres réels</a></li><li class="breadcrumb-item"><a href="./suites.html"><span class="chapter-title">Suites réelles: Définitions générales</span></a></li></ol></nav>
-      <h1 class="title"><span class="chapter-title">Suites réelles: Définitions générales</span></h1>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./suite.html">Les suites des nombres réels</a></li><li class="breadcrumb-item"><a href="./suites.html"><span class="chapter-title">Suites réelles : définitions générales</span></a></li></ol></nav>
+      <h1 class="title"><span class="chapter-title">Suites réelles : définitions générales</span></h1>
                       </div>
   </div>
     
@@ -175,8 +351,27 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Cours d’Analyse</a> 
-        <div class="sidebar-tools-main">
-    <a href="./Cours-d-Analyse.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/iaousse/" title="" class="quarto-navigation-tool px-1" aria-label="GitHub" target="_blank"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/mbarekiaousse" title="" class="quarto-navigation-tool px-1" aria-label="LinkedIn" target="_blank"><i class="bi bi-linkedin"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
 </div>
     </div>
       </div>
@@ -234,7 +429,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./suites.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Suites réelles: Définitions générales</span></a>
+  <a href="./suites.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Suites réelles : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -255,7 +450,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numérique: Définitions générales</span></a>
+  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numériques : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -302,12 +497,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./complements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Complément sur les suites et les fonctions numériques</span></a>
+  <a href="./complements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Compléments sur les suites et les fonctions numériques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dévelopements limités</span></a>
+  <a href="./dl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Développements limités</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -382,6 +577,7 @@ window.Quarto = {
 
 
 
+
 <div class="callout callout-style-default callout-note callout-titled" title="Définition">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -393,11 +589,11 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>Une suite est une application <span class="math inline">\(u:\mathbb{N}\rightarrow\mathbb{R}.\)</span></p>
-<p>Pour <span class="math inline">\(n\in \mathbb{N},\)</span> on note <span class="math inline">\(u(n)\)</span> par <span class="math inline">\(u_n\)</span> et on l’appelle <span class="math inline">\(n^{ième}\)</span> terme ou terme général de la suite <span class="math inline">\(u.\)</span></p>
+<p>Pour <span class="math inline">\(n\in \mathbb{N},\)</span> on note <span class="math inline">\(u(n)\)</span> par <span class="math inline">\(u_n\)</span> et on l’appelle <span class="math inline">\(n\)</span>-ième terme ou terme général de la suite <span class="math inline">\(u.\)</span></p>
 </div>
 </div>
 <p>Une suite <span class="math inline">\(u:\mathbb{N}\rightarrow\mathbb{R}\)</span> est plus souvent notée par <span class="math inline">\((u_n)_{n\in \mathbb{N}},\,(u_n)_{n\geq0}\)</span> ou simplement par <span class="math inline">\((u_n).\)</span></p>
-<p>Si une suite <span class="math inline">\(u\)</span> est définie à partir d’un certain entier naturel <span class="math inline">\(n_0&gt;0,\)</span> alors dans ce cas on note cette suite par <span class="math inline">\((u_n)_{n\geq n_0}.\)</span></p>
+<p>Si une suite <span class="math inline">\(u\)</span> est définie à partir d’un certain entier naturel <span class="math inline">\(n_0,\)</span> alors dans ce cas on note cette suite par <span class="math inline">\((u_n)_{n\geq n_0}.\)</span></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Exemple">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -409,9 +605,9 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>Soit <span class="math inline">\((u_n)\)</span> la suite définie par <span class="math inline">\(u_n=\sqrt{n}-1.\)</span> Les cinq premiers termes de cette suite sont <span class="math inline">\(-1,0,\sqrt{2}-1,\sqrt{3}-1,1.\)</span></p></li>
-<li><p>Soit <span class="math inline">\((v_n)_{n\geq1}\)</span> la suite définie par <span class="math inline">\(v_n=\dfrac{1}{n(n+1)}.\)</span> Les trois premiers termes de cette suite sont <span class="math inline">\(\dfrac{1}{2},\dfrac{1}{6},\dfrac{1}{12}\)</span></p></li>
-<li><p><span class="math inline">\(((-1)^n)\)</span> est une suite qui prends deux valeurs: 1 et <span class="math inline">\(-1.\)</span></p></li>
+<li><p>Soit <span class="math inline">\((u_n)\)</span> la suite définie par <span class="math inline">\(u_n=\sqrt{n}-1.\)</span> Les cinq premiers termes de cette suite sont <span class="math inline">\(-1,\,0,\,\sqrt{2}-1,\,\sqrt{3}-1,\,1.\)</span></p></li>
+<li><p>Soit <span class="math inline">\((v_n)_{n\geq1}\)</span> la suite définie par <span class="math inline">\(v_n=\dfrac{1}{n(n+1)}.\)</span> Les trois premiers termes de cette suite sont <span class="math inline">\(\dfrac{1}{2},\,\dfrac{1}{6},\,\dfrac{1}{12}.\)</span></p></li>
+<li><p><span class="math inline">\(((-1)^n)\)</span> est une suite qui prend deux valeurs : <span class="math inline">\(1\)</span> et <span class="math inline">\(-1.\)</span></p></li>
 </ol>
 </div>
 </div>
@@ -443,18 +639,18 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>La suite <span class="math inline">\((u_n)_{n\geq1}\)</span> définie par <span class="math inline">\(u_n=\dfrac{1}{n^2},\;\forall n\in \mathbb{N}^{*},\)</span> est strictement décroissante. En effet, on a</li>
-</ol>
-<span class="math display">\[\begin{array}{rcl}
+<li><p>La suite <span class="math inline">\((u_n)_{n\geq1}\)</span> définie par <span class="math inline">\(u_n=\dfrac{1}{n^2},\;\forall n\in \mathbb{N}^{*},\)</span> est strictement décroissante. En effet, on a</p>
+<p><span class="math display">\[
+\begin{aligned}
 u_{n+1}-u_n
-&amp;=&amp; \dfrac{1}{(n+1)^2}-\dfrac{1}{n^2}\\
-&amp;=&amp; \dfrac{n^2-(n+1)^2}{n^2(n+1)^2}\\
-&amp;=&amp; \dfrac{n^2-n^2-2n-1}{n^2(n+1)^2}\\
-&amp;=&amp; -\dfrac{2n+1}{n^2(n+1)^2}\\
-&amp; &amp; &lt;0
-\end{array}\]</span>
-<ol start="2" type="1">
-<li>La suite <span class="math inline">\((v_n)\)</span> définie par <span class="math inline">\(v_n=e^n,\;e^{n+1}-e^n=e^n e-e^n=e^n (e-1)&gt;0.\)</span></li>
+&amp;= \dfrac{1}{(n+1)^2}-\dfrac{1}{n^2}\\
+&amp;= \dfrac{n^2-(n+1)^2}{n^2(n+1)^2}\\
+&amp;= \dfrac{n^2-n^2-2n-1}{n^2(n+1)^2}\\
+&amp;= -\dfrac{2n+1}{n^2(n+1)^2}\\
+&amp;&lt; 0
+\end{aligned}
+\]</span></p></li>
+<li><p>La suite <span class="math inline">\((v_n)\)</span> définie par <span class="math inline">\(v_n=e^n\)</span> vérifie <span class="math inline">\(v_{n+1}-v_n=e^{n+1}-e^n=e^n e-e^n=e^n (e-1)&gt;0.\)</span> Donc <span class="math inline">\((v_n)\)</span> est strictement croissante.</p></li>
 </ol>
 </div>
 </div>
@@ -490,12 +686,15 @@ u_{n+1}-u_n
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Il se peut qu’une suite ne soit ni croissante ni décroissante. Voilà deux exemples:</p>
+<p>Il se peut qu’une suite ne soit ni croissante ni décroissante. Voici deux exemples :</p>
 <ol type="1">
-<li><p>La suite <span class="math inline">\((u_n)\)</span> telle que <span class="math inline">\(u_n=(-1)^n\)</span> est une suite ni croissante ni décroissante.</p></li>
-<li><p>Considérons la suite <span class="math inline">\((v_n)\)</span> définie par <span class="math inline">\(v_n=\sin(n\dfrac{\pi}{2}),\;n\in\mathbb{N}.\)</span> Ces premiers termes sont:</p></li>
+<li><p>La suite <span class="math inline">\((u_n)\)</span> telle que <span class="math inline">\(u_n=(-1)^n\)</span> n’est ni croissante ni décroissante : <span class="math inline">\(u_0=1&gt;u_1=-1\)</span> (donc elle n’est pas croissante) et <span class="math inline">\(u_1=-1&lt;u_2=1\)</span> (donc elle n’est pas décroissante).</p></li>
+<li><p>Considérons la suite <span class="math inline">\((v_n)\)</span> définie par <span class="math inline">\(v_n=\sin\left(n\dfrac{\pi}{2}\right),\;n\in\mathbb{N}.\)</span> Ses premiers termes sont :</p>
+<p><span class="math display">\[
+v_0=\sin(0)=0,\;v_1=\sin\left(\dfrac{\pi}{2}\right)=1,\;v_2=\sin(\pi)=0,\;v_3=\sin\left(3\dfrac{\pi}{2}\right)=-1,\;v_4=\sin(2\pi)=0,\ldots
+\]</span></p>
+<p>Comme <span class="math inline">\(v_0&lt;v_1,\)</span> la suite n’est pas décroissante ; comme <span class="math inline">\(v_1&gt;v_2,\)</span> elle n’est pas croissante. Elle n’est donc ni croissante ni décroissante.</p></li>
 </ol>
-<p><span class="math inline">\(v_0=\sin(0)=0,\;v_1=\sin(\dfrac{\pi}{2}),\;v_2=\sin(\pi)=0,\;v_3=\sin(3\dfrac{\pi}{2})=-1,\;v_4=\sin(2\pi)=0,...\)</span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Définition">
@@ -524,7 +723,7 @@ u_{n+1}-u_n
 <p>Soit <span class="math inline">\((u_n)_{n\geq n_0}\)</span> une suite.</p>
 <ol type="1">
 <li><p><span class="math inline">\((u_n)_{n\geq n_0}\)</span> est dite majorée si <span class="math inline">\(\exists M\in \mathbb{R}\)</span> tel que <span class="math inline">\(u_n\leq M,\;\forall n\geq n_0.\)</span></p></li>
-<li><p><span class="math inline">\((u_n)_{n\geq n_0}\)</span> est dite minorée si <span class="math inline">\(\exists m\in \mathbb{R}\)</span> tel que <span class="math inline">\(u_n\geq M,\;\forall n\geq n_0.\)</span></p></li>
+<li><p><span class="math inline">\((u_n)_{n\geq n_0}\)</span> est dite minorée si <span class="math inline">\(\exists m\in \mathbb{R}\)</span> tel que <span class="math inline">\(u_n\geq m,\;\forall n\geq n_0.\)</span></p></li>
 <li><p><span class="math inline">\((u_n)_{n\geq n_0}\)</span> est dite bornée si <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est minorée et majorée.</p></li>
 </ol>
 </div>
@@ -545,7 +744,7 @@ u_n=1+n^2,\quad v_n=5-n(n+1),\quad w_n=2+\dfrac{1}{n+1},\quad n\in \mathbb{N}
 \]</span></p>
 <ul>
 <li><p>Pour tout <span class="math inline">\(n\in \mathbb{N},\)</span> on a <span class="math inline">\(u_n\geq1.\)</span> Donc <span class="math inline">\((u_n)\)</span> est minorée par 1.</p></li>
-<li><p>Pour tout <span class="math inline">\(n\in \mathbb{N},\)</span> on a <span class="math inline">\(v_n\leq1.\)</span> Donc <span class="math inline">\((v_n)\)</span> est majorée par 5.</p></li>
+<li><p>Pour tout <span class="math inline">\(n\in \mathbb{N},\)</span> on a <span class="math inline">\(n(n+1)\geq0,\)</span> donc <span class="math inline">\(v_n\leq5.\)</span> Donc <span class="math inline">\((v_n)\)</span> est majorée par 5.</p></li>
 <li><p>Pour tout <span class="math inline">\(n\in \mathbb{N},\)</span> on a <span class="math inline">\(2&lt;w_n\leq 3.\)</span> La suite est donc bornée.</p></li>
 </ul>
 </div>
@@ -577,9 +776,9 @@ u_n=1+n^2,\quad v_n=5-n(n+1),\quad w_n=2+\dfrac{1}{n+1},\quad n\in \mathbb{N}
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\((u_n)_{n\geq n_0}\)</span> une suite réelle. Alors <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est bormée si et seulement si</p>
+<p>Soit <span class="math inline">\((u_n)_{n\geq n_0}\)</span> une suite réelle. Alors <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est bornée si et seulement si</p>
 <p><span class="math display">\[
-\exists M\geq0\;\mbox{tel que}\;\forall n\geq n_0:\quad |u_n|\leq M
+\exists M\geq0\;\text{tel que}\;\forall n\geq n_0:\quad |u_n|\leq M
 \]</span></p>
 </div>
 </div>
@@ -595,14 +794,15 @@ u_n=1+n^2,\quad v_n=5-n(n+1),\quad w_n=2+\dfrac{1}{n+1},\quad n\in \mathbb{N}
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On dit qu’une suite réelle <span class="math inline">\((u_n)\)</span> converge vers un réel <span class="math inline">\(\ell\)</span> lorsque pour tout <span class="math inline">\(\varepsilon&gt;0,\)</span> il existe <span class="math inline">\(N\in \mathbb{N}\)</span> tel que pour tout entier <span class="math inline">\(n&gt;N,\)</span> on a <span class="math inline">\(|u_n-\ell|&lt;\varepsilon.\)</span></p>
-<p>Dans ce cas, <span class="math inline">\(\ell\)</span> est appelée limite de la suite <span class="math inline">\((u_n).\)</span> On dit alors que <span class="math inline">\((u_n)\)</span> a pour limite <span class="math inline">\(\ell\)</span> ou <span class="math inline">\((u_n)\)</span> tend vers <span class="math inline">\(\ell\)</span> et on écrit</p>
+<p>On dit qu’une suite réelle <span class="math inline">\((u_n)\)</span> converge vers un réel <span class="math inline">\(\ell\)</span> lorsque pour tout <span class="math inline">\(\varepsilon&gt;0,\)</span> il existe <span class="math inline">\(N\in \mathbb{N}\)</span> tel que pour tout entier <span class="math inline">\(n\geq N,\)</span> on a <span class="math inline">\(|u_n-\ell|&lt;\varepsilon.\)</span></p>
+<p>Dans ce cas, <span class="math inline">\(\ell\)</span> est appelée limite de la suite <span class="math inline">\((u_n).\)</span> On dit alors que <span class="math inline">\((u_n)\)</span> a pour limite <span class="math inline">\(\ell\)</span> ou que <span class="math inline">\((u_n)\)</span> tend vers <span class="math inline">\(\ell\)</span> et on écrit</p>
 <p><span class="math display">\[
 \lim_{n \rightarrow +\infty}u_n = \ell
-\]</span> ou <span class="math inline">\(u_n\rightarrow \ell,\)</span> quand <span class="math inline">\(n\rightarrow+\infty\)</span></p>
+\]</span></p>
+<p>ou <span class="math inline">\(u_n\rightarrow \ell\)</span> quand <span class="math inline">\(n\rightarrow+\infty.\)</span></p>
 </div>
 </div>
-<p>Intuitivement, <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n = \ell\)</span> signifie que les termes de la suite <span class="math inline">\((u_n)\)</span> se rapprochent de <span class="math inline">\(l\)</span> toujours plus de <span class="math inline">\(\varepsilon\)</span> lorsque l’indice <span class="math inline">\(n\)</span> augmente indéfiniment.</p>
+<p>Intuitivement, <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n = \ell\)</span> signifie que les termes de la suite <span class="math inline">\((u_n)\)</span> deviennent aussi proches de <span class="math inline">\(\ell\)</span> que l’on veut (à moins de <span class="math inline">\(\varepsilon\)</span> près, quel que soit <span class="math inline">\(\varepsilon&gt;0\)</span>) lorsque l’indice <span class="math inline">\(n\)</span> augmente indéfiniment.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Définition">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -613,19 +813,17 @@ u_n=1+n^2,\quad v_n=5-n(n+1),\quad w_n=2+\dfrac{1}{n+1},\quad n\in \mathbb{N}
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\(u_n\)</span> une suite réelle.</p>
+<p>Soit <span class="math inline">\((u_n)\)</span> une suite réelle.</p>
 <ol type="1">
-<li>On dit que <span class="math inline">\((u_n)\)</span> tend vers <span class="math inline">\(+\infty\)</span> (et on écrit <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n =+\infty\)</span>) lorsque pour tout <span class="math inline">\(A&gt;0,\)</span> il existe <span class="math inline">\(N\in \mathbb{N}\)</span> tel que pour tout entier <span class="math inline">\(n&gt;N,\)</span> on a</li>
-</ol>
+<li><p>On dit que <span class="math inline">\((u_n)\)</span> tend vers <span class="math inline">\(+\infty\)</span> (et on écrit <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n =+\infty\)</span>) lorsque pour tout <span class="math inline">\(A&gt;0,\)</span> il existe <span class="math inline">\(N\in \mathbb{N}\)</span> tel que pour tout entier <span class="math inline">\(n\geq N,\)</span> on a</p>
 <p><span class="math display">\[
 u_n&gt;A
-\]</span></p>
-<ol start="2" type="1">
-<li>On dit que <span class="math inline">\((u_n)\)</span> tend vers <span class="math inline">\(-\infty\)</span> (et on écrit <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n =-\infty\)</span>) lorsque pour tout <span class="math inline">\(A&lt;0,\)</span> il existe <span class="math inline">\(N\in \mathbb{N}\)</span> tel que pour tout entier <span class="math inline">\(n&gt;N,\)</span> on a</li>
-</ol>
+\]</span></p></li>
+<li><p>On dit que <span class="math inline">\((u_n)\)</span> tend vers <span class="math inline">\(-\infty\)</span> (et on écrit <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n =-\infty\)</span>) lorsque pour tout <span class="math inline">\(A&gt;0,\)</span> il existe <span class="math inline">\(N\in \mathbb{N}\)</span> tel que pour tout entier <span class="math inline">\(n\geq N,\)</span> on a</p>
 <p><span class="math display">\[
-u_n&lt;A
-\]</span></p>
+u_n&lt;-A
+\]</span></p></li>
+</ol>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Remarque">
@@ -664,12 +862,12 @@ u_n&lt;A
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On procède par l’absurde. Soit <span class="math inline">\((u_n)_{n\in \mathbb{N}}\)</span> une suite convergente ayant deux limites <span class="math inline">\(\ell\)</span> et <span class="math inline">\(\ell',\)</span> <span class="math inline">\(\ell\neq \ell'.\)</span> Choisissons <span class="math inline">\(\varepsilon&gt;0\)</span> tel que <span class="math inline">\(\varepsilon&lt;\dfrac{|\ell-\ell'|}{2}\)</span></p>
+<p>On procède par l’absurde. Soit <span class="math inline">\((u_n)_{n\in \mathbb{N}}\)</span> une suite convergente ayant deux limites <span class="math inline">\(\ell\)</span> et <span class="math inline">\(\ell',\)</span> <span class="math inline">\(\ell\neq \ell'.\)</span> Choisissons <span class="math inline">\(\varepsilon&gt;0\)</span> tel que <span class="math inline">\(\varepsilon&lt;\dfrac{|\ell-\ell'|}{2}.\)</span></p>
 <p>Comme <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=\ell,\)</span> il existe <span class="math inline">\(N_1\)</span> tel que <span class="math inline">\(n\geq N_1\)</span> implique <span class="math inline">\(|u_n-\ell|&lt;\varepsilon.\)</span></p>
-<p>De même, <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=\ell',\)</span> il existe <span class="math inline">\(N_2\)</span> tel que <span class="math inline">\(n\geq N_2\)</span> implique <span class="math inline">\(|u_n-\ell'|&lt;\varepsilon.\)</span></p>
-<p>Notons <span class="math inline">\(N=\max(N_1, N_2)\)</span> on a alors pour ce <span class="math inline">\(N :\)</span></p>
+<p>De même, comme <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=\ell',\)</span> il existe <span class="math inline">\(N_2\)</span> tel que <span class="math inline">\(n\geq N_2\)</span> implique <span class="math inline">\(|u_n-\ell'|&lt;\varepsilon.\)</span></p>
+<p>Notons <span class="math inline">\(N=\max(N_1, N_2).\)</span> On a alors pour ce <span class="math inline">\(N\)</span> :</p>
 <p><span class="math display">\[
-|u_N-\ell|&lt;\varepsilon\qquad\mbox{et}\qquad|u_N-\ell'|&lt;\varepsilon
+|u_N-\ell|&lt;\varepsilon\qquad\text{et}\qquad|u_N-\ell'|&lt;\varepsilon
 \]</span></p>
 <p>Donc <span class="math inline">\(|\ell-\ell'|=|\ell-u_N+u_N-\ell'|\leqslant |\ell-u_N|+|u_N-\ell'|\)</span> d’après l’inégalité triangulaire. On en tire <span class="math inline">\(|\ell-\ell'|\leqslant\varepsilon+\varepsilon=2\varepsilon&lt;|\ell-\ell'|,\)</span> ce qui est impossible, d’où la contradiction.</p>
 </div>
@@ -689,10 +887,10 @@ u_n&lt;A
 <p><span class="math display">\[
 \lim_{n \rightarrow +\infty} \dfrac{1}{\sqrt{n}}=0
 \]</span></p>
-<p>La suite <span class="math inline">\((\dfrac{1}{\sqrt{n}})\)</span> est alors une suite convergente et elle converge vers 0.</p></li>
+<p>La suite <span class="math inline">\(\left(\dfrac{1}{\sqrt{n}}\right)\)</span> est alors une suite convergente et elle converge vers 0.</p></li>
 <li><p>On a</p>
 <p><span class="math display">\[
-\lim_{n \rightarrow +\infty} 1-n^2=-\infty
+\lim_{n \rightarrow +\infty} (1-n^2)=-\infty
 \]</span></p>
 <p>La suite <span class="math inline">\((1-n^2)\)</span> est donc une suite divergente.</p></li>
 </ol>
@@ -708,11 +906,12 @@ u_n&lt;A
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\(q\in \mathbb{R}^{*}.\)</span> On considère la suite <span class="math inline">\(u_n=q^n,\:n\in \mathbb{N}.\)</span> On a:</p>
+<p>Soit <span class="math inline">\(q\in \mathbb{R}^{*}.\)</span> On considère la suite <span class="math inline">\(u_n=q^n,\:n\in \mathbb{N}.\)</span> On a :</p>
 <ol type="1">
-<li><p>Si <span class="math inline">\(q\leq-1:\)</span> La suite <span class="math inline">\((u_n)\)</span> est divergente et n’admet pas de limite, ni finie ni infinie.</p></li>
-<li><p>Si <span class="math inline">\(-1&lt;q&lt;1:\)</span> La suite <span class="math inline">\((u_n)_n\)</span> est convergente et <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=0\)</span></p></li>
-<li><p>Si <span class="math inline">\(q&gt;1:\)</span> La suite <span class="math inline">\((u_n)_n\)</span> est divergente et <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=+\infty\)</span></p></li>
+<li><p>Si <span class="math inline">\(q\leq-1\)</span> : la suite <span class="math inline">\((u_n)\)</span> est divergente et n’admet pas de limite, ni finie ni infinie.</p></li>
+<li><p>Si <span class="math inline">\(-1&lt;q&lt;1\)</span> : la suite <span class="math inline">\((u_n)\)</span> est convergente et <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=0.\)</span></p></li>
+<li><p>Si <span class="math inline">\(q=1\)</span> : la suite <span class="math inline">\((u_n)\)</span> est constante égale à <span class="math inline">\(1\)</span> ; elle est donc convergente et <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=1.\)</span></p></li>
+<li><p>Si <span class="math inline">\(q&gt;1\)</span> : la suite <span class="math inline">\((u_n)\)</span> est divergente et <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=+\infty.\)</span></p></li>
 </ol>
 </div>
 </div>
@@ -742,11 +941,11 @@ u_n&lt;A
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\((v_n)_{\geq1}\)</span> la suite définie par <span class="math inline">\(v_n=\dfrac{2n-1}{n}.\)</span> On a</p>
+<p>Soit <span class="math inline">\((v_n)_{n\geq1}\)</span> la suite définie par <span class="math inline">\(v_n=\dfrac{2n-1}{n}.\)</span> On a</p>
 <p><span class="math display">\[
-\lim_{n \rightarrow +\infty}|v_n-2|=\lim_{n \rightarrow +\infty}|-\dfrac{1}{n}|=\lim_{n \rightarrow +\infty}\dfrac{1}{n}=0
+\lim_{n \rightarrow +\infty}|v_n-2|=\lim_{n \rightarrow +\infty}\left|-\dfrac{1}{n}\right|=\lim_{n \rightarrow +\infty}\dfrac{1}{n}=0
 \]</span></p>
-<p>En on déduit que <span class="math inline">\(\lim_{n \rightarrow +\infty}v_n=2.\)</span></p>
+<p>On en déduit que <span class="math inline">\(\lim_{n \rightarrow +\infty}v_n=2.\)</span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled" title="Proposition (Opérations sur les limites des suites)">
@@ -759,24 +958,26 @@ u_n&lt;A
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soient <span class="math inline">\((u_n)\)</span> et <span class="math inline">\((v_n)\)</span> deux suites et soient <span class="math inline">\(\alpha\)</span> et <span class="math inline">\(\beta\)</span> dans <span class="math inline">\(\mathbb{R},\)</span></p>
+<p>Soient <span class="math inline">\((u_n)\)</span> et <span class="math inline">\((v_n)\)</span> deux suites et soient <span class="math inline">\(\alpha\)</span> et <span class="math inline">\(\beta\)</span> dans <span class="math inline">\(\mathbb{R}.\)</span></p>
 <ol type="1">
 <li><p>Si <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=\alpha\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty} v_n=\beta,\)</span> alors</p>
 <p><span class="math display">\[
-\lim_{n \rightarrow +\infty}(u_n+v_n)=\alpha+\beta\quad\mbox{et}\quad \lim_{n \rightarrow +\infty}(u_n\times v_n)=\alpha\times \beta
+\lim_{n \rightarrow +\infty}(u_n+v_n)=\alpha+\beta\quad\text{et}\quad \lim_{n \rightarrow +\infty}(u_n\times v_n)=\alpha\times \beta
 \]</span></p></li>
 <li><p>Si <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=\alpha\)</span> alors pour tout <span class="math inline">\(\lambda\in \mathbb{R}\)</span> on a</p>
 <p><span class="math display">\[
 \lim_{n \rightarrow +\infty} (\lambda u_n)=\lambda\alpha
 \]</span></p></li>
 <li><p>Si <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=\alpha\)</span> et <span class="math inline">\(\alpha\neq0\)</span> alors on a <span class="math inline">\(\lim_{n \rightarrow +\infty}\dfrac{1}{u_n}=\dfrac{1}{\alpha}.\)</span></p></li>
-<li><p>Si <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=\pm\infty\)</span> alors on a <span class="math inline">\(\lim_{n \rightarrow +\infty}\dfrac{1}{u_n}=0,\)</span></p></li>
-<li><p>Si <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=\pm\infty\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty} v_n=\alpha,\)</span> avec <span class="math inline">\(\alpha\in \mathbb{R}\)</span> alors <span class="math inline">\(\lim_{n \rightarrow +\infty} (u_n+v_n)=\lim_{n \rightarrow +\infty} u_n.\)</span></p></li>
-<li><p>Si <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=\pm\infty\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty} v_n=\alpha,\)</span> avec <span class="math inline">\(\alpha\in \mathbb{R}^{+}\)</span> alors <span class="math inline">\(\lim_{n \rightarrow +\infty} (u_n \times v_n)=\lim_{n \rightarrow +\infty} u_n.\)</span></p></li>
+<li><p>Si <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=\pm\infty\)</span> alors on a <span class="math inline">\(\lim_{n \rightarrow +\infty}\dfrac{1}{u_n}=0.\)</span></p></li>
+<li><p>Si <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=\pm\infty\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty} v_n=\alpha,\)</span> avec <span class="math inline">\(\alpha\in \mathbb{R},\)</span> alors <span class="math inline">\(\lim_{n \rightarrow +\infty} (u_n+v_n)=\lim_{n \rightarrow +\infty} u_n.\)</span></p></li>
+<li><p>Si <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=\pm\infty\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty} v_n=\alpha,\)</span> avec <span class="math inline">\(\alpha&gt;0,\)</span> alors <span class="math inline">\(\lim_{n \rightarrow +\infty} (u_n \times v_n)=\lim_{n \rightarrow +\infty} u_n.\)</span></p></li>
+<li><p>Si <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=\pm\infty\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty} v_n=\alpha,\)</span> avec <span class="math inline">\(\alpha&lt;0,\)</span> alors <span class="math inline">\(\lim_{n \rightarrow +\infty} (u_n \times v_n)=-\lim_{n \rightarrow +\infty} u_n\)</span> (c’est-à-dire <span class="math inline">\(\mp\infty\)</span>).</p></li>
 <li><p>Si <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=+\infty\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty} v_n=+\infty,\)</span> alors <span class="math inline">\(\lim_{n \rightarrow +\infty} (u_n+v_n)=+\infty\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty}(u_n\times v_n)=+\infty.\)</span></p></li>
 <li><p>Si <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=-\infty\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty} v_n=-\infty,\)</span> alors <span class="math inline">\(\lim_{n \rightarrow +\infty} (u_n+v_n)=-\infty\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty} (u_n\times v_n)=+\infty.\)</span></p></li>
 <li><p>Si <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=+\infty\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty} v_n=-\infty,\)</span> alors <span class="math inline">\(\lim_{n \rightarrow +\infty} (u_n\times v_n)=-\infty.\)</span></p></li>
 </ol>
+<p>Attention : si <span class="math inline">\(\alpha=0\)</span> au point 6, on obtient la forme indéterminée <span class="math inline">\(0\times\infty,\)</span> qui ne se traite pas par cette règle.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Exemple">
@@ -790,20 +991,20 @@ u_n&lt;A
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>On a <span class="math inline">\(\lim_{n \rightarrow +\infty}(\dfrac{-2}{\sqrt{n}-3}+3n+1)=+\infty,\)</span> puisque <span class="math inline">\(\lim_{n \rightarrow +\infty}(\dfrac{-2}{\sqrt{n}-3}) =0\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty}(3n+1)=+\infty.\)</span></p></li>
-<li><p>On a <span class="math inline">\(\lim_{n \rightarrow +\infty}\dfrac{\dfrac{2}{3n}-5}{1+n+e^n}=0,\)</span> puisque <span class="math inline">\(\lim_{n \rightarrow +\infty}\dfrac{2}{3n}-5=-5\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty}1+n+e^n=+\infty.\)</span></p></li>
+<li><p>On a <span class="math inline">\(\lim_{n \rightarrow +\infty}\left(\dfrac{-2}{\sqrt{n}-3}+3n+1\right)=+\infty\)</span> (pour <span class="math inline">\(n\geq10\)</span>), puisque <span class="math inline">\(\lim_{n \rightarrow +\infty}\dfrac{-2}{\sqrt{n}-3} =0\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty}(3n+1)=+\infty.\)</span></p></li>
+<li><p>On a <span class="math inline">\(\lim_{n \rightarrow +\infty}\dfrac{\dfrac{2}{3n}-5}{1+n+e^n}=0,\)</span> puisque <span class="math inline">\(\lim_{n \rightarrow +\infty}\left(\dfrac{2}{3n}-5\right)=-5\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty}(1+n+e^n)=+\infty.\)</span></p></li>
 </ol>
 </div>
 </div>
-<p>Parfois on tombe sur l’une des quatres “<strong>formes indéterminées</strong>” suivantes <span class="math inline">\(+\infty-\infty,\;0\times \pm\infty,\;\dfrac{\pm\infty}{\pm\infty},\;\dfrac{0}{0}.\)</span></p>
+<p>Parfois on tombe sur l’une des quatre « <strong>formes indéterminées</strong> » suivantes : <span class="math inline">\(+\infty-\infty,\;0\times \pm\infty,\;\dfrac{\pm\infty}{\pm\infty},\;\dfrac{0}{0}.\)</span></p>
 <p><strong>Limites usuelles utiles</strong></p>
 <ul>
-<li><p><span class="math inline">\(\lim_{n \rightarrow +\infty} n\sin(\dfrac{1}{n})=\lim_{n \rightarrow +\infty}\dfrac{\sin(\dfrac{1}{n})}{\dfrac{1}{n}}=1,\)</span></p></li>
-<li><p><span class="math inline">\(\lim_{n \rightarrow +\infty}n^2\cos (1-\dfrac{1}{n})=\lim_{n \rightarrow +\infty}\dfrac{\cos(1-\dfrac{1}{n})}{(\dfrac{1}{n})^2}=\dfrac{1}{2},\)</span></p></li>
-<li><p><span class="math inline">\(\lim_{n \rightarrow +\infty} n\ln(1+\dfrac{1}{n})=\lim_{n \rightarrow +\infty}\dfrac{\ln(1+\dfrac{1}{n})}{\dfrac{1}{n}}=1,\)</span></p></li>
-<li><p><span class="math inline">\(\lim_{n \rightarrow +\infty} n(e^{\dfrac{1}{n}})=1,\)</span></p></li>
-<li><p><span class="math inline">\(\lim_{n \rightarrow +\infty} \dfrac{(\ln (n))^{\alpha}}{n}=0,\)</span></p></li>
-<li><p><span class="math inline">\(\lim_{n \rightarrow +\infty} n^{\alpha}e^{-n}=0.\)</span></p></li>
+<li><p><span class="math inline">\(\lim_{n \rightarrow +\infty} n\sin\left(\dfrac{1}{n}\right)=\lim_{n \rightarrow +\infty}\dfrac{\sin\left(\dfrac{1}{n}\right)}{\dfrac{1}{n}}=1,\)</span></p></li>
+<li><p><span class="math inline">\(\lim_{n \rightarrow +\infty}n^2\left(1-\cos\left(\dfrac{1}{n}\right)\right)=\lim_{n \rightarrow +\infty}\dfrac{1-\cos\left(\dfrac{1}{n}\right)}{\left(\dfrac{1}{n}\right)^2}=\dfrac{1}{2},\)</span></p></li>
+<li><p><span class="math inline">\(\lim_{n \rightarrow +\infty} n\ln\left(1+\dfrac{1}{n}\right)=\lim_{n \rightarrow +\infty}\dfrac{\ln\left(1+\dfrac{1}{n}\right)}{\dfrac{1}{n}}=1,\)</span></p></li>
+<li><p><span class="math inline">\(\lim_{n \rightarrow +\infty} n\left(e^{\frac{1}{n}}-1\right)=\lim_{n \rightarrow +\infty}\dfrac{e^{\frac{1}{n}}-1}{\dfrac{1}{n}}=1,\)</span></p></li>
+<li><p><span class="math inline">\(\lim_{n \rightarrow +\infty} \dfrac{(\ln (n))^{\alpha}}{n}=0\)</span> (pour tout <span class="math inline">\(\alpha\in\mathbb{R}\)</span>),</p></li>
+<li><p><span class="math inline">\(\lim_{n \rightarrow +\infty} n^{\alpha}e^{-n}=0\)</span> (pour tout <span class="math inline">\(\alpha\in\mathbb{R}\)</span>).</p></li>
 </ul>
 <div class="callout callout-style-default callout-important callout-titled" title="Proposition">
 <div class="callout-header d-flex align-content-center">
@@ -819,7 +1020,8 @@ u_n&lt;A
 <li><p>Soient <span class="math inline">\((u_n)\)</span> et <span class="math inline">\((v_n)\)</span> deux suites convergentes telles que <span class="math inline">\(\forall n\in \mathbb{N}:\, u_n \leq v_n\)</span> (ou <span class="math inline">\(u_n &lt; v_n\)</span>). Alors</p>
 <p><span class="math display">\[
 \lim_{n \rightarrow +\infty} u_n \leq \lim_{n \rightarrow +\infty} v_n
-\]</span></p></li>
+\]</span></p>
+<p>(même si l’inégalité de départ est stricte, on obtient seulement une inégalité large à la limite).</p></li>
 <li><p>Soient <span class="math inline">\((u_n)\)</span> et <span class="math inline">\((v_n)\)</span> deux suites telles que <span class="math inline">\(\forall n\in \mathbb{N}:\,u_n\leq v_n\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty} u_n=+\infty.\)</span> Alors</p>
 <p><span class="math display">\[
 \lim_{n \rightarrow +\infty} v_n=+\infty
@@ -831,13 +1033,13 @@ u_n&lt;A
 </ol>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Théorème (Théorème des &quot;gendarmes&quot;)">
+<div class="callout callout-style-default callout-important callout-titled" title="Théorème (Théorème des « gendarmes »)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Théorème (Théorème des “gendarmes”)
+<span class="screen-reader-only">Important</span>Théorème (Théorème des « gendarmes »)
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -861,13 +1063,48 @@ u_n&lt;A
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Calculer, à l’aide de Théorème des “gendarmes”, la limite suivante</p>
+<p>Calculer, à l’aide du théorème des « gendarmes », la limite suivante</p>
 <p><span class="math display">\[
-\lim_{n \rightarrow +\infty}(1+\dfrac{\sin (n)}{n})
+\lim_{n \rightarrow +\infty}\left(1+\dfrac{\sin (n)}{n}\right)
 \]</span></p>
+<p><strong>Solution.</strong> Pour tout <span class="math inline">\(n\geq1,\)</span> on a <span class="math inline">\(-1\leq\sin(n)\leq1,\)</span> donc <span class="math inline">\(-\dfrac{1}{n}\leq\dfrac{\sin(n)}{n}\leq\dfrac{1}{n},\)</span> d’où</p>
+<p><span class="math display">\[
+1-\dfrac{1}{n}\leq 1+\dfrac{\sin (n)}{n}\leq 1+\dfrac{1}{n}
+\]</span></p>
+<p>Comme <span class="math inline">\(\lim_{n \rightarrow +\infty}\left(1-\dfrac{1}{n}\right)=\lim_{n \rightarrow +\infty}\left(1+\dfrac{1}{n}\right)=1,\)</span> le théorème des « gendarmes » donne <span class="math inline">\(\lim_{n \rightarrow +\infty}\left(1+\dfrac{\sin (n)}{n}\right)=1.\)</span></p>
 </div>
 </div>
-<p>Toute suite convergente est bornée. La réciproque est fausse: la suite <span class="math inline">\(((-1)^n)\)</span> est bornée mais elle diverge (elle n’admet pas de limite).En revanche, on a le résultat suivant.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Proposition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Toute suite convergente est bornée.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Preuve">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Preuve
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\((u_n)_{n\in \mathbb{N}}\)</span> une suite convergeant vers le réel <span class="math inline">\(\ell.\)</span> En appliquant la définition de limite avec <span class="math inline">\(\varepsilon=1,\)</span> on obtient qu’il existe un entier naturel <span class="math inline">\(N\)</span> tel que pour <span class="math inline">\(n\geq N\)</span> on ait <span class="math inline">\(|u_n-\ell|&lt;1,\)</span> et donc pour <span class="math inline">\(n\geq N\)</span> on a</p>
+<p><span class="math display">\[
+|u_n|=|\ell+(u_n-\ell)|\leq |\ell|+|u_n-\ell|\leq |\ell|+1
+\]</span></p>
+<p>Donc si on pose <span class="math inline">\(M=\max(|u_0|,|u_1|,\ldots,|u_{N-1}|,|\ell|+1),\)</span> on a alors <span class="math inline">\(\forall n\in \mathbb{N},\,|u_n|\leq M.\)</span></p>
+</div>
+</div>
+<p>La réciproque est fausse : la suite <span class="math inline">\(((-1)^n)\)</span> est bornée mais elle diverge (elle n’admet pas de limite). En revanche, on a le résultat suivant.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Théorème">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -894,12 +1131,23 @@ u_n&lt;A
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On montrera l’assertion “Toute suite convergente est bornée.” En effet, soit <span class="math inline">\((u_n)_{n\in \mathbb{N}}\)</span> une suite convergeant vers le réel <span class="math inline">\(\ell.\)</span> En appliquant la définition de limite avec <span class="math inline">\(\varepsilon=1,\)</span> on obtient qu’il existe un entier naturel <span class="math inline">\(N\)</span> tel que pour <span class="math inline">\(n\geq N\)</span> on ait, <span class="math inline">\(|u_n-\ell|\leq1,\)</span> et donc pour <span class="math inline">\(n\geq N\)</span> on a</p>
-<p><span class="math display">\[
-|u_n|=|\ell+(u_n-\ell)|\leq |\ell|+|u_n-\ell|\leq |\ell|+1
-\]</span></p>
-<p>Donc si on pose <span class="math inline">\(M=\max(|u_0|,|u_1|,...,|u_{N-1}|,|\ell|+1)\)</span></p>
-<p>on a alors <span class="math inline">\(\forall n\in \mathbb{N},\,|u_n|\leq M.\)</span></p>
+<ol type="1">
+<li><p>Soit <span class="math inline">\((u_n)\)</span> croissante et majorée. L’ensemble <span class="math inline">\(\{u_n\mid n\in\mathbb{N}\}\)</span> est non vide et majoré, il admet donc une borne supérieure <span class="math inline">\(\ell.\)</span> Soit <span class="math inline">\(\varepsilon&gt;0.\)</span> Comme <span class="math inline">\(\ell-\varepsilon&lt;\ell,\)</span> le réel <span class="math inline">\(\ell-\varepsilon\)</span> n’est pas un majorant : il existe <span class="math inline">\(N\)</span> tel que <span class="math inline">\(u_N&gt;\ell-\varepsilon.\)</span> Pour <span class="math inline">\(n\geq N,\)</span> la suite étant croissante, on a <span class="math inline">\(\ell-\varepsilon&lt;u_N\leq u_n\leq\ell,\)</span> donc <span class="math inline">\(|u_n-\ell|&lt;\varepsilon.\)</span> Ainsi <span class="math inline">\(u_n\to\ell.\)</span></p></li>
+<li><p>Si <span class="math inline">\((u_n)\)</span> est décroissante et minorée, alors <span class="math inline">\((-u_n)\)</span> est croissante et majorée ; on applique le point 1.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Remarque">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarque
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une suite croissante et non majorée tend vers <span class="math inline">\(+\infty\)</span> ; une suite décroissante et non minorée tend vers <span class="math inline">\(-\infty.\)</span></p>
 </div>
 </div>
 </section>
@@ -915,7 +1163,7 @@ u_n&lt;A
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Deux suites <span class="math inline">\((u_n)\)</span> et <span class="math inline">\((v_n)\)</span> sont dites adjacentes si <span class="math inline">\((u_n)\)</span> est celle qui est croissante, l’autre est décroissante et leur différente et leur différence tend vers 0.</p>
+<p>Deux suites <span class="math inline">\((u_n)\)</span> et <span class="math inline">\((v_n)\)</span> sont dites adjacentes si l’une est croissante, l’autre est décroissante et si leur différence tend vers 0.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Remarque">
@@ -928,13 +1176,14 @@ u_n&lt;A
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si <span class="math inline">\((u_n)\)</span> et <span class="math inline">\((v_n)\)</span> sont deux suites adjacentes et si <span class="math inline">\((u_n)\)</span> est celle qui croissante (donc <span class="math inline">\((v_n)\)</span> est décroissante) alors</p>
+<p>Si <span class="math inline">\((u_n)\)</span> et <span class="math inline">\((v_n)\)</span> sont deux suites adjacentes et si <span class="math inline">\((u_n)\)</span> est celle qui est croissante (donc <span class="math inline">\((v_n)\)</span> est décroissante) alors</p>
 <p><span class="math display">\[
 \forall n\in \mathbb{N}:\; u_n\leq v_n
 \]</span></p>
+<p>En effet, la suite <span class="math inline">\((v_n-u_n)\)</span> est décroissante et tend vers 0 ; elle est donc minorée par sa limite 0.</p>
 </div>
 </div>
-<p>Pratiquement, pour montrer que deux suites <span class="math inline">\((u_n)\)</span> et <span class="math inline">\((v_n)\)</span> sont adjacentes, on commence par chercher celle qui est plus grande que l’autre. On montre alors que la plus grande est décroissante et que l’autre (la plus petite) est croissante puis on montre que la différence des deux suites converge vers 0.</p>
+<p>Pratiquement, pour montrer que deux suites <span class="math inline">\((u_n)\)</span> et <span class="math inline">\((v_n)\)</span> sont adjacentes, on commence par chercher celle qui est plus grande que l’autre. On montre alors que la plus grande est décroissante et que l’autre (la plus petite) est croissante, puis on montre que la différence des deux suites converge vers 0.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Exemple">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -945,7 +1194,7 @@ u_n&lt;A
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Les deux suites <span class="math inline">\((1+\dfrac{1}{n})_{n&gt;0}\)</span> et <span class="math inline">\((1-\dfrac{1}{n})_{n&gt;0}\)</span> sont adjacentes.</p>
+<p>Les deux suites <span class="math inline">\(\left(1-\dfrac{1}{n}\right)_{n&gt;0}\)</span> et <span class="math inline">\(\left(1+\dfrac{1}{n}\right)_{n&gt;0}\)</span> sont adjacentes : la première est croissante, la seconde est décroissante, et leur différence <span class="math inline">\(\dfrac{2}{n}\)</span> tend vers 0.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled" title="Théorème">
@@ -973,23 +1222,22 @@ u_n&lt;A
 <div class="callout-body-container callout-body">
 <p>On pose <span class="math inline">\(u_n=\sum_{k=1}^{n}\dfrac{1}{k^2},\quad n\in \mathbb{N}^{*}.\)</span></p>
 <p>L’objectif de cet exemple est de montrer que la suite <span class="math inline">\((u_n)_{n\geq1}\)</span> est une suite convergente. Soit <span class="math inline">\((v_n)_{n\geq1}\)</span> la suite définie par <span class="math inline">\(v_n=u_n+\dfrac{2}{n+1},\quad n\geq1.\)</span></p>
-<p>Montrons que les deux suites <span class="math inline">\((u_n)_{n\geq1}\)</span> <span class="math inline">\((v_n)_{n\geq1}\)</span> sont adjacentes.</p>
+<p>Montrons que les deux suites <span class="math inline">\((u_n)_{n\geq1}\)</span> et <span class="math inline">\((v_n)_{n\geq1}\)</span> sont adjacentes.</p>
 <ul>
-<li>Remarquons tout d’abord que <span class="math inline">\(u_n\leq v_n,\;n\geq1.\)</span> Montrons alors que <span class="math inline">\((u_n)_{n\geq1}\)</span> est croissante et que <span class="math inline">\((v_n)_{n\geq1}\)</span> est décroissante.</li>
+<li><p>Remarquons tout d’abord que <span class="math inline">\(u_n\leq v_n,\;n\geq1.\)</span> Montrons alors que <span class="math inline">\((u_n)_{n\geq1}\)</span> est croissante et que <span class="math inline">\((v_n)_{n\geq1}\)</span> est décroissante.</p>
+<p>On a <span class="math inline">\(\forall n\geq 1:\quad u_{n+1}-u_n=\dfrac{1}{(n+1)^2}&gt;0.\)</span> Donc <span class="math inline">\((u_n)_{n\geq1}\)</span> est croissante. Et pour tout <span class="math inline">\(n\geq1\)</span> on a</p>
+<p><span class="math display">\[
+  \begin{aligned}
+  v_{n+1}-v_n
+  &amp;= u_{n+1}+\dfrac{2}{n+2}-u_n-\dfrac{2}{n+1}\\
+  &amp;= \dfrac{1}{(n+1)^2}+\dfrac{2}{n+2}-\dfrac{2}{n+1}\\
+  &amp;= \dfrac{-n}{(n+1)^2 (n+2)}.
+  \end{aligned}
+  \]</span></p>
+<p>Donc <span class="math inline">\(v_{n+1}-v_n\leq0,\;n\geq1.\)</span> Ainsi, la suite <span class="math inline">\((v_n)_{n\geq1}\)</span> est décroissante.</p></li>
+<li><p>On a <span class="math inline">\(\lim_{n \rightarrow +\infty}(v_n-u_n)=\lim_{n \rightarrow +\infty}\dfrac{2}{n+1}=0.\)</span></p></li>
 </ul>
-<p>On a <span class="math inline">\(\forall n\geq 1:\quad u_{n+1}-u_n=\dfrac{1}{(n+1)^2}.\)</span></p>
-<p>Donc <span class="math inline">\((u_n)_{n\geq1}\)</span> est croissante. Et pour tout <span class="math inline">\(n\geq1\)</span> on a</p>
-<span class="math display">\[\begin{array}{rcl}
-v_{n+1}-v_n
-&amp;=&amp; u_{n+1}+\dfrac{2}{n+2}-u_n-\dfrac{2}{n+1}\\
-&amp;=&amp; \dfrac{1}{(n+1)^2}+\dfrac{2}{n+2}-\dfrac{2}{n+1}\\
-&amp;=&amp; \dfrac{-n}{(n+1)^2 (n+2)}.
-\end{array}\]</span>
-<p>Donc <span class="math inline">\(v_{n+1}-v_n\leq0,\;n\geq1.\)</span> Ainsi, la suite <span class="math inline">\((v_n)_{n\geq1}\)</span> est décroissante.</p>
-<ul>
-<li>On a <span class="math inline">\(\lim_{n \rightarrow +\infty}(v_n-u_n)=\lim_{n \rightarrow +\infty}\dfrac{2}{n+1}=0.\)</span></li>
-</ul>
-<p>En on déduit les deux suites <span class="math inline">\((u_n)_{n\geq1}\)</span> <span class="math inline">\((v_n)_{n\geq1}\)</span> sont adjacentes. Donc <span class="math inline">\((u_n)_{n\geq1}\)</span> et <span class="math inline">\((v_n)_{n\geq1}\)</span> convergent vers la même limite. En particulier, la suite <span class="math inline">\((u_n)_{n\geq1}\)</span> est convergente.</p>
+<p>On en déduit que les deux suites <span class="math inline">\((u_n)_{n\geq1}\)</span> et <span class="math inline">\((v_n)_{n\geq1}\)</span> sont adjacentes. Donc <span class="math inline">\((u_n)_{n\geq1}\)</span> et <span class="math inline">\((v_n)_{n\geq1}\)</span> convergent vers la même limite. En particulier, la suite <span class="math inline">\((u_n)_{n\geq1}\)</span> est convergente. (On peut montrer que sa limite est <span class="math inline">\(\dfrac{\pi^2}{6}.\)</span>)</p>
 </div>
 </div>
 </section>
@@ -1005,16 +1253,16 @@ v_{n+1}-v_n
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Une suite <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est dite récurrente si elle est définie par son premier terme <span class="math inline">\(u_{n_0}\)</span> et une relation de récurrence de forme</p>
+<p>Une suite <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est dite récurrente si elle est définie par son premier terme <span class="math inline">\(u_{n_0}\)</span> et une relation de récurrence de la forme</p>
 <p><span class="math display">\[
 u_{n+1}=f(u_n),\quad\forall n\geq n_0
 \]</span></p>
-<p>où <span class="math inline">\(f\)</span> est une fonction définie sur un intervalle <span class="math inline">\(I\)</span> de <span class="math inline">\(\mathbb{R}.\)</span></p>
+<p>où <span class="math inline">\(f\)</span> est une fonction définie sur un intervalle <span class="math inline">\(I\)</span> de <span class="math inline">\(\mathbb{R}\)</span> (avec <span class="math inline">\(u_{n_0}\in I\)</span> et <span class="math inline">\(f(I)\subset I,\)</span> de sorte que tous les termes soient bien définis).</p>
 </div>
 </div>
 <section id="exemples-remarquables-de-suites-récurrentes" class="level2">
 <h2 class="anchored" data-anchor-id="exemples-remarquables-de-suites-récurrentes">Exemples remarquables de suites récurrentes</h2>
-<p><strong>Suites arithmétiques:</strong></p>
+<p><strong>Suites arithmétiques :</strong></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Définition">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1044,18 +1292,9 @@ u_{n+1}=f(u_n),\quad\forall n\geq n_0
 <div class="callout-body-container callout-body">
 <p>Si <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est une suite arithmétique de raison <span class="math inline">\(r,\)</span> alors <span class="math inline">\(u_n=u_{n_0}+(n-n_0)r,\, \forall n\geq n_0.\)</span> En particulier, on a</p>
 <ul>
-<li><p>si <span class="math inline">\(r&gt;0\)</span>:</p>
-<p><span class="math display">\[
-  \lim_{n \rightarrow +\infty}u_n=+\infty
-  \]</span></p></li>
-<li><p>si <span class="math inline">\(r&lt;0\)</span>:</p>
-<p><span class="math display">\[
-  \lim_{n \rightarrow +\infty}u_n=-\infty
-  \]</span></p></li>
-<li><p>si <span class="math inline">\(r=0\)</span>:</p>
-<p><span class="math display">\[
-  \lim_{n \rightarrow +\infty}u_n=u_0
-  \]</span></p></li>
+<li><p>si <span class="math inline">\(r&gt;0\)</span> : <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=+\infty,\)</span></p></li>
+<li><p>si <span class="math inline">\(r&lt;0\)</span> : <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=-\infty,\)</span></p></li>
+<li><p>si <span class="math inline">\(r=0\)</span> : <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=u_{n_0}\)</span> (la suite est constante).</p></li>
 </ul>
 </div>
 </div>
@@ -1069,13 +1308,13 @@ u_{n+1}=f(u_n),\quad\forall n\geq n_0
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\((u_n)_{n\geq n_0}\)</span> une suite arithmétique de raison <span class="math inline">\(r\)</span>,(<span class="math inline">\(r\neq0\)</span>) et de premier terme <span class="math inline">\(u_{n_0},\)</span> la somme des termes successifs de la suite <span class="math inline">\((u_n)\)</span> s’exprime par la formule suivante:</p>
+<p>Soit <span class="math inline">\((u_n)_{n\geq n_0}\)</span> une suite arithmétique de raison <span class="math inline">\(r\)</span> et de premier terme <span class="math inline">\(u_{n_0}.\)</span> La somme des termes successifs de la suite <span class="math inline">\((u_n)\)</span> s’exprime par la formule suivante, pour <span class="math inline">\(n_0\leq p\leq n\)</span> :</p>
 <p><span class="math display">\[
-u_p+u_{p+1}+...+u_n=(n-p+1)\dfrac{u_p+u_n}{2}=(n-p+1)\dfrac{2u_p+(n-p)r}{2}\;n_0\leq p\leq n
+u_p+u_{p+1}+\ldots+u_n=(n-p+1)\dfrac{u_p+u_n}{2}=(n-p+1)\dfrac{2u_p+(n-p)r}{2}
 \]</span></p>
 </div>
 </div>
-<p><strong>Suites géométriques:</strong></p>
+<p><strong>Suites géométriques :</strong></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Définition">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1103,27 +1342,28 @@ u_p+u_{p+1}+...+u_n=(n-p+1)\dfrac{u_p+u_n}{2}=(n-p+1)\dfrac{2u_p+(n-p)r}{2}\;n_0
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est une suite géométrique non nulle de raison <span class="math inline">\(q(q\neq0),\)</span> alors <span class="math inline">\(u_n=u_{n_0}q^{n-n_0},\;\forall n\geq n_0.\)</span> Et en particulier, on a</p>
+<p>Si <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est une suite géométrique non nulle de raison <span class="math inline">\(q\)</span> (<span class="math inline">\(q\neq0\)</span>), alors <span class="math inline">\(u_n=u_{n_0}q^{n-n_0},\;\forall n\geq n_0.\)</span> En particulier, on a</p>
 <ol type="1">
-<li><p>Si <span class="math inline">\(q&gt;1,\)</span> alors <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=\pm\infty,\)</span></p></li>
+<li><p>Si <span class="math inline">\(q&gt;1,\)</span> alors <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=+\infty\)</span> si <span class="math inline">\(u_{n_0}&gt;0\)</span> et <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=-\infty\)</span> si <span class="math inline">\(u_{n_0}&lt;0,\)</span></p></li>
+<li><p>Si <span class="math inline">\(q=1,\)</span> la suite est constante et <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=u_{n_0},\)</span></p></li>
 <li><p>Si <span class="math inline">\(-1&lt;q&lt;1,\)</span> alors <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=0,\)</span></p></li>
 <li><p>Si <span class="math inline">\(q\leq-1,\)</span> la suite <span class="math inline">\((u_n)_{n\geq n_0}\)</span> diverge.</p></li>
 </ol>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Proposition(Série géométrique)">
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition (Somme géométrique)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Proposition(Série géométrique)
+<span class="screen-reader-only">Important</span>Proposition (Somme géométrique)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est une suite géométrique de raison <span class="math inline">\(q(q\neq1),\)</span> alors</p>
+<p>Si <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est une suite géométrique de raison <span class="math inline">\(q\)</span> (<span class="math inline">\(q\neq1\)</span>), alors</p>
 <p><span class="math display">\[
-\sum_{k=n_0}^{n}u_k= u_{u_0}\dfrac{1-q^{n-n_0+1}}{1-q},\quad\forall n\geq n_0
+\sum_{k=n_0}^{n}u_k= u_{n_0}\dfrac{1-q^{n-n_0+1}}{1-q},\quad\forall n\geq n_0
 \]</span></p>
 </div>
 </div>
@@ -1137,17 +1377,17 @@ u_p+u_{p+1}+...+u_n=(n-p+1)\dfrac{u_p+u_n}{2}=(n-p+1)\dfrac{2u_p+(n-p)r}{2}\;n_0
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\((u_n)\)</span> la suite définie par <span class="math inline">\(u_0=1\)</span> et <span class="math inline">\(u_{n+1}=\dfrac{1}{2}u_n, \; n\in \mathbb{N}.\)</span> Donc <span class="math inline">\((u_n)\)</span> est une suite géométrique de raison <span class="math inline">\(q=\dfrac{1}{2}.\)</span> Le terme général de cette suite est <span class="math inline">\(u_n=\dfrac{1}{2}^n,\,n\in \mathbb{N}.\)</span> Ainsi puisque <span class="math inline">\(-1&lt;\dfrac{1}{2}&lt;1,\)</span> alors <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=0.\)</span></p>
+<p>Soit <span class="math inline">\((u_n)\)</span> la suite définie par <span class="math inline">\(u_0=1\)</span> et <span class="math inline">\(u_{n+1}=\dfrac{1}{2}u_n, \; n\in \mathbb{N}.\)</span> Donc <span class="math inline">\((u_n)\)</span> est une suite géométrique de raison <span class="math inline">\(q=\dfrac{1}{2}.\)</span> Le terme général de cette suite est <span class="math inline">\(u_n=\left(\dfrac{1}{2}\right)^n,\,n\in \mathbb{N}.\)</span> Ainsi, puisque <span class="math inline">\(-1&lt;\dfrac{1}{2}&lt;1,\)</span> on a <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=0.\)</span></p>
 <p>Pour <span class="math inline">\(n\in \mathbb{N},\)</span> on pose <span class="math inline">\(S_n=\sum_{k=0}^{n}u_k.\)</span> On a alors</p>
 <p><span class="math display">\[
-S_n=\dfrac{1-\dfrac{1}{2^{n+1}}}{1-\dfrac{1}{2}}=2(1-\dfrac{1}{2^{n+1}})
+S_n=\dfrac{1-\dfrac{1}{2^{n+1}}}{1-\dfrac{1}{2}}=2\left(1-\dfrac{1}{2^{n+1}}\right)
 \]</span></p>
-<p>Autrement dit <span class="math inline">\(1+\dfrac{1}{2}+\dfrac{1}{2^2}+...+\dfrac{1}{2^n}=2(1-\dfrac{1}{2^{n+1}}).\)</span></p>
+<p>Autrement dit <span class="math inline">\(1+\dfrac{1}{2}+\dfrac{1}{2^2}+\ldots+\dfrac{1}{2^n}=2\left(1-\dfrac{1}{2^{n+1}}\right).\)</span></p>
 <p>D’autre part, on a</p>
 <p><span class="math display">\[
-\lim_{n \rightarrow +\infty}u_n=2
+\lim_{n \rightarrow +\infty}S_n=2
 \]</span></p>
-<p>On écrit alors <span class="math inline">\(\sum_{k=0}^{+\infty}u_k=2\)</span></p>
+<p>On écrit alors <span class="math inline">\(\sum_{k=0}^{+\infty}u_k=2.\)</span></p>
 </div>
 </div>
 </section>
@@ -1164,21 +1404,20 @@ S_n=\dfrac{1-\dfrac{1}{2^{n+1}}}{1-\dfrac{1}{2}}=2(1-\dfrac{1}{2^{n+1}})
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\(f\)</span> une fonction continue sur un intervalle <span class="math inline">\(I\)</span> avec <span class="math inline">\(f(I)\subset I.\)</span> Si <span class="math inline">\(u_{n_0}\in I\)</span> et si la suite récurrente <span class="math inline">\((u_n)\)</span> est convergente, alors la limite <span class="math inline">\(\ell\)</span> de cette suite est une solution de l’équation <span class="math inline">\(f(x)=x.\)</span></p>
+<p>Soit <span class="math inline">\(f\)</span> une fonction continue sur un intervalle <strong>fermé</strong> <span class="math inline">\(I\)</span> (c’est-à-dire contenant ses bornes finies : <span class="math inline">\([a,b],\)</span> <span class="math inline">\([a,+\infty[,\)</span> <span class="math inline">\(]-\infty,b]\)</span> ou <span class="math inline">\(\mathbb{R}\)</span>) avec <span class="math inline">\(f(I)\subset I.\)</span> Si <span class="math inline">\(u_{n_0}\in I\)</span> et si la suite récurrente <span class="math inline">\((u_n)\)</span> est convergente, alors la limite <span class="math inline">\(\ell\)</span> de cette suite appartient à <span class="math inline">\(I\)</span> et est une solution de l’équation <span class="math inline">\(f(x)=x.\)</span></p>
 </div>
 </div>
-<p>Le théorème précédent impose sur la suite <span class="math inline">\((u_n)_{n\geq n_0}\)</span> d’être convergente. Et si les autres conditions du théorème sont satisfaites, alors la limite de <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est parmi les solutions de l’équation <span class="math inline">\(f(x)=x.\)</span> En ajoutant une condition supplémentaire sur la fonction <span class="math inline">\(f,\)</span> la convergence de <span class="math inline">\((u_n)_{n\geq n_0}\)</span> sera alors assurée:</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Théorème">
+<div class="callout callout-style-default callout-caution callout-titled" title="Preuve">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Théorème
+<span class="screen-reader-only">Mise en garde</span>Preuve
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Supposons que <span class="math inline">\(f:[a,b]\rightarrow [a,b]\)</span> une fonction continue et croissante et supposons que <span class="math inline">\(u_{n_0}\in [a,b].\)</span> Alors la suite récurrente <span class="math inline">\((u_n)\)</span> est monotone et converge vers <span class="math inline">\(\ell\in [a,b]\)</span> vérifiant <span class="math inline">\(f(\ell)=\ell.\)</span></p>
+<p>Tous les termes <span class="math inline">\(u_n\)</span> sont dans <span class="math inline">\(I\)</span> et <span class="math inline">\(I\)</span> est fermé, donc <span class="math inline">\(\ell\in I.\)</span> Par continuité de <span class="math inline">\(f\)</span> en <span class="math inline">\(\ell,\)</span> on a <span class="math inline">\(u_{n+1}=f(u_n)\to f(\ell).\)</span> Mais <span class="math inline">\(u_{n+1}\to\ell\)</span> aussi. Par unicité de la limite, <span class="math inline">\(f(\ell)=\ell.\)</span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Remarque">
@@ -1191,7 +1430,34 @@ S_n=\dfrac{1-\dfrac{1}{2^{n+1}}}{1-\dfrac{1}{2}}=2(1-\dfrac{1}{2^{n+1}})
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La monotonie de <span class="math inline">\((u_n)_{n\geq n_0}\)</span> dans le théorème précédent s’obtienne en comparant seulement les deux premiers termes de la suite <span class="math inline">\((u_n)_{n\geq n_0}:\)</span></p>
+<p>L’hypothèse « <span class="math inline">\(I\)</span> fermé » est nécessaire. Par exemple, sur <span class="math inline">\(I=]0,1]\)</span> avec <span class="math inline">\(f(x)=\dfrac{x}{2}\)</span> et <span class="math inline">\(u_0=1,\)</span> la suite <span class="math inline">\(u_n=\dfrac{1}{2^n}\)</span> converge vers <span class="math inline">\(0\notin I,\)</span> et l’équation <span class="math inline">\(f(x)=x\)</span> n’a aucune solution dans <span class="math inline">\(I.\)</span></p>
+</div>
+</div>
+<p>Le théorème précédent impose à la suite <span class="math inline">\((u_n)_{n\geq n_0}\)</span> d’être convergente. Et si les autres conditions du théorème sont satisfaites, alors la limite de <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est parmi les solutions de l’équation <span class="math inline">\(f(x)=x.\)</span> En ajoutant une condition supplémentaire sur la fonction <span class="math inline">\(f,\)</span> la convergence de <span class="math inline">\((u_n)_{n\geq n_0}\)</span> sera alors assurée :</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Théorème">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Théorème
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Supposons que <span class="math inline">\(f:[a,b]\rightarrow [a,b]\)</span> est une fonction continue et croissante et supposons que <span class="math inline">\(u_{n_0}\in [a,b].\)</span> Alors la suite récurrente <span class="math inline">\((u_n)\)</span> est monotone et converge vers <span class="math inline">\(\ell\in [a,b]\)</span> vérifiant <span class="math inline">\(f(\ell)=\ell.\)</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Remarque">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarque
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La monotonie de <span class="math inline">\((u_n)_{n\geq n_0}\)</span> dans le théorème précédent s’obtient en comparant seulement les deux premiers termes de la suite <span class="math inline">\((u_n)_{n\geq n_0}\)</span> :</p>
 <ul>
 <li><p>Si <span class="math inline">\(u_{n_0}\leq u_{n_0+1}\)</span> alors <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est croissante.</p></li>
 <li><p>Si <span class="math inline">\(u_{n_0}\geq u_{n_0+1}\)</span> alors <span class="math inline">\((u_n)_{n\geq n_0}\)</span> est décroissante.</p></li>
@@ -1208,9 +1474,9 @@ S_n=\dfrac{1-\dfrac{1}{2^{n+1}}}{1-\dfrac{1}{2}}=2(1-\dfrac{1}{2^{n+1}})
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\((u_n)_{n\in \mathbb{N}}\)</span> la suite définie par: <span class="math inline">\(u_0=\dfrac{1}{3}\)</span> et <span class="math inline">\(u_{n+1}=u_n-u_{n}^{2}.\)</span></p>
-<p>On a <span class="math inline">\(u_{n+1}=f(u_n),\)</span> avec <span class="math inline">\(f(x)=x-x^2.\)</span> La fonction <span class="math inline">\(f\)</span> est continue sur <span class="math inline">\([0,\dfrac{1}{2}]\)</span> et on peut vérifier que <span class="math inline">\(f\)</span> est croissante sur cet intervalle et que <span class="math inline">\(f([0,\dfrac{1}{2}])\subset [0,\dfrac{1}{2}].\)</span></p>
-<p>On en déduit que <span class="math inline">\((u_n)_n\)</span> est monotone: on a <span class="math inline">\(u_0=\dfrac{1}{3}\)</span> et <span class="math inline">\(u_1=2/9,\)</span> donc <span class="math inline">\(u_0&gt; u_1.\)</span> Ainsi <span class="math inline">\((u_n)_n\)</span> est décroissante. De plus <span class="math inline">\((u_n)_n\)</span> converge vers <span class="math inline">\(\ell\in [0,\dfrac{1}{2}]\)</span> vérifiant <span class="math inline">\(f(\ell)=\ell.\)</span> Or <span class="math inline">\(f(\ell)=\ell\Leftrightarrow \ell-\ell^2=\ell\Leftrightarrow -\ell^2=0\Leftrightarrow \ell=0.\)</span></p>
+<p>Soit <span class="math inline">\((u_n)_{n\in \mathbb{N}}\)</span> la suite définie par : <span class="math inline">\(u_0=\dfrac{1}{3}\)</span> et <span class="math inline">\(u_{n+1}=u_n-u_{n}^{2}.\)</span></p>
+<p>On a <span class="math inline">\(u_{n+1}=f(u_n),\)</span> avec <span class="math inline">\(f(x)=x-x^2.\)</span> La fonction <span class="math inline">\(f\)</span> est continue sur <span class="math inline">\(\left[0,\dfrac{1}{2}\right]\)</span> et on peut vérifier que <span class="math inline">\(f\)</span> est croissante sur cet intervalle (car <span class="math inline">\(f'(x)=1-2x\geq0\)</span>) et que <span class="math inline">\(f\left(\left[0,\dfrac{1}{2}\right]\right)=\left[0,\dfrac{1}{4}\right]\subset \left[0,\dfrac{1}{2}\right].\)</span> De plus <span class="math inline">\(u_0=\dfrac{1}{3}\in\left[0,\dfrac{1}{2}\right].\)</span></p>
+<p>On en déduit que <span class="math inline">\((u_n)_n\)</span> est monotone : on a <span class="math inline">\(u_0=\dfrac{1}{3}\)</span> et <span class="math inline">\(u_1=\dfrac{2}{9},\)</span> donc <span class="math inline">\(u_0&gt; u_1.\)</span> Ainsi <span class="math inline">\((u_n)_n\)</span> est décroissante. De plus <span class="math inline">\((u_n)_n\)</span> converge vers <span class="math inline">\(\ell\in \left[0,\dfrac{1}{2}\right]\)</span> vérifiant <span class="math inline">\(f(\ell)=\ell.\)</span> Or <span class="math inline">\(f(\ell)=\ell\Leftrightarrow \ell-\ell^2=\ell\Leftrightarrow -\ell^2=0\Leftrightarrow \ell=0.\)</span></p>
 <p>Ainsi, on a <span class="math inline">\(\lim_{n \rightarrow +\infty}u_n=0.\)</span></p>
 </div>
 </div>
@@ -1222,6 +1488,19 @@ S_n=\dfrac{1-\dfrac{1}{2^{n+1}}}{1-\dfrac{1}{2}}=2(1-\dfrac{1}{2^{n+1}})
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

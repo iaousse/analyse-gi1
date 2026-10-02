@@ -44,10 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-505fb740752bcb4749a94d640a912150.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+
 <script>
 window.MathJax = {
   tex: {
@@ -130,7 +135,178 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -175,8 +351,27 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Cours d’Analyse</a> 
-        <div class="sidebar-tools-main">
-    <a href="./Cours-d-Analyse.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/iaousse/" title="" class="quarto-navigation-tool px-1" aria-label="GitHub" target="_blank"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/mbarekiaousse" title="" class="quarto-navigation-tool px-1" aria-label="LinkedIn" target="_blank"><i class="bi bi-linkedin"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
 </div>
     </div>
       </div>
@@ -234,7 +429,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./suites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Suites réelles: Définitions générales</span></a>
+  <a href="./suites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Suites réelles : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -255,7 +450,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numérique: Définitions générales</span></a>
+  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numériques : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -302,12 +497,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./complements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Complément sur les suites et les fonctions numériques</span></a>
+  <a href="./complements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Compléments sur les suites et les fonctions numériques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dévelopements limités</span></a>
+  <a href="./dl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Développements limités</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -382,20 +577,21 @@ window.Quarto = {
 
 
 
+
 <section id="addition-et-multiplication" class="level2">
 <h2 class="anchored" data-anchor-id="addition-et-multiplication">Addition et multiplication</h2>
-<p>Ce sont les propriétés dont on a habitué. Pour <span class="math inline">\(a,\,b,\,c\in\mathbb{R},\)</span> on a:</p>
+<p>Ce sont les propriétés auxquelles on est habitué. Pour <span class="math inline">\(a,\,b,\,c\in\mathbb{R},\)</span> on a :</p>
 <ul>
 <li><span class="math inline">\(a+b=b+a\)</span></li>
 <li><span class="math inline">\(a\times b=b\times a\)</span></li>
 <li><span class="math inline">\(a+0=a\)</span></li>
-<li><span class="math inline">\(a\times 1=a \mbox{ si } a\neq0\)</span></li>
+<li><span class="math inline">\(a\times 1=a\)</span></li>
 <li><span class="math inline">\(a+b=0\Leftrightarrow a=-b\)</span></li>
-<li><span class="math inline">\(ab=1\Leftrightarrow a=\frac{1}{b}\)</span></li>
+<li><span class="math inline">\(ab=1\Leftrightarrow a=\frac{1}{b}\)</span> (si <span class="math inline">\(b\neq0\)</span>)</li>
 <li><span class="math inline">\((a+b)+c=a+(b+c)\)</span></li>
 <li><span class="math inline">\((a\times b)\times c=a\times(b\times c)\)</span></li>
 <li><span class="math inline">\(a\times(b+c)=a\times b+a\times c\)</span></li>
-<li><span class="math inline">\(a\times b=0\Leftrightarrow(a=0 \mbox{ ou } b=0)\)</span></li>
+<li><span class="math inline">\(a\times b=0\Leftrightarrow(a=0 \text{ ou } b=0)\)</span></li>
 </ul>
 <p>On résume toutes ces propriétés en disant que :</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Proposition">
@@ -414,7 +610,7 @@ window.Quarto = {
 </section>
 <section id="ordre-sur-mathbbr" class="level2">
 <h2 class="anchored" data-anchor-id="ordre-sur-mathbbr">Ordre sur <span class="math inline">\(\mathbb{R}\)</span></h2>
-<p>Nous allons voir que les réels sont ordonnés. La notion d’ordre est générale et nous allons définir cette notion sur un ensemble quelconque. Cependant gardez à l’esprit que pour nous <span class="math inline">\(E=\mathbb{R}\)</span> et <span class="math inline">\(\mathcal{R}=\leq\)</span></p>
+<p>Nous allons voir que les réels sont ordonnés. La notion d’ordre est générale et nous allons définir cette notion sur un ensemble quelconque. Cependant, gardez à l’esprit que pour nous <span class="math inline">\(E=\mathbb{R}\)</span> et <span class="math inline">\(\mathcal{R}=\leq.\)</span></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Définition">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -427,12 +623,12 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>Soit <span class="math inline">\(E\)</span> un ensemble.</p>
 <ol type="1">
-<li><p>Une relation <span class="math inline">\(\mathcal{R}\)</span> sur <span class="math inline">\(E\)</span> est un sous-ensemble de l’ensemble produit <span class="math inline">\(E\times E.\)</span> Pour <span class="math inline">\((x,y)\in E\times E,\)</span> on dit que <span class="math inline">\(x\)</span> est en relation avec <span class="math inline">\(y\)</span> et on note <span class="math inline">\(x\mathcal{R}y\)</span> pour dire que <span class="math inline">\((x,y)\in R.\)</span></p></li>
+<li><p>Une relation <span class="math inline">\(\mathcal{R}\)</span> sur <span class="math inline">\(E\)</span> est un sous-ensemble de l’ensemble produit <span class="math inline">\(E\times E.\)</span> Pour <span class="math inline">\((x,y)\in E\times E,\)</span> on dit que <span class="math inline">\(x\)</span> est en relation avec <span class="math inline">\(y\)</span> et on note <span class="math inline">\(x\,\mathcal{R}\,y\)</span> pour dire que <span class="math inline">\((x,y)\in \mathcal{R}.\)</span></p></li>
 <li><p>Une relation <span class="math inline">\(\mathcal{R}\)</span> est une relation d’ordre si</p>
 <ul>
-<li><p><span class="math inline">\(\mathcal{R}\)</span> est <em>réflexive</em>: Pour tout <span class="math inline">\(x\in E,\)</span> <span class="math inline">\(x\mathcal{R}x\)</span></p></li>
-<li><p><span class="math inline">\(\mathcal{R}\)</span> est <em>antisymétrique</em>: pour tout <span class="math inline">\(x,y\in E,\)</span> <span class="math inline">\((x\mathcal{R}y\:\mbox{et} y\mathcal{R}x) \Rightarrow x=y.\)</span></p></li>
-<li><p><span class="math inline">\(\mathcal{R}\)</span> est <em>transitive</em>: pour tout <span class="math inline">\(x,y,z\in E,\)</span> <span class="math inline">\((x\mathcal{R}y\:\mbox{et} y\mathcal{R}z)\Rightarrow x\mathcal{R}z\)</span></p></li>
+<li><p><span class="math inline">\(\mathcal{R}\)</span> est <em>réflexive</em> : pour tout <span class="math inline">\(x\in E,\)</span> <span class="math inline">\(x\,\mathcal{R}\,x\)</span> ;</p></li>
+<li><p><span class="math inline">\(\mathcal{R}\)</span> est <em>antisymétrique</em> : pour tous <span class="math inline">\(x,y\in E,\)</span> <span class="math inline">\((x\,\mathcal{R}\,y\ \text{et}\ y\,\mathcal{R}\,x) \Rightarrow x=y\)</span> ;</p></li>
+<li><p><span class="math inline">\(\mathcal{R}\)</span> est <em>transitive</em> : pour tous <span class="math inline">\(x,y,z\in E,\)</span> <span class="math inline">\((x\,\mathcal{R}\,y\ \text{et}\ y\,\mathcal{R}\,z)\Rightarrow x\,\mathcal{R}\,z.\)</span></p></li>
 </ul></li>
 </ol>
 </div>
@@ -447,7 +643,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Une relation d’ordre <span class="math inline">\(\mathcal{R}\)</span> sur un ensemble <span class="math inline">\(E\)</span> est totale si pour tout <span class="math inline">\(x, y\in E\)</span> on a <span class="math inline">\(x\mathcal{R}y\)</span> ou <span class="math inline">\(y\mathcal{R}x.\)</span> On dit aussi que <span class="math inline">\((E,\mathcal{R})\)</span> est un ensemble totalement ordonné.</p>
+<p>Une relation d’ordre <span class="math inline">\(\mathcal{R}\)</span> sur un ensemble <span class="math inline">\(E\)</span> est totale si pour tous <span class="math inline">\(x, y\in E\)</span> on a <span class="math inline">\(x\,\mathcal{R}\,y\)</span> ou <span class="math inline">\(y\,\mathcal{R}\,x.\)</span> On dit aussi que <span class="math inline">\((E,\mathcal{R})\)</span> est un ensemble totalement ordonné.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled" title="Proposition">
@@ -460,14 +656,15 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La relation <span class="math inline">\(\leq\)</span> sur <span class="math inline">\(\mathbb{R}\)</span> est une relation d’ordre, et de plus, elle est totale.</p>
+<p>La relation <span class="math inline">\(\leq\)</span> sur <span class="math inline">\(\mathbb{R}\)</span> est une relation d’ordre et, de plus, elle est totale.</p>
 </div>
 </div>
-<p>Nous avons donc:</p>
+<p>Nous avons donc :</p>
 <ul>
-<li><p>pour tout <span class="math inline">\(x\in \mathbb{R}, x\leq x,\)</span></p></li>
-<li><p>pour tout <span class="math inline">\(x, y \in \mathbb{R},\)</span> si <span class="math inline">\(x\leq y\)</span> et <span class="math inline">\(y\leq x\)</span> alors <span class="math inline">\(x=y,\)</span></p></li>
-<li><p>pour tout <span class="math inline">\(x, y, z\in\mathbb{R}\)</span> si <span class="math inline">\(x \leq y\)</span> et <span class="math inline">\(y \leq z\)</span> alors <span class="math inline">\(x \leq z.\)</span></p></li>
+<li><p>pour tout <span class="math inline">\(x\in \mathbb{R},\)</span> <span class="math inline">\(x\leq x,\)</span></p></li>
+<li><p>pour tous <span class="math inline">\(x, y \in \mathbb{R},\)</span> si <span class="math inline">\(x\leq y\)</span> et <span class="math inline">\(y\leq x\)</span> alors <span class="math inline">\(x=y,\)</span></p></li>
+<li><p>pour tous <span class="math inline">\(x, y, z\in\mathbb{R},\)</span> si <span class="math inline">\(x \leq y\)</span> et <span class="math inline">\(y \leq z\)</span> alors <span class="math inline">\(x \leq z,\)</span></p></li>
+<li><p>pour tous <span class="math inline">\(x,y\in\mathbb{R},\)</span> <span class="math inline">\(x\leq y\)</span> ou <span class="math inline">\(y\leq x.\)</span></p></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="Remarque">
 <div class="callout-header d-flex align-content-center">
@@ -479,12 +676,17 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pour <span class="math inline">\((x, y)\in \mathbb{R}^{2}\)</span> on a par définition:</p>
-<p><span class="math inline">\(x\leq y \Leftrightarrow y-x\in \mathbb{R}_{+}\)</span></p>
-<p><span class="math inline">\(x&lt;y\Leftrightarrow x\leq y\quad\mbox{et}\quad x\neq y\)</span></p>
-<p>Les opérations de <span class="math inline">\(\mathbb{R}\)</span> sont compatibles avec la relation d’ordre <span class="math inline">\(\leq\)</span> au sens suivant, pour des réels <span class="math inline">\(a, b,c, d:\)</span></p>
-<p><span class="math inline">\(a\leq b \quad\mbox{et}\quad c\leq d)\Rightarrow a+c\leq b+d\)</span></p>
-<p><span class="math inline">\(a\leq b \quad\mbox{et}\quad c\geq0)\Rightarrow a\times c\leq b\times c\)</span></p>
+<p>Pour <span class="math inline">\((x, y)\in \mathbb{R}^{2}\)</span> on a par définition :</p>
+<p><span class="math display">\[
+x\leq y \Leftrightarrow y-x\in \mathbb{R}_{+}\qquad\text{et}\qquad x&lt;y\Leftrightarrow (x\leq y\ \text{et}\ x\neq y)
+\]</span></p>
+<p>Les opérations de <span class="math inline">\(\mathbb{R}\)</span> sont compatibles avec la relation d’ordre <span class="math inline">\(\leq\)</span> au sens suivant : pour des réels <span class="math inline">\(a, b, c, d,\)</span></p>
+<p><span class="math display">\[
+(a\leq b\ \text{et}\ c\leq d)\Rightarrow a+c\leq b+d
+\]</span></p>
+<p><span class="math display">\[
+(a\leq b\ \text{et}\ c\geq0)\Rightarrow a\times c\leq b\times c
+\]</span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Définition">
@@ -497,12 +699,19 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On définit le maximum de deux réels <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par:</p>
+<p>On définit le maximum et le minimum de deux réels <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par :</p>
 <p><span class="math display">\[
 \max(a,b)=\left\{
 \begin{array}{ll}
-a\mbox{ si } a\geq b\\
-b \mbox{ si } b&gt;a
+a &amp; \text{si } a\geq b,\\
+b &amp; \text{si } b&gt;a,
+\end{array}
+\right.
+\qquad
+\min(a,b)=\left\{
+\begin{array}{ll}
+a &amp; \text{si } a\leq b,\\
+b &amp; \text{si } b&lt;a.
 \end{array}
 \right.
 \]</span></p>
@@ -521,14 +730,14 @@ b \mbox{ si } b&gt;a
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(\mathbb{R}\)</span> est <em>archimédien</em>, c’est-à-dire:</p>
+<p><span class="math inline">\(\mathbb{R}\)</span> est <em>archimédien</em>, c’est-à-dire :</p>
 <p><span class="math display">\[
-\forall x\in \mathbb{R},\exists n\in \mathbb{N};\,n&gt; x
+\forall x\in \mathbb{R},\ \exists n\in \mathbb{N},\ n&gt; x
 \]</span></p>
-<p>Autrementdit, Pour tout réel <span class="math inline">\(x,\)</span> il existe un entier naturel <span class="math inline">\(n\)</span> strictement plus grand que <span class="math inline">\(x.\)</span></p>
+<p>Autrement dit, pour tout réel <span class="math inline">\(x,\)</span> il existe un entier naturel <span class="math inline">\(n\)</span> strictement plus grand que <span class="math inline">\(x.\)</span></p>
 </div>
 </div>
-<p>Cette propriété peut sembler évidente, elle est pourtant essentielle puisque elle permet de définir la partie entière d’un nombre réel:</p>
+<p>Cette propriété peut sembler évidente. Elle est pourtant essentielle puisqu’elle permet de définir la partie entière d’un nombre réel :</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Proposition (partie entière)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -539,7 +748,7 @@ b \mbox{ si } b&gt;a
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\(x\in R,\)</span> il existe un unique entier relatif, la partie entière notée <span class="math inline">\(E(x),\)</span> tel que:</p>
+<p>Soit <span class="math inline">\(x\in \mathbb{R}.\)</span> Il existe un unique entier relatif, la partie entière notée <span class="math inline">\(E(x),\)</span> tel que :</p>
 <p><span class="math display">\[
 E(x)\leq x&lt; E(x)+1
 \]</span></p>
@@ -556,12 +765,12 @@ E(x)\leq x&lt; E(x)+1
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><span class="math inline">\(E(2, 853) = 2, E(\pi) = 3, E(-3,5) =-4.\)</span></p></li>
-<li><p><span class="math inline">\(E(x)=3\Leftrightarrow 3\leq x &lt;4\)</span></p></li>
+<li><p><span class="math inline">\(E(2{,}853) = 2,\)</span> <span class="math inline">\(E(\pi) = 3,\)</span> <span class="math inline">\(E(-3{,}5) =-4.\)</span></p></li>
+<li><p><span class="math inline">\(E(x)=3\Leftrightarrow 3\leq x &lt;4.\)</span></p></li>
 </ul>
 </div>
 </div>
-<p>Pour la démonstration de la proposition de la <a href="partent">partie entière</a> il y a deux choses à établir: d’abord qu’un tel entier <span class="math inline">\(E(x)\)</span> existe et ensuite qu’il est unique:</p>
+<p>Pour la démonstration de la proposition précédente (partie entière), il y a deux choses à établir : d’abord qu’un tel entier <span class="math inline">\(E(x)\)</span> existe, et ensuite qu’il est unique.</p>
 <div class="callout callout-style-default callout-caution callout-titled" title="Preuve">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -572,21 +781,12 @@ E(x)\leq x&lt; E(x)+1
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>:class: seealso, dropdown - <strong>Existence</strong></p>
-<p>Supposons <span class="math inline">\(x&gt;0\)</span>.</p>
-<p>Par la propriété d’Archimède il existe <span class="math inline">\(n\in N\)</span> tel que <span class="math inline">\(n&gt;x.\)</span></p>
-<p>L’ensemble <span class="math inline">\(K:=\{k\in \mathbb{N}; k\leq x\}\)</span> est donc fini (car pour tout <span class="math inline">\(k\)</span> dans <span class="math inline">\(K,\)</span> on a <span class="math inline">\(0\leq k \leq n\)</span>).</p>
-<p>Il admet donc un plus grand élément <span class="math inline">\(k_{max} =\max K.\)</span></p>
-<p>On a alors <span class="math inline">\(k_{max}\leq x\)</span> car <span class="math inline">\(k_{max} \in K,\)</span> et <span class="math inline">\(k_{max} + 1 &gt; x\)</span> car <span class="math inline">\(k_{max} + 1 \notin K.\)</span> Donc <span class="math inline">\(k_{max}\leq x &lt; k_{max} + 1\)</span> et on prend donc <span class="math inline">\(E(x)= k_{max}.\)</span></p>
+<p><strong>Existence.</strong></p>
 <ul>
-<li><strong>Unicité:</strong></li>
+<li><p>Supposons d’abord <span class="math inline">\(x\geq0.\)</span> Par la propriété d’Archimède, il existe <span class="math inline">\(n\in \mathbb{N}\)</span> tel que <span class="math inline">\(n&gt;x.\)</span> L’ensemble <span class="math inline">\(K:=\{k\in \mathbb{N}\mid k\leq x\}\)</span> est non vide (car <span class="math inline">\(0\in K\)</span>) et fini (car pour tout <span class="math inline">\(k\)</span> dans <span class="math inline">\(K,\)</span> on a <span class="math inline">\(0\leq k \leq n\)</span>). Il admet donc un plus grand élément <span class="math inline">\(k_{\max} =\max K.\)</span> On a alors <span class="math inline">\(k_{\max}\leq x\)</span> car <span class="math inline">\(k_{\max} \in K,\)</span> et <span class="math inline">\(k_{\max} + 1 &gt; x\)</span> car <span class="math inline">\(k_{\max} + 1 \notin K.\)</span> Donc <span class="math inline">\(k_{\max}\leq x &lt; k_{\max} + 1\)</span> et on prend <span class="math inline">\(E(x)= k_{\max}.\)</span> (Pour <span class="math inline">\(x=0,\)</span> on obtient <span class="math inline">\(E(0)=0.\)</span>)</p></li>
+<li><p>Supposons maintenant <span class="math inline">\(x&lt;0,\)</span> donc <span class="math inline">\(-x&gt;0.\)</span> Si <span class="math inline">\(-x\in\mathbb{Z},\)</span> alors <span class="math inline">\(x\in\mathbb{Z}\)</span> et <span class="math inline">\(E(x)=x\)</span> convient. Sinon, d’après le cas précédent, <span class="math inline">\(n:=E(-x)\)</span> vérifie <span class="math inline">\(n\leq -x&lt; n+1,\)</span> et même <span class="math inline">\(n&lt;-x&lt;n+1\)</span> car <span class="math inline">\(-x\neq n.\)</span> En multipliant par <span class="math inline">\(-1\)</span> on obtient <span class="math inline">\(-n-1&lt;x&lt;-n,\)</span> donc <span class="math inline">\(E(x)=-n-1\)</span> convient.</p></li>
 </ul>
-<p>Si <span class="math inline">\(k\)</span> et <span class="math inline">\(l\)</span> sont deux entiers relatifs vérifiant <span class="math inline">\(k \leq x &lt; k + 1\)</span> et <span class="math inline">\(l \leq x &lt; l + 1,\)</span> on a donc <span class="math inline">\(k \leq x &lt; l + 1\)</span>.</p>
-<p>donc par transitivité <span class="math inline">\(k &lt; l + 1.\)</span></p>
-<p>En échangeant les rôles de <span class="math inline">\(l\)</span> et <span class="math inline">\(k,\)</span> on a aussi <span class="math inline">\(l&lt; k + 1.\)</span></p>
-<p>On en conclut que <span class="math inline">\(l-1 &lt; k &lt; l + 1,\)</span> mais il n’y a qu’un seul entier compris strictement entre <span class="math inline">\(l-1\)</span> et <span class="math inline">\(l+1,\)</span> c’est <span class="math inline">\(l.\)</span></p>
-<p>Ainsi <span class="math inline">\(k = l.\)</span></p>
-<p>Le cas <span class="math inline">\(x &lt; 0\)</span> est similaire.</p>
+<p><strong>Unicité.</strong> Si <span class="math inline">\(k\)</span> et <span class="math inline">\(l\)</span> sont deux entiers relatifs vérifiant <span class="math inline">\(k \leq x &lt; k + 1\)</span> et <span class="math inline">\(l \leq x &lt; l + 1,\)</span> on a donc <span class="math inline">\(k \leq x &lt; l + 1,\)</span> d’où <span class="math inline">\(k &lt; l + 1.\)</span> En échangeant les rôles de <span class="math inline">\(l\)</span> et <span class="math inline">\(k,\)</span> on a aussi <span class="math inline">\(l&lt; k + 1.\)</span> On en conclut que <span class="math inline">\(l-1 &lt; k &lt; l + 1,\)</span> mais il n’y a qu’un seul entier compris strictement entre <span class="math inline">\(l-1\)</span> et <span class="math inline">\(l+1\)</span> : c’est <span class="math inline">\(l.\)</span> Ainsi <span class="math inline">\(k = l.\)</span></p>
 </div>
 </div>
 </section>
@@ -602,12 +802,12 @@ E(x)\leq x&lt; E(x)+1
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pour un nombre réel <span class="math inline">\(x,\)</span> on définit la valeur absolue de <span class="math inline">\(x\)</span> par:</p>
+<p>Pour un nombre réel <span class="math inline">\(x,\)</span> on définit la valeur absolue de <span class="math inline">\(x\)</span> par :</p>
 <p><span class="math display">\[
 |x|=\left\{
 \begin{array}{ll}
-x\quad\mbox{si}\quad x\geq0,\\
--x \quad\mbox{si}\quad x&lt;0
+x &amp; \text{si } x\geq0,\\
+-x &amp; \text{si } x&lt;0.
 \end{array}
 \right.
 \]</span></p>
@@ -624,15 +824,15 @@ x\quad\mbox{si}\quad x\geq0,\\
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p><span class="math inline">\(|x|\geq0,\quad |x|=|-x|;\quad |x|&gt;0\Leftrightarrow x\neq0\)</span></p></li>
+<li><p><span class="math inline">\(|x|\geq0,\quad |x|=|-x|,\quad |x|&gt;0\Leftrightarrow x\neq0\)</span></p></li>
 <li><p><span class="math inline">\(\sqrt{x^2}=|x|\)</span></p></li>
 <li><p><span class="math inline">\(|xy|=|x||y|\)</span></p></li>
-<li><p>Inégalité triangulaire: <span class="math inline">\(|x+y|\leq |x|+|y|\)</span></p></li>
-<li><p><span class="math inline">\(||x|-|y||\leq |x-y|\)</span></p></li>
+<li><p>Inégalité triangulaire : <span class="math inline">\(|x+y|\leq |x|+|y|\)</span></p></li>
+<li><p><span class="math inline">\(\big||x|-|y|\big|\leq |x-y|\)</span></p></li>
 </ol>
 </div>
 </div>
-<p>Sur la droite numérique, <span class="math inline">\(|x-y|\)</span> représente la distance entre les réels <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> ; en particulier <span class="math inline">\(|x|\)</span> représente la distance entre les réels <span class="math inline">\(x\)</span> et 0. De plus on a <span class="math inline">\(|x-a|&lt;r\Leftrightarrow a-r&lt;x&lt;a+r.\)</span></p>
+<p>Sur la droite numérique, <span class="math inline">\(|x-y|\)</span> représente la distance entre les réels <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> ; en particulier <span class="math inline">\(|x|\)</span> représente la distance entre les réels <span class="math inline">\(x\)</span> et 0. De plus, pour <span class="math inline">\(r&gt;0,\)</span> on a <span class="math inline">\(|x-a|&lt;r\Leftrightarrow a-r&lt;x&lt;a+r.\)</span></p>
 </section>
 <section id="densité-de-mathbbq-dans-mathbbr" class="level1">
 <h1>Densité de <span class="math inline">\(\mathbb{Q}\)</span> dans <span class="math inline">\(\mathbb{R}\)</span></h1>
@@ -648,7 +848,7 @@ x\quad\mbox{si}\quad x\geq0,\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Un intervalle de <span class="math inline">\(\mathbb{R}\)</span> est un sous-ensemble <span class="math inline">\(I\)</span> de <span class="math inline">\(\mathbb{R}\)</span> vérifiant la propriété:</p>
+<p>Un intervalle de <span class="math inline">\(\mathbb{R}\)</span> est un sous-ensemble <span class="math inline">\(I\)</span> de <span class="math inline">\(\mathbb{R}\)</span> vérifiant la propriété :</p>
 <p><span class="math display">\[
 \forall a,\,b\in I,\;\forall x\in \mathbb{R},\;(a\leqslant x\leqslant b\Rightarrow x\in I)
 \]</span></p>
@@ -664,7 +864,7 @@ x\quad\mbox{si}\quad x\geq0,\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Par définition;</p>
+<p>Par définition :</p>
 <ul>
 <li><p><span class="math inline">\(I=\varnothing\)</span> est un intervalle.</p></li>
 <li><p><span class="math inline">\(I=\mathbb{R}\)</span> est aussi un intervalle.</p></li>
@@ -681,7 +881,7 @@ x\quad\mbox{si}\quad x\geq0,\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Un intervalle ouvert est un sous-ensemble de <span class="math inline">\(\mathbb{R}\)</span> de la forme <span class="math inline">\(]a,b[= \{x\in \mathbb{R},\,a&lt;x&lt;b\}\)</span>, où <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> sont des éléments de <span class="math inline">\(\mathbb{R}.\)</span></p>
+<p>Un intervalle ouvert est un sous-ensemble de <span class="math inline">\(\mathbb{R}\)</span> de la forme <span class="math inline">\(]a,b[= \{x\in \mathbb{R}\mid a&lt;x&lt;b\},\)</span> où <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> sont des réels. On convient aussi que <span class="math inline">\(]a,+\infty[,\)</span> <span class="math inline">\(]-\infty,b[\)</span> et <span class="math inline">\(\mathbb{R}\)</span> sont des intervalles ouverts.</p>
 </div>
 </div>
 <p>La notion de voisinage sera utile pour les limites.</p>
@@ -695,7 +895,7 @@ x\quad\mbox{si}\quad x\geq0,\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\(a\)</span> un réel, <span class="math inline">\(V\subset R\)</span> un sous-ensemble. On dit que <span class="math inline">\(V\)</span> est un voisinage de <span class="math inline">\(a\)</span> s’il existe un intervalle ouvert <span class="math inline">\(I\)</span> tel que <span class="math inline">\(a \in I\)</span> et <span class="math inline">\(I \subset V.\)</span></p>
+<p>Soit <span class="math inline">\(a\)</span> un réel et <span class="math inline">\(V\subset \mathbb{R}\)</span> un sous-ensemble. On dit que <span class="math inline">\(V\)</span> est un voisinage de <span class="math inline">\(a\)</span> s’il existe un intervalle ouvert <span class="math inline">\(I\)</span> tel que <span class="math inline">\(a \in I\)</span> et <span class="math inline">\(I \subset V.\)</span></p>
 </div>
 </div>
 </section>
@@ -712,8 +912,24 @@ x\quad\mbox{si}\quad x\geq0,\\
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p><span class="math inline">\(\mathbb{Q}\)</span> est dense dans <span class="math inline">\(\mathbb{R}\)</span>: tout intervalle ouvert (non vide) de <span class="math inline">\(\mathbb{R}\)</span> contient une infinité de rationnels.</p></li>
+<li><p><span class="math inline">\(\mathbb{Q}\)</span> est dense dans <span class="math inline">\(\mathbb{R}\)</span> : tout intervalle ouvert (non vide) de <span class="math inline">\(\mathbb{R}\)</span> contient une infinité de rationnels.</p></li>
 <li><p><span class="math inline">\(\mathbb{R}\setminus \mathbb{Q}\)</span> est dense dans <span class="math inline">\(\mathbb{R}\)</span> : tout intervalle ouvert (non vide) de <span class="math inline">\(\mathbb{R}\)</span> contient une infinité d’irrationnels.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Preuve">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Mise en garde</span>Preuve
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Soient <span class="math inline">\(a&lt;b\)</span> deux réels. D’après la propriété d’Archimède appliquée à <span class="math inline">\(\frac{1}{b-a},\)</span> il existe <span class="math inline">\(n\in\mathbb{N}^{*}\)</span> tel que <span class="math inline">\(n&gt;\frac{1}{b-a},\)</span> c’est-à-dire <span class="math inline">\(\frac{1}{n}&lt;b-a.\)</span> Posons <span class="math inline">\(k=E(na)+1.\)</span> On a <span class="math inline">\(k-1\leq na&lt;k,\)</span> donc <span class="math inline">\(na&lt;k\leq na+1&lt;na+n(b-a)=nb.\)</span> Ainsi <span class="math inline">\(a&lt;\frac{k}{n}&lt;b\)</span> et le rationnel <span class="math inline">\(\frac{k}{n}\)</span> appartient à <span class="math inline">\(]a,b[.\)</span> Pour obtenir une infinité de rationnels, on recommence avec l’intervalle <span class="math inline">\(]a,\frac{k}{n}[,\)</span> puis avec l’intervalle ainsi obtenu, etc. : on construit des rationnels deux à deux distincts.</p></li>
+<li><p>Soient <span class="math inline">\(a&lt;b.\)</span> D’après le point 1, il existe un rationnel <span class="math inline">\(r\in\,]a-\sqrt{2},b-\sqrt{2}[.\)</span> Alors <span class="math inline">\(r+\sqrt{2}\in\,]a,b[\)</span> et <span class="math inline">\(r+\sqrt{2}\)</span> est irrationnel, sinon <span class="math inline">\(\sqrt{2}=(r+\sqrt{2})-r\)</span> serait rationnel, ce qui est faux. On obtient une infinité d’irrationnels comme au point 1.</p></li>
 </ol>
 </div>
 </div>
@@ -721,6 +937,48 @@ x\quad\mbox{si}\quad x\geq0,\\
 </section>
 <section id="borne-supérieure" class="level1">
 <h1>Borne supérieure</h1>
+<section id="majorant-minorant" class="level2">
+<h2 class="anchored" data-anchor-id="majorant-minorant">Majorant, minorant</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Définition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(A\)</span> une partie non vide de <span class="math inline">\(\mathbb{R}.\)</span></p>
+<ol type="1">
+<li><p>Un réel <span class="math inline">\(M\)</span> est un majorant de <span class="math inline">\(A\)</span> si <span class="math inline">\(\forall x\in A,\ x\leqslant M.\)</span> On dit alors que <span class="math inline">\(A\)</span> est majorée.</p></li>
+<li><p>Un réel <span class="math inline">\(m\)</span> est un minorant de <span class="math inline">\(A\)</span> si <span class="math inline">\(\forall x\in A,\ x\geqslant m.\)</span> On dit alors que <span class="math inline">\(A\)</span> est minorée.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Exemple">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Exemple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>3 est un majorant de <span class="math inline">\(]0, 2[.\)</span></p></li>
+<li><p><span class="math inline">\(-7,\)</span> <span class="math inline">\(-\pi,\)</span> <span class="math inline">\(0\)</span> sont des minorants de <span class="math inline">\(]0,+\infty[\)</span> mais il n’y a pas de majorant.</p></li>
+</ul>
+<p>Comme pour le minimum et le maximum (voir plus bas), il n’existe pas toujours de majorant ni de minorant ; en plus, on n’a pas l’unicité.</p>
+<p>Soit <span class="math inline">\(A =[0,1[.\)</span></p>
+<ol type="1">
+<li><p>Les majorants de <span class="math inline">\(A\)</span> sont exactement les éléments de <span class="math inline">\([1,+\infty[.\)</span></p></li>
+<li><p>Les minorants de <span class="math inline">\(A\)</span> sont exactement les éléments de <span class="math inline">\(]-\infty,0].\)</span></p></li>
+</ol>
+</div>
+</div>
+</section>
 <section id="maximum-minimum" class="level2">
 <h2 class="anchored" data-anchor-id="maximum-minimum">Maximum, minimum</h2>
 <div class="callout callout-style-default callout-note callout-titled" title="Définition">
@@ -733,7 +991,7 @@ x\quad\mbox{si}\quad x\geq0,\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\(A\)</span> une partie non vide de <span class="math inline">\(\mathbb{R}.\)</span> Un réel <span class="math inline">\(\alpha\)</span> est un plus grand élément de <span class="math inline">\(A\)</span> si : <span class="math inline">\(\alpha\in A\)</span> et <span class="math inline">\(\forall x\in A,\,x\leqslant \alpha.\)</span> S’il existe, le plus grand élément est unique, on le note alors <span class="math inline">\(\max A.\)</span> Le plus petit élément de <span class="math inline">\(A,\)</span> noté <span class="math inline">\(\min A,\)</span> s’il existe est le réel <span class="math inline">\(\alpha\)</span> tel que <span class="math inline">\(\alpha\in A\)</span> et <span class="math inline">\(\forall x\in A, \,x\geqslant \alpha.\)</span></p>
+<p>Soit <span class="math inline">\(A\)</span> une partie non vide de <span class="math inline">\(\mathbb{R}.\)</span> Un réel <span class="math inline">\(\alpha\)</span> est un plus grand élément de <span class="math inline">\(A\)</span> si : <span class="math inline">\(\alpha\in A\)</span> et <span class="math inline">\(\forall x\in A,\,x\leqslant \alpha.\)</span> S’il existe, le plus grand élément est unique ; on le note alors <span class="math inline">\(\max A.\)</span> Le plus petit élément de <span class="math inline">\(A,\)</span> noté <span class="math inline">\(\min A,\)</span> s’il existe, est le réel <span class="math inline">\(\alpha\)</span> tel que <span class="math inline">\(\alpha\in A\)</span> et <span class="math inline">\(\forall x\in A, \,x\geqslant \alpha.\)</span></p>
 <p>Le plus grand élément s’appelle aussi le maximum et le plus petit élément, le minimum. Il faut garder à l’esprit que le plus grand élément ou le plus petit élément n’existent pas toujours.</p>
 </div>
 </div>
@@ -748,15 +1006,9 @@ x\quad\mbox{si}\quad x\geq0,\\
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>3 est un majorant de <span class="math inline">\(]0, 2[ ;\)</span></p></li>
-<li><p>−7,<span class="math inline">\(\pi,\)</span> 0 sont des minorants de <span class="math inline">\(]0,+\infty[\)</span> mais il n’y a pas de majorant.</p></li>
+<li><p><span class="math inline">\([0,1]\)</span> a un plus grand élément, <span class="math inline">\(\max[0,1]=1,\)</span> et un plus petit élément, <span class="math inline">\(\min[0,1]=0.\)</span></p></li>
+<li><p><span class="math inline">\([0,1[\)</span> a un plus petit élément, <span class="math inline">\(\min[0,1[=0,\)</span> mais pas de plus grand élément.</p></li>
 </ul>
-<p>Si un majorant (resp. un minorant) de <span class="math inline">\(A\)</span> existe on dit que <span class="math inline">\(A\)</span> est majorée (resp. minorée). Comme pour le minimum et le maximum il n’existe pas toujours de majorant ni de minorant, en plus on n’a pas l’unicité.</p>
-<p>Soit <span class="math inline">\(A =[0,1[\)</span></p>
-<ol type="1">
-<li><p>les majorants de <span class="math inline">\(A\)</span> sont exactement les éléments de <span class="math inline">\([1,+\infty[,\)</span></p></li>
-<li><p>les minorants de <span class="math inline">\(A\)</span> sont exactement les éléments de <span class="math inline">\(]−\infty,0].\)</span></p></li>
-</ol>
 </div>
 </div>
 </section>
@@ -774,8 +1026,8 @@ x\quad\mbox{si}\quad x\geq0,\\
 <div class="callout-body-container callout-body">
 <p>Soit <span class="math inline">\(A\)</span> une partie non vide de <span class="math inline">\(\mathbb{R}\)</span> et <span class="math inline">\(\alpha\)</span> un réel.</p>
 <ol type="1">
-<li><p><span class="math inline">\(\alpha\)</span> est la borne supérieure de <span class="math inline">\(A\)</span> si <span class="math inline">\(\alpha\)</span> est un majorant de <span class="math inline">\(A\)</span> et si c’est le plus petit des majorants. S’il existe on le note <span class="math inline">\(\sup A.\)</span></p></li>
-<li><p><span class="math inline">\(\alpha\)</span> est la borne inférieure de <span class="math inline">\(A\)</span> si <span class="math inline">\(\alpha\)</span> est un minorant de <span class="math inline">\(A\)</span> et si c’est le plus grand des minorants. S’il existe on le note <span class="math inline">\(\inf A.\)</span></p></li>
+<li><p><span class="math inline">\(\alpha\)</span> est la borne supérieure de <span class="math inline">\(A\)</span> si <span class="math inline">\(\alpha\)</span> est un majorant de <span class="math inline">\(A\)</span> et si c’est le plus petit des majorants. S’il existe, on le note <span class="math inline">\(\sup A.\)</span></p></li>
+<li><p><span class="math inline">\(\alpha\)</span> est la borne inférieure de <span class="math inline">\(A\)</span> si <span class="math inline">\(\alpha\)</span> est un minorant de <span class="math inline">\(A\)</span> et si c’est le plus grand des minorants. S’il existe, on le note <span class="math inline">\(\inf A.\)</span></p></li>
 </ol>
 </div>
 </div>
@@ -791,15 +1043,17 @@ x\quad\mbox{si}\quad x\geq0,\\
 <div class="callout-body-container callout-body">
 <p>Soit <span class="math inline">\(A =]0,1].\)</span></p>
 <ol type="1">
-<li><p><span class="math inline">\(\sup A = 1\)</span> : en effet les majorants de <span class="math inline">\(A\)</span> sont les éléments de <span class="math inline">\([1,+\infty[.\)</span> Donc le plus petit des majorants est 1.</p></li>
-<li><p><span class="math inline">\(\inf A = 0:\)</span> les minorants sont les éléments de <span class="math inline">\(] −\infty,0]\)</span> donc le plus grand des minorants est 0.</p></li>
+<li><p><span class="math inline">\(\sup A = 1\)</span> : en effet, les majorants de <span class="math inline">\(A\)</span> sont les éléments de <span class="math inline">\([1,+\infty[.\)</span> Donc le plus petit des majorants est 1.</p></li>
+<li><p><span class="math inline">\(\inf A = 0\)</span> : les minorants sont les éléments de <span class="math inline">\(]-\infty,0]\)</span> donc le plus grand des minorants est 0.</p></li>
 </ol>
+<p>Pour <span class="math inline">\(a&lt;b\)</span> :</p>
 <ul>
 <li><p><span class="math inline">\(\sup[a, b] = b,\)</span></p></li>
 <li><p><span class="math inline">\(\inf[a, b]=a,\)</span></p></li>
-<li><p><span class="math inline">\(\sup]a, b[= b,\)</span></p></li>
+<li><p><span class="math inline">\(\sup\,]a, b[= b,\)</span></p></li>
+<li><p><span class="math inline">\(\inf\,]a, b[= a,\)</span></p></li>
 <li><p><span class="math inline">\(]0,+\infty[\)</span> n’admet pas de borne supérieure,</p></li>
-<li><p><span class="math inline">\(\inf]0,+\infty[= 0.\)</span></p></li>
+<li><p><span class="math inline">\(\inf\,]0,+\infty[= 0.\)</span></p></li>
 </ul>
 </div>
 </div>
@@ -816,7 +1070,20 @@ x\quad\mbox{si}\quad x\geq0,\\
 <p>Toute partie de <span class="math inline">\(\mathbb{R}\)</span> non vide et majorée admet une borne supérieure.</p>
 </div>
 </div>
-<p>De la même façon : Toute partie de <span class="math inline">\(\mathbb{R}\)</span> non vide et minorée admet une borne inférieure.</p>
+<p>De la même façon : toute partie de <span class="math inline">\(\mathbb{R}\)</span> non vide et minorée admet une borne inférieure.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Remarque">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarque
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cette propriété est propre à <span class="math inline">\(\mathbb{R}\)</span> : elle est fausse dans <span class="math inline">\(\mathbb{Q}.\)</span> Par exemple, l’ensemble <span class="math inline">\(\{x\in\mathbb{Q}\mid x^2&lt;2\}\)</span> est non vide et majoré dans <span class="math inline">\(\mathbb{Q},\)</span> mais n’a pas de borne supérieure dans <span class="math inline">\(\mathbb{Q}\)</span> (sa borne supérieure dans <span class="math inline">\(\mathbb{R}\)</span> est <span class="math inline">\(\sqrt{2}\notin\mathbb{Q}\)</span>).</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled" title="Proposition (Caractérisation de la borne supérieure)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -827,11 +1094,12 @@ x\quad\mbox{si}\quad x\geq0,\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\(A\)</span> une partie non vide et majorée de <span class="math inline">\(\mathbb{R}.\)</span> La borne supérieure de <span class="math inline">\(A\)</span> est l’unique réel <span class="math inline">\(\sup A\)</span> tel que</p>
+<p>Soit <span class="math inline">\(A\)</span> une partie non vide et majorée de <span class="math inline">\(\mathbb{R}.\)</span> La borne supérieure de <span class="math inline">\(A\)</span> est l’unique réel <span class="math inline">\(\alpha\)</span> tel que</p>
 <ol type="1">
-<li><p>si <span class="math inline">\(x\in A,\)</span> alors <span class="math inline">\(x \leqslant\sup A,\)</span></p></li>
-<li><p>pour tout <span class="math inline">\(y &lt; \sup A,\)</span> il existe <span class="math inline">\(x\in A\)</span> tel que <span class="math inline">\(y &lt; x.\)</span></p></li>
+<li><p>si <span class="math inline">\(x\in A,\)</span> alors <span class="math inline">\(x \leqslant\alpha,\)</span></p></li>
+<li><p>pour tout <span class="math inline">\(y &lt; \alpha,\)</span> il existe <span class="math inline">\(x\in A\)</span> tel que <span class="math inline">\(y &lt; x.\)</span></p></li>
 </ol>
+<p>De manière équivalente, la condition 2 s’écrit : pour tout <span class="math inline">\(\varepsilon&gt;0,\)</span> il existe <span class="math inline">\(x\in A\)</span> tel que <span class="math inline">\(\alpha-\varepsilon&lt;x.\)</span></p>
 </div>
 </div>
 
@@ -842,6 +1110,19 @@ x\quad\mbox{si}\quad x\geq0,\\
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

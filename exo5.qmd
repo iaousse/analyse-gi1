@@ -1,0 +1,142 @@
+# Exercices
+
+::: {#exr-arc-1}
+Démontrer que, pour tous $x,y\in\mathbb{R}$ :
+
+a. $\operatorname{sh}(x+y)=\operatorname{sh}(x)\operatorname{ch}(y)+\operatorname{ch}(x)\operatorname{sh}(y)$ ;
+b. $\operatorname{ch}(x+y)=\operatorname{ch}(x)\operatorname{ch}(y)+\operatorname{sh}(x)\operatorname{sh}(y)$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-arc-1"}
+On part des définitions $\operatorname{ch}(t)=\dfrac{e^t+e^{-t}}2$ et $\operatorname{sh}(t)=\dfrac{e^t-e^{-t}}2$, et de $e^{a+b}=e^ae^b$.
+
+a. On développe :
+   $$\operatorname{sh}(x)\operatorname{ch}(y)=\frac{(e^x-e^{-x})(e^y+e^{-y})}{4}=\frac{e^{x+y}+e^{x-y}-e^{-x+y}-e^{-x-y}}{4},$$
+   $$\operatorname{ch}(x)\operatorname{sh}(y)=\frac{(e^x+e^{-x})(e^y-e^{-y})}{4}=\frac{e^{x+y}-e^{x-y}+e^{-x+y}-e^{-x-y}}{4}.$$
+   En additionnant, les termes $e^{x-y}$ et $e^{-x+y}$ s'annulent :
+   $$\operatorname{sh}(x)\operatorname{ch}(y)+\operatorname{ch}(x)\operatorname{sh}(y)=\frac{2e^{x+y}-2e^{-x-y}}{4}=\frac{e^{x+y}-e^{-(x+y)}}{2}=\operatorname{sh}(x+y).$$
+
+b. De même :
+   $$\operatorname{ch}(x)\operatorname{ch}(y)=\frac{e^{x+y}+e^{x-y}+e^{-x+y}+e^{-x-y}}{4},\qquad \operatorname{sh}(x)\operatorname{sh}(y)=\frac{e^{x+y}-e^{x-y}-e^{-x+y}+e^{-x-y}}{4}.$$
+   En additionnant :
+   $$\operatorname{ch}(x)\operatorname{ch}(y)+\operatorname{sh}(x)\operatorname{sh}(y)=\frac{2e^{x+y}+2e^{-x-y}}{4}=\operatorname{ch}(x+y).$$
+:::
+:::
+
+::: {#exr-arc-2}
+Déterminer la valeur de $\arcsin(-1/2)$, $\arccos(-\sqrt2/2)$, $\arctan(\sqrt3)$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-arc-2"}
+On utilise : $x=\arcsin(y)\iff\big(\sin x=y$ et $x\in[-\frac\pi2,\frac\pi2]\big)$, $x=\arccos(y)\iff\big(\cos x=y$ et $x\in[0,\pi]\big)$, $x=\arctan(y)\iff\big(\tan x=y$ et $x\in]-\frac\pi2,\frac\pi2[\big)$.
+
+- $\sin\left(-\frac\pi6\right)=-\sin\left(\frac\pi6\right)=-\frac12$ et $-\frac\pi6\in[-\frac\pi2,\frac\pi2]$, donc $\arcsin\left(-\frac12\right)=-\dfrac\pi6$.
+- $\cos\left(\frac{3\pi}4\right)=\cos\left(\pi-\frac\pi4\right)=-\cos\left(\frac\pi4\right)=-\frac{\sqrt2}2$ et $\frac{3\pi}4\in[0,\pi]$, donc $\arccos\left(-\frac{\sqrt2}2\right)=\dfrac{3\pi}4$.
+- $\tan\left(\frac\pi3\right)=\dfrac{\sin(\pi/3)}{\cos(\pi/3)}=\dfrac{\sqrt3/2}{1/2}=\sqrt3$ et $\frac\pi3\in]-\frac\pi2,\frac\pi2[$, donc $\arctan(\sqrt3)=\dfrac\pi3$.
+:::
+:::
+
+::: {#exr-arc-3}
+Calculer
+$$\arccos\left(\cos\frac{2\pi}3\right),\quad\arccos\left(\cos\frac{-2\pi}3\right),\quad\arccos\left(\cos\frac{4\pi}3\right),\quad\arccos\left(\sin\frac{17\pi}5\right).$$
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-arc-3"}
+Rappel : $\arccos(\cos x)=x$ **seulement si** $x\in[0,\pi]$. Sinon, on se ramène à un angle de $[0,\pi]$ ayant le même cosinus.
+
+- $\frac{2\pi}3\in[0,\pi]$ donc $\arccos\left(\cos\frac{2\pi}3\right)=\dfrac{2\pi}3$.
+- $\cos$ est paire : $\cos\left(-\frac{2\pi}3\right)=\cos\left(\frac{2\pi}3\right)$ et donc $\arccos\left(\cos\frac{-2\pi}3\right)=\dfrac{2\pi}3$.
+- $\frac{4\pi}3\notin[0,\pi]$. Par $2\pi$-périodicité puis parité : $\cos\frac{4\pi}3=\cos\left(\frac{4\pi}3-2\pi\right)=\cos\left(-\frac{2\pi}3\right)=\cos\frac{2\pi}3$. Donc $\arccos\left(\cos\frac{4\pi}3\right)=\dfrac{2\pi}3$.
+- On transforme le sinus en cosinus avec $\sin(x)=\cos\left(\frac\pi2-x\right)$ :
+  $$\sin\frac{17\pi}5=\cos\left(\frac\pi2-\frac{17\pi}5\right)=\cos\left(-\frac{29\pi}{10}\right)=\cos\left(\frac{29\pi}{10}\right)=\cos\left(\frac{29\pi}{10}-2\pi\right)=\cos\frac{9\pi}{10}.$$
+  Comme $\frac{9\pi}{10}\in[0,\pi]$, on obtient $\arccos\left(\sin\frac{17\pi}5\right)=\dfrac{9\pi}{10}$.
+:::
+:::
+
+::: {#exr-arc-4}
+Soit $a\neq0$ un réel.
+
+a. Déterminer la dérivée de la fonction $f$ définie sur $\mathbb{R}$ par $f(x)=\arctan(ax)$.
+b. En déduire une primitive de $\dfrac{1}{4+x^2}$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-arc-4"}
+a. *Dérivée de $\arctan$.* La fonction $\tan$ est dérivable et bijective de $]-\frac\pi2,\frac\pi2[$ dans $\mathbb{R}$, avec $\tan'(t)=1+\tan^2(t)\geq1>0$. D'après le corollaire sur la dérivée d'une bijection réciproque, $\arctan$ est dérivable sur $\mathbb{R}$ et
+   $$\arctan'(x)=\frac{1}{\tan'(\arctan x)}=\frac{1}{1+\tan^2(\arctan x)}=\frac{1}{1+x^2}.$$
+   *Dérivée de $f$.* $f$ est la composée de $x\mapsto ax$ (dérivable, de dérivée $a$) et de $\arctan$. Donc, pour tout $x\in\mathbb{R}$,
+   $$f'(x)=a\times\arctan'(ax)=\frac{a}{1+a^2x^2}.$$
+
+b. On écrit $\dfrac{1}{4+x^2}=\dfrac{1}{4\left(1+\frac{x^2}4\right)}=\dfrac14\times\dfrac{1}{1+\left(\frac x2\right)^2}$. Avec $a=\frac12$, la question a. donne $\left(\arctan\frac x2\right)'=\dfrac{\frac12}{1+\left(\frac x2\right)^2}$, donc
+   $$\frac{1}{4+x^2}=\frac12\left(\arctan\frac x2\right)'.$$
+   Une primitive de $\dfrac{1}{4+x^2}$ sur $\mathbb{R}$ est donc
+   $$F(x)=\frac12\arctan\left(\frac x2\right).$$
+   (Vérification : $F'(x)=\frac12\cdot\frac{1/2}{1+x^2/4}=\frac{1}{4+x^2}$.)
+:::
+:::
+
+::: {#exr-arc-5}
+Simplifier les expressions suivantes :
+$$\tan(\arcsin x),\quad\sin(\arccos x),\quad\cos(\arctan x).$$
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-arc-5"}
+a. *$\tan(\arcsin x)$.* L'expression est définie si $\arcsin x\neq\pm\frac\pi2$, c'est-à-dire pour $x\in]-1,1[$. Posons $\theta=\arcsin x\in]-\frac\pi2,\frac\pi2[$. Alors $\sin\theta=x$ et $\cos\theta>0$ sur cet intervalle, donc $\cos\theta=\sqrt{1-\sin^2\theta}=\sqrt{1-x^2}$. Ainsi
+   $$\tan(\arcsin x)=\frac{\sin\theta}{\cos\theta}=\frac{x}{\sqrt{1-x^2}},\qquad x\in]-1,1[.$$
+
+b. *$\sin(\arccos x)$* (définie pour $x\in[-1,1]$). Posons $\theta=\arccos x\in[0,\pi]$. Alors $\cos\theta=x$ et $\sin\theta\geq0$ sur $[0,\pi]$, donc $\sin\theta=\sqrt{1-\cos^2\theta}$ :
+   $$\sin(\arccos x)=\sqrt{1-x^2},\qquad x\in[-1,1].$$
+
+c. *$\cos(\arctan x)$* (définie pour tout $x\in\mathbb{R}$). Posons $\theta=\arctan x\in]-\frac\pi2,\frac\pi2[$. Alors $\tan\theta=x$ et $\cos\theta>0$. Comme $1+\tan^2\theta=\dfrac1{\cos^2\theta}$, on a $\cos^2\theta=\dfrac{1}{1+x^2}$ et, puisque $\cos\theta>0$,
+   $$\cos(\arctan x)=\frac{1}{\sqrt{1+x^2}},\qquad x\in\mathbb{R}.$$
+:::
+:::
+
+::: {#exr-arc-6}
+Soit $f$ la fonction définie par
+$$f(x)=\arcsin\left(2x\sqrt{1-x^2}\right).$$
+
+a. Quel est l'ensemble de définition de $f$ ?
+b. En posant $x=\sin t$, simplifier l'écriture de $f$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-arc-6"}
+a. $f(x)$ existe si et seulement si $\sqrt{1-x^2}$ existe (soit $1-x^2\geq0$, c'est-à-dire $x\in[-1,1]$) et si $2x\sqrt{1-x^2}\in[-1,1]$. Or, pour $x\in[-1,1]$, avec $(|x|-\sqrt{1-x^2})^2\geq0$ :
+   $$2|x|\sqrt{1-x^2}\leq x^2+(1-x^2)=1,$$
+   donc la condition $\left|2x\sqrt{1-x^2}\right|\leq1$ est toujours satisfaite. Ainsi
+   $$D_f=[-1,1].$$
+
+b. Pour $x\in[-1,1]$, posons $t=\arcsin x\in[-\frac\pi2,\frac\pi2]$, de sorte que $x=\sin t$. Sur cet intervalle $\cos t\geq0$, donc $\sqrt{1-x^2}=\sqrt{\cos^2t}=\cos t$ et
+   $$2x\sqrt{1-x^2}=2\sin t\cos t=\sin(2t),\qquad f(x)=\arcsin(\sin 2t).$$
+   Comme $\arcsin(\sin y)=y$ seulement pour $y\in[-\frac\pi2,\frac\pi2]$, on distingue trois cas selon la position de $2t\in[-\pi,\pi]$. Rappelons que $\sin$ est strictement croissante sur $[-\frac\pi2,\frac\pi2]$ et que $\sin\frac\pi4=\frac{\sqrt2}2$.
+
+   - *Cas $t\in[-\frac\pi4,\frac\pi4]$*, c'est-à-dire $x\in\left[-\frac{\sqrt2}2,\frac{\sqrt2}2\right]$. Alors $2t\in[-\frac\pi2,\frac\pi2]$ et $f(x)=2t=2\arcsin x$.
+   - *Cas $t\in[\frac\pi4,\frac\pi2]$*, c'est-à-dire $x\in\left[\frac{\sqrt2}2,1\right]$. Alors $2t\in[\frac\pi2,\pi]$, donc $\pi-2t\in[0,\frac\pi2]$ et $\sin(2t)=\sin(\pi-2t)$. Ainsi $f(x)=\pi-2t=\pi-2\arcsin x$.
+   - *Cas $t\in[-\frac\pi2,-\frac\pi4]$*, c'est-à-dire $x\in\left[-1,-\frac{\sqrt2}2\right]$. Alors $2t\in[-\pi,-\frac\pi2]$, donc $-\pi-2t\in[-\frac\pi2,0]$ et $\sin(-\pi-2t)=-\sin(\pi+2t)=\sin(2t)$. Ainsi $f(x)=-\pi-2t=-\pi-2\arcsin x$.
+
+   Résumé :
+   $$f(x)=\begin{cases}-\pi-2\arcsin x&\text{si }x\in\left[-1,-\frac{\sqrt2}2\right],\\[1mm] 2\arcsin x&\text{si }x\in\left[-\frac{\sqrt2}2,\frac{\sqrt2}2\right],\\[1mm] \pi-2\arcsin x&\text{si }x\in\left[\frac{\sqrt2}2,1\right].\end{cases}$$
+   (Vérifications : $f(1)=\pi-2\cdot\frac\pi2=0=\arcsin(0)$ ; $f\left(\frac{\sqrt2}2\right)=\arcsin(1)=\frac\pi2=2\cdot\frac\pi4$.)
+:::
+:::
+
+::: {#exr-arc-7}
+Montrer que, pour tout $x\in[-1,1]$, $\arccos(x)+\arcsin(x)=\dfrac\pi2$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-arc-7"}
+Soit $x\in[-1,1]$ et posons $y=\frac\pi2-\arccos(x)$.
+
+- Comme $\arccos(x)\in[0,\pi]$, on a $y\in[-\frac\pi2,\frac\pi2]$.
+- $\sin(y)=\sin\left(\frac\pi2-\arccos x\right)=\cos(\arccos x)=x$.
+
+Donc $y$ est un élément de $[-\frac\pi2,\frac\pi2]$ dont le sinus vaut $x$ : par définition de l'arcsinus, $y=\arcsin(x)$, c'est-à-dire
+$$\frac\pi2-\arccos(x)=\arcsin(x)\iff\arccos(x)+\arcsin(x)=\frac\pi2.$$
+:::
+:::

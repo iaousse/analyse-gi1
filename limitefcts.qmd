@@ -1,0 +1,581 @@
+# Fonctions numériques : définitions générales
+
+::: {.callout-note title="Définition"}
+
+Une fonction d'une variable réelle à valeurs réelles est une application $f:D\rightarrow\mathbb{R},$ où $D$ est une partie de $\mathbb{R}.$ En général, $D$ est un intervalle ou une réunion d'intervalles. On appelle $D$ le domaine de définition de la fonction $f$ et on le note souvent $D_f,$ avec
+
+$$
+D_f:=\{x\in \mathbb{R}\mid f(x)\in \mathbb{R}\}
+$$
+
+:::
+
+::: {.callout-tip title="Exemple"}
+
+Le domaine de définition de la fonction $f(x)=\dfrac{\sqrt{x}}{x-2}$ est $D_f=[0,2[\,\cup\,]2,+\infty[.$
+
+:::
+
+Soient $f:D\rightarrow \mathbb{R}$ et $g:D\rightarrow\mathbb{R}$ deux fonctions définies sur une même partie $D$ de $\mathbb{R}.$
+
+- La somme de $f$ et $g$ est la fonction $f+g:D\rightarrow \mathbb{R}$ définie par $(f+g)(x)=f(x)+g(x)$ pour tout $x\in D.$
+
+- Le produit de $f$ et $g$ est la fonction $f\times g:D\rightarrow \mathbb{R}$ définie par $(f\times g)(x)=f(x)\times g(x)$ pour tout $x\in D.$
+
+- La multiplication par un scalaire $\lambda\in \mathbb{R}$ de $f$ est la fonction $\lambda.f:D\rightarrow \mathbb{R}$ définie par $(\lambda.f)(x)=\lambda.f(x)$ pour tout $x\in D.$
+
+::: {.callout-note title="Définition"}
+
+Soit $f:D\rightarrow \mathbb{R}$ une fonction. On dit que :
+
+- $f$ est majorée sur $D$ si $\exists M\in \mathbb{R},\;\forall x\in D,\; f(x)\leq M$ ;
+
+- $f$ est minorée sur $D$ si $\exists m\in \mathbb{R},\;\forall x\in D,\; f(x)\geq m$ ;
+
+- $f$ est bornée sur $D$ si $f$ est à la fois majorée et minorée sur $D,$ c'est-à-dire si $\exists M\in \mathbb{R}_{+},\;\forall x\in D,\;|f(x)|\leq M.$
+
+:::
+
+::: {.callout-note title="Définition"}
+
+Soit $f:D\rightarrow \mathbb{R}$ une fonction. On dit que :
+
+- $f$ est croissante sur $D$ si : pour tous $x$ et $y$ dans $D$ on a $x\leq y\Rightarrow f(x)\leq f(y).$
+
+- $f$ est strictement croissante sur $D$ si : pour tous $x$ et $y$ dans $D$ on a $x < y\Rightarrow f(x)< f(y).$
+
+- $f$ est décroissante sur $D$ si : pour tous $x$ et $y$ dans $D$ on a $x\leq y\Rightarrow f(x)\geq f(y).$
+
+- $f$ est strictement décroissante sur $D$ si : pour tous $x$ et $y$ dans $D$ on a $x < y\Rightarrow f(x)> f(y).$
+
+- $f$ est monotone (resp. strictement monotone) sur $D$ si $f$ est croissante ou décroissante (resp. strictement croissante ou strictement décroissante) sur $D.$
+
+:::
+
+::: {.callout-note title="Définition"}
+
+On dit que :
+
+- $f$ est paire si $\forall x\in D_f,$ $-x\in D_f$ et $f(-x)=f(x)$ ;
+
+- $f$ est impaire si $\forall x\in D_f,$ $-x\in D_f$ et $f(-x)=-f(x).$
+
+:::
+
+::: {.callout-note title="Définition"}
+
+Soit $f:\mathbb{R}\rightarrow \mathbb{R}$ une fonction et $T$ un nombre réel, $T>0.$ La fonction $f$ est dite périodique de période $T$ si $\forall x\in \mathbb{R},$ $f(x+T)=f(x).$
+
+:::
+
+::: {.callout-tip title="Exemple"}
+
+Les fonctions sinus et cosinus sont $2\pi$-périodiques. La fonction tangente est $\pi$-périodique.
+
+:::
+
+# Limite d'une fonction numérique
+
+## Limite en un point et en l'infini
+
+Soit $f$ une fonction définie sur un ensemble de la forme $]a,x_0[\,\cup\, ]x_0,b[,\,x_0\in \mathbb{R}.$
+
+::: {.callout-note title="Définition"}
+
+Soit $\ell\in \mathbb{R}.$ On dit que $f$ a pour limite $\ell$ en $x_0$ si
+
+$$
+\forall \varepsilon>0,\quad \exists \delta>0,\quad \forall x\in D_f:\quad 0<|x-x_0|<\delta\Rightarrow |f(x)-\ell|<\varepsilon.
+$$
+
+On dit aussi que $f(x)$ tend vers $\ell$ lorsque $x$ tend vers $x_0.$ On note alors $\lim\limits_{x\rightarrow x_0}f(x)=\ell$ ou bien $\lim\limits_{x_0}f=\ell.$
+
+:::
+
+::: {.callout-note title="Remarque"}
+
+La condition $0<|x-x_0|$ signifie que l'on ne tient pas compte de la valeur éventuelle de $f$ en $x_0$ : la limite en $x_0$ ne dépend que du comportement de $f$ au voisinage de $x_0,$ mais pas en $x_0$ lui-même. Sans cette condition, si $f$ était définie en $x_0,$ la définition imposerait $\ell=f(x_0)$ (prendre $x=x_0$).
+
+:::
+
+::: {.callout-note title="Définition"}
+
+On dit que $f$ a pour limite $+\infty$ en $x_0$ si
+
+$$
+\forall A>0, \quad \exists \delta>0, \quad \forall x\in D_f:\quad 0<|x-x_0|<\delta\Rightarrow f(x)>A.
+$$
+
+On note alors $\lim\limits_{x\rightarrow x_0}f(x)=+\infty.$
+
+On dit que $f$ a pour limite $-\infty$ en $x_0$ si
+
+$$
+\forall A>0, \quad \exists \delta>0, \quad \forall x\in D_f:\quad 0<|x-x_0|<\delta\Rightarrow f(x)<-A.
+$$
+
+On note alors $\lim\limits_{x\rightarrow x_0}f(x)=-\infty.$
+
+:::
+
+Soit $f:I\rightarrow\mathbb{R}$ une fonction définie sur un intervalle de la forme $I=]a,+\infty[.$
+
+::: {.callout-note title="Définition"}
+
+- Soit $\ell\in \mathbb{R}.$ On dit que $f$ a pour limite $\ell$ en $+\infty$ si
+
+    $$
+    \forall \varepsilon>0,\quad \exists B>0, \quad \forall x\in I:\quad x> B\Rightarrow |f(x)-\ell|<\varepsilon.
+    $$
+
+    On note alors $\lim\limits_{x\rightarrow +\infty}f(x)=\ell$ ou $\lim\limits_{+\infty}f=\ell.$
+
+- On dit que $f$ a pour limite $+\infty$ en $+\infty$ si
+
+    $$
+    \forall A>0,\quad \exists B>0, \quad \forall x\in I:\quad x> B\Rightarrow f(x)>A.
+    $$
+
+    On note alors $\lim\limits_{x\rightarrow +\infty}f(x)=+\infty.$
+
+- On dit que $f$ a pour limite $-\infty$ en $+\infty$ si
+
+    $$
+    \forall A>0,\quad \exists B>0, \quad \forall x\in I:\quad x> B\Rightarrow f(x)<-A.
+    $$
+
+    On note alors $\lim\limits_{x\rightarrow +\infty}f(x)=-\infty.$
+
+On définit de la même manière la limite en $-\infty$ pour des fonctions définies sur les intervalles de type $]-\infty,a[$ (en remplaçant la condition $x>B$ par $x<-B$).
+
+:::
+
+::: {.callout-tip title="Exemple"}
+
+On a les limites classiques suivantes pour tout $n\geq 1$ :
+
+- $\lim\limits_{x\rightarrow +\infty}x^n=+\infty$ et
+
+    $$
+    \lim\limits_{x\rightarrow-\infty}x^n=\left\{
+    \begin{array}{ll}
+    +\infty & \text{si } n \text{ est pair},\\
+    -\infty & \text{si } n \text{ est impair.}
+    \end{array}
+    \right.
+    $$
+
+- $\lim\limits_{x\rightarrow \pm\infty}\dfrac{1}{x^n}=0.$
+
+- Soient $P(x)=a_n x^n+a_{n-1}x^{n-1}+\ldots+a_1 x+a_0$ et $Q(x)=b_m x^m+b_{m-1}x^{m-1}+\ldots+b_1 x+b_0$ deux polynômes ($a_n\neq0$ et $b_m\neq 0$). On a
+
+    $$
+    \lim\limits_{x\rightarrow\pm\infty}P(x)=\lim\limits_{x\rightarrow\pm\infty}a_n x^n
+    \qquad\text{et}\qquad
+    \lim\limits_{x\rightarrow\pm\infty}\dfrac{P(x)}{Q(x)}=\lim\limits_{x\rightarrow\pm\infty}\dfrac{a_n}{b_m}x^{n-m}=\left\{
+    \begin{array}{ll}
+    \pm\infty & \text{si } n>m,\\
+    \dfrac{a_n}{b_m} & \text{si } n=m,\\
+    0 & \text{si } n<m.
+    \end{array}
+    \right.
+    $$
+
+    Dans le cas $n>m,$ le signe de l'infini est celui de $\dfrac{a_n}{b_m}x^{n-m}$ au voisinage de $\pm\infty.$ Ainsi, en $+\infty,$ la limite est $+\infty$ si $\dfrac{a_n}{b_m}>0$ et $-\infty$ si $\dfrac{a_n}{b_m}<0$ ; en $-\infty,$ on multiplie ce signe par $(-1)^{n-m}.$
+
+- Les fonctions $\sin$ et $\cos$ n'admettent pas de limite, ni en $+\infty$ ni en $-\infty.$
+
+:::
+
+## Limite à gauche et à droite en un point
+
+::: {.callout-note title="Définition"}
+
+Soit $f$ une fonction définie sur un intervalle $]x_0,b[$ (resp. $]a,x_0[$). On dit que $f$ admet une limite $\ell\in \mathbb{R}$ à droite (resp. à gauche) en $x_0$ si
+
+- (à droite) $\forall \varepsilon>0,\ \exists\delta>0,\ \forall x\in D_f :\ x_0< x<x_0+\delta\Rightarrow |f(x)-\ell|<\varepsilon$ ;
+
+- (à gauche) $\forall \varepsilon>0,\ \exists\delta>0,\ \forall x\in D_f :\ x_0-\delta< x< x_0\Rightarrow |f(x)-\ell|<\varepsilon.$
+
+On écrit alors $\lim\limits_{\substack{x \rightarrow x_0 \\ x>x_0}} f(x)=\ell$ (resp. $\lim\limits_{\substack{x \rightarrow x_0 \\ x<x_0}} f(x)=\ell$).
+
+On note aussi $\lim\limits_{x_{0}^{+}}f$ pour la limite à droite et $\lim\limits_{x_{0}^{-}}f$ pour la limite à gauche.
+
+:::
+
+::: {.callout-important title="Proposition"}
+
+Soit $f$ une fonction définie sur $]a,x_0[\,\cup\, ]x_0,b[$ et soit $\ell\in \mathbb{R}.$ On a $\lim\limits_{x \rightarrow x_0}f(x)=\ell\Leftrightarrow \lim\limits_{x \rightarrow x_{0}^{+}}f(x)=\lim\limits_{x \rightarrow x_{0}^{-}}f(x)=\ell.$
+
+:::
+
+::: {.callout-tip title="Exemple"}
+
+Considérons la fonction
+
+$$
+f(x)=\left\{
+\begin{array}{ll}
+x-2 & \text{si } x\geq 1,\\
+x+1 & \text{si } x<1.
+\end{array}
+\right.
+$$
+
+On a $\lim\limits_{x \rightarrow 1^{-}}f(x)=\lim\limits_{x \rightarrow 1^{-}}(x+1)=2$ et $\lim\limits_{x \rightarrow 1^{+}}f(x)=\lim\limits_{x \rightarrow 1^{+}}(x-2)=-1.$
+
+Comme $\lim\limits_{x \rightarrow 1^{-}}f(x)\neq\lim\limits_{x \rightarrow 1^{+}}f(x),$ on en déduit que $f$ n'a pas de limite en 1.
+
+:::
+
+## Propriétés
+
+::: {.callout-important title="Proposition"}
+
+Si une fonction admet une limite, alors cette limite est unique.
+
+:::
+
+Soient deux fonctions $f$ et $g.$ On suppose que $x_0$ est un réel, ou que $x_0=\pm\infty.$
+
+::: {.callout-important title="Proposition"}
+
+Si $\lim\limits_{x_{0}}f=\ell\in \mathbb{R}$ et $\lim\limits_{x_{0}}g=\ell'\in \mathbb{R},$ alors :
+
+- $\lim\limits_{x_{0}}(\lambda. f)=\lambda.\ell$ pour tout $\lambda\in \mathbb{R}$ ;
+
+- $\lim\limits_{x_{0}}(f+g)=\ell+\ell'$ ;
+
+- $\lim\limits_{x_{0}}(f\times g)=\ell\times \ell'$ ;
+
+- si $\ell\neq0,$ alors $\lim\limits_{x_{0}}\dfrac{1}{f}=\dfrac{1}{\ell}$ ;
+
+- si $\lim\limits_{x_{0}}f=\pm\infty,$ alors $\lim\limits_{x_{0}}\dfrac{1}{f}=0.$
+
+:::
+
+Voici une liste de formes indéterminées :
+
+$$
++\infty-\infty,\quad0\times\infty,\quad\dfrac{\infty}{\infty},\quad\dfrac{0}{0},\quad 1^{\infty},\quad 0^{0},\quad\infty^{0},\ldots
+$$
+
+::: {.callout-important title="Proposition"}
+
+- Si $f\leq g$ (au voisinage de $x_0$) et si $\lim\limits_{x_{0}}f=\ell\in \mathbb{R}$ et $\lim\limits_{x_{0}}g=\ell'\in \mathbb{R},$ alors $\ell\leqslant\ell'.$
+
+- Si $f\leq g$ (au voisinage de $x_0$) et si $\lim\limits_{x_{0}}f=+\infty,$ alors $\lim\limits_{x_{0}}g=+\infty.$
+
+- Si $f\leq g\leq h$ (au voisinage de $x_0$) et si $\lim\limits_{x_{0}}f=\lim\limits_{x_{0}}h=\ell\in \mathbb{R},$ alors $g$ a une limite en $x_0$ et $\lim\limits_{x_{0}}g=\ell.$
+
+:::
+
+# Continuité d'une fonction numérique
+
+::: {.callout-note title="Définition"}
+
+- Soit $f$ une fonction définie sur un voisinage de $x_0.$ On dit que $f$ est continue en $x_0$ si $\lim\limits_{x\rightarrow x_{0}}f(x)=f(x_0).$
+
+- Soit $f$ une fonction définie sur un intervalle de type $[x_0,x_0+\varepsilon[.$ On dit que $f$ est continue à droite en $x_0$ si $\lim\limits_{x\rightarrow x_{0}^{+}}f(x)=f(x_0).$
+
+- Soit $f$ une fonction définie sur un intervalle de type $]x_0-\varepsilon, x_0].$ On dit que $f$ est continue à gauche en $x_0$ si $\lim\limits_{x\rightarrow x_{0}^{-}}f(x)=f(x_0).$
+
+:::
+
+::: {.callout-important title="Proposition"}
+
+Soit $f$ une fonction définie sur un voisinage de $x_0.$ On a
+
+$$
+f\text{ est continue en }x_0\Leftrightarrow\lim\limits_{x\rightarrow x_{0}^{+}}f(x)=\lim\limits_{x\rightarrow x_{0}^{-}}f(x)=f(x_0)
+$$
+
+:::
+
+::: {.callout-note title="Définition"}
+
+- Une fonction $f$ est dite continue sur un intervalle ouvert $I\subset D_f$ si elle est continue en tout point de $I.$
+
+- Une fonction $f$ est dite continue sur un intervalle $[a,b]\subset D_f$ si elle est continue sur $]a,b[$ et continue à droite en $a$ et à gauche en $b.$
+
+- Une fonction $f$ est dite continue sur un intervalle $[a,b[\,\subset D_f$ si elle est continue sur $]a,b[$ et continue à droite en $a.$
+
+De même, on définit la continuité d'une fonction sur un intervalle $]a,b],$ sur $]-\infty,a],$ sur $[a,+\infty[,$ etc.
+
+:::
+
+::: {.callout-tip title="Exemple"}
+
+- La fonction racine carrée $x\mapsto \sqrt{x}$ est continue sur $[0,+\infty[.$
+
+- Les fonctions $\sin$ et $\cos$ sont continues sur $\mathbb{R}.$
+
+- La fonction valeur absolue $x\mapsto |x|$ est continue sur $\mathbb{R}.$
+
+:::
+
+::: {.callout-important title="Proposition"}
+
+Soient $f,\,g:I\rightarrow\mathbb{R}$ deux fonctions continues en un point $x_0\in I.$ Alors
+
+- $\lambda.f$ est continue en $x_0$ (pour tout $\lambda\in \mathbb{R}$) ;
+
+- $f+g$ est continue en $x_0$ ;
+
+- $f\times g$ est continue en $x_0$ ;
+
+- si $f(x_0)\neq0,$ alors $\dfrac{1}{f}$ est continue en $x_0.$
+
+:::
+
+::: {.callout-tip title="Exemple"}
+
+Les polynômes sont continus sur $\mathbb{R}.$
+
+Toute fraction rationnelle $x\mapsto\dfrac{P(x)}{Q(x)}$ est continue sur son domaine de définition.
+
+:::
+
+La composition conserve la continuité (mais il faut faire attention en quels points les hypothèses s'appliquent).
+
+::: {.callout-important title="Proposition"}
+
+Soient $f:I\rightarrow\mathbb{R}$ et $g:J\rightarrow\mathbb{R}$ deux fonctions telles que $f(I)\subset J.$ Si $f$ est continue en un point $x_0\in I$ et si $g$ est continue en $f(x_0),$ alors $g\circ f$ est continue en $x_0.$
+
+:::
+
+# Prolongement par continuité
+
+::: {.callout-note title="Définition"}
+
+Soit $I$ un intervalle, $x_0$ un point de $I$ et $f:I\setminus\{x_0\}\rightarrow\mathbb{R}$ une fonction.
+
+- On dit que $f$ est prolongeable par continuité en $x_0$ si $f$ admet une limite finie en $x_0.$ Notons alors $\ell=\lim\limits_{x_{0}}f.$
+
+- On définit alors la fonction $\widetilde{f}:I\rightarrow\mathbb{R}$ en posant pour tout $x\in I$
+
+    $$
+    \widetilde{f}(x)=\left\{
+    \begin{array}{ll}
+    f(x) & \text{si } x\neq x_0,\\
+    \ell & \text{si } x=x_0.
+    \end{array}
+    \right.
+    $$
+
+Alors $\widetilde{f}$ est continue en $x_0$ et on l'appelle le prolongement par continuité de $f$ en $x_0.$
+
+:::
+
+::: {.callout-tip title="Exemple"}
+
+Considérons la fonction $f$ définie sur $\mathbb{R}\setminus\{1\}$ par $f(x)=\dfrac{x^2+x-2}{x-1}.$ Étudions le prolongement par continuité de $f$ en 1. On a
+
+$$
+\lim\limits_{x\rightarrow1}f(x)=\lim\limits_{x\rightarrow1}\dfrac{(x-1)(x+2)}{x-1}=\lim\limits_{x\rightarrow1} (x+2)=3
+$$
+
+Donc $f$ est prolongeable par continuité en 1. Le prolongement par continuité de $f$ en 1 est donc
+
+$$
+\widetilde{f}(x)=\left\{
+\begin{array}{ll}
+f(x) & \text{si } x\neq 1,\\
+3 & \text{si } x=1.
+\end{array}
+\right.
+$$
+
+:::
+
+# Théorème des valeurs intermédiaires
+
+::: {.callout-important title="Théorème (Théorème des valeurs intermédiaires)"}
+
+Soit $f:[a,b]\rightarrow\mathbb{R}$ une fonction continue sur un segment. Pour tout réel $y$ compris entre $f(a)$ et $f(b),$ il existe $c\in [a,b]$ tel que $f(c)=y.$
+
+:::
+
+Voici la version la plus utilisée du théorème des valeurs intermédiaires.
+
+::: {.callout-important title="Corollaire"}
+
+Soit $f:[a,b]\rightarrow\mathbb{R}$ une fonction continue sur un segment. Si $f(a)\,f(b)<0,$ alors il existe $c\in ]a,b[$ tel que $f(c)=0.$
+
+:::
+
+::: {.callout-tip title="Exemple"}
+
+Tout polynôme de degré impair possède au moins une racine réelle. En effet, un tel polynôme s'écrit $P(x)=a_n x^n+\ldots+a_1 x+a_0$ avec $n$ un entier impair. On peut supposer que le coefficient $a_n$ est strictement positif (sinon on remplace $P$ par $-P,$ qui a les mêmes racines). Alors on a $\lim\limits_{x\rightarrow-\infty}P(x)=-\infty$ et $\lim\limits_{x\rightarrow+\infty}P(x)=+\infty.$ En particulier, il existe deux réels $a$ et $b$ tels que $P(a)<0$ et $P(b)>0,$ et on conclut grâce au corollaire précédent qu'il existe au moins un $c\in \mathbb{R}$ tel que $P(c)=0.$
+
+:::
+
+Voici une formulation théorique du théorème des valeurs intermédiaires.
+
+::: {.callout-important title="Corollaire"}
+
+Soit $f:I\rightarrow\mathbb{R}$ une fonction continue sur un intervalle $I.$ Alors $f(I)$ est un intervalle.
+
+:::
+
+Attention ! Il serait faux de croire que l'image par une fonction $f$ de l'intervalle $[a,b]$ soit l'intervalle $[f(a), f(b)].$ Par exemple, $\sin([0,\pi])=[0,1]$ alors que $[\sin(0),\sin(\pi)]=\{0\}.$ Cependant, on a le théorème suivant.
+
+::: {.callout-important title="Théorème"}
+
+Soit $f:[a,b]\rightarrow\mathbb{R}$ une fonction continue sur un segment. Alors il existe deux réels $m$ et $M$ tels que $f([a,b])=[m,M].$ Autrement dit, l'image d'un segment par une fonction continue est un segment.
+
+:::
+
+Comme on sait déjà par le théorème des valeurs intermédiaires que $f([a,b])$ est un intervalle, le théorème précédent signifie que si $f$ est continue sur $[a,b],$ alors $f$ est bornée sur $[a,b],$ et elle atteint ses bornes : $m$ est le minimum de la fonction sur l'intervalle $[a,b]$ alors que $M$ en est le maximum.
+
+# Théorème de la bijection
+
+::: {.callout-note title="Définition"}
+
+Soit $f:E\rightarrow F$ une fonction, où $E$ et $F$ sont des parties de $\mathbb{R}.$
+
+- $f$ est injective si $\forall x,x'\in E,\; f(x)=f(x')\Rightarrow x=x'$ ;
+
+- $f$ est surjective si $\forall y\in F,\;\exists x\in E,\;y=f(x)$ ;
+
+- $f$ est bijective si $f$ est à la fois injective et surjective, c'est-à-dire si $\forall y\in F,\;\exists! x\in E:\;y=f(x).$
+
+:::
+
+::: {.callout-important title="Proposition"}
+
+Si $f:E\rightarrow F$ est une fonction bijective alors il existe une unique application $g:F\rightarrow E$ telle que $g\circ f=\text{Id}_E$ et $f\circ g=\text{Id}_F.$ La fonction $g$ est la bijection réciproque de $f$ et se note $f^{-1}.$
+
+- On rappelle que l'identité $\text{Id}_E:E\rightarrow E$ est simplement définie par $x\mapsto x.$
+
+- $g\circ f=\text{Id}_E$ se reformule ainsi : $\forall x\in E,\quad g(f(x))=x.$
+
+- Alors que $f\circ g=\text{Id}_F$ s'écrit : $\forall y\in F,\quad f(g(y))=y.$
+
+:::
+
+Le théorème suivant est un outil très utile dans la pratique pour montrer qu'une fonction est bijective.
+
+::: {.callout-important title="Théorème (Théorème de la bijection)"}
+
+Soit $f:I\rightarrow\mathbb{R}$ une fonction définie sur un intervalle $I$ de $\mathbb{R}.$ Si $f$ est continue et strictement monotone sur $I,$ alors
+
+1. $f$ établit une bijection de l'intervalle $I$ dans l'intervalle $J=f(I),$
+
+2. la fonction réciproque $f^{-1}:J\rightarrow I$ est continue et strictement monotone sur $J$ et elle a le même sens de variation que $f.$
+
+:::
+
+::: {.callout-tip title="Exemple"}
+
+Considérons la fonction carrée définie sur $\mathbb{R}$ par $f(x)=x^2.$ La fonction $f$ est continue et strictement croissante sur $I=[0,+\infty[,$ donc $f$ établit une bijection de $I$ dans $J=f([0,+\infty[)=[0,+\infty[.$ Déterminons sa fonction réciproque : soient $x$ et $y$ dans $\mathbb{R}_{+},$ on a
+
+$$
+f^{-1}(x)=y\Leftrightarrow x=f(y)\Leftrightarrow x=y^2 \Leftrightarrow y=\sqrt{x}
+$$
+
+Donc $f^{-1}(x)=\sqrt{x},$ pour tout $x\in \mathbb{R}_{+}.$
+
+:::
+
+Généralisons en partie l'exemple précédent.
+
+::: {.callout-tip title="Exemple"}
+
+Soit $n\geq 1.$ Soit $f:[0,+\infty[\,\rightarrow [0,+\infty[$ définie par $f(x)=x^n.$ La fonction $f$ est continue et strictement croissante. Donc $f$ admet sur $I=[0,+\infty[$ une fonction réciproque $f^{-1}$ définie sur $J=f([0,+\infty[)=[0,+\infty[.$
+
+$f^{-1}$ est notée $x\mapsto x^{\frac{1}{n}}$ ou aussi $x\mapsto \sqrt[n]{x}$ ; c'est la fonction racine $n$-ième. Elle est continue et strictement croissante sur $[0,+\infty[.$
+
+:::
+
+# Application : fonctions logarithme et exponentielle
+
+::: {.callout-important title="Proposition"}
+
+Il existe une unique fonction, notée $\ln:]0,+\infty[\,\rightarrow\mathbb{R},$ telle que
+
+$$
+\ln'(x)=\dfrac{1}{x}\quad\text{pour tout } x>0\qquad\text{et}\qquad \ln(1)=0
+$$
+
+De plus, cette fonction vérifie (pour tous $a,b>0$) :
+
+1. $\ln(a\times b)=\ln(a)+\ln(b).$
+
+2. $\ln\left(\dfrac{1}{a}\right)=-\ln (a).$
+
+3. $\ln (a^n)=n\ln(a)$ (pour tout $n\in \mathbb{N}$).
+
+4. $\ln$ est une fonction continue, strictement croissante et définit une bijection de $]0,+\infty[$ sur $\mathbb{R}.$
+
+5. $\lim\limits_{x\rightarrow0}\dfrac{\ln(1+x)}{x}=1.$
+
+:::
+
+::: {.callout-note title="Définition"}
+
+La bijection réciproque de $\ln:]0,+\infty[\,\rightarrow\mathbb{R}$ s'appelle la fonction exponentielle, notée $\exp:\mathbb{R}\rightarrow\,]0,+\infty[.$
+
+:::
+
+::: {.callout-important title="Proposition"}
+
+La fonction exponentielle vérifie les propriétés suivantes :
+
+1. $\exp(\ln (x))=x$ pour tout $x>0$ et $\ln(\exp(x))=x$ pour tout $x\in \mathbb{R}.$
+
+2. $\exp(a+b)=\exp(a)\times \exp(b).$
+
+3. $\exp(nx)=(\exp(x))^n$ (pour tout $n\in\mathbb{Z}$).
+
+4. $\exp:\mathbb{R}\rightarrow\,]0,+\infty[$ est une fonction continue, strictement croissante vérifiant $\lim\limits_{x\rightarrow-\infty}\exp(x)=0$ et $\lim\limits_{x\rightarrow+\infty}\exp(x)=+\infty.$
+
+5. La fonction exponentielle est dérivable et $\exp'(x)=\exp(x),$ pour tout $x\in \mathbb{R}.$
+
+:::
+
+::: {.callout-note title="Remarque"}
+
+La fonction exponentielle est l'unique fonction qui vérifie $\exp'(x)=\exp(x)$ (pour tout $x\in \mathbb{R}$) et $\exp(0)=1.$ On note $e=\exp(1)\simeq2{,}718\ldots$ le nombre qui vérifie $\ln (e)=1.$
+
+Par définition, pour $a>0$ et $b\in \mathbb{R},$ $a^b=\exp(b\ln (a)).$
+
+:::
+
+::: {.callout-note title="Remarque"}
+
+$\sqrt{a}=a^{\frac{1}{2}}=\exp\left(\dfrac{1}{2}\ln (a)\right)$
+
+$\sqrt[n]{a}=a^{\frac{1}{n}}=\exp\left(\dfrac{1}{n}\ln (a)\right)$ (la racine $n$-ième de $a$)
+
+On note aussi $\exp(x)$ par $e^x,$ ce qui se justifie par le calcul : $e^x=\exp(x\ln (e))=\exp(x).$
+
+:::
+
+Les fonctions $x\mapsto a^x$ s'appellent aussi des fonctions exponentielles et se ramènent systématiquement à la fonction exponentielle classique par l'égalité $a^x=\exp(x\ln (a)).$ Il ne faut surtout pas les confondre avec les fonctions puissances $x\mapsto x^a.$ On a les propriétés suivantes.
+
+::: {.callout-important title="Proposition"}
+
+Soient $x,y>0$ et $a,\,b\in \mathbb{R}.$
+
+1. $x^{a+b}=x^a x^b$
+
+2. $x^{-a}=\dfrac{1}{x^a}$
+
+3. $(xy)^a=x^a y^a$
+
+4. $(x^a)^b=x^{ab}$
+
+5. $\ln(x^a)=a\ln (x)$
+
+:::
+
+Comparons les fonctions $\ln (x)$ et $\exp(x)$ avec $x$ :
+
+::: {.callout-important title="Proposition"}
+
+$$
+\lim\limits_{x\rightarrow+\infty}\dfrac{\ln (x)}{x}=0\qquad \text{et}\qquad \lim\limits_{x\rightarrow+\infty}\dfrac{\exp(x)}{x}=+\infty
+$$
+
+:::

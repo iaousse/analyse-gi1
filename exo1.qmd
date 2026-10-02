@@ -1,0 +1,258 @@
+# Exercices
+
+::: {#exr-reels-1}
+Soient $a,b,c$ des réels.
+
+a. Donner une définition de $\min(a,b)$ et vérifier que c'est bien le plus petit élément de $\{a,b\}$.
+b. Comment définir $\max(a,b,c)$ ? Vérifier que le réel obtenu est le plus grand élément de $\{a,b,c\}$.
+c. Soient $a_1,\ldots,a_n$ des réels ($n\geq 1$). Comment définir $\max(a_1,\ldots,a_n)$ ? Et $\min(a_1,\ldots,a_n)$ ?
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-reels-1"}
+a. On pose $\min(a,b)=a$ si $a\leq b$ et $\min(a,b)=b$ si $b<a$. La relation $\leq$ étant totale, l'un de ces deux cas se produit toujours.
+
+   - Si $a\leq b$ : $\min(a,b)=a\in\{a,b\}$, $a\leq a$ et $a\leq b$.
+   - Si $b<a$ : $\min(a,b)=b\in\{a,b\}$, $b\leq b$ et $b\leq a$.
+
+   Dans les deux cas $\min(a,b)$ appartient à $\{a,b\}$ et minore $\{a,b\}$ : c'est le plus petit élément de $\{a,b\}$.
+
+b. On pose $\max(a,b,c):=\max\big(\max(a,b),c\big)$. Notons $m$ ce réel.
+
+   - $m\in\{\max(a,b),c\}$ et $\max(a,b)\in\{a,b\}$, donc $m\in\{a,b,c\}$.
+   - $m\geq c$ et $m\geq\max(a,b)\geq a$, $m\geq \max(a,b)\geq b$ (transitivité de $\leq$).
+
+   Donc $m$ est un élément de $\{a,b,c\}$ qui majore cet ensemble : c'est son plus grand élément. Comme le plus grand élément, s'il existe, est unique, $m$ ne dépend pas de l'ordre dans lequel on écrit $a,b,c$.
+
+c. On définit par récurrence : $\max(a_1)=a_1$ et, pour $n\geq 2$,
+   $$\max(a_1,\ldots,a_n)=\max\big(\max(a_1,\ldots,a_{n-1}),a_n\big).$$
+   Montrons par récurrence sur $n$ que $m_n:=\max(a_1,\ldots,a_n)$ est le plus grand élément de $\{a_1,\ldots,a_n\}$.
+
+   - *Initialisation* ($n=1$) : $m_1=a_1$, c'est évident.
+   - *Hérédité* : on suppose que $m_{n-1}\in\{a_1,\ldots,a_{n-1}\}$ et $m_{n-1}\geq a_i$ pour $i\leq n-1$. Alors $m_n=\max(m_{n-1},a_n)\in\{m_{n-1},a_n\}\subset\{a_1,\ldots,a_n\}$, $m_n\geq a_n$, et $m_n\geq m_{n-1}\geq a_i$ pour $i\leq n-1$.
+
+   De la même façon, $\min(a_1,\ldots,a_n):=\min\big(\min(a_1,\ldots,a_{n-1}),a_n\big)$ est le plus petit élément de $\{a_1,\ldots,a_n\}$.
+:::
+:::
+
+::: {#exr-reels-2}
+a. Écrire sous forme d'une fraction irréductible : $0{,}1212$ ; $0{,}1212\ldots$ (période $12$) ; $78{,}33454545\ldots$ (période $45$).
+b. Sachant que $\sqrt{2}\notin\mathbb{Q}$, montrer que $2-3\sqrt{2}\notin\mathbb{Q}$ et $1-\dfrac{1}{\sqrt{2}}\notin\mathbb{Q}$.
+c. Notons $D$ l'ensemble des nombres de la forme $\dfrac{a}{2^{n}}$ avec $a\in\mathbb{Z}$ et $n\in\mathbb{N}$. Montrer que $\dfrac{1}{3}\notin D$. Trouver $x\in D$ tel que $1234<x<1234{,}001$.
+d. Montrer que $\dfrac{\sqrt{2}}{\sqrt{3}}\notin\mathbb{Q}$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-reels-2"}
+a. - $0{,}1212=\dfrac{1212}{10000}=\dfrac{303}{2500}$ (nombre décimal).
+   - Soit $x=0{,}1212\ldots$ Alors $100x=12{,}1212\ldots$, donc $100x-x=12$, soit $99x=12$ et $x=\dfrac{12}{99}=\dfrac{4}{33}$.
+   - Soit $x=78{,}33\,4545\ldots$ La période commence deux chiffres après la virgule : $100x=7833{,}4545\ldots$ Puis $10\,000\times 100x=783\,345{,}4545\ldots$ En soustrayant, les parties décimales s'annulent :
+     $$9900x=783\,345-7833=775\,512,\qquad x=\frac{775\,512}{9900}=\frac{21\,542}{275}$$
+     (on a simplifié par $36$ ; $275=5^2\times 11$ ne divise pas $21\,542$ qui n'est ni multiple de $5$ ni de $11$, la fraction est irréductible).
+
+b. Par l'absurde, supposons $2-3\sqrt{2}=r\in\mathbb{Q}$. Alors $\sqrt{2}=\dfrac{2-r}{3}\in\mathbb{Q}$ (somme, différence et quotient de rationnels), ce qui contredit $\sqrt{2}\notin\mathbb{Q}$.
+
+   De même, supposons $1-\dfrac{1}{\sqrt{2}}=r\in\mathbb{Q}$. Alors $\dfrac{1}{\sqrt{2}}=1-r$, qui est non nul (car $\frac{1}{\sqrt2}\neq0$), donc $\sqrt{2}=\dfrac{1}{1-r}\in\mathbb{Q}$ : contradiction.
+
+c. *Montrons que $\frac13\notin D$.* Par l'absurde, supposons $\dfrac13=\dfrac{a}{2^n}$ avec $a\in\mathbb{Z}$, $n\in\mathbb{N}$. Alors $2^n=3a$ est un multiple de $3$. Or aucune puissance de $2$ n'est multiple de $3$ : montrons par récurrence que le reste de $2^n$ dans la division par $3$ est $1$ ou $2$. C'est vrai pour $n=0$ ($2^0=1$). Si $2^n=3k+r$ avec $r\in\{1,2\}$, alors $2^{n+1}=6k+2r$ avec $2r\in\{2,4\}$ ; si $2r=2$ le reste est $2$, si $2r=4=3+1$ le reste est $1$. Contradiction, donc $\frac13\notin D$.
+
+   *Un élément de $D$ dans $]1234\,;1234{,}001[$.* On cherche $x=1234+\dfrac{1}{2^n}$ avec $\dfrac{1}{2^n}<0{,}001$, c'est-à-dire $2^n>1000$. Comme $2^{10}=1024>1000$, on prend $n=10$ :
+   $$x=1234+\frac{1}{1024}=\frac{1234\times 1024+1}{1024}=\frac{1\,263\,617}{1024}\in D.$$
+   On a bien $1234<x<1234+\frac{1}{1000}$.
+
+d. Par l'absurde, supposons $\dfrac{\sqrt2}{\sqrt3}=\dfrac{p}{q}$ avec $p,q$ premiers entre eux, $q\in\mathbb{N}^*$ ; le quotient étant strictement positif, $p\in\mathbb{N}^*$. En élevant au carré, $\dfrac{2}{3}=\dfrac{p^2}{q^2}$, soit $2q^2=3p^2$.
+
+   Alors $p^2=3p^2-2p^2=2q^2-2p^2$ est pair, donc $p$ est pair (si $p=2k+1$, $p^2=4k^2+4k+1$ est impair). Écrivons $p=2p'$ : $2q^2=12p'^2$, donc $q^2=6p'^2$ est pair, donc $q$ est pair. Ainsi $2$ divise $p$ et $q$, ce qui contredit le fait qu'ils sont premiers entre eux. Donc $\dfrac{\sqrt{2}}{\sqrt{3}}\notin\mathbb{Q}$.
+:::
+:::
+
+::: {#exr-reels-3}
+a. Démontrer que si $r\in\mathbb{Q}$ et $x\notin\mathbb{Q}$, alors $r+x\notin\mathbb{Q}$ ; et si de plus $r\neq 0$, alors $rx\notin\mathbb{Q}$.
+b. Montrer que $\sqrt{2}\notin\mathbb{Q}$.
+c. En déduire que, entre deux nombres rationnels distincts, il y a toujours un nombre irrationnel.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-reels-3"}
+a. Par l'absurde. Si $r+x=s\in\mathbb{Q}$, alors $x=s-r\in\mathbb{Q}$, contradiction. Si $r\neq0$ et $rx=s\in\mathbb{Q}$, alors $x=\dfrac{s}{r}\in\mathbb{Q}$, contradiction.
+
+b. Supposons $\sqrt2=\dfrac pq$ avec $p\in\mathbb{N}^*$, $q\in\mathbb{N}^*$ premiers entre eux. Alors $2q^2=p^2$, donc $p^2$ est pair, donc $p$ est pair (le carré d'un impair est impair). Posons $p=2p'$ : $2q^2=4p'^2$, donc $q^2=2p'^2$ est pair et $q$ est pair. Ainsi $2$ divise $p$ et $q$, contradiction avec $p\wedge q=1$. Donc $\sqrt2\notin\mathbb{Q}$.
+
+c. Soient $a<b$ deux rationnels. Posons $r=\dfrac{b-a}{2}\in\mathbb{Q}$, $r>0$, et $c=a+r\sqrt{2}$.
+
+   - *$c$ est irrationnel* : $\sqrt2\notin\mathbb{Q}$ (question b), donc $r\sqrt2\notin\mathbb{Q}$ car $r\neq0$, puis $a+r\sqrt2\notin\mathbb{Q}$ car $a\in\mathbb{Q}$ (question a).
+   - *$a<c<b$* : comme $r>0$ et $0<\sqrt2<2$ (car $2<4$), on a $0<r\sqrt2<2r=b-a$, donc $a<a+r\sqrt{2}<b$.
+:::
+:::
+
+::: {#exr-reels-4}
+Montrer que $\dfrac{\ln 3}{\ln 2}$ est irrationnel.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-reels-4"}
+Comme $\ln 2>0$, le quotient est bien défini, et il est strictement positif car $\ln 3>0$.
+
+Supposons par l'absurde $\dfrac{\ln3}{\ln2}=\dfrac pq$ avec $p\in\mathbb{Z}$, $q\in\mathbb{N}^*$. Le quotient étant $>0$, on a $p\in\mathbb{N}^*$. Alors $q\ln 3=p\ln 2$, et en appliquant l'exponentielle : $3^q=2^p$.
+
+Or $3^q$ est impair (produit d'entiers impairs), alors que $2^p$ est pair car $p\geq1$. Contradiction : $\dfrac{\ln3}{\ln2}\notin\mathbb{Q}$.
+:::
+:::
+
+::: {#exr-reels-5}
+Pour $x,y\in\mathbb{R}$, démontrer que
+$$\max(x,y)=\frac{x+y+|x-y|}{2}\qquad\text{et}\qquad\min(x,y)=\frac{x+y-|x-y|}{2}.$$
+Trouver une formule pour $\max(x,y,z)$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-reels-5"}
+*Cas $x\geq y$.* Alors $|x-y|=x-y$, donc $\dfrac{x+y+|x-y|}{2}=\dfrac{2x}{2}=x=\max(x,y)$ et $\dfrac{x+y-|x-y|}{2}=\dfrac{2y}{2}=y=\min(x,y)$.
+
+*Cas $x<y$.* Alors $|x-y|=y-x$, donc $\dfrac{x+y+|x-y|}{2}=y=\max(x,y)$ et $\dfrac{x+y-|x-y|}{2}=x=\min(x,y)$.
+
+Les deux formules sont donc vraies dans tous les cas.
+
+*Formule pour trois réels.* D'après l'exercice @exr-reels-1, $\max(x,y,z)=\max\big(\max(x,y),z\big)$. Posons $m=\max(x,y)=\dfrac{x+y+|x-y|}{2}$. En appliquant la formule précédente à $m$ et $z$ :
+$$\max(x,y,z)=\frac{m+z+|m-z|}{2}.$$
+Comme $m-z=\dfrac{x+y-2z+|x-y|}{2}$, on obtient
+$$\max(x,y,z)=\frac{x+y+2z+|x-y|+\big|x+y-2z+|x-y|\big|}{4}.$$
+:::
+:::
+
+::: {#exr-reels-6}
+Déterminer la borne supérieure et la borne inférieure (si elles existent) de $A=\{u_n\mid n\in\mathbb{N}\}$, où $u_n=2^n$ si $n$ est pair et $u_n=2^{-n}$ si $n$ est impair.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-reels-6"}
+On a $A=\{1,\ \tfrac12,\ 4,\ \tfrac18,\ 16,\ \ldots\}$, ensemble non vide.
+
+*Un résultat préliminaire.* Pour tout $m\in\mathbb{N}$, $2^m>m$. En effet $2^0=1>0$ ; si $2^m>m$, alors $2^m\geq m+1$ (entiers), donc $2^{m+1}\geq 2m+2>m+1$.
+
+*$A$ n'est pas majoré, donc n'a ni borne supérieure ni plus grand élément.* Soit $x\in\mathbb{R}$. Par la propriété d'Archimède, il existe $n\in\mathbb{N}$ avec $n>x$. Alors $u_{2n}=2^{2n}>2n\geq n>x$ : $x$ n'est pas un majorant de $A$.
+
+*Borne inférieure.* Tous les $u_n$ sont strictement positifs, donc $0$ minore $A$. Montrons que c'est le plus grand minorant : soit $m>0$. Par Archimède, il existe $N\in\mathbb{N}^*$ avec $N>\frac1m$, et on pose $n=2N+1$ (impair). Alors $u_n=2^{-n}=\dfrac{1}{2^n}<\dfrac1n<\dfrac1N<m$ (car $2^n>n$ et $n>N$). Donc $m$ n'est pas un minorant de $A$. Ainsi
+$$\inf A=0.$$
+Comme $0\notin A$, $A$ n'a pas de plus petit élément.
+:::
+:::
+
+::: {#exr-reels-7}
+Déterminer (s'ils existent) les majorants, les minorants, la borne supérieure, la borne inférieure, le plus grand élément et le plus petit élément des ensembles suivants :
+
+a. $[0,1]\cap\mathbb{Q}$ ;
+b. $]0,1[\cap\mathbb{Q}$ ;
+c. $\mathbb{N}$ ;
+d. $\left\{(-1)^n+\dfrac{1}{n^2}\ \Big|\ n\in\mathbb{N}^*\right\}$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-reels-7"}
+a. Notons $E=[0,1]\cap\mathbb{Q}$. Comme $0$ et $1$ sont rationnels, $0\in E$ et $1\in E$, et tout élément de $E$ est dans $[0,1]$. Donc $1$ est le plus grand élément et $0$ le plus petit. Les majorants sont exactement les réels $y\geq1$ (si $y$ majore $E$ alors $y\geq1$ car $1\in E$) ; les minorants sont exactement les $y\leq 0$. Ainsi $\max E=\sup E=1$ et $\min E=\inf E=0$.
+
+b. Notons $F=\,]0,1[\cap\mathbb{Q}$ (non vide : $\frac12\in F$).
+
+   - Tout réel $y\geq1$ majore $F$. Réciproquement, soit $y<1$ ; comme $\frac12\in F$, si $y$ majorait $F$ on aurait $y\geq\frac12$, donc $]y,1[$ serait un intervalle ouvert non vide, qui contient un rationnel $q$ par densité de $\mathbb{Q}$ dans $\mathbb{R}$. Ce $q$ est dans $F$ et $q>y$ : $y$ n'est pas un majorant. Les majorants sont donc exactement les $y\geq1$ et $\sup F=1$.
+   - Tout réel $y\leq0$ minore $F$. Réciproquement, soit $y>0$ ; l'intervalle $]0,\min(y,1)[$ contient un rationnel $q$, qui est dans $F$ avec $q<y$ : $y$ n'est pas un minorant. Les minorants sont exactement les $y\leq0$ et $\inf F=0$.
+   - Comme $1\notin F$ et $0\notin F$, il n'y a ni plus grand ni plus petit élément.
+
+c. *Majorants* : il n'y en a pas. Si $y\in\mathbb{R}$, par Archimède il existe $n\in\mathbb{N}$ avec $n>y$, donc $y$ ne majore pas $\mathbb{N}$. Ni borne supérieure, ni plus grand élément. *Minorants* : exactement les $y\leq0$ (car $0\in\mathbb{N}$). Donc $\inf\mathbb{N}=\min\mathbb{N}=0$.
+
+d. Notons $C=\{v_n\mid n\in\mathbb{N}^*\}$, $v_n=(-1)^n+\frac1{n^2}$.
+
+   - Si $n$ est pair : $v_n=1+\frac1{n^2}$, avec $1<v_n\leq1+\frac14=\frac54$ (car $n\geq2$), et $v_2=\frac54$.
+   - Si $n$ est impair : $v_n=-1+\frac1{n^2}$, avec $-1<v_n\leq 0$ (car $n\geq 1$).
+
+   *Maximum.* Tous les $v_n$ sont $\leq\frac54$ et $v_2=\frac54\in C$. Donc $\max C=\sup C=\frac54$ ; les majorants sont exactement les $y\geq\frac54$.
+
+   *Borne inférieure.* Tous les $v_n$ sont $>-1$, donc $-1$ est un minorant. Soit $y>-1$ ; posons $\varepsilon=y+1>0$, prenons $N\in\mathbb{N}^*$ avec $N>\frac1\varepsilon$ (Archimède) et $n=2N+1$. Alors $v_n=-1+\frac1{n^2}\leq -1+\frac1n<-1+\frac1N<-1+\varepsilon=y$. Donc $y$ n'est pas un minorant. Les minorants sont exactement les $y\leq-1$ et $\inf C=-1$. Comme aucun $v_n$ ne vaut $-1$, $C$ n'a pas de plus petit élément.
+:::
+:::
+
+::: {#exr-reels-8}
+Soient $A$ et $B$ deux parties **non vides et bornées** de $\mathbb{R}$. On note $A+B=\{a+b\mid (a,b)\in A\times B\}$.
+
+a. Montrer que $\sup A+\sup B$ est un majorant de $A+B$.
+b. Montrer que $\sup(A+B)=\sup A+\sup B$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-reels-8"}
+a. Soit $a+b\in A+B$ avec $a\in A$, $b\in B$. Par définition de la borne supérieure, $a\leq\sup A$ et $b\leq\sup B$. En additionnant (compatibilité de $\leq$ avec $+$) : $a+b\leq\sup A+\sup B$.
+
+b. $A+B$ est non vide et majorée (par la question a), donc $\sup(A+B)$ existe.
+
+   - *Inégalité $\leq$* : $\sup A+\sup B$ est un majorant de $A+B$ et $\sup(A+B)$ est le plus petit des majorants, donc $\sup(A+B)\leq\sup A+\sup B$.
+   - *Inégalité $\geq$* : soit $\varepsilon>0$. Comme $\sup A-\frac\varepsilon2<\sup A$, la caractérisation de la borne supérieure donne $a\in A$ avec $a>\sup A-\frac\varepsilon2$ ; de même $b\in B$ avec $b>\sup B-\frac\varepsilon2$. Alors $a+b\in A+B$ et
+     $$\sup(A+B)\geq a+b>\sup A+\sup B-\varepsilon.$$
+     Ceci vaut pour tout $\varepsilon>0$. Si l'on avait $\sup(A+B)<\sup A+\sup B$, on obtiendrait une contradiction en prenant $\varepsilon=\sup A+\sup B-\sup(A+B)>0$. Donc $\sup(A+B)\geq\sup A+\sup B$.
+
+   Par double inégalité, $\sup(A+B)=\sup A+\sup B$.
+:::
+:::
+
+::: {#exr-reels-9}
+Soient $A$ et $B$ deux parties **non vides et bornées** de $\mathbb{R}$, et $-A=\{-a\mid a\in A\}$. Dire si les affirmations suivantes sont vraies ou fausses (démonstration ou contre-exemple) :
+
+a. $A\subset B\Rightarrow\sup A\leq\sup B$ ;
+b. $A\subset B\Rightarrow\inf A\leq\inf B$ ;
+c. $\sup(A\cup B)=\max(\sup A,\sup B)$ ;
+d. $\sup(A+B)<\sup A+\sup B$ ;
+e. $\sup(-A)=-\inf A$ ;
+f. $\sup A+\inf B\leq\sup(A+B)$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-reels-9"}
+a. **Vrai.** $\sup B$ majore $B$, donc majore $A\subset B$. Comme $\sup A$ est le plus petit des majorants de $A$, $\sup A\leq\sup B$.
+
+b. **Faux.** Avec $A=[1,2]\subset B=[0,2]$ : $\inf A=1>0=\inf B$. (L'inclusion donne en fait $\inf B\leq\inf A$.)
+
+c. **Vrai.** Posons $m=\max(\sup A,\sup B)$. Tout $x\in A\cup B$ est dans $A$ ou dans $B$, donc $x\leq\sup A\leq m$ ou $x\leq\sup B\leq m$ : $m$ majore $A\cup B$, donc $\sup(A\cup B)\leq m$. Réciproquement $A\subset A\cup B$ et $B\subset A\cup B$ donnent, d'après a., $\sup A\leq\sup(A\cup B)$ et $\sup B\leq\sup(A\cup B)$, donc $m\leq\sup(A\cup B)$.
+
+d. **Faux.** D'après l'exercice @exr-reels-8, on a toujours l'égalité $\sup(A+B)=\sup A+\sup B$. Par exemple avec $A=B=\{0\}$ : $\sup(A+B)=0=\sup A+\sup B$.
+
+e. **Vrai.** Posons $m=\inf A$.
+
+   - Pour $a\in A$, $a\geq m$ donc $-a\leq-m$ : $-m$ majore $-A$.
+   - Soit $y<-m$. Alors $-y>m$ n'est pas un minorant de $A$ : il existe $a\in A$ avec $a<-y$, donc $-a>y$, avec $-a\in-A$.
+
+   Par la caractérisation de la borne supérieure, $\sup(-A)=-m=-\inf A$.
+
+f. **Vrai.** Comme $B$ est non vide, pour $b\in B$ on a $\inf B\leq b\leq\sup B$, donc $\inf B\leq\sup B$. Avec l'exercice @exr-reels-8 :
+   $$\sup A+\inf B\leq\sup A+\sup B=\sup(A+B).$$
+:::
+:::
+
+::: {#exr-reels-10}
+a. Soient $x$ et $y$ deux réels. Montrer que $|x|\geq\big||x+y|-|y|\big|$.
+b. Soient $x_1,\ldots,x_n$ des réels. Montrer que $|x_1+\cdots+x_n|\leq|x_1|+\cdots+|x_n|$. Dans quel cas a-t-on égalité ?
+c. Soient $x,y>0$ des réels. Comparer $E(x+y)$ avec $E(x)+E(y)$, puis $E(xy)$ avec $E(x)E(y)$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-reels-10"}
+a. Par l'inégalité triangulaire, $|x+y|\leq|x|+|y|$, donc $|x+y|-|y|\leq|x|$. De plus $|y|=|(x+y)+(-x)|\leq|x+y|+|x|$, donc $|y|-|x+y|\leq|x|$, soit $-|x|\leq|x+y|-|y|$. Ainsi $-|x|\leq|x+y|-|y|\leq|x|$, ce qui équivaut à $\big||x+y|-|y|\big|\leq|x|$.
+
+b. *Inégalité.* Par récurrence sur $n$. Pour $n=1$ c'est évident. Si elle est vraie au rang $n-1$, alors
+   $$|x_1+\cdots+x_n|\leq|x_1+\cdots+x_{n-1}|+|x_n|\leq|x_1|+\cdots+|x_{n-1}|+|x_n|.$$
+
+   *Cas d'égalité.* Notons $P$ la somme des $x_i$ strictement positifs et $-N$ celle des $x_i$ strictement négatifs ($P,N\geq0$). Alors $\sum x_i=P-N$ et $\sum|x_i|=P+N$. L'égalité s'écrit $|P-N|=P+N$.
+
+   - Si $P\geq N$ : $P-N=P+N\iff N=0$.
+   - Si $P<N$ : $N-P=P+N\iff P=0$.
+
+   Dans tous les cas, l'égalité a lieu si et seulement si $P=0$ ou $N=0$. Comme $P$ est une somme de termes strictement positifs, $P=0$ signifie qu'il n'y a aucun $x_i>0$ ; de même $N=0$ signifie qu'il n'y a aucun $x_i<0$. Donc l'égalité a lieu si et seulement si **les $x_i$ sont tous positifs ou nuls, ou tous négatifs ou nuls** (tous de même signe).
+
+c. Rappel : si $k\in\mathbb{Z}$ et $k\leq z$, alors $k\leq E(z)$ (car $k\leq z<E(z)+1$ et ce sont des entiers). Pour $x>0$, on a donc $E(x)\geq0$.
+
+   *Somme.* $E(x)+E(y)$ est un entier $\leq x+y$, donc $E(x)+E(y)\leq E(x+y)$. De plus $x+y<E(x)+E(y)+2$ donc $E(x+y)<E(x)+E(y)+2$, soit $E(x+y)\leq E(x)+E(y)+1$ (entiers). Finalement
+   $$E(x)+E(y)\leq E(x+y)\leq E(x)+E(y)+1,$$
+   et les deux cas extrêmes se produisent : $x=y=1$ donne $E(x+y)=2=E(x)+E(y)$ ; $x=y=\frac12$ donne $E(x+y)=1=E(x)+E(y)+1$.
+
+   *Produit.* On a $0\leq E(x)\leq x$ et $0\leq E(y)\leq y$, donc $E(x)E(y)\leq xy$. L'entier $E(x)E(y)$ est $\leq xy$, donc
+   $$E(x)E(y)\leq E(xy).$$
+   Il n'y a pas de majoration analogue par une constante : l'égalité peut avoir lieu ($x=y=2$) mais pour $x=y=n+\frac12$ on a $xy=n^2+n+\frac14$, donc $E(xy)=n^2+n$ alors que $E(x)E(y)=n^2$ : l'écart vaut $n$, aussi grand qu'on veut.
+:::
+:::

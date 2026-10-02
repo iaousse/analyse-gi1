@@ -44,10 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-505fb740752bcb4749a94d640a912150.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f4e03e4491e55e3ac55e9a591e40b432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+
 <script>
 window.MathJax = {
   tex: {
@@ -130,7 +135,178 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -175,8 +351,27 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Cours d’Analyse</a> 
-        <div class="sidebar-tools-main">
-    <a href="./Cours-d-Analyse.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/iaousse/" title="" class="quarto-navigation-tool px-1" aria-label="GitHub" target="_blank"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/mbarekiaousse" title="" class="quarto-navigation-tool px-1" aria-label="LinkedIn" target="_blank"><i class="bi bi-linkedin"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Cours-d-Analyse.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
 </div>
     </div>
       </div>
@@ -234,7 +429,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./suites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Suites réelles: Définitions générales</span></a>
+  <a href="./suites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Suites réelles : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -255,7 +450,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numérique: Définitions générales</span></a>
+  <a href="./limitefcts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fonctions numériques : définitions générales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -302,12 +497,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./complements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Complément sur les suites et les fonctions numériques</span></a>
+  <a href="./complements.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Compléments sur les suites et les fonctions numériques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dévelopements limités</span></a>
+  <a href="./dl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Développements limités</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -382,80 +577,104 @@ window.Quarto = {
 
 
 
+
 <section id="arccosinus" class="level2">
 <h2 class="anchored" data-anchor-id="arccosinus">Arccosinus</h2>
-<p>Considérons la fonction cosinus <span class="math inline">\(\cos : \mathbb{R}\rightarrow[−1,1], x \mapsto\cos x.\)</span> Pour obtenir une bijection à partir de cette fonction, il faut considérer la restriction de cosinus à l’intervalle <span class="math inline">\([0,\pi].\)</span> Sur cet intervalle la fonction cosinus est continue et strictement décroissante, donc la restriction</p>
+<p>Considérons la fonction cosinus <span class="math inline">\(\cos : \mathbb{R}\rightarrow[-1,1],\ x \mapsto\cos x.\)</span> Pour obtenir une bijection à partir de cette fonction, il faut considérer la restriction de cosinus à l’intervalle <span class="math inline">\([0,\pi].\)</span> Sur cet intervalle la fonction cosinus est continue et strictement décroissante, donc la restriction</p>
 <p><span class="math display">\[
 \cos:[0,\pi]\rightarrow[-1,1]
 \]</span></p>
-<p>est une bijection. Sa bijection réciproque est la fonction <strong>arccosinus:</strong></p>
+<p>est une bijection. Sa bijection réciproque est la fonction <strong>arccosinus</strong> :</p>
 <p><span class="math display">\[
 \arccos :[-1,1]\rightarrow[0,\pi]
 \]</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="sinconsinv.PNG" height="150" class="figure-img"></p>
-<figcaption>fonctions sin cos et leurs inverse</figcaption>
+<figcaption>fonctions sin cos et leurs inverses</figcaption>
 </figure>
 </div>
-<p>On a donc, par définition de la bijection réciproque:</p>
+<p>On a donc, par définition de la bijection réciproque :</p>
 <p><span class="math display">\[
-\cos(\arccos(x)=x \quad\forall x \in [−1,1]
+\cos(\arccos(x))=x \quad\forall x \in [-1,1]
 \]</span></p>
 <p><span class="math display">\[
-\arccos(\cos(x)=x \quad x \in [0,\pi]
+\arccos(\cos(x))=x \quad\forall x \in [0,\pi]
 \]</span></p>
-<p>Autrement dit:</p>
+<p>Autrement dit :</p>
 <p><span class="math display">\[
-\mbox{Si}\quad x \in[0,\pi] \cos(x) =y \Leftrightarrow x = \arccos y
+\text{Si}\quad x \in[0,\pi] \text{ et } y\in[-1,1],\quad \cos(x) =y \Leftrightarrow x = \arccos(y)
 \]</span></p>
-<p>Notons finalement que la fonction arccosinus est dérivable sur l’intervalle <span class="math inline">\(]-1,1[\)</span> et</p>
+<p>Notons finalement que la fonction arccosinus est dérivable sur l’intervalle <span class="math inline">\(]-1,1[\)</span> (d’après le corollaire sur la dérivée d’une bijection réciproque, car <span class="math inline">\(\cos'=-\sin\)</span> ne s’annule pas sur <span class="math inline">\(]0,\pi[\)</span>) et</p>
 <p><span class="math display">\[
 \forall x\in ]-1,1[,\quad \arccos'(x)=\frac{-1}{\sqrt{1-x^2}}
 \]</span></p>
-<p><strong>Démonstration:</strong></p>
+<p><strong>Démonstration :</strong></p>
 <p>On a l’égalité <span class="math inline">\(\cos(\arccos x) = x\)</span> que l’on dérive :</p>
-<span class="math display">\[\begin{array}{rcl}
+<p><span class="math display">\[
+\begin{aligned}
 \cos(\arccos x)=x
-&amp;\Rightarrow&amp; −\arccos'(x)\times\sin(\arccos x) = 1\\
-&amp;\Rightarrow&amp;  \arccos'(x)=-\frac{1}{\sin(\arccos x)}\\
-&amp;\Rightarrow&amp; \arccos'(x)=-\frac{1}{\sqrt{1-\cos^2(\arccos x)}}\\
-&amp;\Rightarrow&amp; \arccos'(x)=-\frac{1}{\sqrt{1-x^2}}
-\end{array}\]</span>
+&amp;\Rightarrow -\arccos'(x)\times\sin(\arccos x) = 1\\
+&amp;\Rightarrow \arccos'(x)=-\frac{1}{\sin(\arccos x)}\\
+&amp;\Rightarrow \arccos'(x)=-\frac{1}{\sqrt{1-\cos^2(\arccos x)}}\\
+&amp;\Rightarrow \arccos'(x)=-\frac{1}{\sqrt{1-x^2}}
+\end{aligned}
+\]</span></p>
+<p>Dans la troisième ligne, on a utilisé <span class="math inline">\(\sin(\arccos x)=+\sqrt{1-\cos^2(\arccos x)},\)</span> ce qui est légitime car <span class="math inline">\(\arccos x\in[0,\pi]\)</span> et le sinus est positif ou nul sur <span class="math inline">\([0,\pi].\)</span></p>
 </section>
 <section id="arcsinus" class="level2">
 <h2 class="anchored" data-anchor-id="arcsinus">Arcsinus</h2>
 <p>La restriction</p>
 <p><span class="math display">\[
-\sin:[-\frac{\pi}{2},\frac{\pi}{2}]\rightarrow [-1,1]
+\sin:\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\rightarrow [-1,1]
 \]</span></p>
 <p>est une bijection. Sa bijection réciproque est la fonction <strong>arcsinus</strong> définie par</p>
 <p><span class="math display">\[
-\sin(\arcsin(x))=x,\;\forall x\in [-1,1]
+\sin(\arcsin(x))=x,\quad\forall x\in [-1,1]
 \]</span></p>
 <p><span class="math display">\[
-\arcsin(\sin(x))=x,\;\forall x\in[-\frac{\pi}{2},\frac{\pi}{2}]
+\arcsin(\sin(x))=x,\quad\forall x\in\left[-\frac{\pi}{2},\frac{\pi}{2}\right]
 \]</span></p>
-<p>On a alors: <span class="math inline">\(\forall x\in[-\frac{\pi}{2},\frac{\pi}{2}] , \sin (x)=y\Leftrightarrow x=\arcsin(y).\)</span></p>
+<p>On a alors : <span class="math inline">\(\forall x\in\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span> et <span class="math inline">\(\forall y\in[-1,1],\)</span> <span class="math inline">\(\sin (x)=y\Leftrightarrow x=\arcsin(y).\)</span></p>
 <p>La fonction arcsinus est dérivable sur l’intervalle <span class="math inline">\(]-1,1[\)</span> et</p>
 <p><span class="math display">\[
 \forall x\in ]-1,1[,\quad \arcsin'(x)=\frac{1}{\sqrt{1-x^2}}
 \]</span></p>
+<p><strong>Démonstration :</strong> on dérive l’égalité <span class="math inline">\(\sin(\arcsin x)=x\)</span> : <span class="math inline">\(\arcsin'(x)\cos(\arcsin x)=1.\)</span> Comme <span class="math inline">\(\arcsin x\in\left[-\frac{\pi}{2},\frac{\pi}{2}\right],\)</span> on a <span class="math inline">\(\cos(\arcsin x)\geq0,\)</span> donc <span class="math inline">\(\cos(\arcsin x)=\sqrt{1-\sin^2(\arcsin x)}=\sqrt{1-x^2},\)</span> d’où le résultat.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Remarque">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarque
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour tout <span class="math inline">\(x\in[-1,1],\)</span> on a <span class="math inline">\(\arccos x+\arcsin x=\dfrac{\pi}{2}.\)</span> En effet, la dérivée de <span class="math inline">\(x\mapsto\arccos x+\arcsin x\)</span> est nulle sur <span class="math inline">\(]-1,1[,\)</span> donc cette fonction y est constante, égale à sa valeur en 0, soit <span class="math inline">\(\dfrac{\pi}{2}\)</span> ; l’égalité s’étend à <span class="math inline">\(\pm1\)</span> par continuité.</p>
+</div>
+</div>
 </section>
 <section id="arctangente" class="level2">
 <h2 class="anchored" data-anchor-id="arctangente">Arctangente</h2>
-<p>La restriction <span class="math inline">\(\tan:]-\frac{\pi}{2},\frac{\pi}{2}[\rightarrow\mathbb{R}\)</span> est une bijection. Sa bijection réciproque est la fonction arctangente:</p>
+<p>La restriction <span class="math inline">\(\tan:\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\,\rightarrow\mathbb{R}\)</span> est une bijection. Sa bijection réciproque est la fonction arctangente :</p>
 <p><span class="math display">\[
-\arctan:\mathbb{R}\rightarrow]-\frac{\pi}{2},\frac{\pi}{2}[
+\arctan:\mathbb{R}\rightarrow\left]-\frac{\pi}{2},\frac{\pi}{2}\right[
 \]</span></p>
 <p>Ainsi</p>
 <p><span class="math display">\[
-\tan(\arctan(x))=x,\forall x\in \mathbb{R}
+\tan(\arctan(x))=x,\quad\forall x\in \mathbb{R}
 \]</span></p>
 <p><span class="math display">\[
-\arctan(\tan(x))=x, \forall x\in]-\frac{\pi}{2},\frac{\pi}{2}[
+\arctan(\tan(x))=x,\quad \forall x\in\left]-\frac{\pi}{2},\frac{\pi}{2}\right[
 \]</span></p>
-<p>Et si <span class="math inline">\(x\in ]-\frac{\pi}{2},\frac{\pi}{2}[,\)</span> alors <span class="math inline">\(\tan(x)=y\Leftrightarrow x=\arctan y.\)</span></p>
+<p>Et si <span class="math inline">\(x\in \left]-\frac{\pi}{2},\frac{\pi}{2}\right[,\)</span> alors <span class="math inline">\(\tan(x)=y\Leftrightarrow x=\arctan(y).\)</span></p>
+<p>La fonction arctangente est dérivable sur <span class="math inline">\(\mathbb{R}\)</span> et</p>
+<p><span class="math display">\[
+\forall x\in \mathbb{R},\quad \arctan'(x)=\frac{1}{1+x^2}
+\]</span></p>
+<p><strong>Démonstration :</strong> on dérive l’égalité <span class="math inline">\(\tan(\arctan x)=x\)</span> : <span class="math inline">\(\arctan'(x)\,(1+\tan^2(\arctan x))=1,\)</span> donc <span class="math inline">\(\arctan'(x)=\dfrac{1}{1+x^2}.\)</span></p>
+<p>De plus, <span class="math inline">\(\lim\limits_{x\rightarrow\pm\infty}\arctan x=\pm\dfrac{\pi}{2}.\)</span></p>
 </section>
 <section id="fonctions-hyperboliques-et-hyperboliques-inverses" class="level1">
 <h1>Fonctions hyperboliques et hyperboliques inverses</h1>
@@ -463,14 +682,17 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="cosinus-hyperbolique-et-son-inverse">Cosinus hyperbolique et son inverse</h2>
 <p>Pour <span class="math inline">\(x\in \mathbb{R},\)</span> le cosinus hyperbolique est :</p>
 <p><span class="math display">\[
-ch(x)=\frac{e^x+e^{-x}}{2}
+\operatorname{ch}(x)=\frac{e^x+e^{-x}}{2}
 \]</span></p>
-<p>La restriction <span class="math inline">\(ch: [0,+\infty[\rightarrow[1,+\infty[\)</span> est une bijection. Sa bijection réciproque est <span class="math inline">\(argch:[1,+\infty[\rightarrow[0,+\infty[\)</span> ## Sinus hyperbolique et son inverse</p>
-<p>Pour <span class="math inline">\(x\in \mathbb{R},\)</span> le sinus hyperbolique est:</p>
+<p>La restriction <span class="math inline">\(\operatorname{ch}: [0,+\infty[\,\rightarrow[1,+\infty[\)</span> est une bijection. Sa bijection réciproque est <span class="math inline">\(\operatorname{argch}:[1,+\infty[\,\rightarrow[0,+\infty[.\)</span></p>
+</section>
+<section id="sinus-hyperbolique-et-son-inverse" class="level2">
+<h2 class="anchored" data-anchor-id="sinus-hyperbolique-et-son-inverse">Sinus hyperbolique et son inverse</h2>
+<p>Pour <span class="math inline">\(x\in \mathbb{R},\)</span> le sinus hyperbolique est :</p>
 <p><span class="math display">\[
-sh(x)=\frac{e^x-e^{-x}}{2}
+\operatorname{sh}(x)=\frac{e^x-e^{-x}}{2}
 \]</span></p>
-<p><span class="math inline">\(sh:\mathbb{R}\rightarrow\mathbb{R}\)</span> est une fonction continue, dérivable, strictement croissante vérifiant <span class="math inline">\(\lim\limits_{\substack{x\rightarrow-\infty}}shx=-\infty\)</span> et <span class="math inline">\(\lim\limits_{\substack{x\rightarrow+\infty}}shx=+\infty,\)</span> c’est donc une bijection. Sa bijection réciproque est <span class="math inline">\(argsh:\mathbb{R}\rightarrow \mathbb{R}.\)</span></p>
+<p><span class="math inline">\(\operatorname{sh}:\mathbb{R}\rightarrow\mathbb{R}\)</span> est une fonction continue, dérivable, strictement croissante vérifiant <span class="math inline">\(\lim\limits_{x\rightarrow-\infty}\operatorname{sh}x=-\infty\)</span> et <span class="math inline">\(\lim\limits_{x\rightarrow+\infty}\operatorname{sh}x=+\infty,\)</span> c’est donc une bijection. Sa bijection réciproque est <span class="math inline">\(\operatorname{argsh}:\mathbb{R}\rightarrow \mathbb{R}.\)</span></p>
 <div class="callout callout-style-default callout-important callout-titled" title="Proposition">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -482,10 +704,10 @@ sh(x)=\frac{e^x-e^{-x}}{2}
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><span class="math inline">\(ch^2 x - sh^2 x=1.\)</span></p></li>
-<li><p><span class="math inline">\(ch'x = shx, \;sh'x = chx.\)</span></p></li>
-<li><p>argsh est dérivable et <span class="math inline">\(argsh'x=\frac{1}{\sqrt{x^2+1}}\)</span></p></li>
-<li><p><span class="math inline">\(argshx = \ln(x+\sqrt{x^2 +1}).\)</span></p></li>
+<li><p><span class="math inline">\(\operatorname{ch}^2 x - \operatorname{sh}^2 x=1.\)</span></p></li>
+<li><p><span class="math inline">\(\operatorname{ch}'x = \operatorname{sh}x,\; \operatorname{sh}'x = \operatorname{ch}x.\)</span></p></li>
+<li><p><span class="math inline">\(\operatorname{argsh}\)</span> est dérivable et <span class="math inline">\(\operatorname{argsh}'x=\dfrac{1}{\sqrt{x^2+1}}.\)</span></p></li>
+<li><p><span class="math inline">\(\operatorname{argsh}x = \ln\left(x+\sqrt{x^2 +1}\right).\)</span></p></li>
 </ul>
 </div>
 </div>
@@ -496,72 +718,97 @@ sh(x)=\frac{e^x-e^{-x}}{2}
 </figure>
 </div>
 </section>
-</section>
-<section id="tangente-hyperbolique-et-son-inverse" class="level1">
-<h1>Tangente hyperbolique et son inverse</h1>
+<section id="tangente-hyperbolique-et-son-inverse" class="level2">
+<h2 class="anchored" data-anchor-id="tangente-hyperbolique-et-son-inverse">Tangente hyperbolique et son inverse</h2>
 <p>Par définition la <strong>tangente hyperbolique</strong> est :</p>
 <p><span class="math display">\[
-th x=\frac{sh x}{ch x}
+\operatorname{th} x=\frac{\operatorname{sh} x}{\operatorname{ch} x}
 \]</span></p>
-<p>La fonction <span class="math inline">\(th :\mathbb{R}\rightarrow]-1,1[\)</span> est une bijection, on note <span class="math inline">\(argth :]-1,1[\rightarrow\mathbb{R}\)</span> sa bijection réciproque.</p>
+<p>La fonction <span class="math inline">\(\operatorname{th} :\mathbb{R}\rightarrow\,]-1,1[\)</span> est une bijection ; on note <span class="math inline">\(\operatorname{argth} :\,]-1,1[\,\rightarrow\mathbb{R}\)</span> sa bijection réciproque.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="th-argth.PNG" height="150" class="figure-img"></p>
 <figcaption>fonctions th et argth</figcaption>
 </figure>
 </div>
+</section>
 <section id="trigonométrie-hyperbolique" class="level2">
 <h2 class="anchored" data-anchor-id="trigonométrie-hyperbolique">Trigonométrie hyperbolique</h2>
 <p><span class="math display">\[
-ch^2 a-sh^2 a=1
+\operatorname{ch}^2 a-\operatorname{sh}^2 a=1
 \]</span></p>
 <p><span class="math display">\[
-ch(a+b)=ch a. chb+sh a.shb
+\operatorname{ch}(a+b)=\operatorname{ch} a\,\operatorname{ch} b+\operatorname{sh} a\,\operatorname{sh} b
 \]</span></p>
 <p><span class="math display">\[
-ch(2a)= ch^2 a+sh^2 a=2 ch^2 a-1=1+2sh^2 a
+\operatorname{ch}(2a)= \operatorname{ch}^2 a+\operatorname{sh}^2 a=2 \operatorname{ch}^2 a-1=1+2\operatorname{sh}^2 a
 \]</span></p>
 <p><span class="math display">\[
-sh(a+b)=sh a. chb+sh b. ch a
+\operatorname{sh}(a+b)=\operatorname{sh} a\,\operatorname{ch} b+\operatorname{sh} b\,\operatorname{ch} a
 \]</span></p>
 <p><span class="math display">\[
-sh(2a)=2sha. cha
+\operatorname{sh}(2a)=2\operatorname{sh} a\,\operatorname{ch} a
 \]</span></p>
 <p><span class="math display">\[
-th(a+b)=\frac{tha+thb}{1+tha.thb}
+\operatorname{th}(a+b)=\frac{\operatorname{th} a+\operatorname{th} b}{1+\operatorname{th} a\,\operatorname{th} b}
 \]</span></p>
-<p><strong>Dérivées de fonctions hyperboliques et leurs inverses</strong></p>
+<p><strong>Dérivées des fonctions hyperboliques et de leurs inverses</strong></p>
 <p><span class="math display">\[
-ch'x=shx
-\]</span></p>
-<p><span class="math display">\[
-sh'x=chx
+\operatorname{ch}'x=\operatorname{sh}x
 \]</span></p>
 <p><span class="math display">\[
-th'x=1-th^2 x=\frac{1}{ch^2 x}
+\operatorname{sh}'x=\operatorname{ch}x
 \]</span></p>
 <p><span class="math display">\[
-argch'x=\frac{1}{\sqrt{x^2-1}},\:|x|&gt;1
+\operatorname{th}'x=1-\operatorname{th}^2 x=\frac{1}{\operatorname{ch}^2 x}
 \]</span></p>
 <p><span class="math display">\[
-argsh'x=\frac{1}{\sqrt{x^2+1}}
+\operatorname{argch}'x=\frac{1}{\sqrt{x^2-1}},\quad x&gt;1
 \]</span></p>
 <p><span class="math display">\[
-argth'x=\frac{1}{1-x^2},\:|x|&lt;1
+\operatorname{argsh}'x=\frac{1}{\sqrt{x^2+1}},\quad x\in\mathbb{R}
 \]</span></p>
 <p><span class="math display">\[
-argch(x)=\ln(x+\sqrt{x^2-1}),\:|x|\leq 1
+\operatorname{argth}'x=\frac{1}{1-x^2},\quad |x|&lt;1
+\]</span></p>
+<p><strong>Expressions logarithmiques des fonctions hyperboliques inverses</strong></p>
+<p><span class="math display">\[
+\operatorname{argch}(x)=\ln\left(x+\sqrt{x^2-1}\right),\quad x\geq 1
 \]</span></p>
 <p><span class="math display">\[
-arhsh(x)=\ln(x+\sqrt{x^2+1}),\,(x\in\mathbb{R})
+\operatorname{argsh}(x)=\ln\left(x+\sqrt{x^2+1}\right),\quad x\in\mathbb{R}
 \]</span></p>
 <p><span class="math display">\[
-argthx=\frac{1}{2}\ln(\frac{1+x}{1-x}),\,(-1&lt;x&lt;1)
+\operatorname{argth}(x)=\frac{1}{2}\ln\left(\frac{1+x}{1-x}\right),\quad -1&lt;x&lt;1
 \]</span></p>
 </section>
-<section id="formules-trigonometriques" class="level2">
-<h2 class="anchored" data-anchor-id="formules-trigonometriques">formules trigonometriques</h2>
-<p>Rapel: - les fonctions <span class="math inline">\(\sin\)</span> et <span class="math inline">\(\cos\)</span> sont definies sur <span class="math inline">\(\mathbb{R}\)</span> et a valeurs dans <span class="math inline">\([-1, 1]\)</span>, <span class="math inline">\(2\pi\)</span>-periodiques. - La fonction <span class="math inline">\(\tan\)</span> est definie sur <span class="math inline">\(\mathbb{R}\setminus \{\frac{\pi}{2} +k\pi, k\in \mathbb{Z}\)</span> a valeurs dans <span class="math inline">\(\mathbb{R}\)</span>, <span class="math inline">\(\pi\)</span>-periodiques. - <span class="math inline">\(\cos^2(x) + \sin^2(x) = 1\)</span> - <span class="math inline">\(\tan(x) = frac{\sin(x)}{\cos(x)}\)</span> - <span class="math inline">\(\sin(-x) = -\sin(x)\)</span> - <span class="math inline">\(\cos(-x) =\cos(x)\)</span> - <span class="math inline">\(\tan(-x) = - \tan(x)\)</span> - <span class="math inline">\(1 + \tan^2(x) = \frac{1}{\cos^2(x)}\)</span> - <span class="math inline">\(\sin(\pi - x) = \sin(x)\)</span> - <span class="math inline">\(\cos(\pi - x) = - \cos(x)\)</span> - <span class="math inline">\(\tan(\pi - x) = - \tan(x)\)</span> - <span class="math inline">\(\sin(\frac{\pi}{2} - x)  = \cos(x)\)</span> - <span class="math inline">\(\cos(\frac{\pi}{2} - x)  = \sin(x)\)</span> - <span class="math inline">\(\tan(\frac{\pi}{2} - x)  = \frac{1}{\tan(x)}\)</span> - <span class="math inline">\(\sin(2x) = 2\sin(x)\cos(x)\)</span> - <span class="math inline">\(\cos(2x) = \cos^2(x) - \sin^2(x) = 2\cos^2(x) -1 = 1 - 2\sin^2(x)\)</span> - <span class="math inline">\(\tan(2x) = \frac{2\tan(x)}{1-\tan^2(x)}\)</span> - <span class="math inline">\(\sin(x) = \frac{2t}{1+t^2}, \mbox{ avec } t=\tan(\frac{x}{2})\)</span> - <span class="math inline">\(\cos(x) = \frac{1-t^2}{1+t^2} , \mbox{ avec } t=\tan(\frac{x}{2})\)</span> - <span class="math inline">\(\tan(x) = \frac{2t}{1-t^2} , \mbox{ avec } t=\tan(\frac{x}{2})\)</span></p>
+<section id="formules-trigonométriques" class="level2">
+<h2 class="anchored" data-anchor-id="formules-trigonométriques">Formules trigonométriques</h2>
+<p>Rappel :</p>
+<ul>
+<li>les fonctions <span class="math inline">\(\sin\)</span> et <span class="math inline">\(\cos\)</span> sont définies sur <span class="math inline">\(\mathbb{R}\)</span>, à valeurs dans <span class="math inline">\([-1, 1]\)</span> et <span class="math inline">\(2\pi\)</span>-périodiques ;</li>
+<li>la fonction <span class="math inline">\(\tan\)</span> est définie sur <span class="math inline">\(\mathbb{R}\setminus \left\{\frac{\pi}{2} +k\pi\mid k\in \mathbb{Z}\right\}\)</span>, à valeurs dans <span class="math inline">\(\mathbb{R}\)</span> et <span class="math inline">\(\pi\)</span>-périodique ;</li>
+<li><span class="math inline">\(\cos^2(x) + \sin^2(x) = 1\)</span> ;</li>
+<li><span class="math inline">\(\tan(x) = \dfrac{\sin(x)}{\cos(x)}\)</span> ;</li>
+<li><span class="math inline">\(\sin(-x) = -\sin(x)\)</span> ;</li>
+<li><span class="math inline">\(\cos(-x) =\cos(x)\)</span> ;</li>
+<li><span class="math inline">\(\tan(-x) = - \tan(x)\)</span> ;</li>
+<li><span class="math inline">\(1 + \tan^2(x) = \dfrac{1}{\cos^2(x)}\)</span> ;</li>
+<li><span class="math inline">\(\sin(\pi - x) = \sin(x)\)</span> ;</li>
+<li><span class="math inline">\(\cos(\pi - x) = - \cos(x)\)</span> ;</li>
+<li><span class="math inline">\(\tan(\pi - x) = - \tan(x)\)</span> ;</li>
+<li><span class="math inline">\(\sin\left(\dfrac{\pi}{2} - x\right) = \cos(x)\)</span> ;</li>
+<li><span class="math inline">\(\cos\left(\dfrac{\pi}{2} - x\right) = \sin(x)\)</span> ;</li>
+<li><span class="math inline">\(\tan\left(\dfrac{\pi}{2} - x\right) = \dfrac{1}{\tan(x)}\)</span> ;</li>
+<li><span class="math inline">\(\cos(a+b)=\cos(a)\cos(b)-\sin(a)\sin(b)\)</span> ;</li>
+<li><span class="math inline">\(\sin(a+b)=\sin(a)\cos(b)+\cos(a)\sin(b)\)</span> ;</li>
+<li><span class="math inline">\(\tan(a+b)=\dfrac{\tan(a)+\tan(b)}{1-\tan(a)\tan(b)}\)</span> ;</li>
+<li><span class="math inline">\(\sin(2x) = 2\sin(x)\cos(x)\)</span> ;</li>
+<li><span class="math inline">\(\cos(2x) = \cos^2(x) - \sin^2(x) = 2\cos^2(x) -1 = 1 - 2\sin^2(x)\)</span> ;</li>
+<li><span class="math inline">\(\cos^2(x)=\dfrac{1+\cos(2x)}{2}\)</span> et <span class="math inline">\(\sin^2(x)=\dfrac{1-\cos(2x)}{2}\)</span> ;</li>
+<li><span class="math inline">\(\tan(2x) = \dfrac{2\tan(x)}{1-\tan^2(x)}\)</span> ;</li>
+<li>avec <span class="math inline">\(t=\tan\left(\dfrac{x}{2}\right)\)</span> (pour <span class="math inline">\(x\neq\pi+2k\pi\)</span>) : <span class="math inline">\(\sin(x) = \dfrac{2t}{1+t^2}\)</span>, <span class="math inline">\(\cos(x) = \dfrac{1-t^2}{1+t^2}\)</span> et, si de plus <span class="math inline">\(t\neq\pm1\)</span>, <span class="math inline">\(\tan(x) = \dfrac{2t}{1-t^2}.\)</span></li>
+</ul>
 
 
 </section>
@@ -570,6 +817,19 @@ argthx=\frac{1}{2}\ln(\frac{1+x}{1-x}),\,(-1&lt;x&lt;1)
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

@@ -1,0 +1,197 @@
+# Exercices
+
+::: {#exr-suites-1}
+Montrer que toute suite convergente est bornée.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-suites-1"}
+Soit $(u_n)$ une suite convergeant vers $\ell\in\mathbb{R}$. On applique la définition de la limite avec $\varepsilon=1$ : il existe $N\in\mathbb{N}$ tel que, pour tout $n>N$, $|u_n-\ell|<1$. Pour $n>N$, l'inégalité triangulaire donne
+$$|u_n|=|\ell+(u_n-\ell)|\leq|\ell|+|u_n-\ell|<|\ell|+1.$$
+Posons $M=\max\big(|u_0|,|u_1|,\ldots,|u_N|,\,|\ell|+1\big)$ (maximum d'un nombre fini de réels). Alors :
+
+- si $n\leq N$, $|u_n|\leq M$ car $|u_n|$ figure parmi les réels dont $M$ est le maximum ;
+- si $n>N$, $|u_n|<|\ell|+1\leq M$.
+
+Donc $|u_n|\leq M$ pour tout $n\in\mathbb{N}$, c'est-à-dire $-M\leq u_n\leq M$ : la suite est bornée.
+:::
+:::
+
+::: {#exr-suites-2}
+Montrer qu'une suite d'entiers qui converge est constante à partir d'un certain rang.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-suites-2"}
+Soit $(u_n)$ une suite de $\mathbb{Z}$ convergeant vers $\ell\in\mathbb{R}$. Appliquons la définition avec $\varepsilon=\frac12$ : il existe $N\in\mathbb{N}$ tel que $|u_n-\ell|<\frac12$ pour tout $n>N$.
+
+Soient $n,m>N$. Par l'inégalité triangulaire,
+$$|u_n-u_m|\leq|u_n-\ell|+|\ell-u_m|<\tfrac12+\tfrac12=1.$$
+Or $u_n-u_m$ est un entier de valeur absolue strictement inférieure à $1$, donc $u_n-u_m=0$.
+
+Ainsi $u_n=u_{N+1}$ pour tout $n>N$ : la suite est constante à partir du rang $N+1$.
+:::
+:::
+
+::: {#exr-suites-3}
+Les suites suivantes sont-elles croissantes ? décroissantes ?
+
+a. $u_n=n^2+5n+4$, $n\in\mathbb{N}$ ;
+b. $v_n=\dfrac{-2n+3}{n+1}$, $n\in\mathbb{N}$ ;
+c. $w_n=\sqrt{2n+5}$, $n\in\mathbb{N}$ ;
+d. $a_n=\dfrac{2^n}{n}$, $n\in\mathbb{N}^*$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-suites-3"}
+a. Pour tout $n\in\mathbb{N}$,
+   $$u_{n+1}-u_n=(n+1)^2+5(n+1)+4-n^2-5n-4=2n+6>0.$$
+   La suite $(u_n)$ est strictement croissante (et pas décroissante).
+
+b. On écrit $v_n=\dfrac{-2(n+1)+5}{n+1}=-2+\dfrac{5}{n+1}$. Pour tout $n\in\mathbb{N}$,
+   $$v_{n+1}-v_n=\frac{5}{n+2}-\frac{5}{n+1}=\frac{5\big((n+1)-(n+2)\big)}{(n+1)(n+2)}=-\frac{5}{(n+1)(n+2)}<0.$$
+   La suite $(v_n)$ est strictement décroissante.
+
+c. Pour tout $n\in\mathbb{N}$, $2n+7>2n+5\geq 0$ et la fonction racine carrée est strictement croissante sur $[0,+\infty[$, donc $w_{n+1}=\sqrt{2n+7}>\sqrt{2n+5}=w_n$. La suite $(w_n)$ est strictement croissante.
+
+d. Les termes sont strictement positifs, on étudie le quotient : pour $n\geq1$,
+   $$\frac{a_{n+1}}{a_n}=\frac{2^{n+1}}{n+1}\times\frac{n}{2^n}=\frac{2n}{n+1},\qquad \frac{2n}{n+1}-1=\frac{n-1}{n+1}\geq0.$$
+   Donc $a_{n+1}\geq a_n$ pour tout $n\geq1$ : la suite $(a_n)_{n\geq1}$ est croissante. Elle n'est pas strictement croissante car $a_1=a_2=2$ ; en revanche $\frac{a_{n+1}}{a_n}>1$ dès que $n\geq2$, donc elle est strictement croissante à partir du rang $2$. Elle n'est pas décroissante puisque $a_3=\frac83>a_2$.
+:::
+:::
+
+::: {#exr-suites-4}
+Montrer que la suite $(u_n)_{n\geq1}$ définie par $u_n=(-1)^n+\dfrac1n$ n'est pas convergente.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-suites-4"}
+Par l'absurde, supposons que $(u_n)$ converge vers $\ell$. Comme $\lim\dfrac1n=0$, la suite $\left((-1)^n\right)=\left(u_n-\dfrac1n\right)$ serait convergente, comme différence de deux suites convergentes (opérations sur les limites), de limite $\ell$.
+
+Or la suite $\left((-1)^n\right)$, de forme $q^n$ avec $q=-1\leq-1$, est divergente d'après le cours : contradiction.
+
+Donc $(u_n)$ n'est pas convergente.
+:::
+:::
+
+::: {#exr-suites-5}
+Étudier la nature des suites suivantes (pour $n\geq1$) et déterminer leur limite éventuelle :
+
+a. $\dfrac{\sin(n)+3\cos(n^2)}{\sqrt{n}}$ ;
+b. $\dfrac{2n+(-1)^n}{5n+(-1)^{n+1}}$ ;
+c. $\dfrac{n^3+5n}{4n^2+\sin(n)+\ln(n)}$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-suites-5"}
+a. Notons $u_n$ le terme général. Comme $|\sin(n)|\leq1$ et $|\cos(n^2)|\leq1$, on a $|\sin(n)+3\cos(n^2)|\leq4$, donc
+   $$-\frac{4}{\sqrt n}\leq u_n\leq\frac{4}{\sqrt n}.$$
+   Or $\dfrac{4}{\sqrt n}\to0$. Par le théorème des gendarmes, $(u_n)$ converge et $\lim u_n=0$.
+
+b. Pour $n\geq1$, $5n+(-1)^{n+1}\geq5n-1>0$, et en divisant numérateur et dénominateur par $n$ :
+   $$\frac{2n+(-1)^n}{5n+(-1)^{n+1}}=\frac{2+\dfrac{(-1)^n}{n}}{5+\dfrac{(-1)^{n+1}}{n}}.$$
+   Comme $\left|\dfrac{(-1)^n}{n}\right|=\dfrac1n\to0$, on a $\dfrac{(-1)^n}{n}\to0$ et $\dfrac{(-1)^{n+1}}{n}\to0$. Par opérations sur les limites, le numérateur tend vers $2$, le dénominateur vers $5\neq0$, donc la suite converge et sa limite est $\dfrac25$.
+
+c. En divisant numérateur et dénominateur par $n^2$ :
+   $$u_n=\frac{n+\dfrac5n}{4+\dfrac{\sin(n)}{n^2}+\dfrac{\ln(n)}{n^2}}.$$
+   - Numérateur : $n\to+\infty$ et $\frac5n\to0$, donc il tend vers $+\infty$.
+   - Dénominateur : $\left|\dfrac{\sin(n)}{n^2}\right|\leq\dfrac1{n^2}\leq\dfrac1n\to0$, donc $\dfrac{\sin(n)}{n^2}\to0$ ; et $\dfrac{\ln(n)}{n^2}=\dfrac{\ln(n)}{n}\times\dfrac1n\to0\times0=0$ (limite usuelle). Le dénominateur tend donc vers $4$.
+
+   Ainsi $\dfrac1{\text{dénominateur}}\to\dfrac14>0$ et par produit $u_n\to+\infty$. La suite est divergente, de limite $+\infty$.
+:::
+:::
+
+::: {#exr-suites-6}
+Étudier la nature des suites suivantes (pour $n\geq1$) et déterminer leur limite éventuelle :
+
+a. $3^ne^{-3n}$ ;
+b. $\sqrt{2n+1}-\sqrt{2n-1}$ ;
+c. $\dfrac{\ln(n+e^n)}{n}$ ;
+d. $\dfrac{\ln(1+\sqrt n)}{1+n^2}$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-suites-6"}
+On utilisera l'inégalité classique $0\leq\ln(1+x)\leq x$ pour tout $x\geq0$.
+
+a. On a $3^ne^{-3n}=q^n$ avec $q=3e^{-3}=\dfrac{3}{e^3}$. Comme $e>2$, $e^3>8>3$, donc $0<q<1$. D'après le cours, la suite converge et sa limite est $0$.
+
+b. C'est une forme indéterminée $+\infty-\infty$. On multiplie par la quantité conjuguée (les racines sont bien définies pour $n\geq1$) :
+   $$\sqrt{2n+1}-\sqrt{2n-1}=\frac{(2n+1)-(2n-1)}{\sqrt{2n+1}+\sqrt{2n-1}}=\frac{2}{\sqrt{2n+1}+\sqrt{2n-1}}.$$
+   Le dénominateur tend vers $+\infty$ (somme de deux suites tendant vers $+\infty$), donc la suite converge et sa limite est $0$.
+
+c. Pour tout $n\geq1$, $n+e^n=e^n(1+ne^{-n})$, donc $\ln(n+e^n)=n+\ln(1+ne^{-n})$ et
+   $$\frac{\ln(n+e^n)}{n}=1+\frac{\ln(1+ne^{-n})}{n}.$$
+   Comme $ne^{-n}\geq 0$, $0\leq\ln(1+ne^{-n})\leq ne^{-n}$, donc $0\leq\dfrac{\ln(1+ne^{-n})}{n}\leq e^{-n}$. Or $e^{-n}=\left(\frac1e\right)^n\to0$ ; par le théorème des gendarmes, $\dfrac{\ln(1+ne^{-n})}{n}\to0$. La suite converge et sa limite est $1$.
+
+d. Pour $n\geq1$, $0\leq\ln(1+\sqrt n)\leq\sqrt n$, donc
+   $$0\leq\frac{\ln(1+\sqrt n)}{1+n^2}\leq\frac{\sqrt n}{1+n^2}\leq\frac{\sqrt n}{n^2}=\frac{1}{n\sqrt n}\leq\frac1n,$$
+   la dernière inégalité venant de $\sqrt n\geq1$. Comme $\frac1n\to0$, le théorème des gendarmes donne que la suite converge et sa limite est $0$.
+:::
+:::
+
+::: {#exr-suites-7}
+a. Déterminer deux réels $a$ et $b$ tels que, pour tout entier $k\geq2$,
+$$\frac{1}{k^2-1}=\frac{a}{k+1}+\frac{b}{k-1}.$$
+b. En déduire la limite de la suite $S_n=\displaystyle\sum_{k=2}^{n}\frac{1}{k^2-1}$ $(n\geq2)$.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-suites-7"}
+a. Pour $k\geq2$, $\dfrac{a}{k+1}+\dfrac{b}{k-1}=\dfrac{a(k-1)+b(k+1)}{k^2-1}=\dfrac{(a+b)k+(b-a)}{k^2-1}$. Il suffit que $a+b=0$ et $b-a=1$, soit $b=\frac12$ et $a=-\frac12$ :
+   $$\frac{1}{k^2-1}=\frac12\left(\frac{1}{k-1}-\frac{1}{k+1}\right).$$
+
+b. Pour $n\geq2$,
+   $$S_n=\frac12\sum_{k=2}^n\frac{1}{k-1}-\frac12\sum_{k=2}^n\frac{1}{k+1}=\frac12\sum_{j=1}^{n-1}\frac1j-\frac12\sum_{j=3}^{n+1}\frac1j.$$
+   Les termes d'indices $3$ à $n-1$ se simplifient (pour $n=2$ ou $3$, on vérifie directement que la formule ci-dessous reste valable), il reste
+   $$S_n=\frac12\left(1+\frac12-\frac1n-\frac1{n+1}\right)=\frac34-\frac{1}{2n}-\frac{1}{2(n+1)}.$$
+   (Vérification pour $n=2$ : $S_2=\frac13$ et $\frac34-\frac14-\frac16=\frac13$.) Comme $\frac1{2n}\to0$ et $\frac1{2(n+1)}\to0$, on obtient
+   $$\lim_{n\to+\infty}S_n=\frac34.$$
+:::
+:::
+
+::: {#exr-suites-8}
+a. Montrer que, pour tout $n\in\mathbb{N}^*$, $\sqrt{n+1}-\sqrt n\leq\dfrac{1}{2\sqrt n}$.
+b. En déduire le comportement de la suite $(u_n)_{n\geq1}$ définie par
+$$u_n=1+\frac{1}{\sqrt2}+\cdots+\frac{1}{\sqrt n}=\sum_{k=1}^n\frac{1}{\sqrt k}.$$
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-suites-8"}
+a. Par la quantité conjuguée,
+   $$\sqrt{n+1}-\sqrt n=\frac{(n+1)-n}{\sqrt{n+1}+\sqrt n}=\frac{1}{\sqrt{n+1}+\sqrt n}.$$
+   Comme $\sqrt{n+1}\geq\sqrt n$, on a $\sqrt{n+1}+\sqrt n\geq2\sqrt n>0$, donc $\dfrac{1}{\sqrt{n+1}+\sqrt n}\leq\dfrac{1}{2\sqrt n}$.
+
+b. D'après a., pour tout $k\geq1$, $\dfrac1{\sqrt k}\geq2\left(\sqrt{k+1}-\sqrt k\right)$. En sommant de $k=1$ à $n$ (somme télescopique) :
+   $$u_n\geq2\sum_{k=1}^n\left(\sqrt{k+1}-\sqrt k\right)=2\left(\sqrt{n+1}-1\right).$$
+   Or $\sqrt{n+1}\to+\infty$, donc $2(\sqrt{n+1}-1)\to+\infty$. Par comparaison, $\lim u_n=+\infty$ : la suite $(u_n)$ est divergente.
+:::
+:::
+
+::: {#exr-suites-9}
+Soit $(u_n)_{n\geq1}$ la suite définie par $u_n=\displaystyle\sum_{k=1}^{n}\frac{1}{k^2}$.
+
+a. Démontrer que la suite $(u_n)$ est croissante.
+b. Démontrer que, pour tout $n\geq1$, $\dfrac{1}{(n+1)^2}\leq\dfrac1n-\dfrac1{n+1}$.
+c. Démontrer que, pour tout $n\geq1$, $u_n\leq2-\dfrac1n$.
+d. En déduire que la suite $(u_n)$ est convergente.
+:::
+
+::: {.content-visible when-profile="teacher"}
+::: {.callout-tip collapse="true" title="Solution de l'exercice @exr-suites-9"}
+a. Pour tout $n\geq1$, $u_{n+1}-u_n=\dfrac{1}{(n+1)^2}>0$. La suite $(u_n)$ est (strictement) croissante.
+
+b. Pour tout $n\geq1$, $\dfrac1n-\dfrac1{n+1}=\dfrac{1}{n(n+1)}$. Or $n(n+1)\leq(n+1)^2$ (car $n\leq n+1$ et $n+1>0$), donc, en passant à l'inverse (tous les termes sont strictement positifs),
+   $$\frac{1}{(n+1)^2}\leq\frac{1}{n(n+1)}=\frac1n-\frac1{n+1}.$$
+
+c. Par récurrence sur $n\geq1$.
+
+   - *Initialisation* : $u_1=1$ et $2-\frac11=1$, donc $u_1\leq2-\frac11$.
+   - *Hérédité* : supposons $u_n\leq2-\frac1n$. Alors, avec b.,
+     $$u_{n+1}=u_n+\frac{1}{(n+1)^2}\leq2-\frac1n+\frac1n-\frac1{n+1}=2-\frac1{n+1}.$$
+
+   Donc $u_n\leq2-\frac1n$ pour tout $n\geq1$.
+
+d. Pour tout $n\geq1$, $u_n\leq2-\frac1n<2$ : la suite $(u_n)$ est majorée par $2$. Elle est de plus croissante (question a.). Toute suite croissante et majorée est convergente : $(u_n)$ converge, et sa limite $\ell$ vérifie $\ell\leq2$ (passage à la limite dans les inégalités).
+:::
+:::
