@@ -113,7 +113,7 @@ La formule de Taylor-Young nous dit que, au voisinage de $0,$ le reste est négl
 
 :::
 
-![Approximation](Approximation2.PNG){height=150px}
+![Approximation](Approximation2.PNG){height=350px}
 
 **Cas particulier : formule de Taylor-Young au voisinage de 0.** On se ramène souvent au cas particulier où $a=0$ :
 

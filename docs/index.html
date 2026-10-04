@@ -278,8 +278,7 @@ window.Quarto = {
       }
     };
     const authorPrefersDark = false;
-    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    const darkModeDefault = queryPrefersDark.matches;
+    const darkModeDefault = authorPrefersDark;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -292,14 +291,6 @@ window.Quarto = {
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
-    queryPrefersDark.addEventListener("change", e => {
-      if(window.localStorage.getItem("quarto-color-scheme") !== null)
-        return;
-      const alternate = e.matches
-      toggleColorMode(alternate);
-      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
-      toggleGiscusIfUsed(alternate, darkModeDefault);
-    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -609,14 +600,14 @@ window.Quarto = {
 <div class="callout-body-container">
 <div class="quarto-layout-panel" data-layout="[12,-1,40]">
 <div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 22.6%;justify-content: center;">
-<p><img src="images/CC/by.png" class="img-fluid"></p>
+<div class="license-logo quarto-layout-cell" style="flex-basis: 22.6%;justify-content: center;">
+<p><img src="images/CC/CC_BY-NC-SA.png" class="img-fluid"></p>
 </div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 1.9%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 75.5%;justify-content: flex-start;">
-<p>Sauf indications contraires, le contenu de ce manuel électronique est disponible en vertu des termes de la <a href="https://creativecommons.org/licenses/by/4.0/deed.fr">Licence Creative Commons Attribution 4.0 International</a>.</p>
+<div class="license-description quarto-layout-cell" style="flex-basis: 75.5%;justify-content: flex-start;">
+<p>Sauf indications contraires, le contenu de ce manuel électronique est disponible en vertu des termes de la <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">Licence CC BY-NC-SA 4.0</a>.</p>
 </div>
 </div>
 </div>
@@ -624,15 +615,34 @@ window.Quarto = {
 <p><strong>Autorisations accordées :</strong></p>
 <blockquote class="blockquote">
 <p><strong>Partager</strong> – copier, distribuer et communiquer le matériel par tous moyens et sous tous formats.</p>
-<p><strong>Adapter</strong> – remixer, transformer et créer à partir du matériel pour toute utilisation, y compris commerciale.</p>
+<p><strong>Adapter</strong> – remixer, transformer et créer à partir du matériel pour toute utilisation non commerciale.</p>
 </blockquote>
-<p><strong>Sous réserve de citer l’auteur.</strong></p>
+<p><strong>Conditions obligatoires :</strong></p>
+<blockquote class="blockquote">
+<p><strong>Attribution</strong> – Vous devez citer l’auteur original et mentionner les sources tierces (<a href="https://exo7.emath.fr">Exo7</a>, <a href="https://bibmath.net">Bibmath</a>).</p>
+<p><strong>Pas d’Utilisation Commerciale</strong> – Vous ne pouvez pas utiliser ce matériel à des fins commerciales.</p>
+<p><strong>Partage dans les Mêmes Conditions</strong> – Si vous modifiez ce matériel, vous devez distribuer votre œuvre dérivée sous la même licence.</p>
+</blockquote>
 </blockquote>
 </div>
 </div>
 </div>
-<p>© M’barek IAOUSSE (2026)Pour citer ce manuel : © M’barek IAOUSSE (2023-2024)<br>
-<strong>Cours d’Analyse</strong>. École Supérieure de Technologie de Casablanca. Sous licence CC BY 4.0.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Note sur les ressources tierces :</strong> Cet ouvrage intègre des exercices et contenus pédagogiques inspirés ou issus des plateformes libres <a href="https://exo7.emath.fr"><em>Exo7</em></a> et <a href="https://bibmath.net"><em>Bibmath</em></a>. Conformément aux conditions d’utilisation de ces plateformes, cet ouvrage est distribué à des fins strictement pédagogiques et non lucratives.</p>
+</div>
+</div>
+<p>© M’barek IAOUSSE (2026)<br>
+Pour citer ce manuel : © M’barek IAOUSSE (2023-2024)<br>
+<strong>Cours d’Analyse</strong>. École Supérieure de Technologie de Casablanca. Sous licence CC BY-NC-SA 4.0.</p>
 
 
 

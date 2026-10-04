@@ -23,6 +23,7 @@ datasets/
 *.npy
 *.npz
 old_chapitres/
+/old_files/
 # Operating System files
 .DS_Store
 .AppleDouble

@@ -55,7 +55,6 @@ book:
     - part: dirivf.md
       chapters:
         - dirivfs.qmd
-        #- exo4t.qmd
         - fcthycerinvs.qmd
         - exo5.qmd
     - part: complement.md
@@ -68,7 +67,6 @@ book:
         - fe.md
         - fcm.md
         - pptint.md
-        #- sumreiman.qmd
         - fcmint.md
         - pintfc.md
         - methodcalp.md
@@ -87,7 +85,7 @@ format:
     theme:
       light: spacelab
       dark: darkly
-    respect-user-color-scheme: true
+    respect-user-color-scheme: false
     css: styles.css
     title-block-banner: true
     toc: false

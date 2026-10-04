@@ -1,1 +1,0 @@
-# Densité de $\mathbb{Q}$ dans $\mathbb{R}$

@@ -14,7 +14,7 @@ $$
 \arccos :[-1,1]\rightarrow[0,\pi]
 $$
 
-![fonctions sin cos et leurs inverses](sinconsinv.PNG){height=150px}
+![fonctions sin cos et leurs inverses](sinconsinv.PNG){height=350px}
 
 On a donc, par définition de la bijection réciproque :
 
@@ -152,7 +152,7 @@ $\operatorname{sh}:\mathbb{R}\rightarrow\mathbb{R}$ est une fonction continue, d
 
 :::
 
-![fonctions sh, ch, argch et argsh](sh-ch.PNG){height=150px}
+![fonctions sh, ch, argch et argsh](sh-ch.PNG){height=350px}
 
 ## Tangente hyperbolique et son inverse
 
@@ -164,7 +164,7 @@ $$
 
 La fonction $\operatorname{th} :\mathbb{R}\rightarrow\,]-1,1[$ est une bijection ; on note $\operatorname{argth} :\,]-1,1[\,\rightarrow\mathbb{R}$ sa bijection réciproque.
 
-![fonctions th et argth](th-argth.PNG){height=150px}
+![fonctions th et argth](th-argth.PNG){height=350px}
 
 ## Trigonométrie hyperbolique
 
