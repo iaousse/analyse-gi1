@@ -39,11 +39,11 @@ Ce cours d'Analyse est conçu pour jeter les bases solides nécessaires à votre
 
 Le contenu de ce cours s'inspire de plusieurs références que les étudiants sont encouragés à consulter pour approfondir leur compréhension. Certaines ont contribué à l'élaboration de sections du cours, et d'autres ont servi à concevoir des exercices :
 
-- *Analyse* et ressources pédagogiques proposées par AlloSchool [@alloschool-analyse] ;
 - le livre *Analyse 1* proposé par Exo7 [@exo7-analyse-1] ;
 - les cours et ressources de mathématiques de BibM@th [@bibmath] ;
 - *Mathématiques tout-en-un, 1re année MPSI-PCSI : cours et exercices corrigés* [@maths-tout-en-un] ;
-- *Principles of Mathematical Analysis*, référence classique sur la construction rigoureuse de l'analyse [@rudin1976; @apostol1967; @bartle2011; @spivak2008].
+- *Principles of Mathematical Analysis*, référence classique sur la construction rigoureuse de l'analyse [@rudin1976; @apostol1967; @bartle2011; @spivak2008];
+- *Analyse* et ressources pédagogiques proposées par AlloSchool [@alloschool-analyse].
 
 Ce cours a pour objectif d'offrir aux étudiants une formation approfondie en Analyse, tout en tenant compte des besoins spécifiques et des applications pertinentes à l'informatique. L'analyse est un pilier essentiel dans de nombreux domaines de l'informatique, de l'algorithmique à l'optimisation en passant par la modélisation. Nous espérons que ce cours éclairera votre chemin vers une maîtrise approfondie des mathématiques et de leurs nombreuses applications en informatique.
 
