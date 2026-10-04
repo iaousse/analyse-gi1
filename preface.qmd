@@ -40,6 +40,7 @@ Ce cours d'Analyse est conçu pour jeter les bases solides nécessaires à votre
 Le contenu de ce cours s'inspire de plusieurs références que les étudiants sont encouragés à consulter pour approfondir leur compréhension. Certaines ont contribué à l'élaboration de sections du cours, et d'autres ont servi à concevoir des exercices :
 
 - *Analyse* et ressources pédagogiques proposées par AlloSchool [@alloschool-analyse] ;
+- le livre *Analyse 1* proposé par Exo7 [@exo7-analyse-1] ;
 - les cours et ressources de mathématiques de BibM@th [@bibmath] ;
 - *Mathématiques tout-en-un, 1re année MPSI-PCSI : cours et exercices corrigés* [@maths-tout-en-un] ;
 - *Principles of Mathematical Analysis*, référence classique sur la construction rigoureuse de l'analyse [@rudin1976; @apostol1967; @bartle2011; @spivak2008].
