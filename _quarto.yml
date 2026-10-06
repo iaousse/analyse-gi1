@@ -19,8 +19,7 @@ crossref:
   chapters: false
 
 book:
-  title: "Cours d'Analyse"
-  subtitle: "Formation Initiale — GI1"
+  title: "Analyse mathématique — cours et exercices"
   sidebar:
     logo: images/logo_estc.png
     tools:
@@ -32,7 +31,7 @@ book:
         href: https://www.linkedin.com/in/mbarekiaousse
         aria-label: LinkedIn
         target: _blank
-  author: "IAOUSSE M'barek"
+  author: "M'barek IAOUSSE"
   search: true
   downloads:  [pdf, epub]
   chapters:
@@ -119,7 +118,13 @@ format:
           }
         };
         </script>
-  epub: default
+  epub:
+    toc: true
+    toc-depth: 1
+    css:
+      - styles.css
+      - styles-epub.css
+    epub-cover-image: epub-cover.png
   pdf:
     linkcolor:  blue
     documentclass: scrbook

@@ -1,6 +1,6 @@
 \small
 ::: hanging-indent
-**Ce manuel** est un support pédagogique du cours d'Analyse destiné aux étudiants de première année du Génie Informatique (GI1) à l'École Supérieure de Technologie de Casablanca. Le support couvre les notions fondamentales d'analyse nécessaires à la poursuite des études en mathématiques et en informatique.
+**Cet ouvrage pédagogique** est élaboré à partir du support officiel du cours d'Analyse utilisé depuis 2022 par les étudiants de première année du Génie Informatique (GI1) à l'École Supérieure de Technologie de Casablanca. Il couvre les notions fondamentales d'analyse nécessaires à la poursuite des études en mathématiques et en informatique.
 :::
 
 ::: hanging-indent
@@ -26,19 +26,17 @@
 >
 > **Conditions obligatoires :**
 >
-> > **Attribution** -- Vous devez citer l'auteur original et mentionner les sources tierces ([Exo7](https://exo7.emath.fr), [Bibmath](https://bibmath.net)).
+> > **Attribution** -- Vous devez citer l'auteur original et consulter la section [Références et ressources complémentaires](preface.qmd#sec-references-et-ressources).
 > >
 > > **Pas d'Utilisation Commerciale** -- Vous ne pouvez pas utiliser ce matériel à des fins commerciales.
 > >
 > > **Partage dans les Mêmes Conditions** -- Si vous modifiez ce matériel, vous devez distribuer votre œuvre dérivée sous la même licence.
 ::::
 
-::: {.callout-note}
-**Note sur les ressources tierces :** Cet ouvrage intègre des exercices et contenus pédagogiques inspirés ou issus des plateformes libres [*Exo7*](https://exo7.emath.fr) et [*Bibmath*](https://bibmath.net). Conformément aux conditions d'utilisation de ces plateformes, cet ouvrage est distribué à des fins strictement pédagogiques et non lucratives.
-:::
-
 
 \filbreak
-© M'barek IAOUSSE (2026)  
-Pour citer ce manuel : © M'barek IAOUSSE (2023-2024)  
-**Cours d'Analyse**. École Supérieure de Technologie de Casablanca. Sous licence CC BY-NC-SA 4.0.
+© M'barek IAOUSSE (2026)
+
+Pour citer cet ouvrage : M'barek IAOUSSE (2026), *Analyse mathématique — cours et exercices*, première édition, École Supérieure de Technologie de Casablanca, Université Hassan II de Casablanca.
+
+Sous licence CC BY-NC-SA 4.0.

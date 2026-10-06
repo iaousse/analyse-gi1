@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1273" viewBox="0 0 900 1273">
+  <rect width="900" height="1273" fill="#fff"/>
+  <image href="images/logo_estc.png" x="240" y="158" width="420" height="275" preserveAspectRatio="xMidYMid meet"/>
+  <text x="450" y="487" text-anchor="middle" fill="#164e82" font-family="Arial, sans-serif" font-size="66" font-weight="700">Ouvrage pédagogique</text>
+  <text x="450" y="584" text-anchor="middle" fill="#17324d" font-family="Georgia, serif" font-size="62" font-weight="700">Analyse mathématique</text>
+  <text x="450" y="649" text-anchor="middle" fill="#425466" font-family="Arial, sans-serif" font-size="38">Cours et exercices</text>
+  <line x1="320" y1="693" x2="580" y2="693" stroke="#83a9c7" stroke-width="2"/>
+  <text x="450" y="747" text-anchor="middle" fill="#17324d" font-family="Arial, sans-serif" font-size="30">M'barek IAOUSSE</text>
+  <text x="450" y="792" text-anchor="middle" fill="#425466" font-family="Arial, sans-serif" font-size="23">École Supérieure de Technologie de Casablanca</text>
+  <text x="450" y="825" text-anchor="middle" fill="#425466" font-family="Arial, sans-serif" font-size="23">Université Hassan II de Casablanca</text>
+  <text x="450" y="882" text-anchor="middle" fill="#425466" font-family="Arial, sans-serif" font-size="22">Première édition — 2026</text>
+</svg>

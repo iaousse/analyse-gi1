@@ -1,0 +1,27 @@
+.analysis-cover-html {
+  display: none !important;
+}
+
+.analysis-cover-qr-page-html {
+  display: none !important;
+}
+
+.analysis-cover-qr-page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  page-break-before: always;
+  break-before: page;
+  page-break-after: always;
+  break-after: page;
+  min-height: 95vh;
+  text-align: center;
+}
+
+.analysis-cover-qr-page img {
+  display: block;
+  height: auto;
+  margin: 2rem auto;
+  max-width: 75%;
+}

@@ -11,38 +11,74 @@ number-sections: false
 \pagestyle{empty}
 \thispagestyle{empty}
 \centering
-\vspace*{2cm}
+\vspace*{1cm}
+\vspace{1.75cm}
 \includegraphics[width=6cm]{images/logo_estc.png}
 \vfill
-{\Huge\bfseries Cours d'Analyse\par}
-\vspace{1cm}
-{\Large IAOUSSE M'barek\par}
+{\Huge\bfseries\textcolor[HTML]{164E82}{Ouvrage pédagogique}\par}
+\vspace{.35cm}
+{\Huge\bfseries\textcolor[HTML]{17324D}{Analyse mathématique}\par}
 \vspace{0.5cm}
-{\large Année universitaire 2026--2027\par}
-\newpage
-\thispagestyle{empty}
-\centering
-\vspace*{\fill}
-\includegraphics[width=0.9\textwidth]{images/qrcode.png}
-\vspace*{\fill}
+{\Large\textcolor[HTML]{425466}{Cours et exercices}\par}
+\vspace{0.5cm}
+{\Large\textcolor[HTML]{17324D}{M'barek IAOUSSE}\par}
+\vspace{0.25cm}
+{\large\textcolor[HTML]{425466}{École Supérieure de Technologie de Casablanca}\par}
+{\large\textcolor[HTML]{425466}{Université Hassan II de Casablanca}\par}
+\vspace{0.4cm}
+{\large\textcolor[HTML]{425466}{Première édition — 2026}\par}
 \newpage
 ```
 
 ```{=html}
-<h1 class="visually-hidden">Accueil</h1>
-<section class="analysis-cover" aria-label="Couverture du cours">
+<h1 class="visually-hidden">Analyse mathématique — cours et exercices</h1>
+<section class="analysis-cover" aria-label="Couverture de l’ouvrage pédagogique">
   <img class="analysis-cover-logo" src="images/logo_estc.png" alt="Logo de l'EST Casablanca" />
-  <h2>Cours d'Analyse</h2>
-  <p class="analysis-cover-author">IAOUSSE M'barek</p>
-  <p class="analysis-cover-year">Année universitaire 2026–2027</p>
-</section>
-<section class="analysis-qr" aria-label="Accès à la ressource pédagogique">
-  <img src="images/qrcode.png" alt="Code QR de la ressource pédagogique" />
+  <h2>Analyse mathématique</h2>
+  <p class="analysis-cover-subtitle">Cours et exercices</p>
+  <p class="analysis-cover-author">M'barek IAOUSSE</p>
+  <p class="analysis-cover-institution">École Supérieure de Technologie de Casablanca<br />Université Hassan II de Casablanca</p>
+  <p class="analysis-cover-year">Première édition — 2026</p>
 </section>
 ```
 
 ::: {.content-visible when-format="pdf"}
 {{< include _deuxieme_page.qmd >}}
+:::
+
+::: {.content-visible when-format="pdf"}
+```{=latex}
+\clearpage
+\thispagestyle{empty}
+\centering
+\vspace*{\fill}
+{\Huge\textcolor[HTML]{164E82}{Version en ligne}\par}
+\vspace{1cm}
+\includegraphics[width=10.5cm]{images/qrcode.png}\par
+\vspace{0.5cm}
+{\large\textcolor[HTML]{425466}{Scannez ce code pour accéder à la version en ligne.}\par}
+\vspace*{\fill}
+\clearpage
+```
+:::
+
+::: {.content-visible when-format="epub"}
+# {.unnumbered .unlisted}
+
+<section class="analysis-cover-qr-page" aria-label="Accès à la version en ligne">
+  <h1>Version en ligne</h1>
+  <img src="images/qrcode.png" alt="Code QR pour accéder à la version en ligne" />
+  <p>Scannez ce code pour accéder à la version en ligne.</p>
+  <p>Ouvrez la table des matières depuis le menu de votre liseuse pour parcourir les chapitres.</p>
+</section>
+:::
+
+::: {.content-visible when-format="html"}
+<section class="analysis-cover-qr-page analysis-cover-qr-page-html" aria-label="Accès à la version en ligne">
+  <h2>Version en ligne</h2>
+  <img src="images/qrcode.png" alt="Code QR pour accéder à la version en ligne" />
+  <p>Scannez ce code pour accéder à la version en ligne.</p>
+</section>
 :::
 
 ::: {.content-visible when-format="html"}

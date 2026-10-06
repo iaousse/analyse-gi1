@@ -2,7 +2,7 @@
 number-sections: false
 ---
 
-# Préface {.hidden}
+# Préface {.unnumbered}
 
 ```{=latex}
 \pagenumbering{roman}
@@ -21,13 +21,13 @@ number-sections: false
 \phantomsection
 ```
 
-Les mathématiques que vous avez étudiées au lycée étaient souvent présentées de manière pratique, axée sur l'application et la résolution de problèmes concrets. Après le baccalauréat, la manière d'aborder les mathématiques évolue : on se penche davantage sur la rigueur, la structure et la théorie sous-jacente.
+Cet ouvrage s'adresse principalement aux étudiants de première année de la filière Génie Informatique (GI1), en formation initiale, à l'École Supérieure de Technologie de Casablanca. Élaboré en 2026 à partir du support officiel du cours utilisé dans cette filière depuis 2022.
 
-Au cours de vos études supérieures, vous allez découvrir que les mathématiques ne sont pas simplement une collection de formules ou d'équations à mémoriser. Elles constituent un langage, un moyen d'exprimer des idées et de décrire les phénomènes du monde qui nous entoure. Dans ce cadre, la construction et la compréhension des objets mathématiques sont essentielles.
+Au cours de ses études supérieures, l’étudiant découvrira que les mathématiques ne sont pas simplement une collection de formules ou d’équations à mémoriser. Elles constituent un langage, un moyen d’exprimer des idées et de décrire les phénomènes du monde qui l’entoure. Dans ce cadre, la construction et la compréhension des objets mathématiques sont essentielles.
 
-Ce cours d'Analyse est conçu pour jeter les bases solides nécessaires à votre parcours académique et professionnel. Il vise à introduire, de manière rigoureuse et approfondie, les outils et concepts fondamentaux qui vous accompagneront tout au long de vos études. Au programme :
+Ce cours d'Analyse est conçu pour jeter les bases solides nécessaires au parcours académique et professionnel de l'étudiant. Il vise à introduire, de manière rigoureuse et approfondie, les outils et concepts fondamentaux qui accompagneront l'étudiant tout au long de ses études. Au programme :
 
-- **L'ensemble des réels** : la fondation sur laquelle repose la plupart des mathématiques que vous étudierez ;
+- **L'ensemble des réels** : la fondation sur laquelle repose la plupart des mathématiques qu'étudiera l'étudiant ;
 - **Les suites de nombres réels** : une première approche des séquences et de leur comportement à l'infini ;
 - **Limites et continuité d'une fonction numérique** : comprendre le comportement des fonctions dans divers contextes ;
 - **Dérivabilité d'une fonction numérique** : étudier les variations et le comportement local d'une fonction ;
@@ -35,7 +35,27 @@ Ce cours d'Analyse est conçu pour jeter les bases solides nécessaires à votre
 - **Développements limités** : approximer les fonctions pour en faciliter l'étude ;
 - **Calcul intégral** : étudier les méthodes et les concepts associés au calcul d'intégrales.
 
-## Références et ressources complémentaires {.unnumbered .unlisted}
+## Objectifs pédagogiques {.unnumbered .unlisted}
+
+À l'issue de l'étude de cet ouvrage, l'étudiant devrait être capable de :
+
+- mobiliser les propriétés des nombres réels et rédiger des raisonnements mathématiques rigoureux ;
+- étudier la convergence des suites et le comportement des fonctions par les notions de limite et de continuité ;
+- appliquer les outils de dérivation à l'étude des fonctions ;
+- utiliser les fonctions usuelles et leurs propriétés ;
+- établir et exploiter des développements limités dans l'étude locale des fonctions ;
+- calculer des intégrales et choisir les méthodes adaptées aux situations étudiées.
+
+## Public et prérequis {.unnumbered .unlisted}
+
+L'ouvrage est destiné en premier lieu aux étudiants de première année GI1. Il s'appuie sur les connaissances de mathématiques acquises au lycée, notamment en calcul algébrique, étude des fonctions et trigonométrie. Une maîtrise de ces notions facilite l'entrée dans les définitions et les raisonnements de l'analyse.
+
+## Conseils d'utilisation {.unnumbered .unlisted}
+
+Il est conseillé de lire attentivement les définitions et les propriétés, puis de refaire les exemples et les démonstrations sans consulter immédiatement le texte. Les exercices permettent de vérifier la compréhension et de s'entraîner à rédiger des solutions.
+
+## Références et ressources complémentaires {#sec-references-et-ressources .unnumbered .unlisted}
+
 
 Le contenu de ce cours s'inspire de plusieurs références que les étudiants sont encouragés à consulter pour approfondir leur compréhension. Certaines ont contribué à l'élaboration de sections du cours, et d'autres ont servi à concevoir des exercices :
 
@@ -45,7 +65,7 @@ Le contenu de ce cours s'inspire de plusieurs références que les étudiants so
 - *Principles of Mathematical Analysis*, référence classique sur la construction rigoureuse de l'analyse [@rudin1976; @apostol1967; @bartle2011; @spivak2008];
 - *Analyse* et ressources pédagogiques proposées par AlloSchool [@alloschool-analyse].
 
-Ce cours a pour objectif d'offrir aux étudiants une formation approfondie en Analyse, tout en tenant compte des besoins spécifiques et des applications pertinentes à l'informatique. L'analyse est un pilier essentiel dans de nombreux domaines de l'informatique, de l'algorithmique à l'optimisation en passant par la modélisation. Nous espérons que ce cours éclairera votre chemin vers une maîtrise approfondie des mathématiques et de leurs nombreuses applications en informatique.
+Ce cours a pour objectif d'offrir aux étudiants une formation approfondie en Analyse, tout en tenant compte des besoins spécifiques et des applications pertinentes à l'informatique. L'analyse est un pilier essentiel dans de nombreux domaines de l'informatique, de l'algorithmique à l'optimisation en passant par la modélisation. 
 
 ::: {.content-visible when-format="pdf"}
 \clearpage
